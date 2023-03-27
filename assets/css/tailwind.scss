@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  :root {
+    --bg-body: #ffffff;
+    background-color: var(--bg-body);
+    --color-content: #5A5A5A;
+    --color-black: #1B2847;
+    --color-label: #1B2847;
+    --color-title: #1B2847;
+    --color-subtitle: #5A5A5A;
+  }
+  [data-theme="night"], .dark {
+    --bg-body: #18122B;
+    background-color: var(--bg-body);
+    --color-content: #B9B7BF;
+    --color-black: #FFFFFF;
+    --color-label: #FFFFFF;
+    --color-title: #FFFFFF;
+    --color-subtitle: #B9B7BF;
+  }
+}
+
+.title {
+  @apply font-bold text-title text-sm lg:text-[17px];
+}
+
+.btn {
+  @apply inline-flex items-center justify-center font-bold text-sm py-3 px-4 border;
+  border-color: rgba(27, 40, 71, 1);
+  &.loading {
+    pointer-events: none;
+    &:hover {
+      pointer-events: none;
+    }
+    &:before {
+      content: "";
+      margin-right: 0.5rem;
+      height: 1rem;
+      width: 1rem;
+      border-radius: 9999px;
+      border-width: 2px;
+      animation: spin 2s linear infinite;
+      border-top-color: transparent;
+      border-left-color: transparent;
+      border-bottom-color: currentColor;
+      border-right-color: currentColor;
+    }
+  }
+  &[disabled], &[disabled]:hover {
+    border-color: rgba(61, 68, 81, 0.2);
+    background: rgba(61, 68, 81, 0.2);
+  }
+}
+
+.btn-primary {
+  @apply border-main bg-main text-white;
+}
+.btn-warning {
+  @apply border-yellow bg-yellow text-white;
+}
+
+.input {
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  height: 3rem;
+  @apply rounded-lg px-4;
+}
+.input-area {
+  height: 180px!important;
+  resize: none;
+  &::placeholder {
+    padding-top: 13px;
+  }
+}
+
+
+.avatar {
+  > div {
+    display: block;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+  }
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.editor-content {
+  @apply text-sm;
+  .section {
+    @apply mb-6 lg:mb-10;
+  }
+  h2 {
+    @apply font-bold text-title text-base lg:text-[17px] mb-4 lg:mb-6;
+  }
+  h3 {
+    @apply font-bold text-sm lg:text-sm mb-3 lg:mb-5;
+  }
+  p {
+    @apply mb-4 lg:mb-6;
+  }
+}
