@@ -3,37 +3,46 @@
     <div>
       <p class="text-white mb-2 text-xs lg:text-sm font-normal">{{ title }}</p>
       <div class="font-bold text-2xl flex items-center justify-between">
-        <svg-icon v-show="isLoading" name="loader" class="w-8 h-8 animate-spin" /> 
+        <svg-icon
+          v-show="isLoading"
+          name="loader"
+          class="w-8 h-8 animate-spin"
+        />
         <span v-show="!isLoading" class="text-main"> {{ valueWallet }} </span>
       </div>
     </div>
     <!-- Circle -->
-    <span class="w-3 h-3 rounded-full bg-[#7230C0] absolute -top-1.5 -left-1.5"></span>
-    <span class="w-3 h-3 rounded-full bg-[#7230C0] absolute -top-1.5 -right-1.5"></span>
-    <span class="w-3 h-3 rounded-full bg-[#7230C0] absolute -bottom-1.5 -left-1.5"></span>
-    <span class="w-3 h-3 rounded-full bg-[#7230C0] absolute -bottom-1.5 -right-1.5"></span>
+    <span
+      class="w-3 h-3 rounded-full bg-[#7230C0] absolute -top-1.5 -left-1.5"
+    ></span>
+    <span
+      class="w-3 h-3 rounded-full bg-[#7230C0] absolute -top-1.5 -right-1.5"
+    ></span>
+    <span
+      class="w-3 h-3 rounded-full bg-[#7230C0] absolute -bottom-1.5 -left-1.5"
+    ></span>
+    <span
+      class="w-3 h-3 rounded-full bg-[#7230C0] absolute -bottom-1.5 -right-1.5"
+    ></span>
     <!-- End Circle -->
   </div>
 </template>
 
-<script>
-export default {
-  name: 'ItemWallet',
-  props: {
-    title: {
-      type: String,
-      default: '',
-    },
-    valueWallet: {
-      type: [String, Number],
-      default: '',
-    },
-    isLoading: {
-      type: Boolean,
-      default: false
-    }
+<script setup lang="ts">
+const props = defineProps({
+  title: {
+    type: String,
+    default: '',
   },
-}
+  valueWallet: {
+    type: [String, Number],
+    default: '',
+  },
+  isLoading: {
+    type: Boolean,
+    default: false,
+  },
+})
 </script>
 
 <style scoped>
@@ -50,7 +59,12 @@ export default {
   width: calc(100% - 12px);
   height: 1px;
   left: 6px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 56%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    #ffffff 56%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
 
 .item-wallet::before {

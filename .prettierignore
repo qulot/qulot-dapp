@@ -1,6 +1,10 @@
-.nuxt/
-dist/
-node_modules/
-package.json
-package-lock.json
-yarn.lock
+// .prettierignore
+
+node_modules
+*.log*
+.nuxt
+.nitro
+.cache
+.output
+.env
+dist

@@ -1,0 +1,66 @@
+<template>
+  <button
+    :type="btnType"
+    class="btn gap-2 whitespace-nowrap"
+    :class="[
+      {
+        'btn-primary': variant == 'primary',
+        'btn-secondary': variant == 'secondary',
+        'btn-accent': variant == 'accent',
+        'btn-info': variant == 'info',
+        'btn-success': variant == 'success',
+        'btn-warning': variant == 'warning',
+        'btn-error': variant == 'error',
+      },
+      ...computedButtonClass,
+    ]"
+    :disabled="disabled"
+    @click="$emit('click')"
+  >
+    <slot />
+  </button>
+</template>
+<script setup lang="ts">
+export type IButtonType = 'button' | 'submit' | 'reset'
+const props = defineProps({
+  type: {
+    default: 'button',
+  },
+  variant: {
+    type: String,
+    default: '',
+  },
+  isLoading: {
+    type: Boolean,
+    default: false,
+  },
+  disabled: {
+    type: Boolean,
+    default: false,
+  },
+})
+
+const computedButtonClass = computed(() => {
+  const classes = []
+
+  if (props.isLoading) {
+    classes.push('loading')
+  }
+
+  return classes
+})
+
+const btnType = computed(() => {
+  return props.type as IButtonType
+})
+</script>
+<style lang="postcss" scoped>
+.btn {
+  text-transform: initial;
+}
+
+.btn > svg,
+.btn > image {
+  max-height: 40%;
+}
+</style>

@@ -1,0 +1,107 @@
+<template>
+  <header>
+    <nav
+      class="w-full fixed z-50 py-2.5 lg:py-0 transition"
+      :class="classNavigation"
+    >
+      <div class="container mx-auto">
+        <div class="flex justify-between w-full">
+          <div class="flex items-center">
+            <div
+              class="cursor-pointer md:hidden mr-4"
+              @click="showSidebar = true"
+            >
+              <svg-icon name="menubar" class="w-4 h-4 text-menu" />
+            </div>
+            <!-- app icon -->
+            <nuxt-link to="/" class="w-[90px] lg:w-[120px]">
+              <img
+                src="/logo-text.svg"
+                height="48"
+                alt="Logo"
+                class="max-w-full"
+              />
+            </nuxt-link>
+          </div>
+
+          <div class="flex justify-end items-center space-x-3.5 lg:space-x-8">
+            <div class="hidden lg:block">
+              <Menu class="text-menu" :items="menuItems" horizontal />
+            </div>
+            <!-- lang dropdown button -->
+            <LangDropdown />
+
+            <!-- theme switcher button -->
+            <ThemeDropdown />
+
+            <!-- cart dropdown button -->
+            <nuxt-link
+              class="cursor-pointer text-menu flex items-center"
+              to="/cart"
+            >
+              <svg-icon name="cart" class="w-5 h-5" />
+            </nuxt-link>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div
+      class="fixed transition duration-150 ease-out top-0 left-0 w-screen h-screen z-50 md:hidden"
+      :class="showSidebar ? 'translate-x-0' : '-translate-x-full'"
+    >
+      <div
+        style="background: rgba(27, 40, 71, 0.5); backdrop-filter: blur(2px)"
+        class="absolute top-0 h-screen w-screen"
+        @click="showSidebar = false"
+      ></div>
+      <div class="py-4 space-y-6 relative z-50 h-full bg-[#6135E9] w-[300px]">
+        <div class="cursor-pointer ml-4" @click="showSidebar = false">
+          <svg-icon name="menubar" class="w-4 h-4 text-[#BABABA]" />
+        </div>
+        <Menu class="text-[#BABABA]" :items="menuItems" vertical />
+      </div>
+    </div>
+  </header>
+</template>
+<script setup lang="ts">
+const route = useRoute()
+const { t } = useLang()
+const { showSidebar } = useSidebar()
+const view = ref({ atTopOfPage: false })
+const menuItems = ref([
+  {
+    text: t('menu.title.homePage'),
+    href: '/',
+  },
+  {
+    text: t('menu.title.product'),
+    href: '/products',
+  },
+  {
+    text: t('menu.title.introduce'),
+    href: '/about-us',
+  },
+])
+
+const classNavigation = computed(() => {
+  if (route.name !== 'index' && route.name !== 'product-id') {
+    return 'bg-gradient-to-r from-[#2E115F] to-[#7A0FE6]'
+  }
+  if (!view.value.atTopOfPage) {
+    return `bg-gradient-to-r from-[#2E115F] to-[#7A0FE6] duration-100 shadow-lg`
+  }
+})
+
+onMounted(() => {
+  window.addEventListener('scroll', () => {
+    // when the user scrolls, check the pageYOffset
+    if (window.pageYOffset > 50) {
+      // user is scrolled
+      if (view.value.atTopOfPage) view.value.atTopOfPage = false
+    } else {
+      // user is at top of page
+      if (!view.value.atTopOfPage) view.value.atTopOfPage = true
+    }
+  })
+})
+</script>

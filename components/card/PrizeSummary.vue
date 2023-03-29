@@ -1,21 +1,19 @@
-<template>
-  <div
-    class="
-      flex flex-col
-      lg:flex-row lg:items-center
-      space-y-4
-      lg:space-y-0
-      space-x-0
-      lg:space-x-4
-      bg-[#F3EFFF]
-      dark:bg-block
-      rounded-lg
-      p-3
-      lg:p-3
-      xl:p-6
-      text-sm
-    "
-  >
+<!-- <template>
+  <div class="
+          flex flex-col
+          lg:flex-row lg:items-center
+          space-y-4
+          lg:space-y-0
+          space-x-0
+          lg:space-x-4
+          bg-[#F3EFFF]
+          dark:bg-block
+          rounded-lg
+          p-3
+          lg:p-3
+          xl:p-6
+          text-sm
+        ">
     <div class="flex items-center gap-x-2 xl:gap-x-6 lg:w-4/12">
       <div class="w-20 h-20 xl:w-32 xl:h-32 flex items-center">
         <img :src="product.picture" alt="" />
@@ -45,13 +43,8 @@
       </div>
     </div>
     <div>
-      <BButton
-        type="text"
-        :isLoading="loading"
-        variant="primary"
-        class="font-bold rounded !justify-between !text-white"
-        @click="$router.push(`/product/${product.id}`)"
-      >
+      <BButton type="text" :isLoading="loading" variant="primary" class="font-bold rounded !justify-between !text-white"
+        @click="$router.push(`/product/${product.id}`)">
         <span>{{ $t('product.labels.playNow') }}</span>
         <svg-icon name="arrow-right-circle" class="w-4 h-4" />
       </BButton>
@@ -60,7 +53,6 @@
 </template>
 <script>
 import moment from 'moment'
-import LotteryProduct from '@/models/lottery/product'
 import { formatDateTime, FORMATS, toDateTime } from '@/utils/datetime'
 import { formatUSD } from '@/utils/currency'
 
@@ -72,7 +64,7 @@ export default {
   },
   props: {
     product: {
-      type: [LotteryProduct, Object],
+      type: [Object],
       require: true,
       default: null,
     },
@@ -93,9 +85,8 @@ export default {
       })
     },
     productName() {
-      return `${this.product.verboseName} Jackpot ${this.product.numberOfItems || 0}/${
-        this.product.maxValuePerItem || 0
-      }`
+      return `${this.product.verboseName} Jackpot ${this.product.numberOfItems || 0}/${this.product.maxValuePerItem || 0
+        }`
     },
     /**
      * Verbose jackpot estimated value of the product
@@ -149,4 +140,4 @@ export default {
     },
   },
 }
-</script>
+</script> -->

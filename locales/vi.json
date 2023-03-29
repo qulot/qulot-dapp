@@ -1,0 +1,235 @@
+{
+  "message": {
+    "plsTryAgain": "Vui lòng thử lại...",
+    "unknownError": "Một hoặc nhiều lỗi đã xảy ra",
+    "invalidData": "Dữ liệu không hợp lệ: {msg}",
+    "badRequest": "Yêu cầu không hợp lệ",
+    "youAreNotAuthorized": "Bạn không được cấp quyền cho yêu cầu này",
+    "success": "{msg} thành công!",
+    "pageDoesNotExist": "Trang này không tồn tại",
+    "pageYouLookingNotFound": "Không thể tìm thấy trang bạn đang tìm.",
+    "internalServerError": "Error!",
+    "serverHasDeserted": "Một hoặc nhiều lỗi đã xảy ra. Vui lòng thử lại sớm..."
+  },
+  "labels": {
+    "continue": "Tiếp tục",
+    "back": "Quay lại",
+    "cancel": "Hủy bỏ",
+    "update": "Cập nhật",
+    "delete": "Xóa",
+    "change": "Thay đổi",
+    "viewAll": "Xem tất cả",
+    "backToHome": "Về trang chủ"
+  },
+  "datetime": {
+    "labels": {
+      "day": "Ngày",
+      "hour": "Giờ",
+      "minute": "Phút",
+      "second": "Giây"
+    }
+  },
+  "theme": {
+    "dark": "Tối",
+    "light": "Sáng",
+    "system": "Hệ Thống",
+    "realtime": "Thời Gian Thực"
+  },
+  "wallet": {
+    "labels": {
+      "recharge": "Nạp tiền",
+      "withdraw": "Rút tiền",
+      "changeMoney": "Đổi tiền",
+      "methodRecharge": "Phương thức gửi tiền",
+      "networks": "Networks",
+      "myWallet": "Ví của tôi",
+      "balance": "Số dư",
+      "amount": "Số tiền",
+      "cryptoCurrency": "Danh sách tiền mã hóa",
+      "address": "Địa chỉ",
+      "fee": "Phí",
+      "withdrawMoney": "Rút tiền",
+      "amountChange": "Số tiền muốn thay đổi",
+      "amountChanged": "Số tiền đã thay đổi",
+      "inputAmountMoney": "Nhập số tiền",
+      "messageAmount": "Không đủ tiền",
+      "accountAddress": "Địa chỉ ví {account}"
+    },
+    "message": {
+      "withdrawSuccess": "Rút tiền thành công",
+      "withdrawError": "Rút tiền không thành công. Vui lòng thử lại.."
+    }
+  },
+  "cart": {
+    "labels": {
+      "order": "Đặt vé",
+      "selected": "Đã chọn",
+      "selectedValue": "{value} vé",
+      "total": "Tổng tiền",
+      "subtotal": "Tạm tính",
+      "myBalance": "Số dư của bạn",
+      "pricePerTicket": "Giá mỗi vé",
+      "checkout": "Thanh toán",
+      "paymentMethod": "Phương thức thanh toán",
+      "choosePaymentMethod": "Chọn phương thức thanh toán",
+      "accountBalance": "Số dư tài khoản",
+      "checkoutNow": "Thanh toán ngay",
+      "deleteTicket": "Xóa vé",
+      "fee": "Phí",
+      "product": "Sản phẩm",
+      "quantity": "Qty",
+      "price": "Giá"
+    }
+  },
+  "product": {
+    "labels": {
+      "result": "Kết quả phiên quay thưởng số <strong>{id}</strong> ngày <strong>{date}</strong>",
+      "estimate": "Jackpot ước tính",
+      "nextDrawing": "Kỳ mở thưởng tiếp theo",
+      "nextSession": "Kỳ quay tiếp theo",
+      "dateText": "Ngày",
+      "playNow": "Chơi ngay",
+      "orderNow": "Đặt vé ngay",
+      "addTicket": "Thêm vé",
+      "selectRandom": "Chọn {number} vé ngẫu nhiên",
+      "selectTicket": "Chọn vé",
+      "random": "Ngẫu nhiên"
+    }
+  },
+  "ticket": {
+    "labels": {
+      "listTicket": "Danh sách Ticket",
+      "winprize": "Trúng thưởng",
+      "statusWait": "Đang chờ",
+      "statusStartDial": "Bắt đầu quay số",
+      "statusStartReward": "Bắt đầu trả thưởng",
+      "statusFinished": "Đã kết thúc",
+      "timeStartDial": "Ngày quay số",
+      "status": "Trạng thái",
+      "empty": "Chưa chọn vé",
+      "buyTicket": "Mua vé chỉ với {price}"
+    }
+  },
+  "session": {
+    "labels": {
+      "nextDrawing": "Lần quay số tiếp theo",
+      "lastDrawingResult": "Kết quả quay số phiên #{sessionId} ngày {drawDateTime}",
+      "labelSession": "Kỳ quay #{sessionId} ngày {drawDatetime}",
+      "drawingResult": "Kết quả quay số trúng thưởng",
+      "findNumber": "Dò số",
+      "printResult": "In kết quả",
+      "notification": "Thông báo",
+      "lastDrawing": "Kết quả các kỳ quay trước",
+      "periodDrawing": "Kỳ quay",
+      "dayDrawing": "Ngày quay"
+    }
+  },
+  "menu": {
+    "title": {
+      "homePage": "Trang chủ",
+      "product": "Sản phẩm",
+      "myTicket": "Vé của tôi",
+      "myWallet": "Ví của tôi",
+      "introduce": "Giới thiệu"
+    }
+  },
+  "payment": {
+    "message": {
+      "invalidBalance": "Tài khoản không có đủ số dư",
+      "invalidMethod": "Phương thức thanh toán không khả dụng",
+      "invalidCurrency": "Đơn vị tiền tệ này không có sẵn hoặc không được sử dụng để thanh toán"
+    }
+  },
+  "aboutUs": {
+    "information": {
+      "title": "Chúng tôi là",
+      "content": "Chúng tôi là một dịch vụ nhắn tin bán vé số trực tuyến cung cấp cho khách hàng cơ hội chơi xổ số lớn nhất, với vé số chính thức, từ mọi nơi trên thế giới. Là dịch vụ mua vé độc lập của bên thứ ba, chúng tôi đã dẫn đầu ngành xổ số trực tuyến từ năm 2022, đóng vai trò là tiêu chuẩn của ngành với danh tiếng xuất sắc và dịch vụ khách hàng chuyên nghiệp 24/7.",
+      "operatedBy": "Trang web được điều hành bởi QIO, một công ty đăng ký tại Hồ Chí Minh (số đăng ký: C77583)."
+    },
+    "services": {
+      "title": "Chơi xổ số lớn nhất",
+      "subtitle": "Chúng tôi mang đến cho khách hàng cơ hội chơi để trúng giải xổ số phổ biến nhất thế giới. Dịch vụ của chúng tôi cung cấp:",
+      "service1": "Hơn <strong class='text-main'>45+</strong> giải xổ số với giải độc đắc lớn nhất, bao gồm PowerQ, MegaQ, LiteQ, cũng như các giải xổ số hàng ngày và địa phương.",
+      "service2": "<strong class='text-main'>Kết quả, thông tin và con số chiến thắng</strong> xổ số hàng đầu thế giới. Một loạt các tùy chọn chơi, bao gồm tổ hợp, gói, rút thăm nhiều lần và đăng ký.",
+      "service3": "Ứng dụng dành riêng cho thiết bị <strong class='text-main'>iOS và Android.</strong>"
+    },
+    "guide": {
+      "title": "Cách thức hoạt động",
+      "step1": {
+        "name": "Bước 1",
+        "desc": "Đăng kí tài khoản miễn phí."
+      },
+      "step2": {
+        "name": "Bước 2",
+        "desc": "Chọn xổ số để chơi, chọn số của bạn và đặt mua vé của bạn."
+      },
+      "step3": {
+        "name": "Bước 3",
+        "desc": "Đại diện của chúng tôi sẽ thay mặt bạn mua vé chính thức."
+      },
+      "step4": {
+        "name": "Bước 4",
+        "desc": "Dịch vụ chuyển phát nhanh xổ số của chúng tôi cho phép bạn xem vé được quét trực tuyến."
+      },
+      "step5": {
+        "name": "Bước 5",
+        "desc": "Chúng tôi sẽ thông báo cho bạn qua email hoặc SMS khi bạn giành chiến thắng."
+      },
+      "step6": {
+        "name": "Bước 6",
+        "desc": "Thanh toán 100% miễn phí hoa hồng."
+      }
+    },
+    "businessModel": {
+      "title": "Mô hình kinh doanh của chúng tôi",
+      "desc": "Chúng tôi thay mặt khách hàng mua vé số chính thức và doanh thu của chúng tôi chỉ bắt nguồn từ phí dịch vụ đi kèm với việc bán những vé này. Khi khách hàng của chúng tôi giành chiến thắng, họ sẽ nhận được toàn bộ số tiền của giải thưởng mà không phải trả thêm bất kỳ khoản hoa hồng nào."
+    },
+    "trackRecord": {
+      "title": "Thành tích của chúng tôi",
+      "desc": "Trong những năm qua, chúng tôi đã trả hơn 10 triệu đô la tiền thưởng cho hơn 1 triệu vé trúng thưởng từ khắp nơi trên thế giới. Những người chiến thắng của chúng tôi bao gồm một phụ nữ đến từ Việt Nam đã giành được giải độc đắc PowerQ trị giá 3 triệu đô la."
+    },
+    "simpleSecure": {
+      "title": "An toàn và Bảo mật",
+      "simpleSecure1": "Giao dịch và tài sản được bảo vệ bởi công nghệ blockchain.",
+      "simpleSecure2": "Đảm bảo hoàn lại tiền cho lần mua hàng đầu tiên của bạn",
+      "simpleSecure3": "Bản scan chứng minh quyền sở hữu vé của bạn",
+      "simpleSecure4": "Bộ đầy đủ các công cụ tự giới hạn để khuyến khích mạnh mẽ thói quen chơi game có trách nhiệm",
+      "simpleSecure5": "Hỗ trợ khách hàng bằng nhiều ngôn ngữ thông qua một số kênh",
+      "simpleSecure6": "Giao dịch và tài sản được bảo vệ bởi công nghệ blockchain."
+    }
+  },
+  "contactUs": {
+    "information": {
+      "title": "Liên hệ chúng tôi",
+      "content": "Email Đội ngũ chuyên gia xổ số của chúng tôi sẵn sàng trả lời nhanh chóng và thấu đáo tất cả các câu hỏi và thắc mắc của bạn qua email. Chỉ cần điền vào các trường bắt buộc bên dưới và nhận trợ giúp xổ số trực tiếp vào hộp thư tại chỗ của bạn trong vòng chưa đầy 24 giờ."
+    },
+    "labels": {
+      "FirstName": "Họ",
+      "EmailAddress": "Địa chỉ email",
+      "Topic": "Đề tài",
+      "Subject": "Chủ đề",
+      "YourMessenger": "Tin nhắn",
+      "PlaceholderFirstName": "Nhập email",
+      "PlaceholderEmailAddress": "Nhập địa chỉ",
+      "PlaceholderTopic": "Chọn đề tài",
+      "PlaceholderSubject": "Chọn chủ đề",
+      "PlaceholderYourMessenger": "Nhập tin nhắn",
+      "Send": "Gửi"
+    }
+  },
+  "termsOfService": {
+    "title": "Điều khoản dịch vụ",
+    "about": "Welcome to Qulot.com, a website of Qulot LLC (“Qulot”, “we”, “our”, or “us”). This page explains the terms by which you may use our website (the “Site”). By accessing or using the Site, you signify that you have read, understood, and agree to be bound by this Terms of Service Agreement (“Agreement”), whether or not you are a registered user of our Site. Qulot reserves the right to make unilateral modifications to these terms and will provide notice of these changes as described below. This Agreement applies to all visitors, users, and others who access the Site (“Users”). Please read this Agreement carefully to ensure that you understand each provision. This agreement contains a mandatory individual arbitration and class action/jury trial waiver provision that requires the use of arbitration on an individual basis to resolve disputes, rather than jury trials or class actions. Qulot Site. As part of the Site, Qulot provides access to a decentralized money saving and reward tool (“Protocol”) on the Ethereum blockchain, that allows participants to use Ethereum assets (“Assets”) to transact using smart contracts (“Smart Contracts”).",
+    "useOfOurSite.": "Use of Our Site.",
+    "eligibility": "Eligibility",
+    "eligibilityDetail": "This is a contract between you and Qulot. You must read and agree to these terms before using the Site. If you do not agree, you may not use the Site. You may use the Site only if you can form a binding contract with Qulot, and only in compliance with this Agreement and all applicable local, state, national, and international laws, rules and regulations. Any use or access to the Site by anyone under eighteen (18) years of age is strictly prohibited and in violation of this Agreement. The Site is not available to any Users previously removed from the Site by Qulot.",
+    "access": "B. Access and Use of the Site and Smart Contracts",
+    "accessDetail": "Subject to the terms and conditions of this Agreement, you are hereby granted a non-exclusive, limited, non-transferable, freely revocable license to use the Site as permitted by the features of the Site. Qulot reserves all rights not expressly granted herein in the Site and the Qulot Content (as defined below). Qulot may terminate this license, in whole or in part, at any time for any reason or no reason.",
+    "siteRules": "C. Site Rules",
+    "siteRulesDetail": "You agree not to engage in any of the following prohibited activities: (i) copying, distributing, or disclosing any part of the Site in any medium, including without limitation by any automated or non-automated “scraping”; (ii) using any automated system, including without limitation “robots,” “spiders,” “offline readers,” etc., to access the Site in a manner that sends more request messages to the Qulot servers than a human can reasonably produce in the same period of time by using a conventional on-line web browser (except that Qulot grants the operators of public search engines revocable permission to use spiders to copy publically available materials from Qulot.com for the sole purpose of and solely to the extent necessary for creating publicly available searchable indices of the materials, but not caches or archives of such materials); (iii) transmitting spam, chain letters, or other unsolicited email; (iv) attempting to interfere with, compromise the system integrity or security or decipher any transmissions to or from the servers running the Site; (v) taking any action that imposes, or may impose at our sole discretion an unreasonable or disproportionately large load on our infrastructure; (vi) uploading invalid data, viruses, worms, or other software agents through the Site; (vii) collecting or harvesting any personally identifiable information, including account names, from the Site; (viii) using the Site for any commercial solicitation purposes; (ix) impersonating another person or otherwise misrepresenting your affiliation with a person or entity, conducting fraud, hiding or attempting to hide your identity; (x) interfering with the proper working of the Site; (xi) accessing any content on the Site through any technology or means other than those provided or authorized by the Site; or (xii) bypassing the measures we may use to prevent or restrict access to the Site, including without limitation features that prevent or restrict use or copying of any content or enforce limitations on use of the Site or the content therein. We may, without prior notice, change the Site; stop providing the Site or features of the Site, to you or to Users generally; or create usage limits for the Site. We may permanently or temporarily terminate or suspend your access to the Site without notice and liability for any reason, including if in our sole determination you violate any provision of this Agreement, or for no reason. Upon termination for any reason or no reason, you continue to be bound by this Agreement. You are solely responsible for your interactions with other Qulot Users and Protocol Users. We reserve the right, but have no obligation, to monitor disputes between you and other Users. Qulot shall have no liability for your interactions with other Users, or for any User’s action or inaction.",
+    "siteLocation": "D. Site Location",
+    "siteLocationDetail": "The Site is controlled and operated from facilities in the United States. Qulot makes no representations that the Site is appropriate or available for use any locations. Those who access or use the Site from any jurisdictions do so at their own volition and are entirely responsible for compliance with all applicable United States and local laws and regulations, including but not limited to export and import regulations. You may not use the Site if you are a resident of a country embargoed by the United States, or are a foreign person or entity blocked or denied by the United States government. Unless otherwise explicitly stated, all materials found on the Site are solely directed to individuals, companies, or other entities located in the United States. Our Proprietary Rights. The Site and all materials therein or transferred thereby, including, without limitation, software, images, text, graphics, illustrations, logos, patents, trademarks, service marks, copyrights, photographs, audio, videos, music, and User Content belonging to other Users (the “Qulot Content”), and all Intellectual Property Rights related thereto, are the exclusive property of Qulot and its licensors. Except as explicitly provided herein, nothing in this Agreement shall be deemed to create a license in or under any such Intellectual Property Rights, and you agree not to sell, license, rent, modify, distribute, copy, reproduce, transmit, publicly display, publicly perform, publish, adapt, edit or create derivative works from any Qulot Content. Use of the Qulot Content for any purpose not expressly permitted by this Agreement is strictly prohibited. You may choose to or we may invite you to submit comments or ideas about the Site, including without limitation about how to improve the Site or our products (“Ideas”). By submitting any Idea, you agree that your disclosure is gratuitous, unsolicited and without restriction and will not place Qulot under any fiduciary or other obligation, and that we are free to use the Idea without any additional compensation to you, and/or to disclose the Idea on a non-confidential basis or otherwise to anyone. You further acknowledge that, by acceptance of your submission, Qulot does not waive any rights to use similar or related ideas previously known to Qulot, or developed by its employees, or obtained from sources other than you.",
+    "noProfessionalAdvice": "No Professional Advice.",
+    "noProfessionalAdviceDetail": "If the Site provides professional information (for example, medical, legal, or financial), such information is for informational purposes only and should not be construed as professional advice. No action should be taken based upon any information contained in the Site. You should seek independent professional advice from a person who is licensed and/or qualified in the applicable area. Privacy. We care about the privacy of our Users. You understand that by using the Sites you consent to the collection, use and disclosure of personally identifiable information and aggregate data, and to have your personally identifiable information collected, used, transferred to and processed in the United States. Security. Qulot uses commercially reasonable physical, managerial, and technical safeguards to preserve the integrity and security of your personal information and implement your privacy settings. However, we cannot guarantee that unauthorized third parties will never be able to defeat our security measures or use your personal information for improper purposes. You acknowledge that you provide your personal information at your own risk."
+  }
+}

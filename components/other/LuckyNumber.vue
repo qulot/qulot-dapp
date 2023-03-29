@@ -1,33 +1,26 @@
-<template>
+<!-- <template>
   <div class="avatar placeholder">
-    <div
-      class="
-        text-red-600
-        font-bold
-        rounded-full
-        ring ring-error ring-offset-base-100
-        w-8
-      "
-    >
+    <div class="
+          text-red-600
+          font-bold
+          rounded-full
+          ring ring-error ring-offset-base-100
+          w-8
+        ">
       <span class="text-xs">{{ numberTwoDigits }}</span>
     </div>
   </div>
 </template>
-<script>
+<script setup lang="ts">
 import { formatIntDigits } from '@/utils/number';
 
-export default {
-  props: {
-    number: {
-      type: Number,
-      require: true,
-      default: 0,
-    },
-  },
-  computed: {
-    numberTwoDigits() {
-      return formatIntDigits(this.number, 2)
-    },
-  },
-};
-</script>
+const props = defineProps({
+  number: {
+    type: Number,
+    require: true,
+    default: 0,
+  }
+});
+
+const numberTwoDigits = computed(() => formatIntDigits(props.number, 2));
+</script> -->

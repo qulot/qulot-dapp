@@ -4,21 +4,9 @@
     <AppHeader />
     <!-- Render contents with transition -->
     <main class="flex-grow">
-      <transition name="fade" mode="out-in">
-        <Nuxt />
-      </transition>
+      <slot></slot>
     </main>
     <!-- App footer -->
     <AppFooter />
   </div>
 </template>
-<script>
-
-export default {
-  name: 'LayoutDefault',
-  components: {
-    AppHeader: () => import('@/components/header/AppHeader.vue'),
-    AppFooter: () => import('@/components/footer/App.vue'),
-  },
-}
-</script>
