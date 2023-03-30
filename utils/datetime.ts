@@ -1,4 +1,5 @@
 import moment, { unix } from 'moment'
+import { isString } from './string'
 
 /**
  * @readonly
@@ -9,6 +10,8 @@ export const FORMATS = {
 }
 
 export type DateTimeFormats = keyof typeof FORMATS
+
+export type Timestamp = number | string
 
 /**
  * Convert datetime string to target format. Return null if input is not valid
@@ -58,16 +61,14 @@ export function toDateTime(datetime: string) {
  * @param timestamp
  * @returns
  */
-export function timestampToDateTime(timestamp: number | string) {
-  if (typeof timestamp === 'string') {
-    timestamp = parseInt(timestamp)
+export function timestampToDateTime(timestamp: Timestamp) {
+  if (isString(timestamp)) {
+    timestamp = parseInt(timestamp as string)
   }
-  const m = unix(timestamp)
-
+  const m = unix(timestamp as number)
   if (!m.isValid()) {
     return null
   }
-
   return m.toDate()
 }
 
@@ -82,18 +83,13 @@ export function timestampToDateTime(timestamp: number | string) {
  * @param format
  * @returns
  */
-export function formatTimestamp(
-  timestamp: string | number,
-  format: DateTimeFormats
-) {
-  if (typeof timestamp === 'string') {
-    timestamp = parseInt(timestamp)
+export function formatTimestamp(timestamp: Timestamp, format: DateTimeFormats) {
+  if (isString(timestamp)) {
+    timestamp = parseInt(timestamp as string)
   }
-  const m = unix(timestamp)
-
+  const m = unix(timestamp as number)
   if (!m.isValid()) {
     return null
   }
-
   return m.format(format)
 }
