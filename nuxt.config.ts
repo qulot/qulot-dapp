@@ -1,5 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  // https://nuxt.com/docs/guide/going-further/runtime-config
+  runtimeConfig: {
+    defaultNetworkId: process.env.DEFAULT_NETWORK_ID || '80001',
+  },
+
   // server side rendering mode
   ssr: true,
 
@@ -15,10 +20,12 @@ export default defineNuxtConfig({
     '@formkit/nuxt',
     // https://tailwindcss.nuxtjs.org/
     '@nuxtjs/tailwindcss',
-    // https://pinia.vuejs.org/ssr/nuxt.html
-    '@pinia/nuxt',
     // https://v8.i18n.nuxtjs.org/getting-started/setup
     '@nuxtjs/i18n',
+    // https://pinia.vuejs.org/ssr/nuxt.html
+    '@pinia/nuxt',
+    // https://apollo.nuxtjs.org/getting-started/quick-start
+    '@nuxtjs/apollo',
   ],
 
   // https://tailwindcss.nuxtjs.org/getting-started/options
@@ -66,6 +73,15 @@ export default defineNuxtConfig({
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
+    },
+  },
+
+  // https://apollo.nuxtjs.org/getting-started/quick-start
+  apollo: {
+    clients: {
+      '80001': {
+        httpEndpoint: process.env.SUBGRAPH_MUMBAI || '',
+      },
     },
   },
 })

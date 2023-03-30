@@ -23,7 +23,10 @@ export function formatIntDigits(number: number, digits = 2) {
  * @param {number} number
  * @returns
  */
-export function formatNumber(number: number) {
+export function formatNumber(number: number | string) {
+  if (typeof number === 'string') {
+    number = parseInt(number)
+  }
   return number.toLocaleString('en-US')
 }
 

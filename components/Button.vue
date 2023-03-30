@@ -40,6 +40,8 @@ const props = defineProps({
   },
 })
 
+defineEmits(['click'])
+
 const computedButtonClass = computed(() => {
   const classes = []
 

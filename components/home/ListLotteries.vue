@@ -2,20 +2,22 @@
   <section class="relative flex items-center w-full">
     <div class="container mx-auto">
       <div class="space-y-4 lg:space-y-6">
-        <PrizeSummary
-          v-for="(product, i) in products"
+        <HomeLotteryCard
+          v-for="(lottery, i) in lotteries"
           :key="i"
           class="w-full p-3 md:p-6"
-          :product="product"
+          :lottery="lottery"
         />
       </div>
     </div>
   </section>
 </template>
 <script setup lang="ts">
+import { Lottery } from '~~/types/lottery'
+
 defineProps({
-  products: {
-    type: Array<Object>,
+  lotteries: {
+    type: Array<Lottery>,
     require: true,
     default: () => [],
   },

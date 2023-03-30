@@ -32,8 +32,8 @@
 </template>
 
 <script setup lang="ts">
-import { formatDateTime, FORMATS } from '@/utils/datetime'
-import { formatUSD } from '@/utils/currency'
+import { formatDateTime, FORMATS } from '~~/utils/datetime'
+import { formatUSD } from '~~/utils/currency'
 
 const props = defineProps({
   session: {

@@ -4,7 +4,7 @@
   >
     <div class="flex items-center gap-x-2 xl:gap-x-6 lg:w-4/12">
       <div class="w-20 h-20 xl:w-32 xl:h-32 flex items-center">
-        <img :src="product.picture" alt="" />
+        <img :src="lottery.picture" alt="" />
       </div>
       <div class="flex-grow space-y-1">
         <h2 class="text-[17px] font-bold text-black">{{ productName }}</h2>
@@ -42,7 +42,7 @@
         :is-loading="loading"
         variant="primary"
         class="font-bold rounded !justify-between !text-white"
-        @click="$router.push(`/product/${product.id}`)"
+        @click="$router.push(`/product/${lottery.id}`)"
       >
         <span>{{ $t('product.labels.playNow') }}</span>
         <svg-icon name="arrow-right-circle" class="w-4 h-4" />
@@ -51,43 +51,42 @@
   </div>
 </template>
 <script setup lang="ts">
+import { Lottery } from '~~/types/lottery'
 const { t } = useLang()
 
-const props = defineProps({
-  product: {
-    type: [Object],
-    require: true,
-    default: null,
-  },
-})
+const props = defineProps<{ lottery: Lottery }>()
 
 const loading = ref(false)
 
 const resultLabel = computed(() => {
-  return t('product.labels.result', {
-    id: '#' + formatNumber(props.product.lastSessionId),
-    date: formatDateTime(props.product.lastSessionDrawDatetime, 'ddmmyyyy'),
-  })
+  if (props.lottery.lastRound && props.lottery.lastRound) {
+    return t('product.labels.result', {
+      id: '#' + formatNumber(props.lottery.lastRound.id),
+      date: formatTimestamp(props.lottery.lastRound.drawDateTime, 'ddmmyyyy'),
+    })
+  }
 })
 
 const productName = computed(() => {
-  const verboseName = props.product.verboseName
-  const numberOfItems = props.product.numberOfItems || 0
-  const maxValuePerItem = props.product.maxValuePerItem || 0
+  const verboseName = props.lottery.verboseName
+  const numberOfItems = props.lottery.numberOfItems || 0
+  const maxValuePerItem = props.lottery.maxValuePerItem || 0
   return `${verboseName} Jackpot ${numberOfItems || 0}/${maxValuePerItem || 0}`
 })
 
 const jackpotEstimatedValue = computed(() => {
-  const jackpot = props.product.nextSessionEstimatedJackpot || 0
+  const jackpot = props.lottery?.nextRound?.totalAmount || 0
   return formatUSD(jackpot)
 })
 
 const winningNumbers = computed(() => {
-  const winningNumbers = props.product.lastSessionWinningNumbers || []
+  const winningNumbers = props.lottery?.lastRound?.winningNumbers || []
   return winningNumbers
 })
 
 const nextDrawDatetime = computed(() => {
-  return toDateTime(props.product.nextSessionDrawDatetime)
+  if (props.lottery?.nextRound?.drawDateTime) {
+    return timestampToDateTime(props.lottery.nextRound.drawDateTime)
+  }
 })
 </script>

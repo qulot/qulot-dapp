@@ -9,8 +9,6 @@
 </template>
 
 <script setup lang="ts">
-import { formatIntDigits } from '@/utils/number'
-
 const props = defineProps({
   number: {
     type: Number,

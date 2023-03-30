@@ -111,15 +111,15 @@
   </section>
 </template>
 <script>
-import { toDateTime } from '@/utils/datetime'
-import { formatUSD } from '@/utils/currency'
+import { toDateTime } from '~~/utils/datetime'
+import { formatUSD } from '~~/utils/currency'
 import { mapGetters, mapActions } from 'vuex'
 import { isEmpty, isNull } from 'lodash'
 export default {
   name: 'ProductTop',
   components: {
-    BButton: () => import('@/components/button/BButton.vue'),
-    CountDown: () => import('@/components/datetime/CountDown.vue'),
+    BButton: () => import('~~/components/button/BButton.vue'),
+    CountDown: () => import('~~/components/datetime/CountDown.vue'),
   },
   props: {
     productInfo: {

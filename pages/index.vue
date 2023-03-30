@@ -1,7 +1,7 @@
 <template>
   <div class="space-y-8">
     <HomeAppTopFeature id="summary" />
-    <HomeLandingPrize :products="[]" />
+    <HomeListLotteries :lotteries="lotteries" />
     <HomeLandingLuckiest />
     <HomeLandingHowWork />
     <HomeLandingFeature />
@@ -10,3 +10,12 @@
     <HomeLandingPaymentCard />
   </div>
 </template>
+<script setup lang="ts">
+import { storeToRefs } from 'pinia'
+import { useProductStore } from '~~/stores/product'
+
+const productStore = useProductStore()
+const { lotteries } = storeToRefs(productStore)
+
+await productStore.getLotteries()
+</script>

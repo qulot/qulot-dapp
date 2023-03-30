@@ -24,7 +24,7 @@
   </Dropdown>
 </template>
 <script setup lang="ts">
-import { ITheme, IThemeSettingOptions } from '@/composables/useTheme'
+import { ITheme, IThemeSettingOptions } from '~~/composables/useTheme'
 
 const themeSetting = useState<IThemeSettingOptions>('theme.setting')
 const themeCurrent = useState<ITheme>('theme.current')
@@ -33,7 +33,7 @@ const { t } = useLang()
 const items = computed(() => [
   { icon: 'light', text: t('theme.light'), theme: 'light' },
   { icon: 'dark', text: t('theme.dark'), theme: 'dark' },
-  { icon: 'clock_circle', text: t('theme.realtime'), theme: 'realtime' },
+  { icon: 'clock-circle', text: t('theme.realtime'), theme: 'realtime' },
   { icon: 'laptop', text: t('theme.system'), theme: 'system' },
 ])
 

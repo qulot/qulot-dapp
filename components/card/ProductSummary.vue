@@ -56,10 +56,10 @@
   </blockquote>
 </template>
 <script>
-import CountDown from "@/components/datetime/CountDown.vue";
-import LuckyNumberItem from "@/components/other/LuckyNumber.vue";
-import { formatDateTime, FORMATS, toDateTime } from "@/utils/datetime";
-import { formatUSD } from "@/utils/currency";
+import CountDown from "~~/components/datetime/CountDown.vue";
+import LuckyNumberItem from "~~/components/other/LuckyNumber.vue";
+import { formatDateTime, FORMATS, toDateTime } from "~~/utils/datetime";
+import { formatUSD } from "~~/utils/currency";
 export default {
   components: {
     CountDown,

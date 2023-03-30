@@ -9,10 +9,11 @@
     "postinstall": "nuxt prepare",
     "clean": "rimraf ./.nuxt/ ./assets/svg-transformer-list.ts ./assets/icons/cache",
     "lint": "eslint --ext \".ts,.js,.vue\" --ignore-path .eslintignore .",
-    "lintfix": "eslint --fix --ext \".ts,.js,.vue\" --ignore-path .eslintignore ."
+    "lint:fix": "eslint --fix --ext \".ts,.js,.vue\" --ignore-path .eslintignore ."
   },
   "devDependencies": {
     "@formkit/themes": "^0.16.4",
+    "@nuxtjs/apollo": "^5.0.0-alpha.6",
     "@nuxtjs/eslint-config": "^12.0.0",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@nuxtjs/google-fonts": "^3.0.0",

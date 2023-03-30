@@ -1,4 +1,4 @@
-import moment from 'moment'
+import moment, { unix } from 'moment'
 
 /**
  * @readonly
@@ -8,18 +8,20 @@ export const FORMATS = {
   ddmmyyyy: 'DD/MM/yyyy',
 }
 
+export type DateTimeFormats = keyof typeof FORMATS
+
 /**
  * Convert datetime string to target format. Return null if input is not valid
  *
  * @example
- * formatDateTime("2022-06-26T13:33:23Z", FORMATS.ddmmyyyy)
+ * formatDateTime("2022-06-26T13:33:23Z", "ddmmyyyy")
  * // returns 26/06/2022
  *
- * @param {string} datetime
- * @param {FORMATS} format
- * @returns {string|null}
+ * @param datetime
+ * @param format
+ * @returns
  */
-export function formatDateTime(datetime: string, format: keyof typeof FORMATS) {
+export function formatDateTime(datetime: string, format: DateTimeFormats) {
   const m = moment(datetime)
 
   if (!m.isValid()) {
@@ -35,8 +37,8 @@ export function formatDateTime(datetime: string, format: keyof typeof FORMATS) {
  * @example
  * toDateTime("2022-06-26T13:33:23Z")
  *
- * @param {string} datetime
- * @returns {Date|null}
+ * @param datetime
+ * @returns
  */
 export function toDateTime(datetime: string) {
   const m = moment(datetime)
@@ -46,4 +48,52 @@ export function toDateTime(datetime: string) {
   }
 
   return m.toDate()
+}
+
+/**
+ * Convert timestamp string to date object. Return null if input is not valid
+ *
+ * @example
+ * toDateTime("2022-06-26T13:33:23Z")
+ * @param timestamp
+ * @returns
+ */
+export function timestampToDateTime(timestamp: number | string) {
+  if (typeof timestamp === 'string') {
+    timestamp = parseInt(timestamp)
+  }
+  const m = unix(timestamp)
+
+  if (!m.isValid()) {
+    return null
+  }
+
+  return m.toDate()
+}
+
+/**
+ * Convert timestamp string to target format. Return null if input is not valid
+ *
+ * @example
+ * formatTimestamp("1680167644", "ddmmyyyy")
+ * // returns 26/06/2022
+ *
+ * @param timestamp
+ * @param format
+ * @returns
+ */
+export function formatTimestamp(
+  timestamp: string | number,
+  format: DateTimeFormats
+) {
+  if (typeof timestamp === 'string') {
+    timestamp = parseInt(timestamp)
+  }
+  const m = unix(timestamp)
+
+  if (!m.isValid()) {
+    return null
+  }
+
+  return m.format(format)
 }
