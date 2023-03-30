@@ -17,7 +17,7 @@
             <h2 class="text-title font-bold text-base mb-2 md:text-2xl">
               Step 1
             </h2>
-            <p class="text-sm md:text-base">
+            <p class="text-sm md:text-base text-black">
               Gửi tiền vào sản phẩm mà bạn muốn giành cơ hội chiến thắng
             </p>
           </div>
@@ -32,7 +32,9 @@
             <h2 class="text-title font-bold text-base mb-2 md:text-2xl">
               Step 2
             </h2>
-            <p class="text-sm md:text-base">Giải thưởng được trao mỗi ngày</p>
+            <p class="text-sm md:text-base text-black">
+              Giải thưởng được trao mỗi ngày
+            </p>
           </div>
         </li>
         <li class="flex items-center gap-x-4 lg:gap-x-8">
@@ -45,7 +47,7 @@
             <h2 class="text-title font-bold text-base mb-2 md:text-2xl">
               Step 3
             </h2>
-            <p class="text-sm md:text-base">
+            <p class="text-sm md:text-base text-black">
               Ngay cả khi bạn không thắng, hãy giữ tất cả lãi suất của bạn!
             </p>
           </div>

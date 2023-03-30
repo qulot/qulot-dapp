@@ -77,7 +77,7 @@ const isEqual = computed(() => {
  */
 const days = computed(() => {
   const days = Math.floor(totalMilliseconds.value / ONE_DAY)
-  return days < 0 ? `00` : days
+  return formatIntDigits(days < 0 ? 0 : days, 2)
 })
 
 /**
@@ -86,7 +86,7 @@ const days = computed(() => {
  */
 const hours = computed(() => {
   const hours = Math.floor((totalMilliseconds.value % ONE_DAY) / ONE_HOUR)
-  return hours < 0 ? `00` : hours
+  return formatIntDigits(hours < 0 ? 0 : hours, 2)
 })
 
 /**
@@ -95,7 +95,7 @@ const hours = computed(() => {
  */
 const minutes = computed(() => {
   const minutes = Math.floor((totalMilliseconds.value % ONE_HOUR) / ONE_MINUTE)
-  return minutes < 0 ? `00` : minutes
+  return formatIntDigits(minutes < 0 ? 0 : minutes, 2)
 })
 
 /**
@@ -106,7 +106,7 @@ const seconds = computed(() => {
   const seconds = Math.floor(
     (totalMilliseconds.value % ONE_MINUTE) / ONE_SECOND
   )
-  return seconds < 0 ? `00` : seconds
+  return formatIntDigits(seconds < 0 ? 0 : seconds, 2)
 })
 
 /**
@@ -126,20 +126,16 @@ const update = () => {
   totalMilliseconds.value = props.target.getTime() - current.value.getTime()
 }
 
-onUnmounted(() => {
-  clear()
-})
+timer.value = setInterval(() => {
+  // force update total milliseconds
+  update()
+
+  if (isEqual.value) {
+    clear()
+  }
+}, ONE_SECOND)
 
 onBeforeUnmount(() => {
   clear()
-
-  timer.value = setInterval(() => {
-    // force update total milliseconds
-    update()
-
-    if (isEqual) {
-      clear()
-    }
-  }, ONE_SECOND)
 })
 </script>

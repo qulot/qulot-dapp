@@ -2,6 +2,7 @@ import formkit from '@formkit/themes/tailwindcss'
 import type { Config } from 'tailwindcss'
 
 export default <Partial<Config>>{
+  mode: 'jit',
   darkMode: 'class',
   content: [
     './components/**/*.{vue,js}',

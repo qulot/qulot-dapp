@@ -1,8 +1,13 @@
+const defaultNetworkId = process.env.DEFAULT_NETWORK_ID || '80001'
+const apolloCacheResults = process.env.APOLLO_CACHE_RESULT === 'true'
+const apolloConnectToDevTools = process.env.APOLLO_DEV_TOOLS === 'true'
+const subgraphMumbaiEndpoint = process.env.SUBGRAPH_MUMBAI || ''
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   // https://nuxt.com/docs/guide/going-further/runtime-config
   runtimeConfig: {
-    defaultNetworkId: process.env.DEFAULT_NETWORK_ID || '80001',
+    defaultNetworkId,
   },
 
   // server side rendering mode
@@ -67,6 +72,7 @@ export default defineNuxtConfig({
     fallback: '<svg>...</svg>', // type `string` | `false`
     lazy: true, // type: `boolean`
     log: true, // type: `boolean`,
+    styleDefault: 'max-width: 100%; max-height: 100%;',
   },
 
   postcss: {
@@ -80,7 +86,11 @@ export default defineNuxtConfig({
   apollo: {
     clients: {
       '80001': {
-        httpEndpoint: process.env.SUBGRAPH_MUMBAI || '',
+        connectToDevTools: apolloConnectToDevTools,
+        httpEndpoint: subgraphMumbaiEndpoint,
+        inMemoryCacheOptions: {
+          resultCaching: apolloCacheResults,
+        },
       },
     },
   },

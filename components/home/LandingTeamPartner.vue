@@ -3,19 +3,19 @@
     <div class="container mx-auto text-sm">
       <TitleCard title="Team & partners" />
       <div class="mb-6 space-y-5">
-        <p>
+        <p class="text-black">
           <strong class="text-title">Qulot</strong> là công ty cung cấp giải
           pháp phần mềm thế hệ tiếp theo sáng tạo được thiết kế để nâng cao trải
           nghiệm của người tham gia và tiếp tục là điểm gặp gỡ giữa công nghệ,
           công bằng và giải trí.
         </p>
-        <p>
+        <p class="text-black">
           Chúng tôi có một cách tiếp cận độc đáo để đổi mới và hiện đại hóa
           ngành xổ số do kiến thức sâu rộng của chúng tôi về lĩnh vực này và
           thành tích thành công của chúng tôi trong việc hợp tác với các tổ chức
           quốc tế như IBM.
         </p>
-        <p>
+        <p class="text-black">
           <strong class="text-title">Qulot</strong> không chỉ được hỗ trợ bởi
           một đội ngũ những người phi thường với kinh nghiệm phong phú trong mọi
           thứ từ thiết kế đến an ninh mạng đến phát triển phần mềm, quan hệ

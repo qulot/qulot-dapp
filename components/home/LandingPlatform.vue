@@ -3,7 +3,7 @@
     <div class="container px-4 mx-auto">
       <TitleCard title="1st platform of its kind" />
       <div class="flex items-center justify-between">
-        <p class="text-sm w-2/4">
+        <p class="text-sm text-black w-2/4">
           Cho phép các công ty, tổ chức từ thiện và cá nhân khởi chạy xổ số của
           riêng họ với các tính năng tùy chỉnh để đáp ứng nhu cầu cụ thể của họ.
         </p>
