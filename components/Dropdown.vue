@@ -49,6 +49,7 @@ defineProps({
   },
   contentMenuClass: {
     type: [String, Object, Array],
+    default: () => '',
   },
 })
 

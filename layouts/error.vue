@@ -6,8 +6,8 @@
 
 <script setup lang="ts">
 import { StatusCodes } from 'http-status-codes'
-const Error404 = resolveComponent('404')
-const Error500 = resolveComponent('500')
+const Error404 = resolveComponent('Error404')
+const Error500 = resolveComponent('Error500')
 
 const props = defineProps({
   error: {
