@@ -6,6 +6,7 @@ export default <Partial<Config>>{
   darkMode: 'class',
   content: [
     './components/**/*.{vue,js}',
+    './composables/**/*.{vue,js}',
     './pages/**/*.vue',
     './app.vue',
     './formkit.config.{js,mjs,ts}',

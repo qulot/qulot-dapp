@@ -2,19 +2,19 @@ import networks from '~~/networks.json'
 
 export const useNetwork = () => {
   // composable
-  const networkUserSetting = useCookie<number>('network')
+  const networkUserSetting = useCookie<string>('network')
 
   const runtimeConfig = useRuntimeConfig()
   const getNetworkUserSetting = () =>
-    networkUserSetting.value || parseInt(runtimeConfig.defaultNetworkId)
+    networkUserSetting.value || runtimeConfig.defaultNetworkKey
 
   // state
-  const networkSetting = useState<number>('network.setting', () =>
+  const networkSetting = useState<string>('network.setting', () =>
     getNetworkUserSetting()
   )
 
   // watchers
-  const onNetworkSettingChange = (networkSetting: number) => {
+  const onNetworkSettingChange = (networkSetting: string) => {
     networkUserSetting.value = networkSetting
   }
   watch(networkSetting, (val) => onNetworkSettingChange(val))

@@ -1,13 +1,17 @@
-const defaultNetworkId = process.env.DEFAULT_NETWORK_ID || '80001'
 const apolloCacheResults = process.env.APOLLO_CACHE_RESULT === 'true'
 const apolloConnectToDevTools = process.env.APOLLO_DEV_TOOLS === 'true'
-const subgraphMumbaiEndpoint = process.env.SUBGRAPH_MUMBAI || ''
+const defaultNetworkKey = process.env.DEFAULT_NETWORK_KEY || 'mumbai'
+const mumbaiSubgraphEndpoint = process.env.MUMBAI_SUBGRAPH_ENDPOINT || ''
+const mumbaiQulotContract = process.env.MUMBAI_QULOT_CONTRACT || ''
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   // https://nuxt.com/docs/guide/going-further/runtime-config
   runtimeConfig: {
-    defaultNetworkId,
+    defaultNetworkKey,
+    qulot: {
+      mumbai: mumbaiQulotContract,
+    },
   },
 
   // server side rendering mode
@@ -85,9 +89,9 @@ export default defineNuxtConfig({
   // https://apollo.nuxtjs.org/getting-started/quick-start
   apollo: {
     clients: {
-      '80001': {
+      mumbai: {
         connectToDevTools: apolloConnectToDevTools,
-        httpEndpoint: subgraphMumbaiEndpoint,
+        httpEndpoint: mumbaiSubgraphEndpoint,
         inMemoryCacheOptions: {
           resultCaching: apolloCacheResults,
         },

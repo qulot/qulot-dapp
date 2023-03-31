@@ -1,10 +1,12 @@
 [
     {
         "id": 11155111,
-        "name": "Sepolia"
+        "name": "Sepolia",
+        "key": "sepolia"
     },
     {
         "id": 80001,
-        "name": "Polygon Mumbai"
+        "name": "Polygon Mumbai",
+        "key": "mumbai"
     }
 ]

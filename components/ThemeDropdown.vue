@@ -1,18 +1,11 @@
 <template>
-  <Dropdown
-    title="Change Theme"
-    class="text-menu"
-    :items="items"
-    :positions="['end']"
-    :content-class="[
-      'shadow',
-      'bg-base-100',
-      'rounded-box',
-      'w-40',
-      'text-black',
-    ]"
-    @item-click="switchTheme"
-  >
+  <Dropdown title="Change Theme" class="text-menu" :items="items" :positions="['end']" :content-class="[
+    'shadow',
+    'bg-base-100',
+    'rounded-box',
+    'w-40',
+    'text-black',
+  ]" @item-click="switchTheme">
     <div class="h-5 flex items-center justify-center text-menu space-x-2">
       <div v-show="themeCurrent === 'light'" class="mx-auto my-auto">
         <svg-icon name="light" />
@@ -31,10 +24,10 @@ const themeCurrent = useState<ITheme>('theme.current')
 const { t } = useLang()
 
 const items = computed(() => [
-  { icon: 'light', text: t('theme.light'), theme: 'light' },
-  { icon: 'dark', text: t('theme.dark'), theme: 'dark' },
-  { icon: 'clock-circle', text: t('theme.realtime'), theme: 'realtime' },
-  { icon: 'laptop', text: t('theme.system'), theme: 'system' },
+  { icon: 'light', text: t('theme.light'), theme: 'light', active: themeSetting.value === 'light' },
+  { icon: 'dark', text: t('theme.dark'), theme: 'dark', active: themeSetting.value === 'dark' },
+  { icon: 'clock-circle', text: t('theme.realtime'), theme: 'realtime', active: themeSetting.value === 'realtime' },
+  { icon: 'laptop', text: t('theme.system'), theme: 'system', active: themeSetting.value === 'system' },
 ])
 
 const switchTheme = (item: any) => {

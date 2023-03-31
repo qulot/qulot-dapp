@@ -32,7 +32,7 @@ export function formatDateTime(datetime: string, format: DateTimeFormats) {
     return null
   }
 
-  return m.format(format)
+  return m.format(FORMATS[format])
 }
 
 /**
@@ -92,7 +92,7 @@ export function formatTimestamp(timestamp: Timestamp, format: DateTimeFormats) {
   if (!m.isValid()) {
     return null
   }
-  return m.format(format)
+  return m.format(FORMATS[format])
 }
 
 /**

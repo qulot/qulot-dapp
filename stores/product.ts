@@ -12,6 +12,10 @@ export const useProductStore = defineStore('product', {
       lotteries: [] as Lottery[],
     }
   },
+  getters: {
+    availableLotteries: (state) =>
+      state.lotteries.filter((lottery) => lottery.nextRound != null),
+  },
   actions: {
     async getLotteries() {
       const { networkSetting } = useNetwork()

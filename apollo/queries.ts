@@ -25,7 +25,6 @@ export const getLotteries = gql`
         id
         drawDateTime
         totalAmount
-        winningNumbers
         status
       }
     }

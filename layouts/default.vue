@@ -1,12 +1,12 @@
 <template>
   <div class="flex flex-col min-h-screen">
-    <!-- App header -->
-    <AppHeader />
+    <!-- Page header -->
+    <PageHeader />
     <!-- Render contents with transition -->
     <main class="flex-grow">
       <slot></slot>
     </main>
-    <!-- App footer -->
-    <AppFooter />
+    <!-- Page footer -->
+    <PageFooter />
   </div>
 </template>

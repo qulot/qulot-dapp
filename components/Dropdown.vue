@@ -3,28 +3,22 @@
     <div class="cursor-pointer" @click="isShow = !isShow">
       <slot></slot>
     </div>
-    <div
-      v-if="items.length > 0 && isShow"
-      :class="[
-        'absolute right-0 top-full mt-2 py-2 bg-white text-title-nodark min-w-full shadow-default text-sm rounded z-50',
-        ...contentClass,
-      ]"
-    >
-      <div
-        v-for="(item, index) in items"
-        :key="`item-${index}`"
-        class="px-4 py-1 cursor-pointer hover:text-main min-w-fit whitespace-nowrap"
-        :class="contentMenuClass"
-        @click="handleClick(item)"
-      >
+    <div v-if="items.length > 0 && isShow" :class="[
+      'absolute right-0 top-full mt-2 py-2 bg-white text-title-nodark min-w-full shadow-default text-sm rounded z-50',
+      ...contentClass,
+    ]">
+      <div v-for="(item, index) in items" :key="`item-${index}`"
+        class="px-4 py-1 cursor-pointer hover:text-main min-w-fit whitespace-nowrap" :class="contentMenuClass"
+        @click="handleClick(item)">
         <slot name="item" :option="item">
-          <div class="flex items-center">
-            <svg-icon
-              v-if="item.icon"
-              :name="item.icon"
-              class="w-5 h-5 mr-2 flex items-center justify-between"
-            />
+          <div :class="['flex gap-x-2', { 'text-main': item.active }]">
+            <div v-if="item.icon" class="flex items-center">
+              <svg-icon :name="item.icon" />
+            </div>
             <span>{{ item.text }}</span>
+            <div v-show="item.active" class="flex items-center ml-auto">
+              <svg-icon name="check" />
+            </div>
           </div>
         </slot>
       </div>
@@ -36,6 +30,7 @@ export interface DropDownItem {
   icon?: string
   text?: string
   href?: string
+  active?: boolean
 }
 
 defineProps({
