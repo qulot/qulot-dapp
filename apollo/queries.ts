@@ -16,14 +16,15 @@ export const getLotteries = gql`
       amountInjectNextRoundPercent
       lastRound {
         id
-        drawDateTime
+        startTime
+        endTime
         totalAmount
         winningNumbers
         status
       }
       nextRound {
         id
-        drawDateTime
+        startTime
         totalAmount
         status
       }

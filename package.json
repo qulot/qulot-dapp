@@ -41,6 +41,7 @@
     "@formkit/nuxt": "^0.16.4",
     "@pinia/nuxt": "^0.4.7",
     "cron-parser": "^4.8.1",
+    "ethers": "^6.2.3",
     "http-status-codes": "^2.2.0",
     "lodash.isempty": "^4.4.0",
     "moment": "^2.29.4",

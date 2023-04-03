@@ -6,7 +6,7 @@ export const useNetwork = () => {
 
   const runtimeConfig = useRuntimeConfig()
   const getNetworkUserSetting = () =>
-    networkUserSetting.value || runtimeConfig.defaultNetworkKey
+    networkUserSetting.value || runtimeConfig.public.defaultNetworkKey
 
   // state
   const networkSetting = useState<string>('network.setting', () =>

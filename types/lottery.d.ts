@@ -12,7 +12,7 @@ export enum RewardUnit {
 
 export interface Round {
   id: string
-  drawDateTime: number
+  endTime: number
   startTime: number
   status: RoundStatus
   timestamp: number

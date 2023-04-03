@@ -8,9 +8,11 @@ const mumbaiQulotContract = process.env.MUMBAI_QULOT_CONTRACT || ''
 export default defineNuxtConfig({
   // https://nuxt.com/docs/guide/going-further/runtime-config
   runtimeConfig: {
-    defaultNetworkKey,
-    qulot: {
-      mumbai: mumbaiQulotContract,
+    public: {
+      defaultNetworkKey,
+      contracts: {
+        mumbai: mumbaiQulotContract,
+      }
     },
   },
 

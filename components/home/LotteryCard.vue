@@ -57,7 +57,7 @@ const resultLabel = computed(() => {
   if (props.lottery.lastRound) {
     lastRoundId = formatNumber(props.lottery.lastRound.id)
     lastRoundDraw = formatTimestamp(
-      props.lottery.lastRound.drawDateTime,
+      props.lottery.lastRound.startTime,
       'ddmmyyyy'
     ) as string
   }
@@ -88,10 +88,6 @@ const winningNumbers = computed(() => {
 })
 
 const nextDrawDatetime = computed(() => {
-  if (props.lottery?.nextRound?.drawDateTime) {
-    return timestampToDateTime(props.lottery.nextRound.drawDateTime)
-  } else {
-    return nextTickOf(props.lottery.periodDays, props.lottery.periodHourOfDays)
-  }
+  return nextTickOf(props.lottery.periodDays, props.lottery.periodHourOfDays)
 })
 </script>

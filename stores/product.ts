@@ -19,6 +19,7 @@ export const useProductStore = defineStore('product', {
   actions: {
     async getLotteries() {
       const { networkSetting } = useNetwork()
+      
       const { client } = useApolloClient(networkSetting.value.toString())
       const result = await client.query<GetLotteriesResult>({
         query: getLotteries,
