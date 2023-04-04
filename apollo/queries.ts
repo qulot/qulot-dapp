@@ -7,6 +7,21 @@ export const getTotalUsersTotalPrize = gql`
   }
 `
 
+export const getUsersOrderByWinAmount = gql`
+  query GetUsersOrderByWinAmount($first: Int, $orderDirection: String) {
+    users(
+      orderBy: totalWinAmount
+      orderDirection: $orderDirection
+      first: $first
+    ) {
+      id
+      totalWinAmount
+      totalTickets
+      totalAmount
+    }
+  }
+`
+
 export const getLotteries = gql`
   query GetLotteries {
     lotteries {

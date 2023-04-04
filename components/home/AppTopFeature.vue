@@ -1,6 +1,6 @@
 <template>
   <section
-    class="relative overflow-hidden section-welcome bg-cover bg-no-repeat bg-center bg-[url('/banner/bg-banner-top.png')]">
+    class="relative overflow-hidden section-welcome bg-cover bg-no-repeat bg-center bg-[url('/banner/bg-banner-top.png')] group">
     <div class="container mx-auto relative z-10">
       <div class="flex flex-wrap items-center">
         <div class="w-full lg:w-1/2 2xl:w-6/12 text-white text-center lg:text-start">
@@ -38,8 +38,8 @@
         </div>
       </div>
     </div>
-    <img src="/banner/coin-scattered-left.svg" alt="" class="hidden lg:block absolute -bottom-[35px] -left-[35px]" />
-    <img src="/banner/coin-scattered-right.svg" alt="" class="hidden lg:block absolute top-[30px] -right-[100px]" />
+    <img src="/banner/coin-scattered-left.svg" alt="" class="hidden lg:block absolute -bottom-[35px] -left-[35px] transition ease-in-out group-hover:scale-110" />
+    <img src="/banner/coin-scattered-right.svg" alt="" class="hidden lg:block absolute top-[30px] -right-[100px] transition ease-in-out group-hover:scale-150" />
   </section>
 </template>
 <script setup lang="ts">

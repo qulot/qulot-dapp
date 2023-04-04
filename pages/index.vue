@@ -18,6 +18,7 @@ import { useHomeStore } from '~~/stores/home'
 const homeStore = useHomeStore()
 const { totalPrize, totalUsers, ranks } = storeToRefs(homeStore)
 await homeStore.fetchTotalUsersTotalPrize()
+await homeStore.fetchUsersWinPrizeRanks()
 
 const productStore = useProductStore()
 const { availableLotteries } = storeToRefs(productStore)
