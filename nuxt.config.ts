@@ -1,5 +1,3 @@
-const apolloCacheResults = process.env.APOLLO_CACHE_RESULT === 'true'
-const apolloConnectToDevTools = process.env.APOLLO_DEV_TOOLS === 'true'
 const defaultNetworkKey = process.env.DEFAULT_NETWORK_KEY || 'mumbai'
 const mumbaiSubgraphEndpoint = process.env.MUMBAI_SUBGRAPH_ENDPOINT || ''
 const mumbaiQulotContract = process.env.MUMBAI_QULOT_CONTRACT || ''
@@ -21,6 +19,11 @@ export default defineNuxtConfig({
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['~/assets/css/tailwind.scss', '~/assets/css/transition.scss'],
+
+  // https://nuxt.com/docs/getting-started/transitions
+  app: {
+    pageTransition: { name: 'fade', mode: 'out-in' }
+  },
 
   modules: [
     // https://google-fonts.nuxtjs.org/
@@ -78,7 +81,7 @@ export default defineNuxtConfig({
     fallback: '<svg>...</svg>', // type `string` | `false`
     lazy: true, // type: `boolean`
     log: true, // type: `boolean`,
-    styleDefault: 'max-width: 100%; max-height: 100%;',
+    styleDefault: 'max-width: 100%; max-height: 100%; mix-blend-mode: normal !important;',
   },
 
   postcss: {
@@ -92,11 +95,8 @@ export default defineNuxtConfig({
   apollo: {
     clients: {
       mumbai: {
-        connectToDevTools: apolloConnectToDevTools,
+        connectToDevTools: true,
         httpEndpoint: mumbaiSubgraphEndpoint,
-        inMemoryCacheOptions: {
-          resultCaching: apolloCacheResults,
-        },
       },
     },
   },

@@ -1,3 +1,12 @@
+export const getTotalUsersTotalPrize = gql`
+  query GetTotalUsersTotalPrize {
+    keyValues(where: { or: [{ id: "totalUsers" }, { id: "totalPrize" }] }) {
+      id
+      value
+    }
+  }
+`
+
 export const getLotteries = gql`
   query GetLotteries {
     lotteries {

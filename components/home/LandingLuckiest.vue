@@ -1,96 +1,67 @@
 <template>
-  <section>
+  <section class="bg-gradient-to-r from-[#6135E9] to-[#27B1FF] py-4">
     <div class="container mx-auto">
       <TitleCard title="Luckiest winners">
         <template #icon>
           <svg-icon name="cup" class="h-9 w-9" />
         </template>
-        <template #action>
-          <a
-            href="#"
-            class="text-sm font-bold text-title hover:text-main"
-            @click.prevent="() => {}"
-            >{{ $t('labels.viewAll') }}</a
-          >
-        </template>
       </TitleCard>
-      <ul v-if="listRank">
-        <li
-          v-for="(item, index) in listRank"
-          :key="index"
-          class="rank-item flex items-center space-x-4 lg:space-x-6 py-2 lg:py-4 first:pt-0 border-b border-dotted border-[#E9E9E9] cursor-pointer"
-        >
-          <div class="w-10 lg:w-[60px]">
-            <img
-              v-if="item.rankUrl !== ''"
-              :src="item.rankUrl"
-              :alt="item.title"
-              class="w-10 lg:w-[60px]"
-            />
-            <p v-else class="text-black text-base text-center font-bold">
-              {{ item.id }}
-            </p>
+    </div>
+    <div class="container mx-auto">
+      <Carousel :settings="settings">
+        <Slide v-for="item in ranks" :key="item">
+          <div class="!flex items-center h-full space-x-1 whitespace-nowrap py-2 text-black">
+            <svg-icon :name="item.rank" class="w-10" />
+            <a href="#" class="font-bold">{{ readableAddress(item.address) }}</a>
+            <span class="text-sm">{{ $t("home.wonWithAmount") }}</span>
+            <span class="font-bold text-main">{{ item.prize }}</span>
+            <svg-icon name="dolla" class="w-4 h-4"></svg-icon>
           </div>
-          <div class="flex-1">
-            <p class="text-sm flex flex-wrap items-center space-x-1">
-              <span class="text-black font-bold">{{ item.userName }}...</span>
-              <span>Đã thắng Lotery 5D với số tiền</span>
-              <span class="font-bold text-[#6135E9] flex items-center flex-1">
-                {{ item.prize }}
-                <svg-icon name="dolla" class="ml-1 w-4 h-4"></svg-icon>
-              </span>
-            </p>
-          </div>
-          <a
-            href="#"
-            class="hidden lg:block rank-item__link hover:text-main cursor-pointer"
-          >
-            <svg-icon name="external-link" class="h-4 w-4" />
-          </a>
-        </li>
-      </ul>
+        </Slide>
+      </Carousel>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-const listRank = ref([
-  {
-    id: 1,
-    userName: 'Oxc123456789',
-    prize: '100,000,000',
-    rankUrl: '/luckiest/rank1.svg',
-    title: 'rank1',
+export interface RankItemType {
+  rank: any;
+  address: string;
+  prize: string
+}
+
+defineProps({
+  ranks: Object as PropType<RankItemType[]>
+})
+
+const settings = ref({
+  snapAlign: 'start',
+  itemsToShow: 0.9,
+  autoplay: 2000,
+  wrapAround: true,
+  breakpoints: {
+    500: {
+      itemsToShow: 1.15,
+      snapAlign: 'start',
+    },
+    700: {
+      itemsToShow: 1.4,
+      snapAlign: 'start',
+    },
+    900: {
+      itemsToShow: 1.7,
+      snapAlign: 'start',
+    },
+    1100: {
+      itemsToShow: 2.9,
+      snapAlign: 'start',
+    },
   },
-  {
-    id: 2,
-    userName: 'Oxc123456799',
-    prize: '50,000,000',
-    rankUrl: '/luckiest/rank2.svg',
-    title: 'rank2',
-  },
-  {
-    id: 3,
-    userName: 'Oxc1234567234',
-    prize: '10,000,000',
-    rankUrl: '/luckiest/rank3.svg',
-    title: 'rank3',
-  },
-  {
-    id: 4,
-    userName: 'Oxc1234567345',
-    prize: '2,000,000',
-    rankUrl: '',
-    title: '',
-  },
-  {
-    id: 5,
-    userName: 'Oxc123456755',
-    prize: '1,000,000',
-    rankUrl: '',
-    title: '',
-  },
-])
+})
+
+const readableAddress = (address: string) => {
+  return truncateEthAddress(address)
+}
 </script>
 
 <style lang="scss" scoped>

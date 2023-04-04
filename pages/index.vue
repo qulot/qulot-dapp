@@ -1,8 +1,8 @@
 <template>
   <div class="space-y-8">
-    <HomeAppTopFeature id="summary" />
+    <HomeAppTopFeature :total-prize="totalPrize" :total-users="totalUsers"/>
+    <HomeLandingLuckiest class="!-mt-0" :ranks="ranks" />
     <HomeListLotteries :lotteries="availableLotteries" />
-    <HomeLandingLuckiest />
     <HomeLandingHowWork />
     <HomeLandingFeature />
     <HomeLandingPlatform />
@@ -13,9 +13,14 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { useProductStore } from '~~/stores/product'
+import { useHomeStore } from '~~/stores/home'
+
+const homeStore = useHomeStore()
+const { totalPrize, totalUsers, ranks } = storeToRefs(homeStore)
+await homeStore.fetchTotalUsersTotalPrize()
 
 const productStore = useProductStore()
 const { availableLotteries } = storeToRefs(productStore)
 
-await productStore.getLotteries()
+await productStore.fetchLotteries()
 </script>

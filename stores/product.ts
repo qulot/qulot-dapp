@@ -17,9 +17,8 @@ export const useProductStore = defineStore('product', {
       state.lotteries.filter((lottery) => lottery.nextRound != null),
   },
   actions: {
-    async getLotteries() {
+    async fetchLotteries() {
       const { networkSetting } = useNetwork()
-      
       const { client } = useApolloClient(networkSetting.value.toString())
       const result = await client.query<GetLotteriesResult>({
         query: getLotteries,
