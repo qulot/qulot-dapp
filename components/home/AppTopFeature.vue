@@ -38,8 +38,10 @@
         </div>
       </div>
     </div>
-    <img src="/banner/coin-scattered-left.svg" alt="" class="hidden lg:block absolute -bottom-[35px] -left-[35px] transition ease-in-out group-hover:scale-110" />
-    <img src="/banner/coin-scattered-right.svg" alt="" class="hidden lg:block absolute top-[30px] -right-[100px] transition ease-in-out group-hover:scale-150" />
+    <img src="/banner/coin-scattered-left.svg" alt=""
+      class="hidden lg:block absolute -bottom-[35px] -left-[35px] transition ease-in-out group-hover:scale-110 duration-700" />
+    <img src="/banner/coin-scattered-right.svg" alt=""
+      class="hidden lg:block absolute top-[30px] -right-[100px] transition ease-in-out group-hover:scale-150 duration-1000" />
   </section>
 </template>
 <script setup lang="ts">
@@ -54,16 +56,19 @@ const formatTotalPrize = computed(() => formatUSD(props.totalPrize, 0))
   position: relative;
   color: #F5A938;
   font-weight: bold;
+  width: fit-content;
+  display: inline-block;
+  height: fit-content;
 
   &::before {
     position: absolute;
     content: "";
-    background-image: url(/_nuxt/bg/lottery-border.svg);
-    background-repeat: no-repeat;
+    height: 115%;
+    width: 115%;
+    left: -8%;
+    background-image: url(/bg/lottery-border.svg);
     background-size: contain;
-    width: 120%;
-    height: 110%;
-    left: -7px;
+    background-repeat: no-repeat;
   }
 }
 </style>

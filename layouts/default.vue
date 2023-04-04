@@ -10,3 +10,8 @@
     <PageFooter />
   </div>
 </template>
+<script setup lang="ts">
+import { useProductStore } from '~~/stores/product'
+const productStore = useProductStore()
+await productStore.fetchLotteries()
+</script>

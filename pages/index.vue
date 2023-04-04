@@ -22,6 +22,4 @@ await homeStore.fetchUsersWinPrizeRanks()
 
 const productStore = useProductStore()
 const { availableLotteries } = storeToRefs(productStore)
-
-await productStore.fetchLotteries()
 </script>

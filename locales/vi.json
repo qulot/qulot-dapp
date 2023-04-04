@@ -238,6 +238,12 @@
     "winner": "WINNER",
     "totalPrize": "Tổng giải thưởng",
     "totalPlayers": "Số người chơi",
-    "wonWithAmount": "đã thắng với"
+    "luckiestWinners": "Người chơi may mắn",
+    "wonWithAmount": "đã thắng với",
+    "howItWorks": "Cách làm việc",
+    "step": "Bước {step}",
+    "step1": "Chọn xổ số mà bạn muốn giành cơ hội chiến thắng",
+    "step2": "Nạp tiền vào ví, mua vé và chờ quay số",
+    "step3": "Nếu bạn thắng hãy nhận thưởng và để lại cảm nhận trên Twitter"
   }
 }

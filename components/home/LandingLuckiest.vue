@@ -1,7 +1,7 @@
 <template>
   <section class="bg-gradient-to-r from-[#6135E9] to-[#27B1FF] py-4">
     <div class="container mx-auto">
-      <TitleCard title="Luckiest winners">
+      <TitleCard :title="$t('home.luckiestWinners')" tag="a" :title-props="{ href: '#luckiest-winners' }">
         <template #icon>
           <svg-icon name="cup" class="h-9 w-9" />
         </template>
@@ -36,25 +36,24 @@ defineProps({
 
 const settings = ref({
   snapAlign: 'start',
-  itemsToShow: 0.9,
+  itemsToShow: 1,
   autoplay: 2000,
   wrapAround: true,
   breakpoints: {
     500: {
-      itemsToShow: 1.15,
-      snapAlign: 'start',
+      itemsToShow: 1.3,
     },
     700: {
       itemsToShow: 1.4,
-      snapAlign: 'start',
     },
     900: {
       itemsToShow: 1.7,
-      snapAlign: 'start',
     },
     1100: {
+      itemsToShow: 2.3,
+    },
+    1400: {
       itemsToShow: 2.9,
-      snapAlign: 'start',
     },
   },
 })
