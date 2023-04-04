@@ -27,7 +27,7 @@
               <div class="text-base font-bold">{{ formatTotalUsers }}</div>
             </div>
             <div class="absolute bottom-[95px] -mr-[30px] text-white">
-              <a href="#" class="flex items-center justify-center space-x-4">
+              <a href="#lotteries" class="flex items-center justify-center space-x-4">
                 <span class="text-base font-extrabold">{{
                   $t('product.labels.playNow')
                 }}</span>

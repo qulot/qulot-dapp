@@ -21,7 +21,7 @@ import { ITheme, IThemeSettingOptions } from '~~/composables/useTheme'
 
 const themeSetting = useState<IThemeSettingOptions>('theme.setting')
 const themeCurrent = useState<ITheme>('theme.current')
-const { t } = useLang()
+const { t } = useI18n()
 
 const items = computed(() => [
   { icon: 'light', text: t('theme.light'), theme: 'light', active: themeSetting.value === 'light' },

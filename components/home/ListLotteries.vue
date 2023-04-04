@@ -2,6 +2,7 @@
   <section class="relative flex items-center w-full">
     <div class="container mx-auto">
       <div class="space-y-4 lg:space-y-6">
+        <a href="#lotteries"></a>
         <HomeLotteryCard
           v-for="(lottery, i) in lotteries"
           :key="i"

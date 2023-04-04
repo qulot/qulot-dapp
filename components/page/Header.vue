@@ -46,11 +46,11 @@
 </template>
 <script setup lang="ts">
 const route = useRoute()
-const { t } = useLang()
+const { t } = useI18n()
 const { showSidebar } = useSidebar()
 const { scrollAtTop } = useScrollTop(50)
 
-const menuItems = ref([
+const menuItems = computed(() => [
   {
     text: t('menu.title.homePage'),
     href: '/',

@@ -21,7 +21,7 @@
   </div>
 </template>
 <script setup lang="ts">
-const { t } = useLang()
+const { t } = useI18n()
 const steps = computed(() => [
   {
     name: t('aboutUs.guide.step1.name'),

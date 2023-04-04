@@ -15,7 +15,7 @@
 <script setup lang="ts">
 import { LocaleObject } from 'vue-i18n-routing'
 
-const { locales, locale, setLocale } = useLang()
+const { locales, locale, setLocale } = useI18n()
 
 const items = computed(() =>
   locales.value.map((lang: any) => ({

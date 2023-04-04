@@ -45,7 +45,7 @@
 </template>
 <script setup lang="ts">
 import { Lottery } from '~~/types/lottery'
-const { t } = useLang()
+const { t } = useI18n()
 
 const props = defineProps<{ lottery: Lottery }>()
 

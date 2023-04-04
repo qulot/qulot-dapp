@@ -77,7 +77,7 @@
 </template>
 
 <script>
-const { t } = useLang()
+const { t } = useI18n()
 const simpleSecureList = computed(() => [
   {
     name: t('aboutUs.simpleSecure.simpleSecure1'),
