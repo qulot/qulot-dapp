@@ -7,7 +7,7 @@
     <HomeInnovativeFeatures />
     <Home1stPlatform />
     <HomeTeamPartner />
-    <HomeLandingPaymentCard />
+    <HomeListPartners />
   </div>
 </template>
 <script setup lang="ts">

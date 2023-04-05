@@ -22,7 +22,7 @@
               <h2 class="text-title font-bold text-base mb-2 md:text-2xl">
                 {{ $t("home.step", { step: step.step }) }}
               </h2>
-              <p class="text-sm md:text-base text-black">
+              <p class="text-sm text-justify md:text-base text-black">
                 {{ step.text }}
               </p>
             </div>
