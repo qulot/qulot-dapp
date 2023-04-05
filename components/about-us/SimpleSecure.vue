@@ -5,69 +5,29 @@
         <h2 class="font-bold text-title text-[17px] lg:text-2xl mb-4 lg:mb-10">
           {{ $t('aboutUs.simpleSecure.title') }}
         </h2>
-        <div
-          class="lg:w-[742px] lg:h-[780px] relative flex items-center justify-center mx-auto"
-        >
-          <div
-            class="simple-secure__center w-[182px] h-[212px] mx-auto hidden lg:block"
-          >
-            <img
-              src="/about-us/simple-secure-center.svg"
-              alt="simple secure center"
-            />
+        <div class="lg:w-[742px] lg:h-[780px] relative flex items-center justify-center mx-auto">
+          <div class="simple-secure__center w-[182px] h-[212px] mx-auto hidden lg:block">
+            <img src="/about-us/simple-secure-center.svg" alt="simple secure center" />
+          </div>
+          <div class="line-arrow-01 items-center justify-center absolute top-1/2 w-full -mt-10 -rotate-90 hidden lg:flex">
+            <img src="/about-us/simple-secure-arrow.svg" class="-rotate-90 mx-40" alt="arrow" />
+            <img src="/about-us/simple-secure-arrow.svg" class="rotate-90 mx-40" alt="arrow" />
           </div>
           <div
-            class="line-arrow-01 items-center justify-center absolute top-1/2 w-full -mt-10 -rotate-90 hidden lg:flex"
-          >
-            <img
-              src="/about-us/simple-secure-arrow.svg"
-              class="-rotate-90 mx-40"
-              alt="arrow"
-            />
-            <img
-              src="/about-us/simple-secure-arrow.svg"
-              class="rotate-90 mx-40"
-              alt="arrow"
-            />
+            class="line-arrow-02 items-center justify-center absolute top-1/2 w-full -mt-10 -rotate-[30deg] hidden lg:flex">
+            <img src="/about-us/simple-secure-arrow.svg" class="-rotate-90 mx-40" alt="arrow" />
+            <img src="/about-us/simple-secure-arrow.svg" class="rotate-90 mx-40" alt="arrow" />
           </div>
           <div
-            class="line-arrow-02 items-center justify-center absolute top-1/2 w-full -mt-10 -rotate-[30deg] hidden lg:flex"
-          >
-            <img
-              src="/about-us/simple-secure-arrow.svg"
-              class="-rotate-90 mx-40"
-              alt="arrow"
-            />
-            <img
-              src="/about-us/simple-secure-arrow.svg"
-              class="rotate-90 mx-40"
-              alt="arrow"
-            />
-          </div>
-          <div
-            class="line-arrow-03 hidden lg:flex items-center justify-center absolute top-1/2 w-full -mt-10 rotate-[30deg]"
-          >
-            <img
-              src="/about-us/simple-secure-arrow.svg"
-              class="-rotate-90 mx-40"
-              alt="arrow"
-            />
-            <img
-              src="/about-us/simple-secure-arrow.svg"
-              class="rotate-90 mx-40"
-              alt="arrow"
-            />
+            class="line-arrow-03 hidden lg:flex items-center justify-center absolute top-1/2 w-full -mt-10 rotate-[30deg]">
+            <img src="/about-us/simple-secure-arrow.svg" class="-rotate-90 mx-40" alt="arrow" />
+            <img src="/about-us/simple-secure-arrow.svg" class="rotate-90 mx-40" alt="arrow" />
           </div>
           <ul class="simple-secure__list grid grid-cols-2 gap-3 lg:block">
-            <li
-              v-for="(item, index) in simpleSecureList"
-              :key="item.name"
-              :class="`max-w-[220px] text-center lg:absolute lg:right-1/2 simple-secure__item${
-                index + 1
-              }`"
-            >
+            <li v-for="(item, index) in simpleSecureList" :key="item.name" :class="`max-w-[220px] text-center lg:absolute lg:right-1/2 simple-secure__item${index + 1
+              }`">
               <img :src="item.image" :alt="item.name" class="mb-2 mx-auto" />
-              <div class="text-sm">{{ item.name }}</div>
+              <div class="text-sm text-black">{{ item.name }}</div>
             </li>
           </ul>
         </div>
@@ -76,7 +36,7 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 const { t } = useI18n()
 const simpleSecureList = computed(() => [
   {

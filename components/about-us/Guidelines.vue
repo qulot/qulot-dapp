@@ -6,15 +6,13 @@
           {{ $t('aboutUs.guide.title') }}
         </h2>
       </div>
-      <div
-        class="list-step grid grid-cols-1 gap-y-6 lg:grid-cols-3 lg:gap-y-[127px]"
-      >
+      <div class="list-step grid grid-cols-1 gap-y-6 lg:grid-cols-3 lg:gap-y-[127px]">
         <div v-for="step in steps" :key="step.name" class="text-center">
           <img :src="step.icon" :alt="step.name" class="mb-2 mx-auto" />
           <div class="font-bold text-title text-[17px] mb-2">
             {{ step.name }}
           </div>
-          <div class="max-w-[240px] mx-auto text-sm">{{ step.desc }}</div>
+          <div class="max-w-[240px] mx-auto text-sm text-black">{{ step.desc }}</div>
         </div>
       </div>
     </div>

@@ -35,31 +35,6 @@
     "system": "System",
     "realtime": "Realtime"
   },
-  "wallet": {
-    "labels": {
-      "recharge": "Deposit",
-      "withdraw": "Withdraw",
-      "changeMoney": "Swap",
-      "methodRecharge": "Method recharge money",
-      "networks": "Networks",
-      "myWallet": "My wallet",
-      "balance": "Balance",
-      "amount": "Amount",
-      "cryptoCurrency": "Crypto currency",
-      "address": "Address",
-      "fee": "Fee",
-      "withdrawMoney": "Withdraw money",
-      "amountChange": "Amount change",
-      "amountChanged": "Amount changed",
-      "inputAmountMoney": "Input amount money",
-      "messageAmount": "Insufficient funds",
-      "accountAddress": "{account} wallet address"
-    },
-    "message": {
-      "withdrawSuccess": "Withdraw success",
-      "withdrawError": "Withdraw failed. Please try again.."
-    }
-  },
   "cart": {
     "labels": {
       "order": "Order",
@@ -132,6 +107,15 @@
       "myWallet": "My Wallet",
       "introduce": "Introduce"
     }
+  },
+  "footer": {
+    "description": "Qulot is a decentralized lottery platform powered by Ethereum and its smart contracts without any human intervention.",
+    "linkHome": "Home",
+    "linkAboutUs": "About Us",
+    "linkContactUs": "Contract Us",
+    "linkTermsOfService": "Terms of Service",
+    "linkGithub": "Github",
+    "linkDocument": "Document"
   },
   "payment": {
     "message": {

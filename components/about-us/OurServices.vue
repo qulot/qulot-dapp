@@ -9,24 +9,19 @@
           {{ $t('aboutUs.services.subtitle') }}
         </div>
       </div>
-      <div
-        class="lg:flex justify-center lg:space-x-10 xl:space-x-20 space-y-4 lg:space-y-0"
-      >
+      <div class="lg:flex justify-center lg:space-x-10 xl:space-x-20 space-y-4 lg:space-y-0">
         <div
-          class="rounded-lg bg-white px-4 py-6 lg:px-6 lg:py-8 text-sm lg:max-w-[283px] text-center flex flex-col items-center space-y-6 hover:shadow-default"
-        >
+          class="rounded-lg bg-white px-4 py-6 lg:px-6 lg:py-8 text-sm lg:max-w-[283px] text-center flex flex-col items-center space-y-6 hover:shadow-default">
           <img src="/about-us/about-feature-01.svg" alt="" />
           <div v-html="$t('aboutUs.services.service1')"></div>
         </div>
         <div
-          class="rounded-lg bg-white px-4 py-6 lg:px-6 lg:py-8 text-sm lg:max-w-[283px] text-center flex flex-col items-center space-y-6 hover:shadow-default"
-        >
+          class="rounded-lg bg-white px-4 py-6 lg:px-6 lg:py-8 text-sm lg:max-w-[283px] text-center flex flex-col items-center space-y-6 hover:shadow-default">
           <img src="/about-us/about-feature-02.svg" alt="" />
           <div v-html="$t('aboutUs.services.service2')"></div>
         </div>
         <div
-          class="rounded-lg bg-white px-4 py-6 lg:px-6 lg:py-8 text-sm lg:max-w-[283px] text-center flex flex-col items-center space-y-6 hover:shadow-default"
-        >
+          class="rounded-lg bg-white px-4 py-6 lg:px-6 lg:py-8 text-sm lg:max-w-[283px] text-center flex flex-col items-center space-y-6 hover:shadow-default">
           <img src="/about-us/about-feature-03.svg" alt="" />
           <div v-html="$t('aboutUs.services.service3')"></div>
         </div>
@@ -34,3 +29,4 @@
     </div>
   </div>
 </template>
+<script setup lang="ts"></script>
