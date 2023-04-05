@@ -1,4 +1,4 @@
-import networks from '~~/networks.json'
+import networks from '~~/data/networks.json'
 
 export const useNetwork = () => {
   // composable

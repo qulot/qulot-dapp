@@ -1,7 +1,7 @@
 <template>
   <section class="bg-gradient-to-r from-[#6135E9] to-[#27B1FF] py-4">
     <div class="container mx-auto">
-      <TitleCard :title="$t('home.luckiestWinners')" tag="a" :title-props="{ href: '#luckiest-winners' }">
+      <TitleCard :title="$t('home.luckiestWinners')" tag="a" :title-props="{ href: '#luckiest-winners', class: 'text-white' }">
         <template #icon>
           <svg-icon name="cup" class="h-9 w-9" />
         </template>
@@ -10,7 +10,7 @@
     <div class="container mx-auto">
       <Carousel :settings="settings">
         <Slide v-for="item in ranks" :key="item">
-          <div class="!flex items-center h-full space-x-1 whitespace-nowrap py-2 text-black">
+          <div class="!flex items-center h-full space-x-1 whitespace-nowrap text-white py-2">
             <svg-icon :name="item.rank" class="w-10" />
             <a href="#" class="font-bold">{{ readableAddress(item.address) }}</a>
             <span class="text-sm">{{ $t("home.wonWithAmount") }}</span>

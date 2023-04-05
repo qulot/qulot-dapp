@@ -13,8 +13,10 @@
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen></iframe>
-        <ul class="space-y-8">
-          <li class="flex items-center gap-x-4 lg:gap-x-8" v-for="step in steps" :key="step.step">
+        <ul class="space-y-2">
+          <li
+            class="flex items-center gap-x-2 lg:gap-x-6 p-4 cursor-pointer rounded hover:bg-[#F3F3F3] hover:dark:bg-block"
+            v-for="step in steps" :key="step.step">
             <img :src="step.img" :alt="step.text" class="block md:w-[100px] md:h-[100px]" />
             <div class="flex-grow">
               <h2 class="text-title font-bold text-base mb-2 md:text-2xl">

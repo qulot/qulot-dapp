@@ -232,7 +232,7 @@
     "noProfessionalAdvice": "No Professional Advice.",
     "noProfessionalAdviceDetail": "If the Site provides professional information (for example, medical, legal, or financial), such information is for informational purposes only and should not be construed as professional advice. No action should be taken based upon any information contained in the Site. You should seek independent professional advice from a person who is licensed and/or qualified in the applicable area. Privacy. We care about the privacy of our Users. You understand that by using the Sites you consent to the collection, use and disclosure of personally identifiable information and aggregate data, and to have your personally identifiable information collected, used, transferred to and processed in the United States. Security. Qulot uses commercially reasonable physical, managerial, and technical safeguards to preserve the integrity and security of your personal information and implement your privacy settings. However, we cannot guarantee that unauthorized third parties will never be able to defeat our security measures or use your personal information for improper purposes. You acknowledge that you provide your personal information at your own risk."
   },
-  "home" : {
+  "home": {
     "theWorldFirstBlockchain": "<span class='keyword'>Xổ số</span> blockchain đầu tiên trên thế giới",
     "solution": "Chúng tôi sử dụng công nghệ chuỗi khối để cung cấp các dịch vụ xổ số có tính minh bạch cao và hỗ trợ nhiều mạng và phương thức thanh toán",
     "winner": "WINNER",
@@ -244,6 +244,14 @@
     "step": "Bước {step}",
     "step1": "Chọn xổ số mà bạn muốn giành cơ hội chiến thắng",
     "step2": "Nạp tiền vào ví, mua vé và chờ quay số",
-    "step3": "Nếu bạn thắng hãy nhận thưởng và để lại cảm nhận trên Twitter"
+    "step3": "Nếu bạn thắng hãy nhận thưởng và để lại cảm nhận trên Twitter",
+    "innovativeFeatures": "Tính năng đổi mới",
+    "directlyEngageBillionsUsers": "Thu hút hàng tỷ người dùng trên toàn cầu qua các trò chơi tức thì",
+    "dailyDrawAndSocialInteraction": "Quay thưởng hàng ngày và tương tác xã hội với người chơi trên toàn cầu",
+    "blockchainTechnology": "Công nghệ chuỗi khối và hợp đồng thông minh đảm bảo tính minh bạch vô song để chiếm được lòng tin của người dùng",
+    "noScam": "Không có lừa đảo hoặc các nhà khai thác bị lỗi",
+    "1stPlatform": "Nền tảng đầu tiên",
+    "customLottery": "Trong những phiên bản nâng cấp tiếp theo chúng tôi sẽ cho phép các công ty, tổ chức từ thiện và cá nhân khởi chạy xổ số của riêng họ với các tính năng tùy chỉnh để đáp ứng nhu cầu cụ thể của họ",
+    "blockchainBenefitForCharities": "Nhờ ứng dụng công nghệ blockchain bạn có thể theo dõi tiền của bạn có được chuyển tới đúng người nhận hay không"
   }
 }
