@@ -3,7 +3,7 @@
     'shadow',
     'bg-base-100',
     'rounded-box',
-    'w-40',
+    'w-fit',
     'text-black',
   ]" @item-click="switchLang" arrow-class="text-menu">
     <svg-icon name="global" class="w-4 h-4" />

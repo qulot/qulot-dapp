@@ -9,21 +9,8 @@
       'absolute right-0 top-full mt-2 py-2 bg-white text-title-nodark min-w-full shadow-default text-sm rounded z-50 space-y-1',
       ...contentClass,
     ]">
-      <div v-for="(item, index) in items" :key="`item-${index}`"
-        class="px-4 py-1 cursor-pointer hover:text-main min-w-fit whitespace-nowrap" :class="contentMenuClass"
-        @click="handleClick(item)">
-        <slot name="item" :option="item">
-          <div :class="['flex gap-x-2', { 'text-main': item.active }]">
-            <div v-if="item.icon" class="flex items-center w-5 h-5">
-              <svg-icon :name="item.icon" class="h-full w-full" />
-            </div>
-            <span>{{ item.text }}</span>
-            <div v-show="item.active" class="flex items-center ml-auto">
-              <svg-icon name="check" class="w-5 h-5" />
-            </div>
-          </div>
-        </slot>
-      </div>
+      <DropdownItem v-for="(item, index) in items" :item="item" @click="handleClick(item)" :key="`item-${index}`"
+        :class="contentMenuClass" />
     </div>
   </div>
 </template>

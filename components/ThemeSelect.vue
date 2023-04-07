@@ -3,7 +3,7 @@
     'shadow',
     'bg-base-100',
     'rounded-box',
-    'w-40',
+    'w-fit',
     'text-black',
   ]" @item-click="switchTheme">
     <div v-show="themeCurrent === 'light'" class="flex">
