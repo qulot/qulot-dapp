@@ -1,0 +1,14 @@
+[
+    {
+        "id": 11155111,
+        "name": "Sepolia",
+        "key": "sepolia",
+        "icon": "network-ethereum"
+    },
+    {
+        "id": 80001,
+        "name": "Polygon Mumbai",
+        "key": "mumbai",
+        "icon": "network-polygon"
+    }
+]

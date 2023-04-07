@@ -1,7 +1,7 @@
 <template>
   <div ref="datetimeInput">
     <date-picker
-      v-model="context.model"
+      v-model="newValue"
       placeholder="Chọn ngày"
       format="DD/MM/YYYY"
       value-type="YYYY-MM-DD"
@@ -15,15 +15,13 @@
     </date-picker>
   </div>
 </template>
-
-<script>
-export default {
-  name: 'DateTimeInput',
-  props: {
-    context: {
-      type: Object,
-      required: true,
-    },
+<script setup lang="ts">
+defineProps({
+  context: {
+    type: Object,
+    required: true,
   },
-}
+})
+
+const newValue = ref()
 </script>

@@ -4,31 +4,14 @@
       <img src="/errors.svg" alt="" class="max-w-full h-auto" />
     </div>
 
-    <div class="font-bold text-2xl lg:text-5xl mb-4 mt-2 text-error">
-      {{ errorStatusCode }}
-    </div>
+    <div class="font-bold text-2xl lg:text-5xl mb-4 mt-2 text-error">404</div>
 
     <div class="text-sm lg:text-2xl text-title mb-4">
       {{ $t('message.pageYouLookingNotFound') }}
     </div>
 
-    <nuxt-link to="/" class="bg-main rounded px-4 py-3 text-white text-sm">{{ $t('labels.backToHome') }}</nuxt-link>
+    <nuxt-link to="/" class="bg-main rounded px-4 py-3 text-white text-sm">{{
+      $t('labels.backToHome')
+    }}</nuxt-link>
   </section>
 </template>
-<script>
-import { StatusCodes } from 'http-status-codes'
-export default {
-  name: 'error-404',
-  props: {
-    error: {
-      type: Object,
-      default: () => {},
-    },
-  },
-  data() {
-    return {
-      errorStatusCode: StatusCodes.NOT_FOUND,
-    }
-  },
-}
-</script>

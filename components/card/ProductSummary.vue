@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <blockquote
     class="
       flex flex-row-reverse
@@ -56,11 +56,10 @@
   </blockquote>
 </template>
 <script>
-import CountDown from "@/components/datetime/CountDown.vue";
-import LotteryProduct from "@/models/lottery/product";
-import LuckyNumberItem from "@/components/other/LuckyNumber.vue";
-import { formatDateTime, FORMATS, toDateTime } from "@/utils/datetime";
-import { formatUSD } from "@/utils/currency";
+import CountDown from "~~/components/datetime/CountDown.vue";
+import LuckyNumberItem from "~~/components/other/LuckyNumber.vue";
+import { formatDateTime, FORMATS, toDateTime } from "~~/utils/datetime";
+import { formatUSD } from "~~/utils/currency";
 export default {
   components: {
     CountDown,
@@ -68,7 +67,7 @@ export default {
   },
   props: {
     product: {
-      type: [LotteryProduct, Object],
+      type: [ Object],
       require: true,
       default: null,
     },
@@ -138,4 +137,4 @@ export default {
     },
   },
 };
-</script>
+</script> -->
