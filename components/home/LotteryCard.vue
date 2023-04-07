@@ -35,8 +35,8 @@
       </div>
     </div>
     <div>
-      <Button type="text" :is-loading="loading" variant="primary" class="font-bold rounded !justify-between !text-white"
-        @click="$router.push(`/product/${lottery.id}`)">
+      <Button type="text" :is-loading="loading" variant="primary" rounded
+        class="font-bold !justify-between !text-white gap-2" @click="$router.push(`/product/${lottery.id}`)">
         <span>{{ $t('product.labels.playNow') }}</span>
         <svg-icon name="arrow-right-circle" class="w-4 h-4" />
       </Button>

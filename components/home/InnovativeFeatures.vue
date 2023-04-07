@@ -8,7 +8,7 @@
       </TitleCard>
       <div class="grid grid-cols-1 gap-6 lg:grid-cols-4 dark:text-white">
         <div v-for="(feature, index) in listFeature" :key="index"
-          class="flex space-x-4 lg:space-x-0 lg:flex-col lg:space-y-8 items-center justify-center py-2 lg:py-8 px-2 cursor-pointer rounded hover:bg-[#F3F3F3] hover:dark:bg-block text-center">
+          class="flex space-x-4 lg:space-x-0 lg:flex-col lg:space-y-8 items-center justify-center py-2 lg:py-8 cursor-pointer rounded hover:bg-[#F3F3F3] hover:dark:bg-block text-center">
           <img :src="feature.image" alt="image" class="w-[90px] h-[90px] lg:w-[140px] lg:h-[140px]" />
           <p class="flex-grow text-sm text-justify lg:text-center">
             {{ feature.content }}

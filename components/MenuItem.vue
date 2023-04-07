@@ -1,26 +1,12 @@
 <template>
-  <div
-    v-if="item"
-    class="relative transition duration-150 ease-out text-[17px] leading-tight hover:text-main"
-    :class="className"
-  >
-    <svg-icon
-      v-if="isActive && horizontal"
-      name="arrow-menu"
-      class="w-[80px] h-[6px] absolute -top-0 left-1/2 text-main -translate-x-1/2"
-    />
-    <svg-icon
-      v-if="isActive && !horizontal"
-      name="arrow-menu-mobile"
-      class="w-[6px] h-8 absolute top-0 left-0 text-main"
-    />
+  <div v-if="item" class="relative transition duration-150 ease-out text-[17px] leading-tight hover:text-main"
+    :class="className">
+    <svg-icon v-if="isActive && horizontal" name="arrow-menu"
+      class="w-[80px] h-[6px] absolute -top-0 left-1/2 text-main -translate-x-1/2" />
+    <svg-icon v-if="isActive && !horizontal" name="arrow-menu-mobile"
+      class="w-[6px] h-8 absolute top-0 left-0 text-main" />
     <span v-if="item.title">{{ item.title }}</span>
-    <component
-      :is="item.href ? NuxtLink : 'div'"
-      v-else
-      v-bind="getItemProps(item)"
-      :class="{ active: isActive }"
-    >
+    <component :is="item.href ? NuxtLink : 'div'" v-else v-bind="getItemProps(item)" :class="{ active: isActive }">
       <svg-icon v-if="item.icon" class="w-4 h-4 mr-2" :name="item.icon" />
       {{ item.text }}
     </component>
@@ -52,7 +38,9 @@ const isActive = computed(() => {
 
 const className = computed(() => {
   const arrClass = []
-  if (isActive) arrClass.push('text-main font-bold')
+  if (isActive.value) {
+    arrClass.push('text-main font-bold')
+  }
   props.horizontal ? arrClass.push('py-[22px]') : arrClass.push('px-4 py-1.5')
   return arrClass.join(' ')
 })

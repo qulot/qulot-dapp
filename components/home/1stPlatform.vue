@@ -1,6 +1,6 @@
 <template>
   <section class="pt-6">
-    <div class="container px-4 mx-auto">
+    <div class="container mx-auto">
       <TitleCard :title="$t('home.1stPlatform')" tag="a" :title-props="{ href: '#1st-platform' }">
         <template #icon>
           <svg-icon name="crown" class="h-9 w-9" />

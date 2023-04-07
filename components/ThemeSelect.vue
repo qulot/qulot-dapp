@@ -1,18 +1,16 @@
 <template>
-  <Dropdown title="Change Theme" class="text-menu" :items="items" :positions="['end']" :content-class="[
+  <Dropdown title="Change Theme" class="text-white gap-2" :items="items" :positions="['end']" :content-class="[
     'shadow',
     'bg-base-100',
     'rounded-box',
     'w-40',
     'text-black',
   ]" @item-click="switchTheme">
-    <div class="h-5 flex items-center justify-center text-menu space-x-2">
-      <div v-show="themeCurrent === 'light'" class="mx-auto my-auto">
-        <svg-icon name="light" />
-      </div>
-      <div v-show="themeCurrent === 'dark'" class="mx-auto my-auto">
-        <svg-icon name="dark" />
-      </div>
+    <div v-show="themeCurrent === 'light'" class="flex">
+      <svg-icon name="light" class="w-5 h-5" />
+    </div>
+    <div v-show="themeCurrent === 'dark'" class="flex">
+      <svg-icon name="dark" class="w-5 h-5" />
     </div>
   </Dropdown>
 </template>

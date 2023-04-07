@@ -19,7 +19,8 @@
     "delete": "Xóa",
     "change": "Thay đổi",
     "viewAll": "Xem tất cả",
-    "backToHome": "Về trang chủ"
+    "backToHome": "Về trang chủ",
+    "connectWallet": "Kết nối"
   },
   "datetime": {
     "labels": {

@@ -15,7 +15,7 @@
           allowfullscreen></iframe>
         <ul class="space-y-2">
           <li
-            class="flex items-center gap-x-2 lg:gap-x-6 p-4 cursor-pointer rounded hover:bg-[#F3F3F3] hover:dark:bg-block"
+            class="flex items-center gap-x-2 lg:gap-x-6 py-4 cursor-pointer rounded hover:bg-[#F3F3F3] hover:dark:bg-block"
             v-for="step in steps" :key="step.step">
             <img :src="step.img" :alt="step.text" class="block md:w-[100px] md:h-[100px]" />
             <div class="flex-grow">

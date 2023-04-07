@@ -1,10 +1,12 @@
 <template>
-  <div v-click-outside="hideDropdown" class="relative">
-    <div class="cursor-pointer" @click="isShow = !isShow">
-      <slot></slot>
-    </div>
+  <div v-click-outside="hideDropdown" class="relative cursor-pointer flex items-center" @click="isShow = !isShow">
+    <slot></slot>
+    <svg-icon name="chevron-left" class="h-4 w-4 duration-100" :class="[
+      { 'rotate-180': isShow },
+      arrowClass
+    ]" />
     <div v-if="items.length > 0 && isShow" :class="[
-      'absolute right-0 top-full mt-2 py-2 bg-white text-title-nodark min-w-full shadow-default text-sm rounded z-50',
+      'absolute right-0 top-full mt-2 py-2 bg-white text-title-nodark min-w-full shadow-default text-sm rounded z-50 space-y-1',
       ...contentClass,
     ]">
       <div v-for="(item, index) in items" :key="`item-${index}`"
@@ -12,12 +14,12 @@
         @click="handleClick(item)">
         <slot name="item" :option="item">
           <div :class="['flex gap-x-2', { 'text-main': item.active }]">
-            <div v-if="item.icon" class="flex items-center">
-              <svg-icon :name="item.icon" />
+            <div v-if="item.icon" class="flex items-center w-5 h-5">
+              <svg-icon :name="item.icon" class="h-full w-full" />
             </div>
             <span>{{ item.text }}</span>
             <div v-show="item.active" class="flex items-center ml-auto">
-              <svg-icon name="check" />
+              <svg-icon name="check" class="w-5 h-5" />
             </div>
           </div>
         </slot>
@@ -33,7 +35,7 @@ export interface DropDownItem {
   active?: boolean
 }
 
-defineProps({
+const props = defineProps({
   items: {
     type: Array<DropDownItem | any>,
     default: () => [],
@@ -46,6 +48,14 @@ defineProps({
     type: [String, Object, Array],
     default: () => '',
   },
+  arrow: {
+    type: Boolean,
+    default: true
+  },
+  arrowClass: {
+    type: String,
+    default: () => '',
+  }
 })
 
 const emit = defineEmits(['item-click'])

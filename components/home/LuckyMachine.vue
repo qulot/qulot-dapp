@@ -39,9 +39,9 @@
       </div>
     </div>
     <img src="/banner/coin-scattered-left.svg" alt=""
-      class="hidden lg:block absolute -bottom-[35px] -left-[35px] transition ease-in-out group-hover:scale-110 duration-700" />
+      class="hidden lg:block absolute -bottom-[35px] -left-[35px] transition ease-in-out group-hover:-rotate-3 group-hover:scale-110 duration-700" />
     <img src="/banner/coin-scattered-right.svg" alt=""
-      class="hidden lg:block absolute top-[30px] -right-[100px] transition ease-in-out group-hover:scale-150 duration-1000" />
+      class="hidden lg:block absolute top-[30px] -right-[100px] transition ease-in-out group-hover:rotate-3 group-hover:scale-125 duration-1000" />
   </section>
 </template>
 <script setup lang="ts">

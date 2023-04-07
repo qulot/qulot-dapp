@@ -19,7 +19,8 @@
     "delete": "Delete",
     "change": "Change",
     "viewAll": "See all",
-    "backToHome": "Back to home"
+    "backToHome": "Back to home",
+    "connectWallet": "Connect"
   },
   "datetime": {
     "labels": {

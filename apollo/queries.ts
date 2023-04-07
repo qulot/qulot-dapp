@@ -55,3 +55,30 @@ export const getLotteries = gql`
     }
   }
 `
+export const getRounds = gql`
+  query GetRounds(
+    $orderBy: String
+    $orderDirection: String
+    $skip: Int
+    $first: Int
+  ) {
+    rounds(
+      orderBy: $orderBy
+      orderDirection: $orderDirection
+      skip: $skip
+      first: $first
+    ) {
+      winningNumbers
+      totalTickets
+      totalAmount
+      timestamp
+      status
+      startTime
+      id
+      endTime
+      firstRound {
+        id
+      }
+    }
+  }
+`

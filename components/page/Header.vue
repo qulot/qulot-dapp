@@ -15,18 +15,33 @@
 
           <div class="flex justify-end items-center gap-x-4 lg:gap-x-8">
             <div class="hidden lg:block">
-              <Menu class="text-menu" :items="menuItems" horizontal />
+              <Menu class="text-white" horizontal>
+                <MenuItem horizontal :item="{
+                  text: $t('menu.title.homePage'),
+                  href: '/',
+                }" />
+              </Menu>
             </div>
             <!-- lang dropdown button -->
-            <LangDropdown />
+            <div class="hidden lg:block">
+              <LangSelect />
+            </div>
 
             <!-- theme switcher button -->
-            <ThemeDropdown />
+            <div class="hidden lg:block">
+              <ThemeSelect />
+            </div>
 
             <!-- cart dropdown button -->
-            <nuxt-link class="cursor-pointer text-menu flex items-center" to="/cart">
+            <nuxt-link class="cursor-pointer text-white flex items-center" to="/cart">
               <svg-icon name="cart" class="w-5 h-5" />
             </nuxt-link>
+
+            <!-- network select -->
+            <NetworkSelect />
+
+            <!-- button connect wallet -->
+            <ConnectWallet />
           </div>
         </div>
       </div>
