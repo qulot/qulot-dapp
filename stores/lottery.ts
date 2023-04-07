@@ -6,7 +6,7 @@ type GetLotteriesResult = {
   lotteries: Lottery[]
 }
 
-export const useProductStore = defineStore('product', {
+export const useLotteryStore = defineStore('lottery', {
   state: () => {
     return {
       lotteries: [] as Lottery[],

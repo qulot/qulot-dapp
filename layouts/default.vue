@@ -11,7 +11,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { useProductStore } from '~~/stores/product'
-const productStore = useProductStore()
-await productStore.fetchLotteries()
+import { useLotteryStore } from '~~/stores/lottery'
+const lotteryStore = useLotteryStore()
+await lotteryStore.fetchLotteries()
 </script>
