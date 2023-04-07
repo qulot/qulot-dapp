@@ -1,16 +1,22 @@
 <template>
-  <button :type="btnType" class="btn whitespace-nowrap" :class="[
-    {
-      'btn-primary': variant == 'primary',
-      'btn-secondary': variant == 'secondary',
-      'btn-accent': variant == 'accent',
-      'btn-info': variant == 'info',
-      'btn-success': variant == 'success',
-      'btn-warning': variant == 'warning',
-      'btn-error': variant == 'error',
-    },
-    ...computedButtonClass,
-  ]" :disabled="disabled" @click="$emit('click')">
+  <button
+    :type="btnType"
+    class="btn whitespace-nowrap"
+    :class="[
+      {
+        'btn-primary': variant == 'primary',
+        'btn-secondary': variant == 'secondary',
+        'btn-accent': variant == 'accent',
+        'btn-info': variant == 'info',
+        'btn-success': variant == 'success',
+        'btn-warning': variant == 'warning',
+        'btn-error': variant == 'error',
+      },
+      ...computedButtonClass,
+    ]"
+    :disabled="disabled"
+    @click="$emit('click')"
+  >
     <slot />
   </button>
 </template>
@@ -35,7 +41,7 @@ const props = defineProps({
   rounded: {
     type: Boolean,
     default: false,
-  }
+  },
 })
 
 defineEmits(['click'])
@@ -63,8 +69,8 @@ const btnType = computed(() => {
   text-transform: initial;
 }
 
-.btn>svg,
-.btn>image {
+.btn > svg,
+.btn > image {
   max-height: 40%;
 }
 </style>

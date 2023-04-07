@@ -11,6 +11,8 @@
     <div class="text-sm lg:text-2xl text-title mb-4">
       {{ $t('message.serverHasDeserted') }}
     </div>
-    <nuxt-link to="/" class="bg-main rounded px-4 py-3 text-white text-sm">{{ $t('labels.backToHome') }}</nuxt-link>
+    <nuxt-link to="/" class="bg-main rounded px-4 py-3 text-white text-sm">{{
+      $t('labels.backToHome')
+    }}</nuxt-link>
   </section>
 </template>

@@ -1,6 +1,7 @@
 <template>
   <div
-    class="flex flex-col lg:flex-row lg:items-center space-y-4 lg:space-y-0 space-x-0 lg:space-x-4 bg-[#F3EFFF] dark:bg-block rounded-lg p-3 lg:p-3 xl:p-6 text-sm">
+    class="flex flex-col lg:flex-row lg:items-center space-y-4 lg:space-y-0 space-x-0 lg:space-x-4 bg-[#F3EFFF] dark:bg-block rounded-lg p-3 lg:p-3 xl:p-6 text-sm"
+  >
     <div class="flex items-center gap-x-2 xl:gap-x-6 lg:w-4/12">
       <!-- Lottery Picture -->
       <div class="w-20 h-20 xl:w-32 xl:h-32 flex items-center">
@@ -18,25 +19,40 @@
     </div>
     <div class="flex !mr-auto flex-col justify-center lg:w-3/12 xl:w-4/12">
       <!-- Last Round Win Numbers -->
-      <p class="text-xs mb-2 md:mb-4 md:text-sm text-black" v-html="resultLabel"></p>
+      <p
+        class="text-xs mb-2 md:mb-4 md:text-sm text-black"
+        v-html="resultLabel"
+      ></p>
       <div class="flex items-center gap-x-1">
         <div v-for="(num, i) in winningNumbers" :key="i" class="mr-2">
           <CircleItem :number="num" />
         </div>
       </div>
     </div>
-    <div class="flex flex-col justify-center xl:items-center xl:flex-row xl:gap-x-6">
+    <div
+      class="flex flex-col justify-center xl:items-center xl:flex-row xl:gap-x-6"
+    >
       <!-- Next Round Info -->
       <div class="flex flex-col justify-center h-full flex-grow">
         <p class="text-black">{{ $t('product.labels.nextDrawing') }}</p>
         <div>
-          <DatetimeCountDown2 v-if="nextDrawDatetime" class="w-full my-2" :target="nextDrawDatetime" />
+          <DatetimeCountDown2
+            v-if="nextDrawDatetime"
+            class="w-full my-2"
+            :target="nextDrawDatetime"
+          />
         </div>
       </div>
     </div>
     <div>
-      <Button type="text" :is-loading="loading" variant="primary" rounded
-        class="font-bold !justify-between !text-white gap-2" @click="$router.push(`/product/${lottery.id}`)">
+      <Button
+        type="text"
+        :is-loading="loading"
+        variant="primary"
+        rounded
+        class="font-bold !justify-between !text-white gap-2"
+        @click="$router.push(`/product/${lottery.id}`)"
+      >
         <span>{{ $t('product.labels.playNow') }}</span>
         <svg-icon name="arrow-right-circle" class="w-4 h-4" />
       </Button>

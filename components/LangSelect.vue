@@ -1,11 +1,19 @@
 <template>
-  <Dropdown title="Change Language" class="text-white gap-2" :items="items" :positions="['end']" :content-class="[
-    'shadow',
-    'bg-base-100',
-    'rounded-box',
-    'w-fit',
-    'text-black',
-  ]" @item-click="switchLang" arrow-class="text-menu">
+  <Dropdown
+    title="Change Language"
+    class="text-white gap-2"
+    :items="items"
+    :positions="['end']"
+    :content-class="[
+      'shadow',
+      'bg-base-100',
+      'rounded-box',
+      'w-fit',
+      'text-black',
+    ]"
+    arrow-class="text-menu"
+    @item-click="switchLang"
+  >
     <svg-icon name="global" class="w-4 h-4" />
     <span class="block capitalize">{{ locale }}</span>
   </Dropdown>
@@ -19,7 +27,7 @@ const items = computed(() =>
   locales.value.map((lang: any) => ({
     code: (lang as LocaleObject).code,
     text: (lang as LocaleObject).name,
-    active: (lang as LocaleObject).code === locale.value
+    active: (lang as LocaleObject).code === locale.value,
   }))
 )
 

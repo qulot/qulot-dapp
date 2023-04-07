@@ -11,7 +11,7 @@ const fetchCoinbasePrice = async (symbol: string, currency: string) => {
     `https://api.coinbase.com/v2/prices/${symbol}-${currency}/buy`
   )
 
-  let priceAmount: number = 0
+  let priceAmount = 0
   if (data?.value?.data.amount) {
     priceAmount = parseInt(data?.value?.data.amount)
   }

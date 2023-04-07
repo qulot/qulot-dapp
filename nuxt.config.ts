@@ -10,7 +10,7 @@ export default defineNuxtConfig({
       defaultNetworkKey,
       contracts: {
         mumbai: mumbaiQulotContract,
-      }
+      },
     },
   },
 
@@ -22,7 +22,7 @@ export default defineNuxtConfig({
 
   // https://nuxt.com/docs/getting-started/transitions
   app: {
-    pageTransition: { name: 'fade', mode: 'out-in' }
+    pageTransition: { name: 'fade', mode: 'out-in' },
   },
 
   modules: [
@@ -81,7 +81,8 @@ export default defineNuxtConfig({
     fallback: '<svg>...</svg>', // type `string` | `false`
     lazy: true, // type: `boolean`
     log: true, // type: `boolean`,
-    styleDefault: 'max-width: 100%; max-height: 100%; mix-blend-mode: normal !important;',
+    styleDefault:
+      'max-width: 100%; max-height: 100%; mix-blend-mode: normal !important;',
   },
 
   postcss: {

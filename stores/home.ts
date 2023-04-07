@@ -1,10 +1,10 @@
 import { defineStore } from 'pinia'
+import { formatEther } from 'ethers'
 import { KeyValue } from '~~/types/keyvalue'
 import {
   getTotalUsersTotalPrize,
   getUsersOrderByWinAmount,
 } from '~~/apollo/queries'
-import { formatEther } from 'ethers'
 import { User } from '~~/types/user'
 
 type GetTotalUsersTotalPrizeResult = {
@@ -73,7 +73,7 @@ export const useHomeStore = defineStore('home', {
           orderDirection: 'desc',
         },
       })
-      
+
       if (data.users.length) {
         this.ranks = data.users.map((user, index) => ({
           address: user.id,

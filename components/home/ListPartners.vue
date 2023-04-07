@@ -1,5 +1,7 @@
 <template>
-  <section class="bg-[#F3F3F3] dark:bg-[#282042] pt-3 pb-8 lg:py-6 flex items-center text-[#252526] dark:text-[#FFFFFF]">
+  <section
+    class="bg-[#F3F3F3] dark:bg-[#282042] pt-3 pb-8 lg:py-6 flex items-center text-[#252526] dark:text-[#FFFFFF]"
+  >
     <div class="container mx-auto">
       <Carousel :settings="settings" class="h-[100px]">
         <Slide v-for="item in items" :key="item">
@@ -36,7 +38,6 @@ const items = ref([
 </script>
 <style lang="scss">
 .carousel {
-
   &__viewport,
   &__track {
     height: 100%;
