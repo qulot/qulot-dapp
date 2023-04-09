@@ -1,7 +1,7 @@
 <template>
   <Dropdown
     title="Change Theme"
-    class="text-white gap-2"
+    class="text-white p-2 lg:px-3"
     :items="items"
     :positions="['end']"
     :content-class="[

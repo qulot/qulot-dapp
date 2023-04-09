@@ -2,7 +2,7 @@
   <Dropdown
     title="Network select"
     :items="items"
-    class="p-2 rounded gap-2"
+    class="p-2 lg:px-3"
     @item-click="onChange"
   >
     <template v-if="selected">

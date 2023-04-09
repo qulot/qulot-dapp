@@ -44,7 +44,7 @@ defineProps({
 
 const settings = ref({
   snapAlign: 'start',
-  itemsToShow: 1,
+  itemsToShow: 0.9,
   autoplay: 2000,
   wrapAround: true,
   breakpoints: {

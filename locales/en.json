@@ -242,5 +242,11 @@
     "teamAndPartnersAbout": "is an innovative next-generation software solution DApp that is designed to enhance the participant experience and continues to be the meeting point between technology, equity and entertainment",
     "teamAndPartnersConnect": "We have a unique approach to innovating and modernizing the lottery industry due to our extensive knowledge of the field and our successful track record in working with international organizations such as IBM",
     "teamAndPartnersTeam": "is not only backed by an extraordinary team of people with rich experience in everything from design to cybersecurity to software development, customer relations and strategic planning"
+  },
+  "lottery": {
+    "play": "Play",
+    "introduction": "Lottery introduction",
+    "howToPlay": "How to play",
+    "statistical": "Statistical"
   }
 }

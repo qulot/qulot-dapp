@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="item"
-    class="relative transition duration-150 ease-out text-[17px] leading-tight hover:text-main"
+    class="relative transition duration-150 ease-out text-[17px] leading-tight hover:text-main p-2 lg:px-3"
     :class="className"
   >
     <svg-icon
