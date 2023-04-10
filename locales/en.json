@@ -106,7 +106,9 @@
       "product": "Product",
       "myTicket": "My Ticket",
       "myWallet": "My Wallet",
-      "introduce": "Introduce"
+      "introduce": "Introduce",
+      "language": "Language",
+      "theme": "Theme"
     }
   },
   "footer": {

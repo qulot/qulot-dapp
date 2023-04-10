@@ -41,11 +41,11 @@ const props = defineProps({
 })
 
 const isActive = computed(() => {
-  if (props.item.href.startsWith('#')) {
+  if (props.item.href?.startsWith('#')) {
     return $route.hash === props.item.href
   } else {
     return (
-      props.item.href.startsWith('#') || $route.fullPath === props.item.href
+      props.item.href?.startsWith('#') || $route.fullPath === props.item.href
     )
   }
 })

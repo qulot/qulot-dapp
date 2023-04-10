@@ -17,10 +17,6 @@ defineProps({
             subitems: []
         }),
     },
-    horizontal: {
-        type: Boolean,
-        default: false,
-    },
 })
 </script>
   

@@ -106,7 +106,9 @@
       "product": "Sản phẩm",
       "myTicket": "Vé của tôi",
       "myWallet": "Ví của tôi",
-      "introduce": "Giới thiệu"
+      "introduce": "Giới thiệu",
+      "language": "Ngôn ngữ",
+      "theme": "Giao diện"
     }
   },
   "footer": {

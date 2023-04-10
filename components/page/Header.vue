@@ -5,7 +5,7 @@
         <div class="flex justify-between w-full">
           <div class="flex items-center">
             <div class="cursor-pointer md:hidden mr-4" @click="showSidebar = true">
-              <svg-icon name="menubar" class="w-4 h-4 text-menu" />
+              <svg-icon name="menubar" class="w-4 h-4 text-white" />
             </div>
             <!-- app icon -->
             <nuxt-link to="/" class="w-[90px] lg:w-[120px]">
@@ -54,11 +54,36 @@
       :class="showSidebar ? 'translate-x-0' : '-translate-x-full'">
       <div style="background: rgba(27, 40, 71, 0.5); backdrop-filter: blur(2px)" class="absolute top-0 h-screen w-screen"
         @click="showSidebar = false"></div>
-      <div class="py-4 space-y-6 relative z-50 h-full bg-[#6135E9] w-[300px]">
+      <div class="py-4 space-y-6 relative z-50 h-full bg-[#6135E9] w-[300px] text-white">
         <div class="cursor-pointer ml-4" @click="showSidebar = false">
-          <svg-icon name="menubar" class="w-4 h-4 text-[#BABABA]" />
+          <svg-icon name="menubar" class="w-4 h-4" />
         </div>
-        <Menu class="text-[#BABABA]" :items="menuItems" vertical />
+        <Menu>
+          <MenuItem :item="{
+            text: $t('menu.title.homePage'),
+            href: '/',
+          }" />
+          <MenuItemCollapse :item="{
+            text: $t('lottery.play'),
+            subitems: playMenuSubItems
+          }" />
+          <MenuItem :item="{
+            text: $t('footer.linkAboutUs'),
+            href: '/about-us',
+          }" />
+          <div class="flex flex-row items-center justify-between">
+            <MenuItem :item="{
+              text: $t('menu.title.language')
+            }" />
+            <LangSelect arrow />
+          </div>
+          <div class="flex flex-row items-center justify-between">
+            <MenuItem :item="{
+              text: $t('menu.title.theme')
+            }" />
+            <ThemeSelect arrow />
+          </div>
+        </Menu>
       </div>
     </div>
   </header>
@@ -73,21 +98,6 @@ const { showSidebar } = useSidebar()
 const { scrollAtTop } = useScrollTop(50)
 const lotteryStore = useLotteryStore()
 const { availableLotteries } = storeToRefs(lotteryStore)
-
-const menuItems = computed(() => [
-  {
-    text: t('menu.title.homePage'),
-    href: '/',
-  },
-  {
-    text: t('menu.title.product'),
-    href: '/products',
-  },
-  {
-    text: t('menu.title.introduce'),
-    href: '/about-us',
-  },
-])
 
 const playMenuSubItems = computed(() => availableLotteries.value.map((lottery) => ({
   text: `${lottery.verboseName} ${lottery.numberOfItems}/${lottery.maxValuePerItem}`,
@@ -106,7 +116,7 @@ const playMenuSubItems = computed(() => availableLotteries.value.map((lottery) =
       href: `/lottery/${lottery.id}/statistical`,
     }
   ]
-})));
+})))
 
 const classNavigation = computed(() => {
   if (route.name !== 'index' && route.name !== 'product-id') {

@@ -1,25 +1,24 @@
 <template>
-  <Dropdown
-    title="Change Language"
-    class="text-white p-2 lg:px-3"
-    :items="items"
-    :positions="['end']"
-    :content-class="[
-      'shadow',
-      'bg-base-100',
-      'rounded-box',
-      'w-fit',
-      'text-black',
-    ]"
-    arrow-class="text-menu"
-    @item-click="switchLang"
-  >
+  <Dropdown title="Change Language" class="text-white p-2 lg:px-3" :items="items" :positions="['end']" :content-class="[
+    'shadow',
+    'bg-base-100',
+    'rounded-box',
+    'w-fit',
+    'text-black',
+  ]" :arrow="arrow" @item-click="switchLang">
     <svg-icon name="global" class="w-4 h-4" />
     <span class="block capitalize">{{ locale }}</span>
   </Dropdown>
 </template>
 <script setup lang="ts">
 import { LocaleObject } from 'vue-i18n-routing'
+
+defineProps({
+  arrow: {
+    type: Boolean,
+    default: false
+  }
+})
 
 const { locales, locale, setLocale } = useI18n()
 

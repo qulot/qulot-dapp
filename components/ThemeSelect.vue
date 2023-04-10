@@ -11,6 +11,7 @@
       'w-fit',
       'text-black',
     ]"
+    :arrow="arrow"
     @item-click="switchTheme"
   >
     <div v-show="themeCurrent === 'light'" class="flex">
@@ -23,6 +24,13 @@
 </template>
 <script setup lang="ts">
 import { ITheme, IThemeSettingOptions } from '~~/composables/useTheme'
+
+defineProps({
+  arrow: {
+    type: Boolean,
+    default: false
+  }
+})
 
 const themeSetting = useState<IThemeSettingOptions>('theme.setting')
 const themeCurrent = useState<ITheme>('theme.current')

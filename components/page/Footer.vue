@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="pt-6 pb-6 lg:pt-32 lg:pb-20 bg-[#231E36] text-disable font-normal text-[17px]"
+    class="pt-6 pb-6 lg:pt-32 lg:pb-20 bg-[#231E36] text-white font-normal text-[17px]"
   >
     <div class="container mx-auto lg:flex lg:space-x-10 justify-between">
       <!-- Description -->
@@ -14,7 +14,7 @@
             alt="logo"
           />
         </div>
-        <p class="text-sm lg:text-[17px] text-[#5A5A5A]">
+        <p class="text-sm lg:text-[17px]">
           {{ $t('footer.description') }}
         </p>
       </div>
