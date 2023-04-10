@@ -11,8 +11,8 @@ onMounted(() => {
   useHead({
     htmlAttrs: {
       class: themeCurrent,
-      lang: locale
-    }
+      lang: locale,
+    },
   })
 })
 </script>

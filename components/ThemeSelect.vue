@@ -28,8 +28,8 @@ import { ITheme, IThemeSettingOptions } from '~~/composables/useTheme'
 defineProps({
   arrow: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 })
 
 const themeSetting = useState<IThemeSettingOptions>('theme.setting')

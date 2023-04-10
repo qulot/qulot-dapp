@@ -1,7 +1,13 @@
 <template>
-  <div class="px-4 py-1 cursor-pointer hover:text-main min-w-fit whitespace-nowrap">
-    <component :is="item.href ? NuxtLink : 'div'" :to="item.href" :class="['flex gap-x-2', { 'text-main': item.active }]"
-      @click="handleClick">
+  <div
+    class="px-4 py-1 cursor-pointer hover:text-main min-w-fit whitespace-nowrap"
+  >
+    <component
+      :is="item.href ? NuxtLink : 'div'"
+      :to="item.href"
+      :class="['flex gap-x-2', { 'text-main': item.active }]"
+      @click="handleClick"
+    >
       <div v-if="item.icon" class="flex items-center w-5 h-5">
         <svg-icon :name="item.icon" class="h-full w-full" />
       </div>
