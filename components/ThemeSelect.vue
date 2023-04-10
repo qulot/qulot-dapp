@@ -1,7 +1,7 @@
 <template>
   <Dropdown
     title="Change Theme"
-    class="text-white gap-2"
+    class="text-white p-2 lg:px-3"
     :items="items"
     :positions="['end']"
     :content-class="[
@@ -11,6 +11,7 @@
       'w-fit',
       'text-black',
     ]"
+    :arrow="arrow"
     @item-click="switchTheme"
   >
     <div v-show="themeCurrent === 'light'" class="flex">
@@ -23,6 +24,13 @@
 </template>
 <script setup lang="ts">
 import { ITheme, IThemeSettingOptions } from '~~/composables/useTheme'
+
+defineProps({
+  arrow: {
+    type: Boolean,
+    default: false,
+  },
+})
 
 const themeSetting = useState<IThemeSettingOptions>('theme.setting')
 const themeCurrent = useState<ITheme>('theme.current')

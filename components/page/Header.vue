@@ -11,7 +11,7 @@
               class="cursor-pointer md:hidden mr-4"
               @click="showSidebar = true"
             >
-              <svg-icon name="menubar" class="w-4 h-4 text-menu" />
+              <svg-icon name="menubar" class="w-4 h-4 text-white" />
             </div>
             <!-- app icon -->
             <nuxt-link to="/" class="w-[90px] lg:w-[120px]">
@@ -24,7 +24,7 @@
             </nuxt-link>
           </div>
 
-          <div class="flex justify-end items-center gap-x-4 lg:gap-x-8">
+          <div class="flex justify-end items-center">
             <div class="hidden lg:block">
               <Menu class="text-white" horizontal>
                 <MenuItem
@@ -32,6 +32,13 @@
                   :item="{
                     text: $t('menu.title.homePage'),
                     href: '/',
+                  }"
+                />
+                <MenuItemDropdown
+                  class="h-fit my-auto"
+                  :item="{
+                    text: $t('lottery.play'),
+                    subitems: playMenuSubItems,
                   }"
                 />
               </Menu>
@@ -48,7 +55,7 @@
 
             <!-- cart dropdown button -->
             <nuxt-link
-              class="cursor-pointer text-white flex items-center"
+              class="cursor-pointer text-white flex items-center p-2 lg:px-3"
               to="/cart"
             >
               <svg-icon name="cart" class="w-5 h-5" />
@@ -72,35 +79,83 @@
         class="absolute top-0 h-screen w-screen"
         @click="showSidebar = false"
       ></div>
-      <div class="py-4 space-y-6 relative z-50 h-full bg-[#6135E9] w-[300px]">
+      <div
+        class="py-4 space-y-6 relative z-50 h-full bg-[#6135E9] w-[300px] text-white"
+      >
         <div class="cursor-pointer ml-4" @click="showSidebar = false">
-          <svg-icon name="menubar" class="w-4 h-4 text-[#BABABA]" />
+          <svg-icon name="menubar" class="w-4 h-4" />
         </div>
-        <Menu class="text-[#BABABA]" :items="menuItems" vertical />
+        <Menu>
+          <MenuItem
+            :item="{
+              text: $t('menu.title.homePage'),
+              href: '/',
+            }"
+          />
+          <MenuItemCollapse
+            :item="{
+              text: $t('lottery.play'),
+              subitems: playMenuSubItems,
+            }"
+          />
+          <MenuItem
+            :item="{
+              text: $t('footer.linkAboutUs'),
+              href: '/about-us',
+            }"
+          />
+          <div class="flex flex-row items-center justify-between">
+            <MenuItem
+              :item="{
+                text: $t('menu.title.language'),
+              }"
+            />
+            <LangSelect arrow />
+          </div>
+          <div class="flex flex-row items-center justify-between">
+            <MenuItem
+              :item="{
+                text: $t('menu.title.theme'),
+              }"
+            />
+            <ThemeSelect arrow />
+          </div>
+        </Menu>
       </div>
     </div>
   </header>
 </template>
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
+import { useLotteryStore } from '~~/stores/lottery'
+
 const route = useRoute()
 const { t } = useI18n()
 const { showSidebar } = useSidebar()
 const { scrollAtTop } = useScrollTop(50)
+const lotteryStore = useLotteryStore()
+const { availableLotteries } = storeToRefs(lotteryStore)
 
-const menuItems = computed(() => [
-  {
-    text: t('menu.title.homePage'),
-    href: '/',
-  },
-  {
-    text: t('menu.title.product'),
-    href: '/products',
-  },
-  {
-    text: t('menu.title.introduce'),
-    href: '/about-us',
-  },
-])
+const playMenuSubItems = computed(() =>
+  availableLotteries.value.map((lottery) => ({
+    text: `${lottery.verboseName} ${lottery.numberOfItems}/${lottery.maxValuePerItem}`,
+    href: `/lottery/${lottery.id}/`,
+    subitems: [
+      {
+        text: t('lottery.introduction'),
+        href: `/lottery/${lottery.id}/about#introduction`,
+      },
+      {
+        text: t('lottery.howToPlay'),
+        href: `/lottery/${lottery.id}/about#how-to-play`,
+      },
+      {
+        text: t('lottery.statistical'),
+        href: `/lottery/${lottery.id}/statistical`,
+      },
+    ],
+  }))
+)
 
 const classNavigation = computed(() => {
   if (route.name !== 'index' && route.name !== 'product-id') {

@@ -106,7 +106,9 @@
       "product": "Sản phẩm",
       "myTicket": "Vé của tôi",
       "myWallet": "Ví của tôi",
-      "introduce": "Giới thiệu"
+      "introduce": "Giới thiệu",
+      "language": "Ngôn ngữ",
+      "theme": "Giao diện"
     }
   },
   "footer": {
@@ -242,5 +244,11 @@
     "teamAndPartnersAbout": "là một DApp giải pháp phần mềm thế hệ tiếp theo sáng tạo được thiết kế để nâng cao trải nghiệm của người tham gia và tiếp tục là điểm gặp gỡ giữa công nghệ, công bằng và giải trí",
     "teamAndPartnersConnect": "Chúng tôi có một cách tiếp cận độc đáo để đổi mới và hiện đại hóa ngành xổ số nhờ kiến thức sâu rộng về lĩnh vực này và thành tích thành công của chúng tôi khi làm việc với các tổ chức quốc tế như IBM",
     "teamAndPartnersTeam": "không chỉ được hỗ trợ bởi một đội ngũ phi thường có kinh nghiệm phong phú về mọi thứ, từ thiết kế đến an ninh mạng đến phát triển phần mềm, quan hệ khách hàng và lập kế hoạch chiến lược"
+  },
+  "lottery": {
+    "play": "Chơi",
+    "introduction": "Giới thiệu xổ số",
+    "howToPlay": "Cách chơi",
+    "statistical": "Thống kê"
   }
 }

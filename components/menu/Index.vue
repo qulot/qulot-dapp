@@ -1,11 +1,5 @@
 <template>
-  <div
-    :class="
-      horizontal
-        ? 'flex flex-row gap-x-4 lg:gap-x-8'
-        : 'flex flex-col gap-y-4 lg:gap-y-8'
-    "
-  >
+  <div class="flex" :class="horizontal ? 'flex-row' : 'flex-col'">
     <slot>
       <div v-for="(item, index) in items" :key="`menu-item-${index}`">
         <slot name="item" :option="item">

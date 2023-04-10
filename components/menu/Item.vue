@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="item"
-    class="relative transition duration-150 ease-out text-[17px] leading-tight hover:text-main"
+    class="relative transition duration-150 ease-out text-[17px] leading-tight hover:text-main p-2 lg:px-3"
     :class="className"
   >
     <svg-icon
@@ -41,11 +41,11 @@ const props = defineProps({
 })
 
 const isActive = computed(() => {
-  if (props.item.href.startsWith('#')) {
+  if (props.item.href?.startsWith('#')) {
     return $route.hash === props.item.href
   } else {
     return (
-      props.item.href.startsWith('#') || $route.fullPath === props.item.href
+      props.item.href?.startsWith('#') || $route.fullPath === props.item.href
     )
   }
 })

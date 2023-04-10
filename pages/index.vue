@@ -12,7 +12,7 @@
 </template>
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { useProductStore } from '~~/stores/product'
+import { useLotteryStore } from '~~/stores/lottery'
 import { useHomeStore } from '~~/stores/home'
 
 const homeStore = useHomeStore()
@@ -20,6 +20,6 @@ const { totalPrize, totalUsers, ranks } = storeToRefs(homeStore)
 await homeStore.fetchTotalUsersTotalPrize()
 await homeStore.fetchUsersWinPrizeRanks()
 
-const productStore = useProductStore()
-const { availableLotteries } = storeToRefs(productStore)
+const lotteryStore = useLotteryStore()
+const { availableLotteries } = storeToRefs(lotteryStore)
 </script>
