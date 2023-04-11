@@ -250,5 +250,11 @@
     "introduction": "Lottery introduction",
     "howToPlay": "How to play",
     "statistical": "Statistical"
+  },
+  "wallet": {
+    "connect": "Connect wallet",
+    "connectMsg": "Stand by connecting with one the wallets below. Be sure to store your private keys or seed phrase security. Never share them with anyone",
+    "notInstallWallet": "Haven’t got a wallet yes?",
+    "learnConnectWallet": " Learn how to connect"
   }
 }

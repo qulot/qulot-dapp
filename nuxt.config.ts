@@ -18,7 +18,11 @@ export default defineNuxtConfig({
   ssr: true,
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['~/assets/css/tailwind.scss', '~/assets/css/transition.scss'],
+  css: [
+    '~/assets/css/tailwind.scss',
+    '~/assets/css/transition.scss',
+    'vue-final-modal/style.css',
+  ],
 
   // https://nuxt.com/docs/getting-started/transitions
   app: {

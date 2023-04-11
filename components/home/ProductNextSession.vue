@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
   <div class="bg-[#F3EFFF] dark:bg-block">
     <div class="container mx-auto py-4 lg:py-6">
       <div class="flex flex-col space-y-4 lg:flex-row lg:space-y-0 lg:items-center lg:justify-between">
@@ -32,7 +32,7 @@
 </template>
 
 <script setup lang="ts">
-import { formatDateTime, FORMATS } from '~~/utils/datetime'
+import { formatDateTime } from '~~/utils/datetime'
 import { formatUSD } from '~~/utils/currency'
 
 const props = defineProps({
@@ -44,4 +44,4 @@ const props = defineProps({
 
 const labelTime = computed(() => formatDateTime(props.session.nextSessionDrawDatetime, "ddmmyyyy"));
 const jackpotActualValue = computed(() => formatUSD(props.session.nextSessionEstimatedJackpot || 0));
-</script> -->
+</script>
