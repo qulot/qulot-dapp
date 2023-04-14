@@ -253,8 +253,13 @@
   },
   "wallet": {
     "connect": "Connect wallet",
+    "connecting": "Connecting...",
     "connectMsg": "Stand by connecting with one the wallets below. Be sure to store your private keys or seed phrase security. Never share them with anyone",
     "notInstallWallet": "Haven’t got a wallet yes?",
-    "learnConnectWallet": " Learn how to connect"
+    "learnConnectWallet": " Learn how to connect",
+    "yourWallet": "Your Wallet",
+    "yourAddress": "Your address",
+    "balance": "{balance} Balance",
+    "disconnect": "Disconnect Wallet"
   }
 }

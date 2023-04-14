@@ -250,5 +250,16 @@
     "introduction": "Giới thiệu xổ số",
     "howToPlay": "Cách chơi",
     "statistical": "Thống kê"
+  },
+  "wallet": {
+    "connect": "Kết nối ví",
+    "connecting": "Đang kết nối...",
+    "connectMsg": "Sẵn sàng kết nối với một trong các ví bên dưới. Đảm bảo lưu trữ khóa riêng hoặc bảo mật cụm từ hạt giống của bạn. Không bao giờ chia sẻ chúng với bất cứ ai",
+    "notInstallWallet": "Bạn không có ví?",
+    "learnConnectWallet": " Hướng dẫn kết nối ví",
+    "yourWallet": "Ví Của Bạn",
+    "yourAddress": "Địa chỉ của bạn",
+    "balance": "Số dư {balance}",
+    "disconnect": "Ngắt Kết Nối Ví"
   }
 }

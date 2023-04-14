@@ -1,13 +1,17 @@
-const defaultNetworkKey = process.env.DEFAULT_NETWORK_KEY || 'mumbai'
+const defaultChainId = parseInt(process.env.DEFAULT_CHAIN_ID || '80001')
+const infuraApiKey = process.env.INFURA_API_KEY || ''
 const mumbaiSubgraphEndpoint = process.env.MUMBAI_SUBGRAPH_ENDPOINT || ''
 const mumbaiQulotContract = process.env.MUMBAI_QULOT_CONTRACT || ''
+const isProduction = process.env.NODE_ENV === 'production'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   // https://nuxt.com/docs/guide/going-further/runtime-config
   runtimeConfig: {
     public: {
-      defaultNetworkKey,
+      isProduction,
+      defaultChainId,
+      infuraApiKey,
       contracts: {
         mumbai: mumbaiQulotContract,
       },
@@ -99,10 +103,14 @@ export default defineNuxtConfig({
   // https://apollo.nuxtjs.org/getting-started/quick-start
   apollo: {
     clients: {
-      mumbai: {
+      '80001': {
         connectToDevTools: true,
         httpEndpoint: mumbaiSubgraphEndpoint,
       },
     },
+  },
+
+  typescript: {
+    shim: false,
   },
 })

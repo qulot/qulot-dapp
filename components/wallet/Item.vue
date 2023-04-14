@@ -3,7 +3,7 @@
         <div class="flex items-center justify-center w-[64px] h-[64px] p-3 rounded bg-[#E1E1E1]">
             <img :src="icon" :alt="name" class="h-100 w-auto">
         </div>
-        <span class="text-dark">{{ name }}</span>
+        <span class="text-dark dark:text-white">{{ name }}</span>
     </div>
 </template>
 <script setup lang="ts">

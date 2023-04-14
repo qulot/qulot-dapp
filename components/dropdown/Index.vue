@@ -37,6 +37,7 @@ export interface DropDownItem {
   text?: string
   href?: string
   active?: boolean
+  onClick?: Function
 }
 
 defineProps({
@@ -77,6 +78,12 @@ const validateURL = (link: string) =>
 const click = (item: DropDownItem) => {
   emit('item-click', item)
   hideDropdown()
+
+  if (item.onClick && typeof item.onClick === 'function') {
+    item.onClick(item)
+    return
+  }
+
   if (item.href) {
     if (validateURL(item.href)) {
       window.open(item.href, '_blank')

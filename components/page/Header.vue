@@ -8,7 +8,7 @@
         <div class="flex justify-between w-full">
           <div class="flex items-center">
             <div
-              class="cursor-pointer md:hidden mr-4"
+              class="cursor-pointer lg:hidden mr-4"
               @click="showSidebar = true"
             >
               <svg-icon name="menubar" class="w-4 h-4 text-white" />
@@ -65,13 +65,13 @@
             <NetworkSelect />
 
             <!-- button connect wallet -->
-            <ConnectWallet />
+            <ButtonConnectWallet />
           </div>
         </div>
       </div>
     </nav>
     <div
-      class="fixed transition duration-150 ease-out top-0 left-0 w-screen h-screen z-50 md:hidden"
+      class="fixed transition duration-150 ease-out top-0 left-0 w-screen h-screen z-50 lg:hidden"
       :class="showSidebar ? 'translate-x-0' : '-translate-x-full'"
     >
       <div

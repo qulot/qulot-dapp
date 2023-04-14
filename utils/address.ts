@@ -20,8 +20,11 @@ export function truncateEthAddress(address: string) {
  * @param address Full address to truncate
  * @returns Truncated address
  */
-export function shortEthAddress(address: string) {
-  const match = address.match(truncateShortRegex)
-  if (!match) return address
-  return `${match[1]}…${match[2]}`
+export function shortEthAddress(address: string | null) {
+  if (address) {
+    const match = address.match(truncateShortRegex)
+    if (!match) return address
+    return `${match[1]}…${match[2]}`
+  }
+  return null
 }
