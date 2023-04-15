@@ -13,7 +13,7 @@ export default defineNuxtConfig({
       defaultChainId,
       infuraApiKey,
       contracts: {
-        mumbai: mumbaiQulotContract,
+        '80001': mumbaiQulotContract,
       },
     },
   },

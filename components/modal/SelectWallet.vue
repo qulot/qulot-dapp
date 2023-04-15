@@ -10,7 +10,7 @@
                     <!-- Wallet available list -->
                     <div class="flex items-center justify-start gap-6">
                         <WalletItem v-for="wallet in wallets" :key="wallet.id" :icon="wallet.icon" :name="wallet.name"
-                            @click="connectWallet(wallet.id)" />
+                            @click="connect(wallet.id)" />
                     </div>
                 </div>
                 <!-- Wallet banner -->
@@ -46,10 +46,4 @@ const value = computed({
 })
 
 const { wallets, connect } = useEthers()
-
-const connectWallet = async (wallet: string) => {
-    const result = await connect(wallet)
-    console.log(result);
-
-}
 </script>

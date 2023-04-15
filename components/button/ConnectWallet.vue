@@ -1,13 +1,13 @@
 <template>
   <Button variant="primary" rounded class="gap-2" @click="onClick">
-    <template v-if="wallet.status === 'connected' || wallet.status === 'reconnecting'">
-      <span class="rounded-full bg-white w-7 h-7 p-1 flex items-center justify-center">
-        <svg-icon name="wallet" class="text-main" />
+    <div class="flex items-center space-x-2" v-if="wallet.status === 'connected' || wallet.status === 'reconnecting'">
+      <span class="rounded-full bg-white p-1 flex items-center justify-center -my-1">
+        <svg-icon name="wallet" class="text-main w-5 h-5" />
       </span>
       <span class="text-white hidden lg:inline-block">
         {{ readableAddress }}
       </span>
-    </template>
+    </div>
     <template v-else-if="wallet.status === 'connecting'">
       <svg-icon name="loader" class="w-4 h-4 animate-spin" />
       {{ $t('wallet.connecting') }}

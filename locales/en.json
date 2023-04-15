@@ -259,7 +259,9 @@
     "learnConnectWallet": " Learn how to connect",
     "yourWallet": "Your Wallet",
     "yourAddress": "Your address",
+    "balances": "Wallet balance",
     "balance": "{balance} Balance",
-    "disconnect": "Disconnect Wallet"
+    "disconnect": "Disconnect Wallet",
+    "viewOnExplorer": "View on explorer"
   }
 }

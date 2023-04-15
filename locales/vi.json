@@ -259,7 +259,9 @@
     "learnConnectWallet": " Hướng dẫn kết nối ví",
     "yourWallet": "Ví Của Bạn",
     "yourAddress": "Địa chỉ của bạn",
+    "balances": "Số dư ví",
     "balance": "Số dư {balance}",
-    "disconnect": "Ngắt Kết Nối Ví"
+    "disconnect": "Ngắt Kết Nối Ví",
+    "viewOnExplorer": "Xem trên trình khám phá"
   }
 }

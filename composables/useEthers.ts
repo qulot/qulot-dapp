@@ -72,6 +72,8 @@ export const useEthers = () => {
 
   const isConnected = () => $wagmi.client.status === 'connected'
   const isReconnect = () => $wagmi.client.status === 'reconnecting'
+  const getChain = (chainId: number) =>
+    $wagmi.chains.find((chain) => chain.id === chainId)
   const isValidWalletChainId = (walletChainId: number) =>
     $wagmi.chains.some((chain) => chain.id === walletChainId)
 
@@ -108,7 +110,7 @@ export const useEthers = () => {
   watch(chainId, (newValue) => (userSettingChainId.value = newValue))
 
   // init setting
-  const init = () => {
+  const init = async () => {
     checkConnection()
   }
 
@@ -120,5 +122,6 @@ export const useEthers = () => {
     init,
     connect,
     disconnect,
+    getChain,
   }
 }

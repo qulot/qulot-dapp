@@ -1,16 +1,43 @@
-import { configureChains, createClient, connect, disconnect } from '@wagmi/core'
+import {
+  configureChains,
+  createClient,
+  connect,
+  disconnect,
+  Connector,
+  fetchBalance,
+  fetchToken,
+  getContract
+} from '@wagmi/core'
 import { infuraProvider } from '@wagmi/core/providers/infura'
-import { polygonMumbai, goerli, polygon, optimism } from '@wagmi/core/chains'
+import {
+  polygonMumbai,
+  goerli,
+  polygon,
+  optimism,
+} from '@wagmi/core/chains'
 import { publicProvider } from '@wagmi/core/providers/public'
 import { MetaMaskConnector } from '@wagmi/core/connectors/metaMask'
 import { CoinbaseWalletConnector } from '@wagmi/core/connectors/coinbaseWallet'
 
-export default defineNuxtPlugin((nuxtApp) => {
+export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig()
 
   let chains = [polygonMumbai, goerli]
   if (config.public.isProduction) {
     chains = [polygon, optimism]
+  }
+
+  let connectors: Connector[] = []
+  if (process.client) {
+    connectors = [
+      new MetaMaskConnector(),
+      new CoinbaseWalletConnector({
+        options: {
+          appName: 'qulot.io',
+          jsonRpcUrl: 'https://eth-mainnet.alchemyapi.io/v2/yourAlchemyId',
+        },
+      }),
+    ]
   }
 
   const { provider, webSocketProvider } = configureChains(chains, [
@@ -22,15 +49,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     autoConnect: true,
     provider,
     webSocketProvider,
-    connectors: [
-      new MetaMaskConnector(),
-      new CoinbaseWalletConnector({
-        options: {
-          appName: 'qulot.io',
-          jsonRpcUrl: 'https://eth-mainnet.alchemyapi.io/v2/yourAlchemyId',
-        },
-      }),
-    ],
+    connectors,
   })
 
   return {
@@ -39,7 +58,10 @@ export default defineNuxtPlugin((nuxtApp) => {
         client,
         chains,
         connect,
-        disconnect
+        disconnect,
+        fetchBalance,
+        fetchToken,
+        getContract
       },
     },
   }

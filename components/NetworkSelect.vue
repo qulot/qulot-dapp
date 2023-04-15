@@ -11,15 +11,10 @@
 <script setup lang="ts">
 const { chains, chainId } = useEthers()
 
-const mapChainIcon = {
-  80001: '/network/polygon.svg',
-  11155111: '/network/ethereum.svg',
-}
-
 const items = computed(() =>
-chains.map((network) => ({
+  chains.map((network) => ({
     id: network.id,
-    iconUrl: (mapChainIcon as any)[network.id] || '/network/ethereum.svg',
+    iconUrl: getChainIcon(network),
     text: network.name,
     active: network.id === chainId.value,
   }))
