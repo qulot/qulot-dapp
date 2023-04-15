@@ -6,15 +6,10 @@ import {
   Connector,
   fetchBalance,
   fetchToken,
-  getContract
+  getContract,
 } from '@wagmi/core'
 import { infuraProvider } from '@wagmi/core/providers/infura'
-import {
-  polygonMumbai,
-  goerli,
-  polygon,
-  optimism,
-} from '@wagmi/core/chains'
+import { polygonMumbai, goerli, polygon, optimism } from '@wagmi/core/chains'
 import { publicProvider } from '@wagmi/core/providers/public'
 import { MetaMaskConnector } from '@wagmi/core/connectors/metaMask'
 import { CoinbaseWalletConnector } from '@wagmi/core/connectors/coinbaseWallet'
@@ -61,7 +56,7 @@ export default defineNuxtPlugin(() => {
         disconnect,
         fetchBalance,
         fetchToken,
-        getContract
+        getContract,
       },
     },
   }

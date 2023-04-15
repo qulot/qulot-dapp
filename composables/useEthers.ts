@@ -110,7 +110,7 @@ export const useEthers = () => {
   watch(chainId, (newValue) => (userSettingChainId.value = newValue))
 
   // init setting
-  const init = async () => {
+  const init = () => {
     checkConnection()
   }
 

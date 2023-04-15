@@ -12,7 +12,7 @@
         <svg-icon :name="item.icon" class="h-full w-full" />
       </div>
       <div v-else-if="item.iconUrl" class="flex items-center w-5 h-5">
-        <img :src="item.iconUrl" alt="Icon via url" class="h-full w-full">
+        <img :src="item.iconUrl" alt="Icon via url" class="h-full w-full" />
       </div>
       <span>{{ item.text }}</span>
       <div v-show="item.active" class="flex items-center ml-auto">

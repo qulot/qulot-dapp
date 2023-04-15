@@ -45,7 +45,7 @@ export const useAccount = (
 
   const init = async () => {
     if (props.updateOnce) {
-      fetchAccountBalance()
+      await fetchAccountBalance()
     } else if (props.updateInterval) {
       startUpdateBalanceInterval(props.updateInterval)
     }

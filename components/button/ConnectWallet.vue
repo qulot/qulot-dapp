@@ -1,7 +1,12 @@
 <template>
   <Button variant="primary" rounded class="gap-2" @click="onClick">
-    <div class="flex items-center space-x-2" v-if="wallet.status === 'connected' || wallet.status === 'reconnecting'">
-      <span class="rounded-full bg-white p-1 flex items-center justify-center -my-1">
+    <div
+      v-if="wallet.status === 'connected' || wallet.status === 'reconnecting'"
+      class="flex items-center space-x-2"
+    >
+      <span
+        class="rounded-full bg-white p-1 flex items-center justify-center -my-1"
+      >
         <svg-icon name="wallet" class="text-main w-5 h-5" />
       </span>
       <span class="text-white hidden lg:inline-block">
@@ -20,21 +25,30 @@
 <script setup lang="ts">
 const { wallet } = useEthers()
 
-const readableAddress = computed(() => shortEthAddress(wallet.value.account as string))
+const readableAddress = computed(() =>
+  shortEthAddress(wallet.value.account as string)
+)
 
 const showModalConnectWallet = ref(false)
 const showModalYourWallet = ref(false)
 
-watch(wallet, (newValue) => {
-  if (newValue.status === 'connected') {
-    showModalConnectWallet.value = false
-  }
-}, { deep: true })
+watch(
+  wallet,
+  (newValue) => {
+    if (newValue.status === 'connected') {
+      showModalConnectWallet.value = false
+    }
+  },
+  { deep: true }
+)
 
 const onClick = () => {
   if (wallet.value.status === 'disconnected') {
     showModalConnectWallet.value = true
-  } else if (wallet.value.status === 'connected' || wallet.value.status === 'reconnecting') {
+  } else if (
+    wallet.value.status === 'connected' ||
+    wallet.value.status === 'reconnecting'
+  ) {
     showModalYourWallet.value = true
   }
 }

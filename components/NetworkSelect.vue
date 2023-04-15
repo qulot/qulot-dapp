@@ -1,8 +1,15 @@
 <template>
-  <Dropdown title="Network select" :items="items" class="p-2 lg:px-3" @item-click="onChange">
+  <Dropdown
+    title="Network select"
+    :items="items"
+    class="p-2 lg:px-3"
+    @item-click="onChange"
+  >
     <template v-if="selected">
-      <span class="rounded-full bg-white w-7 h-7 p-1 flex items-center justify-center">
-        <img :src="selected.iconUrl" :alt="selected.text" class="h-4 w-4">
+      <span
+        class="rounded-full bg-white w-7 h-7 p-1 flex items-center justify-center"
+      >
+        <img :src="selected.iconUrl" :alt="selected.text" class="h-4 w-4" />
       </span>
       <span class="text-white hidden lg:inline-block">{{ selected.text }}</span>
     </template>

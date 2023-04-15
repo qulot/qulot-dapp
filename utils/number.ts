@@ -51,10 +51,7 @@ export function formatMoney(
  * @param {number} fixed
  * @returns
  */
-export function formatFixed(
-  number: number | string,
-  fixed = 4
-) {
+export function formatFixed(number: number | string, fixed = 4) {
   if (typeof number === 'string') {
     number = parseInt(number)
   }
@@ -72,10 +69,7 @@ export function formatFixed(
  * @param {number} fixed
  * @returns
  */
-export function formatFloatFixed(
-  number: number | string,
-  fixed = 4
-) {
+export function formatFloatFixed(number: number | string, fixed = 4) {
   if (typeof number === 'string') {
     number = parseFloat(number)
   }
