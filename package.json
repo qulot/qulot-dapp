@@ -39,7 +39,7 @@
     "vue3-datepicker": "^0.3.4"
   },
   "dependencies": {
-    "@coinbase/wallet-sdk": "3.3.0",
+    "@coinbase/wallet-sdk": "3.5.3",
     "@formkit/nuxt": "^0.16.4",
     "@nuxtjs/apollo": "5.0.0-alpha.6",
     "@pinia/nuxt": "^0.4.7",

@@ -1,6 +1,10 @@
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
 
 const isProduction = process.env.NODE_ENV === 'production'
+const appName = process.env.APP_NAME || 'Qulot.io'
+const appIcon = process.env.APP_ICON || ''
+const appUrl = process.env.APP_URL || ''
+const appDescription = process.env.APP_DESCRIPTION || ''
 const defaultChainId = parseInt(process.env.DEFAULT_CHAIN_ID || '80001')
 const infuraApiKey = process.env.INFURA_API_KEY || ''
 const walletConnectProjectId = process.env.WALLET_CONNECT_PROJECT_ID || ''
@@ -16,6 +20,12 @@ export default defineNuxtConfig({
       defaultChainId,
       infuraApiKey,
       walletConnectProjectId,
+      metadata: {
+        appName,
+        appIcon,
+        appUrl,
+        appDescription,
+      },
       contracts: {
         '80001': mumbaiQulotContract,
       },

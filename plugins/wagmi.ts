@@ -32,7 +32,8 @@ export default defineNuxtPlugin(() => {
       new CoinbaseWalletConnector({
         chains,
         options: {
-          appName: 'qulot.io',
+          appName: config.public.metadata.appName,
+          appLogoUrl: 'https://qulot-static.pages.dev/logo.png',
         },
       }),
       new WalletConnectConnector({
@@ -40,6 +41,12 @@ export default defineNuxtPlugin(() => {
         options: {
           infuraId: config.public.infuraApiKey,
           qrcode: true,
+          clientMeta: {
+            name: config.public.metadata.appName,
+            icons: [config.public.metadata.appIcon],
+            url: config.public.metadata.appUrl,
+            description: config.public.metadata.appDescription,
+          },
         },
       }),
     ]
