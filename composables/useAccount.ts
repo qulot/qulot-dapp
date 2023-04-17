@@ -1,3 +1,4 @@
+import { Address } from '@wagmi/core'
 import { Balance } from '~~/types/ethers'
 
 interface AccountProps {
@@ -24,16 +25,16 @@ export const useAccount = (
     }
     if (wallet.value.account) {
       balance.value = await $wagmi.fetchBalance({
-        addressOrName: wallet.value.account,
+        address: wallet.value.account as Address,
         chainId: chainId.value,
       })
     }
 
     if (token.value && wallet.value.account) {
       tokenBalance.value = await $wagmi.fetchBalance({
-        addressOrName: wallet.value.account,
+        address: wallet.value.account as Address,
         chainId: chainId.value,
-        token: token.value.address,
+        token: token.value.address as Address,
       })
     }
   }
