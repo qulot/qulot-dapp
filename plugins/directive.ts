@@ -1,6 +1,5 @@
 export default defineNuxtPlugin(({ vueApp }) => {
   vueApp.directive('click-outside', {
-    // eslint-disable-next-line
     mounted(el, binding, vnode) {
       el.clickOutsideEvent = function (event: any) {
         if (!(el === event.target || el.contains(event.target))) {
