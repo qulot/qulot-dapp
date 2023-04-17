@@ -64,7 +64,7 @@ export const useTheme = () => {
   onThemeSettingChange(themeSetting.value)
 
   // lifecycle
-  let intervalCheckTime: number
+  let intervalCheckTime: any
   onBeforeMount(() => init())
   onMounted(() => {
     window

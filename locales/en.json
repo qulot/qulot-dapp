@@ -18,9 +18,9 @@
     "update": "Update",
     "delete": "Delete",
     "change": "Change",
+    "confirm": "OK",
     "viewAll": "See all",
-    "backToHome": "Back to home",
-    "connectWallet": "Connect"
+    "backToHome": "Back to home"
   },
   "datetime": {
     "labels": {
@@ -250,5 +250,20 @@
     "introduction": "Lottery introduction",
     "howToPlay": "How to play",
     "statistical": "Statistical"
+  },
+  "wallet": {
+    "connect": "Connect wallet",
+    "connecting": "Connecting...",
+    "connectMsg": "Stand by connecting with one the wallets below. Be sure to store your private keys or seed phrase security. Never share them with anyone",
+    "notInstallWallet": "Haven’t got a wallet yes?",
+    "learnConnectWallet": " Learn how to connect",
+    "yourWallet": "Your Wallet",
+    "yourAddress": "Your address",
+    "balances": "Wallet balance",
+    "balance": "{balance} Balance",
+    "disconnect": "Disconnect Wallet",
+    "viewOnExplorer": "View on explorer",
+    "opening": "Opening {wallet}",
+    "plsConfirmIn": "Please confirm in {wallet}"
   }
 }

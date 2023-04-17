@@ -18,12 +18,14 @@ export const useLotteryStore = defineStore('lottery', {
   },
   actions: {
     async fetchLotteries() {
-      const { networkSetting } = useNetwork()
-      const { client } = useApolloClient(networkSetting.value.toString())
-      const result = await client.query<GetLotteriesResult>({
+      const { chainId } = useEthers()
+      const { data } = await useAsyncQuery<GetLotteriesResult>({
         query: getLotteries,
+        clientId: chainId.value.toString(),
       })
-      this.lotteries = result.data.lotteries
+      if (data.value) {
+        this.lotteries = data.value.lotteries
+      }
     },
   },
 })

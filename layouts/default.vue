@@ -8,9 +8,12 @@
     </main>
     <!-- Page footer -->
     <PageFooter />
+    <!-- Modals -->
+    <ModalsContainer />
   </div>
 </template>
 <script setup lang="ts">
+import { ModalsContainer } from 'vue-final-modal'
 import { useLotteryStore } from '~~/stores/lottery'
 const lotteryStore = useLotteryStore()
 await lotteryStore.fetchLotteries()

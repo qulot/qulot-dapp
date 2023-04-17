@@ -8,18 +8,7 @@
       >
         {{ title }}
       </component>
-      <slot name="icon">
-        <img
-          v-if="title === '1st platform of its kind'"
-          src="/platform/crown.svg"
-          :alt="title"
-        />
-        <img
-          v-else-if="title === 'Team  & partners'"
-          src="/team/handbag.svg"
-          :alt="title"
-        />
-      </slot>
+      <slot name="icon"> </slot>
     </div>
     <slot name="action"></slot>
   </div>

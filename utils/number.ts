@@ -32,17 +32,53 @@ export function formatNumber(number: number | string) {
 
 /**
  *
- * @param {number} number
+ * @param {number|string} number
  * @param {number} fixed
  * @param {string} currency
  * @returns
  */
-export function formatMoney(number: number, currency: string, fixed = 4) {
+export function formatMoney(
+  number: number | string,
+  currency: string,
+  fixed = 4
+) {
+  return formatFixed(number, fixed) + ' ' + currency
+}
+
+/**
+ *
+ * @param {number|string} number
+ * @param {number} fixed
+ * @returns
+ */
+export function formatFixed(number: number | string, fixed = 4) {
+  if (typeof number === 'string') {
+    number = parseInt(number)
+  }
+
   if (number === 0) {
     fixed = 0
   }
 
-  return number.toFixed(fixed) + ' ' + currency
+  return number.toFixed(fixed)
+}
+
+/**
+ *
+ * @param {number|string} number
+ * @param {number} fixed
+ * @returns
+ */
+export function formatFloatFixed(number: number | string, fixed = 4) {
+  if (typeof number === 'string') {
+    number = parseFloat(number)
+  }
+
+  if (number === 0) {
+    fixed = 0
+  }
+
+  return number.toFixed(fixed)
 }
 
 /**

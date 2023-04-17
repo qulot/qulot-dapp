@@ -9,32 +9,33 @@
       <span
         class="rounded-full bg-white w-7 h-7 p-1 flex items-center justify-center"
       >
-        <svg-icon :name="selected.icon" class="text-main h-4 w-4" />
+        <img :src="selected.iconUrl" :alt="selected.text" class="h-4 w-4" />
       </span>
       <span class="text-white hidden lg:inline-block">{{ selected.text }}</span>
     </template>
   </Dropdown>
 </template>
 <script setup lang="ts">
-const { networks, networkSetting } = useNetwork()
+const { chains, chainId } = useEthers()
+
 const items = computed(() =>
-  networks.map((network) => ({
-    key: network.key,
-    icon: network.icon as any,
+  chains.map((network) => ({
+    id: network.id,
+    iconUrl: getChainIcon(network),
     text: network.name,
-    active: network.key === networkSetting.value,
+    active: network.id === chainId.value,
   }))
 )
 
 const selected = computed(() =>
-  items.value.find((network) => network.key === networkSetting.value)
+  items.value.find((network) => network.id === chainId.value)
 )
 
 const onChange = (newValue: any) => {
-  if (selected.value?.key === newValue.key) {
+  if (selected.value?.id === newValue.id) {
     return
   }
 
-  networkSetting.value = newValue.key
+  chainId.value = newValue.id
 }
 </script>

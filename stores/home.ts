@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { formatEther } from 'ethers'
+import { utils } from 'ethers'
 import { KeyValue } from '~~/types/keyvalue'
 import {
   getTotalUsersTotalPrize,
@@ -45,39 +45,44 @@ export const useHomeStore = defineStore('home', {
   },
   actions: {
     async fetchTotalUsersTotalPrize() {
-      const { networkSetting } = useNetwork()
-      const { client } = useApolloClient(networkSetting.value.toString())
-      const { data } = await client.query<GetTotalUsersTotalPrizeResult>({
+      const { chainId } = useEthers()
+
+      const { data } = await useAsyncQuery<GetTotalUsersTotalPrizeResult>({
         query: getTotalUsersTotalPrize,
+        clientId: chainId.value.toString(),
       })
 
-      const totalUsersTotalPrize = data.keyValues.reduce(
+      const totalUsersTotalPrize = data.value?.keyValues.reduce(
         (obj, kValue) => ({ ...obj, [kValue.id]: kValue.value }),
         {} as Record<string, string>
       )
 
-      if (totalUsersTotalPrize.totalUsers && totalUsersTotalPrize.totalPrize) {
+      if (
+        totalUsersTotalPrize &&
+        totalUsersTotalPrize.totalUsers &&
+        totalUsersTotalPrize.totalPrize
+      ) {
         this.totalUsers = parseInt(totalUsersTotalPrize.totalUsers)
         this.totalPrize = parseFloat(
-          formatEther(totalUsersTotalPrize.totalPrize)
+          utils.formatEther(totalUsersTotalPrize.totalPrize)
         )
       }
     },
     async fetchUsersWinPrizeRanks() {
-      const { networkSetting } = useNetwork()
-      const { client } = useApolloClient(networkSetting.value.toString())
-      const { data } = await client.query<GetUsersOrderByWinAmountResult>({
+      const { chainId } = useEthers()
+      const { data } = await useAsyncQuery<GetUsersOrderByWinAmountResult>({
         query: getUsersOrderByWinAmount,
         variables: {
           first: 5,
           orderDirection: 'desc',
         },
+        clientId: chainId.value.toString(),
       })
 
-      if (data.users.length) {
-        this.ranks = data.users.map((user, index) => ({
+      if (data.value?.users.length) {
+        this.ranks = data.value.users.map((user, index) => ({
           address: user.id,
-          prize: formatEther(user.totalWinAmount),
+          prize: utils.formatEther(user.totalWinAmount),
           rank: RANKS_AS_INDEX[index] || DEFAULT_RANK,
         }))
       }
