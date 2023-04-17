@@ -18,9 +18,9 @@
     "update": "Update",
     "delete": "Delete",
     "change": "Change",
+    "confirm": "OK",
     "viewAll": "See all",
-    "backToHome": "Back to home",
-    "connectWallet": "Connect"
+    "backToHome": "Back to home"
   },
   "datetime": {
     "labels": {

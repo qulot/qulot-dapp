@@ -29,6 +29,16 @@ const wallets = reactive<Wallet[]>([
     name: 'WalletConnect',
     icon: '/wallet/walletconnect.svg',
   },
+  {
+    id: 'bnb',
+    name: 'Binance Wallet',
+    icon: '/wallet/binancewallet.svg',
+  },
+  {
+    id: 'trustWallet',
+    name: 'Trust Wallet',
+    icon: '/wallet/trustwallet.svg',
+  },
 ])
 
 export const useEthers = () => {
@@ -112,7 +122,10 @@ export const useEthers = () => {
   }
 
   // watchers
-  watch(chainId, (newValue) => (userSettingChainId.value = newValue))
+  watch(chainId, (newValue) => {
+    userSettingChainId.value = newValue
+    $wagmi.switchNetwork({ chainId: newValue })
+  })
 
   // init setting
   const init = () => {

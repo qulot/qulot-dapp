@@ -18,9 +18,9 @@
     "update": "Cập nhật",
     "delete": "Xóa",
     "change": "Thay đổi",
+    "confirm": "Đồng ý",
     "viewAll": "Xem tất cả",
-    "backToHome": "Về trang chủ",
-    "connectWallet": "Kết nối"
+    "backToHome": "Về trang chủ"
   },
   "datetime": {
     "labels": {

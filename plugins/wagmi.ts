@@ -7,20 +7,33 @@ import {
   fetchBalance,
   fetchToken,
   getContract,
+  switchNetwork,
+  Chain,
 } from '@wagmi/core'
 import { infuraProvider } from '@wagmi/core/providers/infura'
-import { polygonMumbai, goerli, polygon, optimism } from '@wagmi/core/chains'
+import {
+  polygonMumbai,
+  goerli,
+  polygon,
+  optimism,
+  bsc,
+  bscTestnet,
+  mainnet,
+} from '@wagmi/chains'
 import { publicProvider } from '@wagmi/core/providers/public'
-import { MetaMaskConnector } from '@wagmi/core/connectors/metaMask'
-import { CoinbaseWalletConnector } from '@wagmi/core/connectors/coinbaseWallet'
-import { WalletConnectConnector } from '@wagmi/core/connectors/walletConnect'
+import { MetaMaskConnector } from '@wagmi/connectors/metaMask'
+import { CoinbaseWalletConnector } from '@wagmi/connectors/coinbaseWallet'
+import { WalletConnectConnector } from '@wagmi/connectors/walletConnect'
+import { QrModalOptions } from '@walletconnect/ethereum-provider/dist/types/EthereumProvider'
+import { BinanceWalletConnector } from '~~/wagmi/connectors/binanceWallet'
+import { TrustWalletConnector } from '~~/wagmi/connectors/trustWallet'
 
 export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig()
 
-  let chains = [polygonMumbai, goerli]
+  let chains: Chain[] = [polygonMumbai, goerli]
   if (config.public.isProduction) {
-    chains = [polygon, optimism]
+    chains = [bsc, polygon]
   }
 
   let connectors: Connector[] = []
@@ -29,31 +42,42 @@ export default defineNuxtPlugin(() => {
       new MetaMaskConnector({
         chains,
       }),
-      new CoinbaseWalletConnector({
+      new TrustWalletConnector({
         chains,
+      }),
+      new CoinbaseWalletConnector({
+        chains: [bsc, polygon],
         options: {
           appName: config.public.metadata.appName,
-          appLogoUrl: 'https://qulot-static.pages.dev/logo.png',
+          appLogoUrl: config.public.metadata.appIcon,
         },
       }),
       new WalletConnectConnector({
-        chains,
+        chains: [bsc, polygon],
         options: {
-          infuraId: config.public.infuraApiKey,
-          qrcode: true,
-          clientMeta: {
+          projectId: config.public.walletConnectProjectId,
+          showQrModal: true,
+          metadata: {
             name: config.public.metadata.appName,
             icons: [config.public.metadata.appIcon],
             url: config.public.metadata.appUrl,
             description: config.public.metadata.appDescription,
           },
+          qrModalOptions: {
+            themeVariables: {
+              '--w3m-z-index': '1000',
+            },
+          } as QrModalOptions,
         },
+      }),
+      new BinanceWalletConnector({
+        chains: [bsc],
       }),
     ]
   }
 
   const { provider, webSocketProvider } = configureChains(chains, [
-    infuraProvider({ infuraId: config.public.infuraApiKey }),
+    infuraProvider({ apiKey: config.public.infuraApiKey }),
     publicProvider(),
   ])
 
@@ -74,6 +98,7 @@ export default defineNuxtPlugin(() => {
         fetchBalance,
         fetchToken,
         getContract,
+        switchNetwork,
       },
     },
   }

@@ -21,9 +21,12 @@
   </button>
 </template>
 <script setup lang="ts">
+import { PropType } from 'vue'
+
 export type IButtonType = 'button' | 'submit' | 'reset'
 const props = defineProps({
   type: {
+    type: String as PropType<IButtonType>,
     default: 'button',
   },
   variant: {

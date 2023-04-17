@@ -18,7 +18,7 @@
             {{ $t('wallet.connectMsg') }}
           </p>
           <!-- Wallet available list -->
-          <div class="flex items-center justify-start gap-6">
+          <div class="grid grid-cols-4 items-start justify-start gap-6">
             <WalletItem
               v-for="item in wallets"
               :key="item.id"
