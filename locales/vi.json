@@ -262,6 +262,8 @@
     "balances": "Số dư ví",
     "balance": "Số dư {balance}",
     "disconnect": "Ngắt Kết Nối Ví",
-    "viewOnExplorer": "Xem trên trình khám phá"
+    "viewOnExplorer": "Xem trên trình khám phá",
+    "opening": "Đang mở {wallet}",
+    "plsConfirmIn": "Vui lòng xác nhận trên {wallet}"
   }
 }

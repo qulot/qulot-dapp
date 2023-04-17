@@ -24,6 +24,11 @@ const wallets = reactive<Wallet[]>([
     name: 'Coinbase Wallet',
     icon: '/wallet/coinbase.svg',
   },
+  {
+    id: 'walletConnect',
+    name: 'WalletConnect',
+    icon: '/wallet/walletconnect.svg',
+  },
 ])
 
 export const useEthers = () => {

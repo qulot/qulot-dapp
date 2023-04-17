@@ -32,10 +32,10 @@ const selected = computed(() =>
 )
 
 const onChange = (newValue: any) => {
-  if (selected.value?.id === newValue.key) {
+  if (selected.value?.id === newValue.id) {
     return
   }
 
-  chainId.value = newValue.key
+  chainId.value = newValue.id
 }
 </script>

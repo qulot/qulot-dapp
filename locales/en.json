@@ -262,6 +262,8 @@
     "balances": "Wallet balance",
     "balance": "{balance} Balance",
     "disconnect": "Disconnect Wallet",
-    "viewOnExplorer": "View on explorer"
+    "viewOnExplorer": "View on explorer",
+    "opening": "Opening {wallet}",
+    "plsConfirmIn": "Please confirm in {wallet}"
   }
 }

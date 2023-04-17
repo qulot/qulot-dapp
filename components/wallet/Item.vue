@@ -7,7 +7,7 @@
     >
       <img :src="icon" :alt="name" class="h-100 w-auto" />
     </div>
-    <span class="text-dark dark:text-white">{{ name }}</span>
+    <span class="text-sm text-dark dark:text-white">{{ name }}</span>
   </div>
 </template>
 <script setup lang="ts">

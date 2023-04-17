@@ -13,6 +13,7 @@ import { polygonMumbai, goerli, polygon, optimism } from '@wagmi/core/chains'
 import { publicProvider } from '@wagmi/core/providers/public'
 import { MetaMaskConnector } from '@wagmi/core/connectors/metaMask'
 import { CoinbaseWalletConnector } from '@wagmi/core/connectors/coinbaseWallet'
+import { WalletConnectConnector } from '@wagmi/core/connectors/walletConnect'
 
 export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig()
@@ -25,11 +26,20 @@ export default defineNuxtPlugin(() => {
   let connectors: Connector[] = []
   if (process.client) {
     connectors = [
-      new MetaMaskConnector(),
+      new MetaMaskConnector({
+        chains,
+      }),
       new CoinbaseWalletConnector({
+        chains,
         options: {
           appName: 'qulot.io',
-          jsonRpcUrl: 'https://eth-mainnet.alchemyapi.io/v2/yourAlchemyId',
+        },
+      }),
+      new WalletConnectConnector({
+        chains,
+        options: {
+          infuraId: config.public.infuraApiKey,
+          qrcode: true,
         },
       }),
     ]

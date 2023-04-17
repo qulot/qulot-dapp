@@ -19,7 +19,7 @@
     </template>
     <template v-else>{{ $t('wallet.connect') }}</template>
   </Button>
-  <ModalSelectWallet v-model="showModalConnectWallet" />
+  <ModalSelectWallet v-model:show="showModalConnectWallet" />
   <ModalYourWallet v-model:show="showModalYourWallet" />
 </template>
 <script setup lang="ts">

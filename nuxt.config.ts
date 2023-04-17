@@ -1,8 +1,11 @@
+import { nodePolyfills } from 'vite-plugin-node-polyfills'
+
+const isProduction = process.env.NODE_ENV === 'production'
 const defaultChainId = parseInt(process.env.DEFAULT_CHAIN_ID || '80001')
 const infuraApiKey = process.env.INFURA_API_KEY || ''
+const walletConnectProjectId = process.env.WALLET_CONNECT_PROJECT_ID || ''
 const mumbaiSubgraphEndpoint = process.env.MUMBAI_SUBGRAPH_ENDPOINT || ''
 const mumbaiQulotContract = process.env.MUMBAI_QULOT_CONTRACT || ''
-const isProduction = process.env.NODE_ENV === 'production'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -12,6 +15,7 @@ export default defineNuxtConfig({
       isProduction,
       defaultChainId,
       infuraApiKey,
+      walletConnectProjectId,
       contracts: {
         '80001': mumbaiQulotContract,
       },
@@ -110,7 +114,13 @@ export default defineNuxtConfig({
     },
   },
 
-  typescript: {
-    shim: false,
+  build: {
+    transpile: isProduction
+      ? ['tslib', '@ethersproject', 'ethers', 'cron-parser', 'luxon']
+      : ['tslib'],
+  },
+
+  vite: {
+    plugins: [nodePolyfills()],
   },
 })
