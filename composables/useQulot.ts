@@ -3,7 +3,7 @@ import QulotLotteryAbi from '~~/data/abi/QulotLottery.json'
 import { Token } from '~~/types/ethers'
 
 export const useQulot = () => {
-  const { chainId } = useEthers()
+  const { chainId, getProvider } = useEthers()
   const { $wagmi } = useNuxtApp()
 
   const qulotLottery = useState<Contract>('qulot')
@@ -23,7 +23,7 @@ export const useQulot = () => {
     const qulotContract = new ethers.Contract(
       qulotAddress,
       QulotLotteryAbi,
-      $wagmi.client.provider
+      getProvider()
     )
     return qulotContract
   }

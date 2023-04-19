@@ -46,4 +46,5 @@ export interface Lottery {
   nextRound?: Round
   rewardRules?: RewardRule[]
   rounds?: Round[]
+  nextTick?: Date
 }

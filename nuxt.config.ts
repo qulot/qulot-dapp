@@ -64,6 +64,12 @@ export default defineNuxtConfig({
     '@nuxtjs/apollo',
   ],
 
+  // https://nuxt.com/docs/api/configuration/nuxt-config#imports
+  imports: {
+    // Auto-import pinia stores defined in `~/stores`
+    dirs: ['stores'],
+  },
+
   // https://tailwindcss.nuxtjs.org/getting-started/options
   tailwindcss: {
     viewer: false,
@@ -102,7 +108,7 @@ export default defineNuxtConfig({
     componentName: 'SvgIcon', // type: `string`
     fallback: '<svg>...</svg>', // type `string` | `false`
     lazy: true, // type: `boolean`
-    log: true, // type: `boolean`,
+    log: false, // type: `boolean`,
     styleDefault:
       'max-width: 100%; max-height: 100%; mix-blend-mode: normal !important;',
   },

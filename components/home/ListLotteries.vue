@@ -3,7 +3,7 @@
     <div class="container mx-auto">
       <div class="space-y-4 lg:space-y-6">
         <a href="#lotteries"></a>
-        <HomeLotteryCard
+        <LotteryCard
           v-for="(lottery, i) in lotteries"
           :key="i"
           class="w-full p-3 md:p-6"

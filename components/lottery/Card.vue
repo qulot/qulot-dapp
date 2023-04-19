@@ -46,7 +46,7 @@
     </div>
     <div>
       <Button
-        type="text"
+        type="button"
         :is-loading="loading"
         variant="primary"
         rounded
@@ -104,6 +104,6 @@ const winningNumbers = computed(() => {
 })
 
 const nextDrawDatetime = computed(() => {
-  return nextTickOf(props.lottery.periodDays, props.lottery.periodHourOfDays)
+  return props.lottery.nextTick
 })
 </script>
