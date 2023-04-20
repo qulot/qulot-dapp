@@ -37,68 +37,38 @@
     "realtime": "Thời Gian Thực"
   },
   "cart": {
-    "labels": {
-      "order": "Đặt vé",
-      "selected": "Đã chọn",
-      "selectedValue": "{value} vé",
-      "total": "Tổng tiền",
-      "subtotal": "Tạm tính",
-      "myBalance": "Số dư của bạn",
-      "pricePerTicket": "Giá mỗi vé",
-      "checkout": "Thanh toán",
-      "paymentMethod": "Phương thức thanh toán",
-      "choosePaymentMethod": "Chọn phương thức thanh toán",
-      "accountBalance": "Số dư tài khoản",
-      "checkoutNow": "Thanh toán ngay",
-      "deleteTicket": "Xóa vé",
-      "fee": "Phí",
-      "product": "Sản phẩm",
-      "quantity": "Qty",
-      "price": "Giá"
-    }
-  },
-  "product": {
-    "labels": {
-      "result": "Kết quả phiên quay thưởng số <strong>{id}</strong> ngày <strong>{date}</strong>",
-      "estimate": "Jackpot ước tính",
-      "nextDrawing": "Kỳ mở thưởng tiếp theo",
-      "nextSession": "Kỳ quay tiếp theo",
-      "dateText": "Ngày",
-      "playNow": "Chơi ngay",
-      "orderNow": "Đặt vé ngay",
-      "addTicket": "Thêm vé",
-      "selectRandom": "Chọn {number} vé ngẫu nhiên",
-      "selectTicket": "Chọn vé",
-      "random": "Ngẫu nhiên"
-    }
+    "order": "Đặt vé",
+    "selected": "Đã chọn",
+    "selectedValue": "{value} vé",
+    "total": "Tổng tiền",
+    "subtotal": "Tạm tính",
+    "myBalance": "Số dư của bạn",
+    "pricePerTicket": "Giá mỗi vé",
+    "checkout": "Thanh toán",
+    "paymentMethod": "Phương thức thanh toán",
+    "choosePaymentMethod": "Chọn phương thức thanh toán",
+    "accountBalance": "Số dư tài khoản",
+    "checkoutNow": "Thanh toán ngay",
+    "deleteTicket": "Xóa vé",
+    "fee": "Phí",
+    "product": "Sản phẩm",
+    "quantity": "Qty",
+    "price": "Giá",
+    "addTicket": "Thêm Vé",
+    "selectRandom": "Chọn {number} vé ngẫu nhiên",
+    "buyNow": "Mua Ngay"
   },
   "ticket": {
-    "labels": {
-      "listTicket": "Danh sách Ticket",
-      "winprize": "Trúng thưởng",
-      "statusWait": "Đang chờ",
-      "statusStartDial": "Bắt đầu quay số",
-      "statusStartReward": "Bắt đầu trả thưởng",
-      "statusFinished": "Đã kết thúc",
-      "timeStartDial": "Ngày quay số",
-      "status": "Trạng thái",
-      "empty": "Chưa chọn vé",
-      "buyTicket": "Mua vé chỉ với {price}"
-    }
-  },
-  "session": {
-    "labels": {
-      "nextDrawing": "Lần quay số tiếp theo",
-      "lastDrawingResult": "Kết quả quay số phiên #{sessionId} ngày {drawDateTime}",
-      "labelSession": "Kỳ quay #{sessionId} ngày {drawDatetime}",
-      "drawingResult": "Kết quả quay số trúng thưởng",
-      "findNumber": "Dò số",
-      "printResult": "In kết quả",
-      "notification": "Thông báo",
-      "lastDrawing": "Kết quả các kỳ quay trước",
-      "periodDrawing": "Kỳ quay",
-      "dayDrawing": "Ngày quay"
-    }
+    "listTicket": "Danh sách Ticket",
+    "winprize": "Trúng thưởng",
+    "statusWait": "Đang chờ",
+    "statusStartDial": "Bắt đầu quay số",
+    "statusStartReward": "Bắt đầu trả thưởng",
+    "statusFinished": "Đã kết thúc",
+    "timeStartDial": "Ngày quay số",
+    "status": "Trạng thái",
+    "empty": "Chưa chọn vé",
+    "buyTicket": "Mua vé chỉ với {price}"
   },
   "menu": {
     "title": {
@@ -119,13 +89,6 @@
     "linkTermsOfService": "Điều khoản và dịch vụ",
     "linkGithub": "Github",
     "linkDocument": "Tài liệu"
-  },
-  "payment": {
-    "message": {
-      "invalidBalance": "Tài khoản không có đủ số dư",
-      "invalidMethod": "Phương thức thanh toán không khả dụng",
-      "invalidCurrency": "Đơn vị tiền tệ này không có sẵn hoặc không được sử dụng để thanh toán"
-    }
   },
   "aboutUs": {
     "information": {
@@ -249,7 +212,16 @@
     "play": "Chơi",
     "introduction": "Giới thiệu xổ số",
     "howToPlay": "Cách chơi",
-    "statistical": "Thống kê"
+    "statistical": "Thống kê",
+    "lotteryJackpot": "Xổ số độc đắc",
+    "jackpot": "Độc Đắc",
+    "pricePerTicket": "Giá mỗi vé",
+    "playNow": "Chơi Ngay"
+  },
+  "round": {
+    "notification": "Thông báo",
+    "nextRound": "Vòng tiếp theo",
+    "dateNext": "ngày"
   },
   "wallet": {
     "connect": "Kết nối ví",
@@ -264,6 +236,8 @@
     "disconnect": "Ngắt Kết Nối Ví",
     "viewOnExplorer": "Xem trên trình khám phá",
     "opening": "Đang mở {wallet}",
-    "plsConfirmIn": "Vui lòng xác nhận trên {wallet}"
+    "plsConfirmIn": "Vui lòng xác nhận trên {wallet}",
+    "myWallet": "Ví Của Tôi",
+    "myBalance": "Số Dư"
   }
 }

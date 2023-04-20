@@ -37,68 +37,38 @@
     "realtime": "Realtime"
   },
   "cart": {
-    "labels": {
-      "order": "Order",
-      "selected": "Selected",
-      "selectedValue": "{value} ticket",
-      "total": "Total",
-      "subtotal": "SubTotal",
-      "myBalance": "Balance",
-      "pricePerTicket": "Price per ticket",
-      "checkout": "Checkout",
-      "paymentMethod": "Payment method",
-      "choosePaymentMethod": "Choose payment method",
-      "accountBalance": "Account balance",
-      "checkoutNow": "Checkout now",
-      "deleteTicket": "Delete",
-      "fee": "Fee",
-      "product": "Product",
-      "quantity": "Qty",
-      "price": "Price"
-    }
-  },
-  "product": {
-    "labels": {
-      "result": "Lottery results <strong>{id}</strong> date <strong>{date}</strong>",
-      "estimate": "Jackpot estimated",
-      "nextDrawing": "Next prize draw",
-      "nextSession": "Next Session",
-      "dateText": "Date",
-      "playNow": "Play Now",
-      "orderNow": "Order now",
-      "addTicket": "Add ticket",
-      "selectRandom": "Select {number} ticket random",
-      "selectTicket": "Select ticket",
-      "random": "Random"
-    }
+    "order": "Order",
+    "selected": "Selected",
+    "selectedValue": "{value} ticket",
+    "total": "Total",
+    "subtotal": "SubTotal",
+    "checkout": "Checkout",
+    "paymentMethod": "Payment method",
+    "choosePaymentMethod": "Choose payment method",
+    "accountBalance": "Account balance",
+    "checkoutNow": "Checkout now",
+    "deleteTicket": "Delete",
+    "fee": "Fee",
+    "product": "Product",
+    "quantity": "Qty",
+    "price": "Price",
+    "addTicket": "Add Ticket",
+    "selectRandom": "Pick {number} Random Tickets",
+    "buyNow": "Buy Now"
   },
   "ticket": {
-    "labels": {
-      "listTicket": "List ticket",
-      "winprize": "Win Prize",
-      "statusWait": "Wait",
-      "statusStartDial": "Start Dial",
-      "statusStartReward": "Start reward",
-      "statusFinished": "Finished",
-      "timeStartDial": "Time start dial",
-      "status": "Status",
-      "empty": "Empty",
-      "buyTicket": "Buy ticket for just {price}"
-    }
-  },
-  "session": {
-    "labels": {
-      "nextDrawing": "Next drawing",
-      "lastDrawingResult": "Drawing results session #{sessionId} date {drawDateTime}",
-      "labelSession": "Drawing #{sessionId} date {drawDatetime}",
-      "drawingResult": "Result draw",
-      "findNumber": "Find number",
-      "printResult": "Print results",
-      "notification": "Notification",
-      "lastDrawing": "Last drawing result",
-      "periodDrawing": "Period drawing",
-      "dayDrawing": "Day drawing"
-    }
+    "listTicket": "List ticket",
+    "winprize": "Win Prize",
+    "statusWait": "Wait",
+    "statusStartDial": "Start Dial",
+    "statusStartReward": "Start reward",
+    "statusFinished": "Finished",
+    "timeStartDial": "Time start dial",
+    "status": "Status",
+    "empty": "Empty",
+    "pickTicketNumbers": "Pick Ticket Numbers",
+    "random": "Random",
+    "buyTicket": "Buy ticket for just {price}"
   },
   "menu": {
     "title": {
@@ -119,13 +89,6 @@
     "linkTermsOfService": "Terms of Service",
     "linkGithub": "Github",
     "linkDocument": "Document"
-  },
-  "payment": {
-    "message": {
-      "invalidBalance": "Account does not have sufficient balance",
-      "invalidMethod": "Payment method not available",
-      "invalidCurrency": "This currency is not available or used for payment"
-    }
   },
   "aboutUs": {
     "information": {
@@ -249,7 +212,16 @@
     "play": "Play",
     "introduction": "Lottery introduction",
     "howToPlay": "How to play",
-    "statistical": "Statistical"
+    "statistical": "Statistical",
+    "lotteryJackpot": "Lottery Jackpot",
+    "jackpot": "Jackpot",
+    "pricePerTicket": "Price Per Ticket",
+    "playNow": "Play Now"
+  },
+  "round": {
+    "notification": "Notification",
+    "nextRound": "Next round",
+    "dateNext": "date"
   },
   "wallet": {
     "connect": "Connect wallet",
@@ -264,6 +236,8 @@
     "disconnect": "Disconnect Wallet",
     "viewOnExplorer": "View on explorer",
     "opening": "Opening {wallet}",
-    "plsConfirmIn": "Please confirm in {wallet}"
+    "plsConfirmIn": "Please confirm in {wallet}",
+    "myWallet": "My Wallet",
+    "myBalance": "Balance"
   }
 }

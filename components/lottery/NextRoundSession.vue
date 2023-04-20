@@ -7,20 +7,24 @@
         <div class="flex items-center space-x-3 lg:space-x-6">
           <img
             :src="lottery.picture"
-            alt="next session"
+            alt="Next round"
             class="w-20 lg:w-[140px] h-auto"
           />
           <div class="flex-grow space-y-1">
-            <p class="text-[17px] mb-1 lg:mb-3 lg:text-[28px] text-title">
-              <span>{{ $t('product.labels.nextSession') }}</span>
+            <p
+              class="text-[17px] mb-1 lg:mb-3 lg:text-[28px] text-title space-x-2"
+            >
+              <span>{{ $t('round.nextRound') }}</span>
               <span class="font-bold">#{{ nextRoundId }}</span>
-              <span>{{ $t('product.labels.dateText') }}</span>
+              <span>{{ $t('round.dateNext') }}</span>
               <span class="font-bold">{{ nextRoundDraw }}</span>
             </p>
             <p
               class="flex items-center lg:flex-col lg:items-start space-x-2 lg:space-x-0 lg:space-y-2"
             >
-              <span class="text-[13px] lg:text-[17px]">Jackpot</span>
+              <span class="text-[13px] lg:text-[17px]">{{
+                $t('lottery.jackpot')
+              }}</span>
               <span class="text-yellow text-2xl font-bold">{{
                 jackpotEstimatedValue
               }}</span>
@@ -31,13 +35,13 @@
           <Button
             class="rounded border-title text-title bg-transparent hover:text-main hover:bg-transparent hover:border-main"
           >
-            {{ $t('session.labels.notification') }}
+            {{ $t('round.notification') }}
           </Button>
           <Button
             variant="primary"
             class="rounded text-white"
             @click="scrollToOrder"
-            >{{ $t('product.labels.orderNow') }}</Button
+            >{{ $t('cart.buyNow') }}</Button
           >
         </div>
       </div>
@@ -56,6 +60,8 @@ const props = defineProps({
   },
 })
 
+const { token } = useQulot()
+
 const nextRoundId = computed(() => {
   if (props.lottery && props.lottery.nextRound) {
     return formatNumber(props.lottery.nextRound.id)
@@ -70,11 +76,15 @@ const nextRoundDraw = computed(() => {
 
 const jackpotEstimatedValue = computed(() => {
   if (
+    token.value &&
     props.lottery &&
     props.lottery.nextRound &&
     props.lottery.nextRound.totalAmount
   ) {
-    return formatEther(props.lottery.nextRound.totalAmount)
+    return formatMoney(
+      formatEther(props.lottery.nextRound.totalAmount),
+      token.value.symbol
+    )
   }
 })
 

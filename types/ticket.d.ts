@@ -1,6 +1,6 @@
 export interface CartTicket {
     id: number
-    roundId: number
+    roundId: string
     pickNumbers: number[]
     selected: boolean
 }

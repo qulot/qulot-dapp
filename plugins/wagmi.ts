@@ -11,15 +11,7 @@ import {
   Chain,
 } from '@wagmi/core'
 import { infuraProvider } from '@wagmi/core/providers/infura'
-import {
-  polygonMumbai,
-  goerli,
-  polygon,
-  optimism,
-  bsc,
-  bscTestnet,
-  mainnet,
-} from '@wagmi/chains'
+import { polygonMumbai, goerli, polygon, bsc } from '@wagmi/chains'
 import { publicProvider } from '@wagmi/core/providers/public'
 import { MetaMaskConnector } from '@wagmi/connectors/metaMask'
 import { CoinbaseWalletConnector } from '@wagmi/connectors/coinbaseWallet'

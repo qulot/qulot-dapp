@@ -10,9 +10,11 @@
         class="product-info relative flex flex-col lg:flex-row lg:flex-wrap max-w-full bg-cover bg-no-repeat bg-top rounded-xl bg-[url('/banner/bg-product-info.png')]"
       >
         <div
-          class="producttop__info relative pt-5 pb-6 min-w-[345px] text-center text-white leading-tight"
+          class="relative pt-5 pb-6 min-w-[345px] text-center text-white leading-tight"
         >
-          <p class="text-lg mb-1 leading-tight">Lottery Jackpot</p>
+          <p class="text-lg mb-1 leading-tight">
+            {{ $t('lottery.lotteryJackpot') }}
+          </p>
           <div class="text-[40px] font-bold text-main mb-1.5 tracking-[0.02em]">
             {{ jackpotEstimatedValue }}
           </div>
@@ -28,7 +30,7 @@
               Assets
             </Button>
             <Button variant="primary" class="rounded text-white">{{
-              $t('ticket.labels.buyTicket', { price: usdPricePerTicket })
+              $t('ticket.buyTicket', { price: usdPricePerTicket })
             }}</Button>
           </div>
           <img

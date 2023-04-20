@@ -3,11 +3,9 @@
     <div>
       <p class="text-white mb-2 text-xs lg:text-sm font-normal">{{ title }}</p>
       <div class="font-bold text-2xl flex items-center justify-between">
-        <svg-icon
-          v-show="isLoading"
-          name="loader"
-          class="w-8 h-8 animate-spin"
-        />
+        <div v-show="isLoading">
+          <svg-icon name="loader" class="w-[24px] h-[24px] animate-spin" />
+        </div>
         <span v-show="!isLoading" class="text-main"> {{ valueWallet }} </span>
       </div>
     </div>
@@ -29,7 +27,7 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps({
+defineProps({
   title: {
     type: String,
     default: '',

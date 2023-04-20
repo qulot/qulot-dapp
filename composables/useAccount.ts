@@ -19,7 +19,7 @@ export const useAccount = (
   const updateBalanceInterval = useState<NodeJS.Timer>('account.updateInterval')
 
   // methods
-  const fetchAccountBalance = async () => {
+  const fetchBalance = async () => {
     if (wallet.value.status === 'disconnected') {
       return
     }
@@ -29,7 +29,11 @@ export const useAccount = (
         chainId: chainId.value,
       })
     }
-
+  }
+  const fetchTokenBalance = async () => {
+    if (wallet.value.status === 'disconnected') {
+      return
+    }
     if (token.value && wallet.value.account) {
       tokenBalance.value = await $wagmi.fetchBalance({
         address: wallet.value.account as Address,
@@ -38,18 +42,18 @@ export const useAccount = (
       })
     }
   }
-  const startUpdateBalanceInterval = (interval: number) => {
-    updateBalanceInterval.value = setInterval(async () => {
-      await fetchAccountBalance()
-    }, interval)
+  const updateAccountBalance = async () => {
+    // fetch balance first time
+    await Promise.all([fetchBalance(), fetchTokenBalance()])
+    if (!props.updateOnce) {
+      updateBalanceInterval.value = setInterval(async () => {
+        await Promise.all([fetchBalance(), fetchTokenBalance()])
+      }, props.updateInterval)
+    }
   }
 
   const init = async () => {
-    if (props.updateOnce) {
-      await fetchAccountBalance()
-    } else if (props.updateInterval) {
-      startUpdateBalanceInterval(props.updateInterval)
-    }
+    await updateAccountBalance()
   }
 
   return { init, balance, tokenBalance }
