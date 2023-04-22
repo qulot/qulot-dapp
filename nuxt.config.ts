@@ -50,8 +50,7 @@ export default defineNuxtConfig({
   modules: [
     // https://google-fonts.nuxtjs.org/
     '@nuxtjs/google-fonts',
-    // https://nuxt-svg-transformer.netlify.app/get-started
-    'nuxt-svg-transformer',
+    '@nuxtjs/svg-sprite',
     // https://formkit.com/getting-started/installation#with-nuxt
     '@formkit/nuxt',
     // https://tailwindcss.nuxtjs.org/
@@ -95,16 +94,6 @@ export default defineNuxtConfig({
     families: {
       Inter: [400, 500, 700],
     },
-  },
-
-  // https://nuxt-svg-transformer.netlify.app/configuration
-  svgTransformer: {
-    componentName: 'SvgIcon', // type: `string`
-    fallback: '<svg>...</svg>', // type `string` | `false`
-    lazy: true, // type: `boolean`
-    log: true, // type: `boolean`,
-    styleDefault:
-      'max-width: 100%; max-height: 100%; mix-blend-mode: normal !important;',
   },
 
   postcss: {
