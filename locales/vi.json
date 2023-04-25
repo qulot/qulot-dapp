@@ -68,7 +68,8 @@
     "timeStartDial": "Ngày quay số",
     "status": "Trạng thái",
     "empty": "Chưa chọn vé",
-    "buyTicket": "Mua vé chỉ với {price}"
+    "pickTicketNumbers": "Chọn Số",
+    "buyTicket": "Mua Vé Chỉ Với {price}"
   },
   "menu": {
     "title": {
