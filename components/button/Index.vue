@@ -1,6 +1,8 @@
 <template>
-  <button
+  <component
+    :is="type === 'link' ? NuxtLink : 'button'"
     :type="btnType"
+    :to="to"
     class="btn whitespace-nowrap"
     :class="[
       {
@@ -18,12 +20,13 @@
     @click="$emit('click')"
   >
     <slot />
-  </button>
+  </component>
 </template>
 <script setup lang="ts">
 import { PropType } from 'vue'
+import { NuxtLink } from '#components'
 
-export type IButtonType = 'button' | 'submit' | 'reset'
+export type IButtonType = 'button' | 'submit' | 'reset' | 'link'
 const props = defineProps({
   type: {
     type: String as PropType<IButtonType>,
@@ -39,11 +42,16 @@ const props = defineProps({
   },
   disabled: {
     type: Boolean,
-    default: false,
+    required: false,
   },
   rounded: {
     type: Boolean,
     default: false,
+  },
+  to: {
+    type: String,
+    required: false,
+    default: null,
   },
 })
 

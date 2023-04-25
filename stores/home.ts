@@ -2,8 +2,8 @@ import { defineStore } from 'pinia'
 import { utils } from 'ethers'
 import { KeyValue } from '~~/types/keyvalue'
 import {
-  getTotalUsersTotalPrize,
-  getUsersOrderByWinAmount,
+  GET_TOTAL_USERS_TOTAL_PRIZE,
+  GET_USERS_ORDER_BY_WIN_AMOUNT,
 } from '~~/apollo/queries'
 import { User } from '~~/types/user'
 
@@ -48,7 +48,7 @@ export const useHomeStore = defineStore('home', {
       const { chainId } = useEthers()
 
       const { data } = await useAsyncQuery<GetTotalUsersTotalPrizeResult>({
-        query: getTotalUsersTotalPrize,
+        query: GET_TOTAL_USERS_TOTAL_PRIZE,
         clientId: chainId.value.toString(),
       })
 
@@ -71,7 +71,7 @@ export const useHomeStore = defineStore('home', {
     async fetchUsersWinPrizeRanks() {
       const { chainId } = useEthers()
       const { data } = await useAsyncQuery<GetUsersOrderByWinAmountResult>({
-        query: getUsersOrderByWinAmount,
+        query: GET_USERS_ORDER_BY_WIN_AMOUNT,
         variables: {
           first: 5,
           orderDirection: 'desc',

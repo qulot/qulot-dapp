@@ -49,9 +49,7 @@
     "ethers": "5.7.2",
     "moment": "^2.29.4",
     "pinia": "^2.0.33",
-    "v3-infinite-loading": "^1.2.2",
     "vue-final-modal": "^4.2.0",
-    "vue-infinite-loading": "^2.4.5",
     "vue3-carousel": "^0.2.14",
     "vue3-perfect-scrollbar": "^1.6.1"
   },

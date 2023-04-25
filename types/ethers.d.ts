@@ -22,6 +22,5 @@ export interface Balance {
   decimals: number
   formatted: string
   symbol: string
-  unit: Unit | number
   value: BigNumber
 }

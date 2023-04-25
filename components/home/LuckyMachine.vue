@@ -49,7 +49,7 @@
                 class="flex items-center justify-center space-x-4"
               >
                 <span class="text-base font-extrabold">{{
-                  $t('product.labels.playNow')
+                  $t('lottery.playNow')
                 }}</span>
                 <svg-icon name="arrow-right-circle" class="w-4 h-4" />
               </a>

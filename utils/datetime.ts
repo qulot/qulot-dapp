@@ -8,6 +8,7 @@ import { isString } from './string'
  */
 export const FORMATS = {
   ddmmyyyy: 'DD/MM/yyyy',
+  mmddyyyy: 'MM/DD/yyyy',
 }
 
 export type DateTimeFormats = keyof typeof FORMATS

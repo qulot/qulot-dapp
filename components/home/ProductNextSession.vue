@@ -54,7 +54,7 @@ const props = defineProps({
 })
 
 const labelTime = computed(() =>
-  formatDateTime(props.session.nextSessionDrawDatetime, 'ddmmyyyy')
+  formatDateTime(props.session.nextSessionDrawDatetime, 'mmddyyyy')
 )
 const jackpotActualValue = computed(() =>
   formatUSD(props.session.nextSessionEstimatedJackpot || 0)

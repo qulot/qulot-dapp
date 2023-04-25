@@ -8,7 +8,8 @@ const appDescription = process.env.APP_DESCRIPTION || ''
 const defaultChainId = parseInt(process.env.DEFAULT_CHAIN_ID || '80001')
 const infuraApiKey = process.env.INFURA_API_KEY || ''
 const walletConnectProjectId = process.env.WALLET_CONNECT_PROJECT_ID || ''
-const mumbaiSubgraphEndpoint = process.env.MUMBAI_SUBGRAPH_ENDPOINT || ''
+const mumbaiSubgraphEndpoint =
+  process.env.MUMBAI_SUBGRAPH_ENDPOINT || 'http://localhost:8000'
 const mumbaiQulotContract = process.env.MUMBAI_QULOT_CONTRACT || ''
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -64,6 +65,12 @@ export default defineNuxtConfig({
     '@nuxtjs/apollo',
   ],
 
+  // https://nuxt.com/docs/api/configuration/nuxt-config#imports
+  imports: {
+    // Auto-import pinia stores defined in `~/stores`
+    dirs: ['stores'],
+  },
+
   // https://tailwindcss.nuxtjs.org/getting-started/options
   tailwindcss: {
     viewer: false,
@@ -102,7 +109,7 @@ export default defineNuxtConfig({
     componentName: 'SvgIcon', // type: `string`
     fallback: '<svg>...</svg>', // type `string` | `false`
     lazy: true, // type: `boolean`
-    log: true, // type: `boolean`,
+    log: false, // type: `boolean`,
     styleDefault:
       'max-width: 100%; max-height: 100%; mix-blend-mode: normal !important;',
   },
@@ -118,7 +125,7 @@ export default defineNuxtConfig({
   apollo: {
     clients: {
       '80001': {
-        connectToDevTools: true,
+        connectToDevTools: !isProduction,
         httpEndpoint: mumbaiSubgraphEndpoint,
       },
     },

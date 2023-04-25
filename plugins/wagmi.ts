@@ -9,17 +9,10 @@ import {
   getContract,
   switchNetwork,
   Chain,
+  Client,
 } from '@wagmi/core'
 import { infuraProvider } from '@wagmi/core/providers/infura'
-import {
-  polygonMumbai,
-  goerli,
-  polygon,
-  optimism,
-  bsc,
-  bscTestnet,
-  mainnet,
-} from '@wagmi/chains'
+import { polygonMumbai, goerli, polygon, bsc } from '@wagmi/chains'
 import { publicProvider } from '@wagmi/core/providers/public'
 import { MetaMaskConnector } from '@wagmi/connectors/metaMask'
 import { CoinbaseWalletConnector } from '@wagmi/connectors/coinbaseWallet'
@@ -76,17 +69,27 @@ export default defineNuxtPlugin(() => {
     ]
   }
 
-  const { provider, webSocketProvider } = configureChains(chains, [
-    infuraProvider({ apiKey: config.public.infuraApiKey }),
-    publicProvider(),
-  ])
+  let client: Client<any, any>
+  if (process.client) {
+    const { provider, webSocketProvider } = configureChains(chains, [
+      infuraProvider({ apiKey: config.public.infuraApiKey }),
+      publicProvider(),
+    ])
 
-  const client = createClient({
-    autoConnect: true,
-    provider,
-    webSocketProvider,
-    connectors,
-  })
+    client = createClient({
+      autoConnect: true,
+      provider,
+      webSocketProvider,
+      connectors,
+    })
+  } else {
+    const { provider } = configureChains(chains, [publicProvider()])
+    client = createClient({
+      autoConnect: true,
+      provider,
+      connectors,
+    })
+  }
 
   return {
     provide: {

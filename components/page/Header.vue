@@ -127,7 +127,6 @@
 </template>
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { useLotteryStore } from '~~/stores/lottery'
 
 const route = useRoute()
 const { t } = useI18n()
@@ -158,7 +157,7 @@ const playMenuSubItems = computed(() =>
 )
 
 const classNavigation = computed(() => {
-  if (route.name !== 'index' && route.name !== 'product-id') {
+  if (route.name !== 'index' && route.name !== 'lottery-id') {
     return 'bg-gradient-to-r from-[#2E115F] to-[#7A0FE6]'
   }
   if (scrollAtTop.value) {

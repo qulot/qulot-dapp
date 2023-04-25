@@ -12,8 +12,6 @@
 </template>
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { useLotteryStore } from '~~/stores/lottery'
-import { useHomeStore } from '~~/stores/home'
 
 const homeStore = useHomeStore()
 const { totalPrize, totalUsers, ranks } = storeToRefs(homeStore)

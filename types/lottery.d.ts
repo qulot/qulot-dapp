@@ -16,7 +16,7 @@ export interface Round {
   startTime: number
   status: RoundStatus
   timestamp: number
-  totalAmount: number
+  totalAmount: string
   totalTickets: number
   winningNumbers: number[]
   firstRound?: Round
@@ -39,11 +39,12 @@ export interface Lottery {
   periodDays: number[]
   periodHourOfDays: number
   maxNumberTicketsPerBuy: number
-  pricePerTicket: number
+  pricePerTicket: string
   treasuryFeePercent: number
   amountInjectNextRoundPercent: number
   lastRound?: Round
   nextRound?: Round
   rewardRules?: RewardRule[]
   rounds?: Round[]
+  nextTick?: Date
 }

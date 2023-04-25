@@ -1,3 +1,4 @@
+import { Address } from '@wagmi/core'
 import { Balance } from '~~/types/ethers'
 
 interface AccountProps {
@@ -18,37 +19,41 @@ export const useAccount = (
   const updateBalanceInterval = useState<NodeJS.Timer>('account.updateInterval')
 
   // methods
-  const fetchAccountBalance = async () => {
+  const fetchBalance = async () => {
     if (wallet.value.status === 'disconnected') {
       return
     }
     if (wallet.value.account) {
       balance.value = await $wagmi.fetchBalance({
-        addressOrName: wallet.value.account,
+        address: wallet.value.account as Address,
         chainId: chainId.value,
-      })
-    }
-
-    if (token.value && wallet.value.account) {
-      tokenBalance.value = await $wagmi.fetchBalance({
-        addressOrName: wallet.value.account,
-        chainId: chainId.value,
-        token: token.value.address,
       })
     }
   }
-  const startUpdateBalanceInterval = (interval: number) => {
-    updateBalanceInterval.value = setInterval(async () => {
-      await fetchAccountBalance()
-    }, interval)
+  const fetchTokenBalance = async () => {
+    if (wallet.value.status === 'disconnected') {
+      return
+    }
+    if (token.value && wallet.value.account) {
+      tokenBalance.value = await $wagmi.fetchBalance({
+        address: wallet.value.account as Address,
+        chainId: chainId.value,
+        token: token.value.address as Address,
+      })
+    }
+  }
+  const updateAccountBalance = async () => {
+    // fetch balance first time
+    await Promise.all([fetchBalance(), fetchTokenBalance()])
+    if (!props.updateOnce) {
+      updateBalanceInterval.value = setInterval(async () => {
+        await Promise.all([fetchBalance(), fetchTokenBalance()])
+      }, props.updateInterval)
+    }
   }
 
   const init = async () => {
-    if (props.updateOnce) {
-      await fetchAccountBalance()
-    } else if (props.updateInterval) {
-      startUpdateBalanceInterval(props.updateInterval)
-    }
+    await updateAccountBalance()
   }
 
   return { init, balance, tokenBalance }

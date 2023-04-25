@@ -29,7 +29,7 @@
           {{ $t('wallet.viewOnExplorer') }}
         </h4>
         <div
-          v-if="selectedChain"
+          v-if="chainSelected"
           class="flex justify-between items-center whitespace-nowrap space-x-2"
         >
           <div
@@ -39,14 +39,14 @@
               class="rounded-full bg-white min-w-[1.5rem] min-h-[1.5rem] p-1 flex items-center justify-center"
             >
               <img
-                :src="getChainIcon(selectedChain)"
-                :alt="selectedChain.name"
+                :src="getChainIcon(chainSelected)"
+                :alt="chainSelected.name"
                 class="h-4 w-4"
               />
             </span>
             <span
               class="text-sm dark:text-white overflow-ellipsis overflow-hidden"
-              >{{ selectedChain.name }}</span
+              >{{ chainSelected.name }}</span
             >
           </div>
           <nuxt-link
@@ -111,7 +111,7 @@ const value = computed({
   },
 })
 
-const { wallet, chainId, disconnect, getChain } = useEthers()
+const { wallet, chainSelected, disconnect } = useEthers()
 const { balance, tokenBalance } = useAccount()
 
 const onDisconnectClick = () => {
@@ -119,17 +119,15 @@ const onDisconnectClick = () => {
   value.value = false
 }
 
-const selectedChain = computed(() => getChain(chainId.value))
-
 const explorerAccount = computed(() => {
   if (
-    selectedChain.value &&
-    selectedChain.value.blockExplorers &&
+    chainSelected.value &&
+    chainSelected.value.blockExplorers &&
     wallet.value.account
   ) {
     return {
-      name: selectedChain.value.blockExplorers.default.name,
-      link: `${selectedChain.value.blockExplorers.default.url}/address/${wallet.value.account}`,
+      name: chainSelected.value.blockExplorers.default.name,
+      link: `${chainSelected.value.blockExplorers.default.url}/address/${wallet.value.account}`,
     }
   }
   return null
