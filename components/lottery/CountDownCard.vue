@@ -25,14 +25,27 @@
               :target="nextRoundDraw"
             />
           </div>
-          <div class="space-x-2">
-            <Button variant="warning" class="rounded text-white">
-              Assets
-            </Button>
-            <Button variant="primary" class="rounded text-white">{{
-              $t('ticket.buyTicket', { price: usdPricePerTicket })
-            }}</Button>
-          </div>
+          <ClientOnly>
+            <div class="space-x-2">
+              <Button
+                type="link"
+                :to="explorerContract"
+                :disabled="!explorerContract"
+                variant="warning"
+                class="rounded text-white"
+              >
+                {{ $t('lottery.assets') }}
+              </Button>
+              <Button
+                variant="primary"
+                class="rounded text-white"
+                @click="$emit('buyTicket')"
+                >{{
+                  $t('ticket.buyTicket', { price: usdPricePerTicket })
+                }}</Button
+              >
+            </div>
+          </ClientOnly>
           <img
             src="/bg/coin-productinfo-small.svg"
             alt="coin-productinfo-small"
@@ -68,6 +81,21 @@ const props = defineProps({
     type: Object as PropType<Lottery>,
     default: () => null,
   },
+})
+
+defineEmits(['buyTicket'])
+
+const { chainSelected } = useEthers()
+const { qulotLottery } = useQulot()
+
+const explorerContract = computed(() => {
+  if (
+    chainSelected.value &&
+    chainSelected.value.blockExplorers &&
+    qulotLottery.value
+  ) {
+    return `${chainSelected.value.blockExplorers.default.url}/address/${qulotLottery.value.address}`
+  }
 })
 
 const jackpotEstimatedValue = computed(() => {

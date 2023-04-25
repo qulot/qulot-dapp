@@ -1,6 +1,10 @@
 <template>
   <div class="relative pb-4 lg:pb-14">
-    <LotteryCountDownCard v-if="lottery" :lottery="lottery" />
+    <LotteryCountDownCard
+      v-if="lottery"
+      :lottery="lottery"
+      @buy-ticket="showPickNumberModal = true"
+    />
     <LotteryNextRoundSession v-if="lottery" :lottery="lottery" />
     <div class="container mx-auto">
       <div
@@ -73,6 +77,7 @@
                 <Button
                   variant="primary"
                   class="rounded text-white w-full mt-3 xl:w-auto xl:mt-0"
+                  :disabled="tickets.length === 0"
                   @click="buyNow"
                   >{{ $t('cart.buyNow') }}</Button
                 >
@@ -80,11 +85,11 @@
             </div>
           </div>
         </div>
-        <client-only>
-          <div class="lg:w-7/12">
-            <!-- <InfiniteScrollSession :product="product" /> -->
-          </div>
-        </client-only>
+        <div class="lg:w-7/12">
+          <ClientOnly>
+            <RoundListPerLottery v-if="lottery" :lottery="lottery" />
+          </ClientOnly>
+        </div>
       </div>
     </div>
     <ModalPickNumber

@@ -9,6 +9,7 @@ import {
   getContract,
   switchNetwork,
   Chain,
+  Client,
 } from '@wagmi/core'
 import { infuraProvider } from '@wagmi/core/providers/infura'
 import { polygonMumbai, goerli, polygon, bsc } from '@wagmi/chains'
@@ -68,17 +69,38 @@ export default defineNuxtPlugin(() => {
     ]
   }
 
-  const { provider, webSocketProvider } = configureChains(chains, [
-    infuraProvider({ apiKey: config.public.infuraApiKey }),
-    publicProvider(),
-  ])
+  // const { provider, webSocketProvider } = configureChains(chains, [
+  //   infuraProvider({ apiKey: config.public.infuraApiKey }),
+  //   publicProvider(),
+  // ])
 
-  const client = createClient({
-    autoConnect: true,
-    provider,
-    webSocketProvider,
-    connectors,
-  })
+  // const client = createClient({
+  //   autoConnect: true,
+  //   provider,
+  //   webSocketProvider,
+  //   connectors,
+  // })
+  let client: Client<any, any>
+  if (process.client) {
+    const { provider, webSocketProvider } = configureChains(chains, [
+      infuraProvider({ apiKey: config.public.infuraApiKey }),
+      publicProvider(),
+    ])
+
+    client = createClient({
+      autoConnect: true,
+      provider,
+      webSocketProvider,
+      connectors,
+    })
+  } else {
+    const { provider } = configureChains(chains, [publicProvider()])
+    client = createClient({
+      autoConnect: true,
+      provider,
+      connectors,
+    })
+  }
 
   return {
     provide: {

@@ -70,7 +70,7 @@ const nextRoundId = computed(() => {
 
 const nextRoundDraw = computed(() => {
   if (props.lottery?.nextTick) {
-    return formatDateTime(props.lottery.nextTick.toISOString(), 'ddmmyyyy')
+    return formatDateTime(props.lottery.nextTick.toISOString(), 'mmddyyyy')
   }
 })
 

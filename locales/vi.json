@@ -216,12 +216,23 @@
     "lotteryJackpot": "Xổ số độc đắc",
     "jackpot": "Độc Đắc",
     "pricePerTicket": "Giá mỗi vé",
-    "playNow": "Chơi Ngay"
+    "playNow": "Chơi Ngay",
+    "estimateJackpot": "Giải Độc Đắc",
+    "assets": "Tài Sản"
   },
   "round": {
     "notification": "Thông báo",
     "nextRound": "Vòng tiếp theo",
-    "dateNext": "ngày"
+    "dateNext": "ngày",
+    "nextRoundDrawTime": "Ngày quay thưởng tiếp theo",
+    "filterByRoundLabel": "Vòng",
+    "filterByDateLabel": "Ngày Quay Thưởng",
+    "finishedRounds": "Các Vòng Đã Hoàn Thành",
+    "loadMore": "Xem Tiếp",
+    "label": "Vòng #{round} Ngày {date}",
+    "winningNumber": "Số Trúng Thưởng",
+    "printResult": "In Kết Quả",
+    "checkTicket": "Kiểm Tra"
   },
   "wallet": {
     "connect": "Kết nối ví",

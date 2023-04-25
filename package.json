@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "@coinbase/wallet-sdk": "3.5.4",
+    "@davestewart/nuxt-scrollbar": "^1.0.0",
     "@formkit/nuxt": "^0.16.4",
     "@nuxtjs/apollo": "5.0.0-alpha.6",
     "@pinia/nuxt": "^0.4.7",

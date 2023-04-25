@@ -53,6 +53,7 @@ const config: DefaultConfigOptions = {
         error: join(ERROR_CSS),
         input: join([...INPUT_CSS, 'border-line']),
         formError: join(FORM_ERROR_CSS),
+        inner: 'relative',
       },
       select: {
         input: join(SELECT_CSS),
@@ -68,7 +69,7 @@ const config: DefaultConfigOptions = {
         legend: join(CHECKBOX_LEGEND_CSS),
         label: join(CHECKBOX_LABEL_CSS),
       },
-      datetime: {
+      date: {
         input: join([...INPUT_CSS, 'border-line']),
       },
     }),

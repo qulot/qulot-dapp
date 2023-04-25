@@ -1,4 +1,4 @@
-import { LOTTERY_FIELDS } from './fragments'
+import { LOTTERY_FIELDS, ROUND_FIELDS } from './fragments'
 
 export const GET_TOTAL_USERS_TOTAL_PRIZE = gql`
   query GetTotalUsersTotalPrize {
@@ -43,29 +43,22 @@ export const GET_LOTTERY_BY_ID = gql`
 `
 
 export const GET_ROUNDS = gql`
+  ${ROUND_FIELDS}
   query GetRounds(
     $orderBy: String
     $orderDirection: String
     $skip: Int
     $first: Int
+    $filter: Round_filter
   ) {
     rounds(
       orderBy: $orderBy
       orderDirection: $orderDirection
       skip: $skip
       first: $first
+      where: $filter
     ) {
-      winningNumbers
-      totalTickets
-      totalAmount
-      timestamp
-      status
-      startTime
-      id
-      endTime
-      firstRound {
-        id
-      }
+      ...RoundFields
     }
   }
 `

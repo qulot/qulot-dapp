@@ -9,7 +9,10 @@
  * @param {number} digits
  * @returns
  */
-export function formatUSD(number: number, digits = 0) {
+export function formatUSD(number: number | string, digits = 0) {
+  if (typeof number === 'string') {
+    number = parseInt(number)
+  }
   const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',

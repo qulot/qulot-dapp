@@ -29,3 +29,19 @@ export const LOTTERY_FIELDS = gql`
     }
   }
 `
+
+export const ROUND_FIELDS = gql`
+  fragment RoundFields on Round {
+    winningNumbers
+    totalTickets
+    totalAmount
+    timestamp
+    status
+    startTime
+    id
+    endTime
+    firstRound {
+      id
+    }
+  }
+`

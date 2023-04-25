@@ -9,20 +9,21 @@
   :root {
     --bg-body: #ffffff;
     background-color: var(--bg-body);
-    --color-content: #5A5A5A;
-    --color-black: #1B2847;
-    --color-label: #1B2847;
-    --color-title: #1B2847;
-    --color-subtitle: #5A5A5A;
+    --color-content: #5a5a5a;
+    --color-black: #1b2847;
+    --color-label: #1b2847;
+    --color-title: #1b2847;
+    --color-subtitle: #5a5a5a;
   }
-  [data-theme="night"], .dark {
-    --bg-body: #18122B;
+  [data-theme='night'],
+  .dark {
+    --bg-body: #18122b;
     background-color: var(--bg-body);
-    --color-content: #B9B7BF;
-    --color-black: #FFFFFF;
-    --color-label: #FFFFFF;
-    --color-title: #FFFFFF;
-    --color-subtitle: #B9B7BF;
+    --color-content: #b9b7bf;
+    --color-black: #ffffff;
+    --color-label: #ffffff;
+    --color-title: #ffffff;
+    --color-subtitle: #b9b7bf;
   }
 }
 
@@ -39,7 +40,7 @@
       pointer-events: none;
     }
     &:before {
-      content: "";
+      content: '';
       margin-right: 0.5rem;
       height: 1rem;
       width: 1rem;
@@ -52,7 +53,8 @@
       border-right-color: currentColor;
     }
   }
-  &[disabled], &[disabled]:hover {
+  &[disabled]:not([disabled="false"]),
+  &[disabled]:not([disabled="false"]):hover {
     border-color: rgba(61, 68, 81, 0.2);
     background: rgba(61, 68, 81, 0.2);
   }
@@ -72,13 +74,12 @@
   @apply rounded-lg px-4;
 }
 .input-area {
-  height: 180px!important;
+  height: 180px !important;
   resize: none;
   &::placeholder {
     padding-top: 13px;
   }
 }
-
 
 .avatar {
   > div {

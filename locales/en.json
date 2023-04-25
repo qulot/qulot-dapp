@@ -216,12 +216,23 @@
     "lotteryJackpot": "Lottery Jackpot",
     "jackpot": "Jackpot",
     "pricePerTicket": "Price Per Ticket",
-    "playNow": "Play Now"
+    "playNow": "Play Now",
+    "estimateJackpot": "Estimate Jackpot",
+    "assets": "Assets"
   },
   "round": {
     "notification": "Notification",
     "nextRound": "Next round",
-    "dateNext": "date"
+    "dateNext": "date",
+    "nextRoundDrawTime": "Next round draw time",
+    "filterByRoundLabel": "Round",
+    "filterByDateLabel": "Draw Date",
+    "finishedRounds": "Finished Rounds",
+    "loadMore": "Load More",
+    "label": "Round #{round} date {date}",
+    "winningNumber": "Winning Number",
+    "printResult": "Print Result",
+    "checkTicket": "Check"
   },
   "wallet": {
     "connect": "Connect wallet",

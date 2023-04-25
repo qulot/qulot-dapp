@@ -11,7 +11,7 @@
       <!-- Lottery Info -->
       <div class="flex-grow space-y-1">
         <h2 class="text-[17px] font-bold text-black">{{ productName }}</h2>
-        <p class="text-sm text-black">{{ $t('product.labels.estimate') }}</p>
+        <p class="text-sm text-black">{{ $t('lottery.estimateJackpot') }}</p>
         <p class="text-[#6135E9] text-2xl font-bold md:text-3xl">
           {{ jackpotEstimatedValue }}
         </p>
@@ -19,10 +19,9 @@
     </div>
     <div class="flex !mr-auto flex-col justify-center lg:w-3/12 xl:w-4/12">
       <!-- Last Round Win Numbers -->
-      <p
-        class="text-xs mb-2 md:mb-4 md:text-sm text-black"
-        v-html="resultLabel"
-      ></p>
+      <p class="text-xs mb-2 md:mb-4 md:text-sm text-black">
+        {{ $t('round.label', { round: lastRoundId, date: lastRoundDate }) }}
+      </p>
       <div class="flex items-center gap-x-1">
         <div v-for="(num, i) in winningNumbers" :key="i" class="mr-2">
           <CircleItem :number="num" />
@@ -34,7 +33,7 @@
     >
       <!-- Next Round Info -->
       <div class="flex flex-col justify-center h-full flex-grow">
-        <p class="text-black">{{ $t('product.labels.nextDrawing') }}</p>
+        <p class="text-black">{{ $t('round.nextRoundDrawTime') }}</p>
         <div>
           <DatetimeCountDown2
             v-if="nextDrawDatetime"
@@ -51,9 +50,9 @@
         variant="primary"
         rounded
         class="font-bold !justify-between !text-white gap-2"
-        @click="$router.push(`/product/${lottery.id}`)"
+        @click="$router.push(`/lottery/${lottery.id}`)"
       >
-        <span>{{ $t('product.labels.playNow') }}</span>
+        <span>{{ $t('lottery.playNow') }}</span>
         <svg-icon name="arrow-right-circle" class="w-4 h-4" />
       </Button>
     </div>
@@ -61,27 +60,30 @@
 </template>
 <script setup lang="ts">
 import { Lottery } from '~~/types/lottery'
-const { t } = useI18n()
 
 const props = defineProps<{ lottery: Lottery }>()
 
 const loading = ref(false)
 
-const resultLabel = computed(() => {
+const lastRoundId = computed(() => {
   let lastRoundId = '0'
-  let lastRoundDraw = 'NaN'
   if (props.lottery.lastRound) {
     lastRoundId = formatNumber(props.lottery.lastRound.id)
+  }
+
+  return lastRoundId
+})
+
+const lastRoundDate = computed(() => {
+  let lastRoundDraw = 'NaN'
+  if (props.lottery.lastRound) {
     lastRoundDraw = formatTimestamp(
       props.lottery.lastRound.startTime,
-      'ddmmyyyy'
+      'mmddyyyy'
     ) as string
   }
 
-  return t('product.labels.result', {
-    id: '#' + lastRoundId,
-    date: lastRoundDraw,
-  })
+  return lastRoundDraw
 })
 
 const productName = computed(() => {
@@ -92,7 +94,7 @@ const productName = computed(() => {
 })
 
 const jackpotEstimatedValue = computed(() => {
-  const jackpot = props.lottery?.nextRound?.totalAmount || 0
+  const jackpot = props.lottery?.nextRound?.totalAmount || '0'
   return formatUSD(jackpot)
 })
 

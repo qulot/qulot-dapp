@@ -132,6 +132,9 @@ export const useEthers = () => {
     $wagmi.switchNetwork({ chainId: newValue })
   })
 
+  // computed
+  const chainSelected = computed(() => getChain(chainId.value))
+
   // init setting
   const init = () => {
     checkConnection()
@@ -140,6 +143,7 @@ export const useEthers = () => {
   return {
     chainId,
     chains: $wagmi.chains,
+    chainSelected,
     wallets,
     wallet,
     init,

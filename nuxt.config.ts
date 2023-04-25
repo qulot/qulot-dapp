@@ -62,6 +62,8 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     // https://apollo.nuxtjs.org/getting-started/quick-start
     '@nuxtjs/apollo',
+    // https://www.npmjs.com/package/@davestewart/nuxt-scrollbar
+    '@davestewart/nuxt-scrollbar',
   ],
 
   // https://nuxt.com/docs/api/configuration/nuxt-config#imports
