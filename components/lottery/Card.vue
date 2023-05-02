@@ -24,7 +24,7 @@
       </p>
       <div class="flex items-center gap-x-1">
         <div v-for="(num, i) in winningNumbers" :key="i" class="mr-2">
-          <CircleItem :number="num" />
+          <BallItem :number="num" />
         </div>
       </div>
     </div>

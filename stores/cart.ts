@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { CartTicket } from '~~/types/ticket'
+import { groupBy } from '~~/utils/collection'
 
 export const useCartStore = defineStore('cart', {
   state: () => {
@@ -7,7 +8,13 @@ export const useCartStore = defineStore('cart', {
       tickets: [] as CartTicket[],
     }
   },
-  getters: {},
+  getters: {
+    ticketsGroupByLotteryId: (state) =>
+      groupBy(
+        state.tickets.filter((ticket) => ticket.selected),
+        (ticket) => ticket.lotteryId
+      ),
+  },
   actions: {
     async buyTickets() {},
     addTickets(tickets: CartTicket[]) {
@@ -27,5 +34,9 @@ export const useCartStore = defineStore('cart', {
         this.tickets.splice(ticketIndex, 1)
       }
     },
+  },
+  hydrate(storeState, initialState) {
+    // @ts-expect-error: https://github.com/microsoft/TypeScript/issues/43826
+    storeState.n = useLocalStorage('key', 0)
   },
 })

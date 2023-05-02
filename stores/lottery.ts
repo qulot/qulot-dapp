@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { Lottery } from '~~/types/lottery'
 import { GET_LOTTERIES, GET_LOTTERY_BY_ID } from '~~/apollo/queries'
+import { keyBy } from '~~/utils/collection'
 
 type GetLotteriesResult = {
   lotteries: Lottery[]
@@ -21,6 +22,7 @@ export const useLotteryStore = defineStore('lottery', {
     availableLotteries: (state) =>
       state.lotteries.filter((lottery) => lottery.nextRound != null),
     isExists: (state) => state.lottery != null,
+    lotteryAsKeys: (state) => keyBy(state.lotteries, (lottery) => lottery.id),
   },
   actions: {
     async fetchLotteryById(id: string) {

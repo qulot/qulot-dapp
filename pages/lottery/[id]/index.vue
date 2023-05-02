@@ -45,7 +45,7 @@
                 v-if="tickets && tickets.length && token && lottery"
                 class="tickets p-2 space-y-2"
               >
-                <CartTicketItem
+                <LotteryTicketItem
                   v-for="item in tickets"
                   :key="item.id"
                   :pick-numbers="item.pickNumbers"
@@ -162,6 +162,7 @@ const pickNumberOnConfirm = (pickNumbers: number[]) => {
       id: tickets.value.length + 1,
       pickNumbers,
       roundId: lottery.value.nextRound.id,
+      lotteryId: lottery.value.id,
       selected: true,
     }
     tickets.value.push(newTicket)
@@ -196,6 +197,7 @@ const randomTickets = () => {
         id: tickets.value.length + 1,
         pickNumbers,
         roundId: lottery.value.nextRound.id,
+        lotteryId: lottery.value.id,
         selected: true,
       }
       tickets.value.push(newTicket)

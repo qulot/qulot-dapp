@@ -45,3 +45,12 @@ export const ROUND_FIELDS = gql`
     }
   }
 `
+
+export const USER_FIELDS = gql`
+  fragment UserFields on User {
+    id
+    totalWinAmount
+    totalTickets
+    totalAmount
+  }
+`

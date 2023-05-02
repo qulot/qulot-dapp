@@ -1,4 +1,4 @@
-import { LOTTERY_FIELDS, ROUND_FIELDS } from './fragments'
+import { LOTTERY_FIELDS, ROUND_FIELDS, USER_FIELDS } from './fragments'
 
 export const GET_TOTAL_USERS_TOTAL_PRIZE = gql`
   query GetTotalUsersTotalPrize {
@@ -10,16 +10,14 @@ export const GET_TOTAL_USERS_TOTAL_PRIZE = gql`
 `
 
 export const GET_USERS_ORDER_BY_WIN_AMOUNT = gql`
+  ${USER_FIELDS}
   query GetUsersOrderByWinAmount($first: Int, $orderDirection: String) {
     users(
       orderBy: totalWinAmount
       orderDirection: $orderDirection
       first: $first
     ) {
-      id
-      totalWinAmount
-      totalTickets
-      totalAmount
+      ...UserFields
     }
   }
 `
