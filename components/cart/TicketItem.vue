@@ -22,10 +22,10 @@
           </div>
           <div>
             <div
-              v-if="lotteryVerboseName"
               class="text-[17px] font-bold text-title-nodark leading-tight mb-3"
             >
-              {{ lotteryVerboseName }}
+              {{ lotteryVerboseName }} |
+              {{ $t('round.roundId', { round: roundId }) }}
             </div>
             <div class="flex items-center space-x-2">
               <div v-for="num in pickNumbers" :key="num">
@@ -37,11 +37,11 @@
         <div class="w-px h-10 bg-[#D8D8D8] hidden lg:block"></div>
         <!-- 2 -->
         <div class="pl-[78px] lg:pl-0 flex items-center flex-1 justify-between">
-          <div class="flex items-center space-x-1 leading-tight">
-            <span class="text-[17px] font-bold text-title-nodark">{{
-              pricePerTicket
-            }}</span>
-            <span class="text-xs">{{ currency }}</span>
+          <div class="space-x-1 leading-tight">
+            <span class="text-[17px] font-bold text-title-nodark">
+              {{ pricePerTicket }}
+              <span class="text-xs">{{ currency }}</span>
+            </span>
           </div>
           <div
             class="absolute lg:relative top-4 right-3 lg:top-auto lg:right-auto flex items-center space-x-5 lg:space-x-7"
@@ -53,10 +53,12 @@
               {{ $t('cart.deleteTicket') }}
             </div>
             <div class="cursor-pointer" @click="$emit('select')">
-              <svg-icon
-                :name="selected ? 'checkbox' : 'uncheck'"
-                class="w-4 h-4"
-              />
+              <span v-show="selected">
+                <svg-icon name="checkbox" class="w-4 h-4" />
+              </span>
+              <span v-show="!selected">
+                <svg-icon name="uncheck" class="w-4 h-4" />
+              </span>
             </div>
           </div>
         </div>
@@ -66,6 +68,11 @@
 </template>
 <script setup lang="ts">
 defineProps({
+  roundId: {
+    type: String,
+    requried: true,
+    default: null,
+  },
   lotteryPicture: {
     type: String,
     required: false,

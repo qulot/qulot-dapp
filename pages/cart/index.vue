@@ -10,27 +10,7 @@
           >
             {{ $t('ticket.listTicket') }}
           </div>
-          <div
-            v-if="token && tickets.length"
-            class="list-ticket space-y-4 relative"
-          >
-            <CartTicketItem
-              v-for="ticket in tickets"
-              :key="ticket.id"
-              :currency="token.symbol"
-              :pick-numbers="ticket.pickNumbers"
-              :selected="ticket.selected"
-              :price-per-ticket="
-                formatEther(
-                  lotteryAsKeys[ticket.lotteryId]?.pricePerTicket || '0'
-                )
-              "
-              :lottery-picture="lotteryAsKeys[ticket.lotteryId]?.picture"
-              :lottery-verbose-name="
-                lotteryAsKeys[ticket.lotteryId]?.verboseName
-              "
-            />
-          </div>
+          <CartTicketList />
         </div>
       </div>
       <div class="lg:w-1/3">
@@ -42,46 +22,17 @@
               $t('cart.checkout')
             }}</span>
           </div>
-          <!-- <div class="title mb-2.5">{{ fullName }}</div> -->
           <div class="flex items-center justify-between mb-4">
             <span class="text-sm text-disable">
               {{ $t('cart.accountBalance') }}:
             </span>
-            <span
-              v-if="token && tokenBalance"
-              class="font-bold text-[17px] text-title"
-            >
+            <span v-if="tokenBalance" class="font-bold text-[17px] text-title">
               {{ tokenBalance.formatted }}
-              {{ token.symbol }}
+              <span class="text-xs">{{ tokenBalance?.symbol }}</span>
             </span>
           </div>
           <div class="border border-default p-2 rounded-lg mb-4 text-sm">
-            <table class="table-auto w-full">
-              <thead class="text-left text-disable font-normal">
-                <tr>
-                  <th class="font-normal">{{ $t('cart.product') }}</th>
-                  <th class="font-normal">{{ $t('cart.quantity') }}</th>
-                  <th class="font-normal">{{ $t('cart.price') }}</th>
-                  <th class="font-normal text-right">
-                    {{ $t('cart.total') }}
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- <tr
-                  v-for="(item, index) in ticketsGroupByLotteryId"
-                  :key="index"
-                  class="py-2 border-b border-default last:border-none"
-                >
-                  <td class="py-3">{{ item.lotteryProductVerboseName }}</td>
-                  <td class="py-3">x{{ item.length }}</td>
-                  <td class="py-3">{{ item.priceEstUsd }}</td>
-                  <td class="py-3 text-right">
-                    {{ item.priceEstUsd * item.count }}
-                  </td>
-                </tr> -->
-              </tbody>
-            </table>
+            <CartTicketGroupTable />
           </div>
           <!-- Payment method -->
           <div class="mb-4">
@@ -91,30 +42,7 @@
             <div class="text-sm mb-2 text-disable">
               {{ $t('cart.choosePaymentMethod') }}
             </div>
-            <!-- <div class="flex flex-col space-y-2">
-              <div
-                v-for="method in listMethod"
-                :key="method.id"
-                class="rounded-lg border border-default py-3 px-4"
-              >
-                <RadioBox
-                  :value="cartInfo.paymentMethod"
-                  :model-value="method.id"
-                  @change="changePaymentMethod(method.id)"
-                >
-                  <div class="ml-4 cursor-pointer flex items-center">
-                    <div class="w-6 h-6 mr-2.5">
-                      <img
-                        :src="method.icon"
-                        :alt="method.name"
-                        class="max-w-full h-auto"
-                      />
-                    </div>
-                    <div class="text-sm title-nodark">{{ method.name }}</div>
-                  </div>
-                </RadioBox>
-              </div>
-            </div> -->
+            <CartListPaymentMethods />
             <!-- <div
               v-if="isInvalidPayment && verbosePaymentKind"
               class="flex items-center text-error text-xs mt-2 space-x-2"
@@ -158,7 +86,7 @@
               ></span>
             </div>
             <div class="flex items-center justify-between font-bold">
-              <div class="text-[17px]">{{ $t('cart.labels.total') }}:</div>
+              <div class="text-[17px]">{{ $t('cart.total') }}:</div>
               <!-- <div class="text-2xl font-bold">
                 {{ cartInfo.totalNetEstUsd | formatUSD(4) }}
               </div> -->
@@ -166,7 +94,7 @@
           </div>
           <div>
             <Button variant="primary" type="button" class="w-full rounded-lg">
-              {{ $t('cart.labels.checkoutNow') }}
+              {{ $t('cart.checkoutNow') }}
             </Button>
           </div>
         </div>
@@ -176,16 +104,27 @@
 </template>
 
 <script setup lang="ts">
-import { formatEther } from 'ethers/lib/utils.js'
-import { storeToRefs } from 'pinia'
-const { token } = useQulot()
+const config = useRuntimeConfig()
+const { t } = useI18n()
 const { tokenBalance } = useAccount()
 const cartStore = useCartStore()
-const lotteryStore = useLotteryStore()
-const { lotteryAsKeys } = storeToRefs(lotteryStore)
-const { tickets, ticketsGroupByLotteryId } = storeToRefs(cartStore)
 
-const format = () => {}
+definePageMeta({
+  layout: 'app',
+})
+
+const title = computed(
+  () => `${t('cart.label')} | ${config.public.metadata.appName}`
+)
+
+useSeoMeta({
+  title,
+  ogTitle: title,
+})
+
+onMounted(() => {
+  cartStore.loadLocalStorage()
+})
 </script>
 
 <style scoped>

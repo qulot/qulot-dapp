@@ -122,6 +122,10 @@ const lotteryStore = useLotteryStore()
 const cartStore = useCartStore()
 const { isExists, lottery } = storeToRefs(lotteryStore)
 
+definePageMeta({
+  layout: 'app',
+})
+
 await lotteryStore.fetchLotteryById(route.params.id as string)
 
 if (!isExists.value) {

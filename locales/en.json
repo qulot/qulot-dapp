@@ -54,7 +54,8 @@
     "price": "Price",
     "addTicket": "Add Ticket",
     "selectRandom": "Pick {number} Random Tickets",
-    "buyNow": "Buy Now"
+    "buyNow": "Buy Now",
+    "label": "Cart"
   },
   "ticket": {
     "listTicket": "List ticket",
@@ -232,7 +233,8 @@
     "label": "Round #{round} date {date}",
     "winningNumber": "Winning Number",
     "printResult": "Print Result",
-    "checkTicket": "Check"
+    "checkTicket": "Check",
+    "roundId": "Round #{round}"
   },
   "wallet": {
     "connect": "Connect wallet",

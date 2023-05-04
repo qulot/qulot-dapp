@@ -26,7 +26,7 @@ export default defineNuxtPlugin(() => {
 
   let chains: Chain[] = [polygonMumbai, goerli]
   if (config.public.isProduction) {
-    chains = [bsc, polygon]
+    chains = [polygonMumbai, goerli]
   }
 
   let connectors: Connector[] = []

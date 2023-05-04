@@ -18,6 +18,7 @@
       :value="value"
       type="radio"
       class="opacity-0 absolute h-4 w-4 cursor-pointer"
+      :disabled="disabled"
       @change="$emit('change', value)"
     />
   </label>
@@ -35,6 +36,11 @@ const props = defineProps({
   modelValue: {
     type: String,
     default: '',
+  },
+  disabled: {
+    type: Boolean,
+    required: false,
+    default: undefined,
   },
 })
 
