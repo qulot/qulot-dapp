@@ -55,7 +55,8 @@
     "addTicket": "Add Ticket",
     "selectRandom": "Pick {number} Random Tickets",
     "buyNow": "Buy Now",
-    "label": "Cart"
+    "label": "Cart",
+    "discount": "Discount:"
   },
   "ticket": {
     "listTicket": "List ticket",
@@ -252,5 +253,8 @@
     "plsConfirmIn": "Please confirm in {wallet}",
     "myWallet": "My Wallet",
     "myBalance": "Balance"
+  },
+  "payment": {
+    "insufficientTokenBalance" : "Insufficient {token} balance"
   }
 }

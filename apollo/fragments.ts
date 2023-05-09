@@ -13,6 +13,7 @@ export const LOTTERY_FIELDS = gql`
     maxValuePerItem
     maxNumberTicketsPerBuy
     amountInjectNextRoundPercent
+    discountPercent
     lastRound {
       id
       startTime

@@ -57,7 +57,8 @@
     "addTicket": "Thêm Vé",
     "selectRandom": "Chọn {number} vé ngẫu nhiên",
     "buyNow": "Mua Ngay",
-    "label": "Giỏ Hàng"
+    "label": "Giỏ Hàng",
+    "discount": "Giảm giá:"
   },
   "ticket": {
     "listTicket": "Danh Sách Vé",

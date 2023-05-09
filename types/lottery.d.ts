@@ -42,6 +42,7 @@ export interface Lottery {
   pricePerTicket: string
   treasuryFeePercent: number
   amountInjectNextRoundPercent: number
+  discountPercent: number
   lastRound?: Round
   nextRound?: Round
   rewardRules?: RewardRule[]

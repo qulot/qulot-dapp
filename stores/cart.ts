@@ -1,5 +1,5 @@
 import { BigNumber } from 'ethers/lib/ethers'
-import { formatEther, parseEther } from 'ethers/lib/utils.js'
+import { formatEther } from 'ethers/lib/utils.js'
 import { defineStore } from 'pinia'
 import { CartItemsGroup, CartTicket } from '~~/types/ticket'
 import { groupBy } from '~~/utils/collection'
@@ -56,6 +56,43 @@ export const useCartStore = defineStore('cart', {
       )
 
       return totalAmount
+    },
+    finalAmount() {
+      const lotteryStore = useLotteryStore()
+      const validTickets = this.validTickets as CartTicket[]
+      let finalAmount = BigNumber.from('0')
+
+      for (const ticket of validTickets) {
+        let ticketPrice = BigNumber.from(
+          lotteryStore.lotteryTicketPrices[ticket.lotteryId]
+        )
+        const discountPercent = lotteryStore.lotteryDiscounts[ticket.lotteryId]
+
+        if (!discountPercent.isZero()) {
+          ticketPrice = ticketPrice.sub(
+            ticketPrice.mul(discountPercent).div(BigNumber.from(100))
+          )
+        }
+
+        finalAmount = finalAmount.add(ticketPrice)
+      }
+
+      return finalAmount
+    },
+    totalDiscountPercent() {
+      const lotteryStore = useLotteryStore()
+      return Object.keys(lotteryStore.lotteryDiscounts).reduce(
+        (previousValue: BigNumber, lotteryId: string) =>
+          previousValue.add(lotteryStore.lotteryDiscounts[lotteryId]),
+        BigNumber.from('0')
+      )
+    },
+    isInsufficientTokenBalance() {
+      const { tokenBalance } = useAccount()
+      if (tokenBalance.value && this.finalAmount) {
+        return BigNumber.from(tokenBalance.value.value).lt(this.finalAmount)
+      }
+      return false
     },
   },
   actions: {
