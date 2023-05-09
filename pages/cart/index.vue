@@ -43,30 +43,33 @@
               {{ $t('cart.choosePaymentMethod') }}
             </div>
             <CartListPaymentMethods />
-            <!-- <div
-              v-if="isInvalidPayment && verbosePaymentKind"
+            <div
+              v-if="paymentError"
               class="flex items-center text-error text-xs mt-2 space-x-2"
             >
               <SvgIcon name="warnning" class="h-3 w-3" />
-              <span>{{ verbosePaymentKind }}</span>
-            </div> -->
+              <span>{{ paymentError }}</span>
+            </div>
           </div>
           <!-- Summary -->
           <div
             class="mb-4 bg-title-nodark rounded-lg py-6 px-4 overflow-hidden text-white text-sm"
           >
-            <!-- <div class="space-y-4">
+            <div class="space-y-4">
               <div class="flex items-center justify-between">
-                <div>{{ $t('cart.labels.subtotal') }}:</div>
-                <div class="font-bold">{{ cartInfo.total | formatUSD(4) }}</div>
+                <div>{{ $t('cart.subtotal') }}:</div>
+                <div class="font-bold">
+                  {{ formatEther(totalAmount) }}
+                  <span class="text-xs">{{ token?.symbol }}</span>
+                </div>
               </div>
-              <div
-                v-if="cartInfo.discountAmount"
-                class="flex items-center justify-between"
-              >
-                <div>Giảm giá:</div>
-                <div class="font-bold">5%</div>
+              <div class="flex items-center justify-between">
+                <div>{{ $t('cart.discount') }}</div>
+                <div class="font-bold">
+                  {{ totalDiscountPercent.toNumber() }}%
+                </div>
               </div>
+              <!--
               <div
                 v-if="cartInfo.paymentFeeEstUsd"
                 class="flex items-center justify-between"
@@ -75,21 +78,22 @@
                 <div class="font-bold">
                   {{ cartInfo.paymentFeeEstUsd | formatUSD(4) }}
                 </div>
-              </div>
-            </div> -->
+              </div> -->
+            </div>
             <div class="border-b border-dashed border-default relative my-6">
               <span
                 class="rounded-full h-3 w-3 bg-white dark:bg-block absolute -left-4 -ml-1.5 -mt-1.5"
-              ></span>
+              />
               <span
                 class="rounded-full h-3 w-3 bg-white dark:bg-block absolute -right-4 -mr-1.5 -mt-1.5"
-              ></span>
+              />
             </div>
             <div class="flex items-center justify-between font-bold">
               <div class="text-[17px]">{{ $t('cart.total') }}:</div>
-              <!-- <div class="text-2xl font-bold">
-                {{ cartInfo.totalNetEstUsd | formatUSD(4) }}
-              </div> -->
+              <div class="text-2xl font-bold">
+                {{ formatEther(finalAmount) }}
+                <span class="text-xs">{{ token?.symbol }}</span>
+              </div>
             </div>
           </div>
           <div>
@@ -104,10 +108,20 @@
 </template>
 
 <script setup lang="ts">
+import { formatEther } from 'ethers/lib/utils.js'
+import { storeToRefs } from 'pinia'
+
 const config = useRuntimeConfig()
 const { t } = useI18n()
+const { token } = useQulot()
 const { tokenBalance } = useAccount()
 const cartStore = useCartStore()
+const {
+  totalAmount,
+  finalAmount,
+  totalDiscountPercent,
+  isInsufficientTokenBalance,
+} = storeToRefs(cartStore)
 
 definePageMeta({
   layout: 'app',
@@ -116,6 +130,12 @@ definePageMeta({
 const title = computed(
   () => `${t('cart.label')} | ${config.public.metadata.appName}`
 )
+
+const paymentError = computed(() => {
+  if (isInsufficientTokenBalance.value) {
+    return t('payment.insufficientTokenBalance', { token: token.value?.symbol })
+  }
+})
 
 useSeoMeta({
   title,

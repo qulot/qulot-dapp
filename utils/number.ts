@@ -120,3 +120,11 @@ export function bulkRandomRange(numbers: number, min: number, max: number) {
   }
   return randomNumbers
 }
+
+/**
+ * Getting a unique integer id
+ * @returns
+ */
+export function uniqueID() {
+  return Math.floor(Math.random() * Date.now())
+}

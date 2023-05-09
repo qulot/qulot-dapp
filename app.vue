@@ -10,7 +10,7 @@ const { locale } = useI18n()
 const { init: initEthers } = useEthers()
 const { init: initQulot } = useQulot()
 const { init: initAccount } = useAccount({
-  updateOnce: true,
+  updateOnce: false,
   updateInterval: 20000,
 })
 

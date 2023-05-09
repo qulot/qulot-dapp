@@ -198,7 +198,7 @@ const randomTickets = () => {
         lottery.value.maxValuePerItem
       )
       const newTicket: CartTicket = {
-        id: tickets.value.length + 1,
+        id: uniqueID(),
         pickNumbers,
         roundId: lottery.value.nextRound.id,
         lotteryId: lottery.value.id,

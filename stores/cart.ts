@@ -1,5 +1,7 @@
+import { BigNumber } from 'ethers/lib/ethers'
+import { formatEther, parseEther } from 'ethers/lib/utils.js'
 import { defineStore } from 'pinia'
-import { CartTicket } from '~~/types/ticket'
+import { CartItemsGroup, CartTicket } from '~~/types/ticket'
 import { groupBy } from '~~/utils/collection'
 
 export const useCartStore = defineStore('cart', {
@@ -9,14 +11,54 @@ export const useCartStore = defineStore('cart', {
     }
   },
   getters: {
-    ticketsGroupByLotteryId: (state) =>
-      groupBy(
-        state.tickets.filter((ticket) => ticket.selected),
-        (ticket) => ticket.lotteryId
-      ),
+    validTickets: (state) => state.tickets.filter((ticket) => ticket.selected),
+    ticketsGroupByLotteryId() {
+      const validTickets = this.validTickets as CartTicket[]
+      return groupBy(validTickets, (ticket) => ticket.lotteryId)
+    },
+    ticketsSummaryByLotteryId() {
+      const cartItems: CartItemsGroup[] = []
+      if (this.ticketsGroupByLotteryId) {
+        const lotteryStore = useLotteryStore()
+        for (const lotteryId of Object.keys(this.ticketsGroupByLotteryId)) {
+          if (lotteryStore.lotteryAsKeys[lotteryId]) {
+            const lotteryPricePerTicket =
+              lotteryStore.lotteryAsKeys[lotteryId]?.pricePerTicket || '0'
+            cartItems.push({
+              lotteryId,
+              qty: this.ticketsGroupByLotteryId[lotteryId].length,
+              lotteryVerboseName:
+                lotteryStore.lotteryAsKeys[lotteryId].verboseName,
+              lotteryPricePerTicket: formatEther(lotteryPricePerTicket),
+              total: formatEther(
+                BigNumber.from(lotteryPricePerTicket).mul(
+                  this.ticketsGroupByLotteryId[lotteryId].length
+                )
+              ),
+            })
+          }
+        }
+      }
+      return cartItems
+    },
+    totalAmount() {
+      const lotteryStore = useLotteryStore()
+      const validTickets = this.validTickets as CartTicket[]
+      const totalAmount = validTickets.reduce(
+        (previousValue: BigNumber, ticket: CartTicket) =>
+          previousValue.add(
+            BigNumber.from(
+              lotteryStore.lotteryAsKeys[ticket.lotteryId]?.pricePerTicket ||
+                '0'
+            )
+          ),
+        BigNumber.from('0')
+      )
+
+      return totalAmount
+    },
   },
   actions: {
-    async buyTickets() {},
     saveLocalStorage() {
       localStorage.setItem('cart.tickets', JSON.stringify(this.tickets))
     },
@@ -47,5 +89,6 @@ export const useCartStore = defineStore('cart', {
         this.saveLocalStorage()
       }
     },
+    async buyTickets() {},
   },
 })
