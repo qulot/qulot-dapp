@@ -1,61 +1,98 @@
 <template>
   <div class="relative text-sm text-title-nodark">
     <div
-      class="overflow-hidden box-border relative before:content-[''] before:absolute before:h-3 before:w-3 before:rounded-full before:bg-white dark:before:bg-block before:left-0 before:top-1/2 before:-mt-1.5 before:-ml-1.5 before:border before:border-solid after:content-[''] after:absolute after:h-3 after:w-3 after:rounded-full after:bg-white dark:after:bg-block after:right-0 after:top-1/2 after:-mr-1.5 after:-mt-1.5 after:border after:border-solid before:border-white after:border-white"
+      class="overflow-hidden box-border relative before:content-[''] before:absolute before:h-3 before:w-3 before:rounded-full before:bg-white dark:before:bg-block before:left-0 before:top-1/2 before:-mt-1.5 before:-ml-1.5 before:border before:border-solid after:content-[''] after:absolute after:h-3 after:w-3 after:rounded-full after:bg-white dark:after:bg-block after:right-0 after:top-1/2 after:-mr-1.5 after:-mt-1.5 after:border after:border-solid"
+      :class="'before:border-white after:border-white'"
     >
       <div
-        class="bg-[#F3EFFF] rounded lg:rounded-lg py-3 px-3 lg:px-4 border border-solid border-[#F3EFFF] flex flex-wrap items-center space-x-2 lg:space-y-0"
+        class="bg-[#F3EFFF] rounded lg:rounded-lg p-3 xl:p-4 border border-solid min-h-[100px] lg:flex items-center space-y-3 lg:space-y-0 lg:space-x-4 xl:space-x-8"
+        :class="'border-[#F3EFFF]'"
       >
-        <span class="cursor-pointer" @click="$emit('select')">
-          <span v-show="selected">
-            <SvgIcon name="checkbox" class="w-4 h-4 text-title-nodark" />
-          </span>
-          <span v-show="!selected">
-            <SvgIcon name="uncheck" class="w-4 h-4 text-disable" />
-          </span>
-        </span>
-        <div class="flex items-center space-x-1 lg:space-x-2 flex-1 px-2">
-          <div v-for="(num, i) in pickNumbers" :key="i">
-            <BallItem :number="num" />
-          </div>
-        </div>
-        <div
-          class="w-full lg:w-auto mt-3 !mr-2 lg:!mr-0 lg:mt-0 text-sm text-title-nodark space-x-2 order-last lg:order-none flex justify-center"
-        >
+        <!-- 1 -->
+        <div class="flex items-center lg:w-1/2">
           <div
-            class="flex items-center space-x-2 border border-[#D8D8D8] p-2 rounded"
+            class="w-[70px] h-[70px] rounded overflow-hidden mr-2 lg:mr-4 flex items-center"
           >
-            <span>{{ price }}</span>
-            <span class="w-px h-3 bg-[#D8D8D8]"></span>
-            <span>{{ currency }}</span>
+            <img
+              v-if="lotteryPicture"
+              class="inset-0"
+              :src="lotteryPicture"
+              alt="thumbnail"
+            />
+          </div>
+          <div>
+            <div
+              class="text-[17px] font-bold text-title-nodark leading-tight mb-3"
+            >
+              {{ lotteryVerboseName }} |
+              {{ $t('round.roundId', { round: roundId }) }}
+            </div>
+            <div class="flex items-center space-x-2">
+              <div v-for="num in pickNumbers" :key="num">
+                <BallItem :number="num" />
+              </div>
+            </div>
           </div>
         </div>
-        <div class="actions flex items-center space-x-2">
-          <span class="cursor-pointer"
-            ><svg-icon name="reload" class="h-4 w-4 text-title-nodark"
-          /></span>
-          <span class="cursor-pointer" @click="$emit('delete')"
-            ><svg-icon name="trash" class="h-4 w-3 text-[#FF228C]"
-          /></span>
+        <div class="w-px h-10 bg-[#D8D8D8] hidden lg:block"></div>
+        <!-- 2 -->
+        <div class="pl-[78px] lg:pl-0 flex items-center flex-1 justify-between">
+          <div class="space-x-1 leading-tight">
+            <span class="text-[17px] font-bold text-title-nodark">
+              {{ pricePerTicket }}
+              <span class="text-xs">{{ currency }}</span>
+            </span>
+          </div>
+          <div
+            class="absolute lg:relative top-4 right-3 lg:top-auto lg:right-auto flex items-center space-x-5 lg:space-x-7"
+          >
+            <div
+              class="cursor-pointer hover:text-error"
+              @click="$emit('delete')"
+            >
+              {{ $t('cart.deleteTicket') }}
+            </div>
+            <div class="cursor-pointer" @click="$emit('select')">
+              <span v-show="selected">
+                <svg-icon name="checkbox" class="w-4 h-4" />
+              </span>
+              <span v-show="!selected">
+                <svg-icon name="uncheck" class="w-4 h-4" />
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script setup lang="ts">
-import { formatEther } from '@ethersproject/units'
-import { PropType } from 'vue'
-
-const props = defineProps({
+defineProps({
+  roundId: {
+    type: String,
+    requried: true,
+    default: null,
+  },
+  lotteryPicture: {
+    type: String,
+    required: false,
+    default: null,
+  },
+  lotteryVerboseName: {
+    type: String,
+    required: false,
+    default: null,
+  },
   pickNumbers: {
     type: Array as PropType<number[]>,
     default: () => [],
   },
-  currency: {
-    type: String,
-    required: true,
-  },
   pricePerTicket: {
+    type: String,
+    required: false,
+    default: null,
+  },
+  currency: {
     type: String,
     required: true,
   },
@@ -65,7 +102,5 @@ const props = defineProps({
   },
 })
 
-defineEmits(['select', 'delete'])
-
-const price = computed(() => formatEther(props.pricePerTicket))
+defineEmits(['delete', 'select'])
 </script>

@@ -54,7 +54,9 @@
     "price": "Price",
     "addTicket": "Add Ticket",
     "selectRandom": "Pick {number} Random Tickets",
-    "buyNow": "Buy Now"
+    "buyNow": "Buy Now",
+    "label": "Cart",
+    "discount": "Discount:"
   },
   "ticket": {
     "listTicket": "List ticket",
@@ -232,7 +234,8 @@
     "label": "Round #{round} date {date}",
     "winningNumber": "Winning Number",
     "printResult": "Print Result",
-    "checkTicket": "Check"
+    "checkTicket": "Check",
+    "roundId": "Round #{round}"
   },
   "wallet": {
     "connect": "Connect wallet",
@@ -250,5 +253,8 @@
     "plsConfirmIn": "Please confirm in {wallet}",
     "myWallet": "My Wallet",
     "myBalance": "Balance"
+  },
+  "payment": {
+    "insufficientTokenBalance" : "Insufficient {token} balance"
   }
 }

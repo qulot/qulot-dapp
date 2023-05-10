@@ -56,10 +56,12 @@
     "price": "Giá",
     "addTicket": "Thêm Vé",
     "selectRandom": "Chọn {number} vé ngẫu nhiên",
-    "buyNow": "Mua Ngay"
+    "buyNow": "Mua Ngay",
+    "label": "Giỏ Hàng",
+    "discount": "Giảm giá:"
   },
   "ticket": {
-    "listTicket": "Danh sách Ticket",
+    "listTicket": "Danh Sách Vé",
     "winprize": "Trúng thưởng",
     "statusWait": "Đang chờ",
     "statusStartDial": "Bắt đầu quay số",
@@ -233,7 +235,8 @@
     "label": "Vòng #{round} Ngày {date}",
     "winningNumber": "Số Trúng Thưởng",
     "printResult": "In Kết Quả",
-    "checkTicket": "Kiểm Tra"
+    "checkTicket": "Kiểm Tra",
+    "roundId": "Vòng #{round}"
   },
   "wallet": {
     "connect": "Kết nối ví",

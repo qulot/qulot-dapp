@@ -13,6 +13,7 @@ export const LOTTERY_FIELDS = gql`
     maxValuePerItem
     maxNumberTicketsPerBuy
     amountInjectNextRoundPercent
+    discountPercent
     lastRound {
       id
       startTime
@@ -43,5 +44,14 @@ export const ROUND_FIELDS = gql`
     firstRound {
       id
     }
+  }
+`
+
+export const USER_FIELDS = gql`
+  fragment UserFields on User {
+    id
+    totalWinAmount
+    totalTickets
+    totalAmount
   }
 `

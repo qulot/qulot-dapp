@@ -12,7 +12,7 @@
       >
         <div class="lg:w-5/12">
           <div class="sticky top-20 space-y-4 lg:space-y-6">
-            <CardMyWalletCompare />
+            <LotteryMyWalletCompare />
             <div
               id="order"
               class="bg-white dark:bg-block shadow-default rounded-lg"
@@ -45,7 +45,7 @@
                 v-if="tickets && tickets.length && token && lottery"
                 class="tickets p-2 space-y-2"
               >
-                <CartTicketItem
+                <LotteryTicketItem
                   v-for="item in tickets"
                   :key="item.id"
                   :pick-numbers="item.pickNumbers"
@@ -122,6 +122,10 @@ const lotteryStore = useLotteryStore()
 const cartStore = useCartStore()
 const { isExists, lottery } = storeToRefs(lotteryStore)
 
+definePageMeta({
+  layout: 'app',
+})
+
 await lotteryStore.fetchLotteryById(route.params.id as string)
 
 if (!isExists.value) {
@@ -162,6 +166,7 @@ const pickNumberOnConfirm = (pickNumbers: number[]) => {
       id: tickets.value.length + 1,
       pickNumbers,
       roundId: lottery.value.nextRound.id,
+      lotteryId: lottery.value.id,
       selected: true,
     }
     tickets.value.push(newTicket)
@@ -193,9 +198,10 @@ const randomTickets = () => {
         lottery.value.maxValuePerItem
       )
       const newTicket: CartTicket = {
-        id: tickets.value.length + 1,
+        id: uniqueID(),
         pickNumbers,
         roundId: lottery.value.nextRound.id,
+        lotteryId: lottery.value.id,
         selected: true,
       }
       tickets.value.push(newTicket)

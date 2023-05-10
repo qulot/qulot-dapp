@@ -22,7 +22,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { formatEther } from '@ethersproject/units'
+import { formatUnits } from '@ethersproject/units'
 import { storeToRefs } from 'pinia'
 const lotteryStore = useLotteryStore()
 const { tokenBalance } = useAccount()
@@ -55,7 +55,7 @@ const checkPricePerTicket = () => {
   if (lottery.value && token.value) {
     pricePerTicket.value.isLoading = false
     pricePerTicket.value.amount = formatMoney(
-      formatEther(lottery.value.pricePerTicket),
+      formatUnits(lottery.value.pricePerTicket, token.value.decimals),
       token.value.symbol,
       1
     )

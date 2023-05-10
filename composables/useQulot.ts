@@ -38,7 +38,10 @@ export const useQulot = () => {
   }
 
   const init = async () => {
+    // Init qulot contract
     qulotLottery.value = getQulotContract()
+
+    // Fetch token info
     await fetchToken()
   }
 
