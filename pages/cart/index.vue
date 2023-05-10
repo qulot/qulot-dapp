@@ -59,7 +59,7 @@
               <div class="flex items-center justify-between">
                 <div>{{ $t('cart.subtotal') }}:</div>
                 <div class="font-bold">
-                  {{ formatEther(totalAmount) }}
+                  {{ formatUnits(totalAmount, token?.decimals) }}
                   <span class="text-xs">{{ token?.symbol }}</span>
                 </div>
               </div>
@@ -91,13 +91,18 @@
             <div class="flex items-center justify-between font-bold">
               <div class="text-[17px]">{{ $t('cart.total') }}:</div>
               <div class="text-2xl font-bold">
-                {{ formatEther(finalAmount) }}
+                {{ formatUnits(finalAmount, token?.decimals) }}
                 <span class="text-xs">{{ token?.symbol }}</span>
               </div>
             </div>
           </div>
           <div>
-            <Button variant="primary" type="button" class="w-full rounded-lg">
+            <Button
+              variant="primary"
+              type="button"
+              class="w-full rounded-lg"
+              :disabled="!isAllowCheckout"
+            >
               {{ $t('cart.checkoutNow') }}
             </Button>
           </div>
@@ -108,7 +113,7 @@
 </template>
 
 <script setup lang="ts">
-import { formatEther } from 'ethers/lib/utils.js'
+import { formatUnits } from 'ethers/lib/utils.js'
 import { storeToRefs } from 'pinia'
 
 const config = useRuntimeConfig()
@@ -121,6 +126,7 @@ const {
   finalAmount,
   totalDiscountPercent,
   isInsufficientTokenBalance,
+  isAllowCheckout,
 } = storeToRefs(cartStore)
 
 definePageMeta({

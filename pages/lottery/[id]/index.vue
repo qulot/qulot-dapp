@@ -12,7 +12,7 @@
       >
         <div class="lg:w-5/12">
           <div class="sticky top-20 space-y-4 lg:space-y-6">
-            <CardMyWalletCompare />
+            <LotteryMyWalletCompare />
             <div
               id="order"
               class="bg-white dark:bg-block shadow-default rounded-lg"

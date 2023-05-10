@@ -8,7 +8,7 @@
       :pick-numbers="ticket.pickNumbers"
       :selected="ticket.selected"
       :price-per-ticket="
-        formatEther(lotteryAsKeys[ticket.lotteryId]?.pricePerTicket || '0')
+        formatUnits(lotteryTicketPrices[ticket.lotteryId], token?.decimals)
       "
       :lottery-picture="lotteryAsKeys[ticket.lotteryId]?.picture"
       :lottery-verbose-name="lotteryAsKeys[ticket.lotteryId]?.verboseName"
@@ -19,11 +19,11 @@
 </template>
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { formatEther } from 'ethers/lib/utils.js'
+import { formatUnits } from 'ethers/lib/utils.js'
 const { token } = useQulot()
 const cartStore = useCartStore()
 const lotteryStore = useLotteryStore()
-const { lotteryAsKeys } = storeToRefs(lotteryStore)
+const { lotteryAsKeys, lotteryTicketPrices } = storeToRefs(lotteryStore)
 const { tickets } = storeToRefs(cartStore)
 const deleteTicket = (ticketId: number) => {
   cartStore.remove(ticketId)

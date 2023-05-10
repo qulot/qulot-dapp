@@ -15,7 +15,7 @@
           <p class="text-lg mb-1 leading-tight">
             {{ $t('lottery.lotteryJackpot') }}
           </p>
-          <div class="text-[40px] font-bold text-main mb-1.5 tracking-[0.02em]">
+          <div class="text-[40px] font-bold text-main mb-1.5">
             {{ jackpotEstimatedValue }}
           </div>
           <div class="flex justify-center mb-3">
@@ -40,9 +40,7 @@
                 variant="primary"
                 class="rounded text-white"
                 @click="$emit('buyTicket')"
-                >{{
-                  $t('ticket.buyTicket', { price: usdPricePerTicket })
-                }}</Button
+                >{{ $t('ticket.buyTicket', { price: pricePerTicket }) }}</Button
               >
             </div>
           </ClientOnly>
@@ -72,7 +70,7 @@
   </section>
 </template>
 <script setup lang="ts">
-import { formatEther } from '@ethersproject/units'
+import { formatEther, formatUnits } from '@ethersproject/units'
 import { PropType } from 'vue'
 import { Lottery } from '~~/types/lottery'
 
@@ -86,7 +84,7 @@ const props = defineProps({
 defineEmits(['buyTicket'])
 
 const { chainSelected } = useEthers()
-const { qulotLottery } = useQulot()
+const { qulotLottery, token } = useQulot()
 
 const explorerContract = computed(() => {
   if (
@@ -100,21 +98,26 @@ const explorerContract = computed(() => {
 
 const jackpotEstimatedValue = computed(() => {
   if (
-    props.lottery &&
     props.lottery.nextRound &&
-    props.lottery.nextRound.totalAmount
+    props.lottery.nextRound.totalAmount &&
+    token.value
   ) {
-    return formatEther(props.lottery.nextRound.totalAmount)
+    return formatUnits(
+      props.lottery.nextRound.totalAmount,
+      token.value.decimals
+    )
   }
+
+  return '0.0'
 })
 
 const nextRoundDraw = computed(() => {
   return props.lottery?.nextTick
 })
 
-const usdPricePerTicket = computed(() => {
-  if (props.lottery && props.lottery.pricePerTicket) {
-    return formatEther(props.lottery.pricePerTicket)
+const pricePerTicket = computed(() => {
+  if (props.lottery.pricePerTicket && token.value) {
+    return formatUnits(props.lottery.pricePerTicket, token.value.decimals)
   }
 })
 </script>
