@@ -148,10 +148,6 @@ const playMenuSubItems = computed(() =>
         text: t('lottery.howToPlay'),
         href: `/lottery/${lottery.id}/about#how-to-play`,
       },
-      {
-        text: t('lottery.statistical'),
-        href: `/lottery/${lottery.id}/statistical`,
-      },
     ],
   }))
 )

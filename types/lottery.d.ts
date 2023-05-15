@@ -25,7 +25,7 @@ export interface Round {
 
 export interface RewardRule {
   matchNumber: number
-  rewardUnit: RewardUnit
+  rewardUnit: 'Percent' | 'Fixed'
   rewardValue: number
 }
 

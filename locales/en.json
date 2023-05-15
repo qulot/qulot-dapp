@@ -212,7 +212,7 @@
   },
   "lottery": {
     "play": "Play",
-    "introduction": "Lottery introduction",
+    "introduction": "Introduction",
     "howToPlay": "How to play",
     "statistical": "Statistical",
     "lotteryJackpot": "Lottery Jackpot",
@@ -255,6 +255,28 @@
     "myBalance": "Balance"
   },
   "payment": {
-    "insufficientTokenBalance" : "Insufficient {token} balance"
+    "insufficientTokenBalance": "Insufficient {token} balance"
+  },
+  "lotteryAbout": {
+    "introduction": "From only {ticketPrice}, pick {pickNumbers} to have a chance to win {jackpot} {name} draw at {drawTime} {drawDate}.",
+    "numberFrom": "numbers from",
+    "jackpotFrom": "Jackpot from",
+    "weekly": "weekly",
+    "every": "every",
+    "prizeStructure": "Price Structure",
+    "howToPlayPickNumber": "Participants select the number to participate in the prize in the set of numbers from {minNumber} to {maxNumber} and compare with the results of the drawing to determine the prize. The result of a drawing period includes {numberOfItems} results that are dialed {numberOfItems} times to choose.",
+    "howToPlayPrice": "Value of participating in the prize: The value for one (01) time participating in the prize for each playing style of the participant is {ticketPrice}.",
+    "howToPlayFinalPrize": "The final prize is divided among the players after deducting {treasuryFee}% of the operation fee and {amountInjectNextRoundFee}% of the next round maintenance fee.",
+    "howToPlayMatchWiningNumbers": "Match the winning number to share prizes:"
+  },
+  "days": {
+    "0": "Sun",
+    "1": "Mon",
+    "2": "Tue",
+    "3": "Wed",
+    "4": "Thu",
+    "5": "Fri",
+    "6": "Sat",
+    "everyday": "every day"
   }
 }

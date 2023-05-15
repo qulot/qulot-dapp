@@ -50,6 +50,7 @@
                   :key="item.id"
                   :pick-numbers="item.pickNumbers"
                   :currency="token.symbol"
+                  :currency-decimals="token.decimals"
                   :selected="item.selected"
                   :price-per-ticket="lottery.pricePerTicket"
                   @select="toggleSelectTicket(item.id)"
@@ -103,7 +104,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { formatEther } from '@ethersproject/units'
+import { formatUnits } from '@ethersproject/units'
 import { BigNumber } from 'ethers'
 import { storeToRefs } from 'pinia'
 import { CartTicket } from '~~/types/ticket'
@@ -152,9 +153,10 @@ const tickets = ref<CartTicket[]>([])
 
 const totalPrice = computed(() => {
   let totalPrice = '0'
-  if (lottery.value?.pricePerTicket && tickets.value.length) {
-    totalPrice = formatEther(
-      BigNumber.from(lottery.value?.pricePerTicket).mul(tickets.value.length)
+  if (lottery.value?.pricePerTicket && tickets.value.length && token.value) {
+    totalPrice = formatUnits(
+      BigNumber.from(lottery.value?.pricePerTicket).mul(tickets.value.length),
+      token.value.decimals
     )
   }
   return totalPrice

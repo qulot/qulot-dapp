@@ -55,3 +55,11 @@ export const USER_FIELDS = gql`
     totalAmount
   }
 `
+
+export const REWARD_RULE_FIELDS = gql`
+  fragment RewardRule on RewardRule {
+    rewardValue
+    rewardUnit
+    matchNumber
+  }
+`

@@ -25,7 +25,7 @@
           <div
             class="flex items-center space-x-2 border border-[#D8D8D8] p-2 rounded"
           >
-            <span>{{ price }}</span>
+            <span>{{ formatUnits(pricePerTicket, currencyDecimals) }}</span>
             <span class="w-px h-3 bg-[#D8D8D8]"></span>
             <span>{{ currency }}</span>
           </div>
@@ -43,7 +43,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { formatEther } from '@ethersproject/units'
+import { formatEther, formatUnits } from '@ethersproject/units'
 import { PropType } from 'vue'
 
 const props = defineProps({
@@ -53,6 +53,10 @@ const props = defineProps({
   },
   currency: {
     type: String,
+    required: true,
+  },
+  currencyDecimals: {
+    type: Number,
     required: true,
   },
   pricePerTicket: {
@@ -66,6 +70,4 @@ const props = defineProps({
 })
 
 defineEmits(['select', 'delete'])
-
-const price = computed(() => formatEther(props.pricePerTicket))
 </script>

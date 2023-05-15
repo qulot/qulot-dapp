@@ -67,6 +67,8 @@ const props = defineProps({
 const roundStore = useRoundStore()
 const { rounds, isLoading, filter } = storeToRefs(roundStore)
 
+roundStore.setFilter({ lottery: props.lottery.id })
+
 const loadMore = async () => {
   roundStore.nextPage()
   await roundStore.fetchRounds()
@@ -84,4 +86,8 @@ watch(
   },
   { deep: true }
 )
+
+onBeforeRouteUpdate(() => {
+  roundStore.clear()
+})
 </script>
