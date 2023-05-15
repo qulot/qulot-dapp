@@ -11,6 +11,7 @@ type GetRoundsFilter = {
   id?: string
   status?: keyof typeof RoundStatus
   startTime?: Date
+  lottery?: string
 }
 
 type GetRoundSortOrder = {
@@ -40,11 +41,16 @@ export const useRoundStore = defineStore('round', {
   actions: {
     clear() {
       this.rounds = []
+      this.sortOrder.skip = 0
+      this.sortOrder.first = 5
     },
     nextPage() {
       if (!this.isComplete) {
         this.sortOrder.skip += this.sortOrder.first
       }
+    },
+    setFilter(filter: GetRoundsFilter) {
+      this.filter = { ...this.filter, ...filter }
     },
     async fetchRounds() {
       this.isLoading = true
@@ -60,6 +66,9 @@ export const useRoundStore = defineStore('round', {
         const startTime = moment(this.filter.startTime)
         filterConditions.startTime_gte = startTime.startOf('date').unix()
         filterConditions.startTime_lte = startTime.endOf('date').unix()
+      }
+      if (this.filter.lottery) {
+        filterConditions.lottery = this.filter.lottery
       }
 
       const { data, execute, pending } = await useAsyncQuery<GetRoundsResult>({

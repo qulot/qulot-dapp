@@ -1,4 +1,9 @@
-import { LOTTERY_FIELDS, ROUND_FIELDS, USER_FIELDS } from './fragments'
+import {
+  LOTTERY_FIELDS,
+  REWARD_RULE_FIELDS,
+  ROUND_FIELDS,
+  USER_FIELDS,
+} from './fragments'
 
 export const GET_TOTAL_USERS_TOTAL_PRIZE = gql`
   query GetTotalUsersTotalPrize {
@@ -33,9 +38,13 @@ export const GET_LOTTERIES = gql`
 
 export const GET_LOTTERY_BY_ID = gql`
   ${LOTTERY_FIELDS}
+  ${REWARD_RULE_FIELDS}
   query GetLottery($id: ID!) {
     lottery(id: $id) {
       ...LotteryFields
+      rewardRules {
+        ...RewardRule
+      }
     }
   }
 `
@@ -57,6 +66,15 @@ export const GET_ROUNDS = gql`
       where: $filter
     ) {
       ...RoundFields
+    }
+  }
+`
+
+export const GET_LOTTERY_REWARD_RULES = gql`
+  ${REWARD_RULE_FIELDS}
+  query GetLotteryRewardRules($lotteryId: ID!) {
+    rewardRules(where: { lottery: $lotteryId }) {
+      ...RewardRule
     }
   }
 `

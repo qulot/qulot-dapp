@@ -213,7 +213,7 @@
   },
   "lottery": {
     "play": "Chơi",
-    "introduction": "Giới thiệu xổ số",
+    "introduction": "Giới thiệu",
     "howToPlay": "Cách chơi",
     "statistical": "Thống kê",
     "lotteryJackpot": "Xổ số độc đắc",
@@ -254,5 +254,30 @@
     "plsConfirmIn": "Vui lòng xác nhận trên {wallet}",
     "myWallet": "Ví Của Tôi",
     "myBalance": "Số Dư"
+  },
+  "payment": {
+    "insufficientTokenBalance": "Không đủ số dư {token}"
+  },
+  "lotteryAbout": {
+    "introduction": "Chỉ từ {ticketPrice}, chọn {pickNumbers} để có cơ hội trúng thưởng {jackpot} {name} quay số mở thưởng vào {drawTime} {drawDate}.",
+    "numberFrom": "số từ",
+    "jackpotFrom": "Jackpot từ",
+    "weekly": "hàng tuần",
+    "every": "các ngày",
+    "prizeStructure": "Cơ Cấu Giải Thưởng",
+    "howToPlayPickNumber": "Người tham gia lựa chọn số tham gia dự thưởng trong bộ số từ {minNumber} đến {maxNumber} và đối chiếu với kết quả quay số để xác định trúng thưởng. Kết quả của một kỳ quay gồm {numberOfItems} kết quả được quay {numberOfItems} lần để chọn.",
+    "howToPlayPrice": "Giá trị tham gia dự thưởng: Giá trị cho một (01) lần tham gia dự thưởng đối với mỗi cách chơi của người tham gia là {ticketPrice}.",
+    "howToPlayFinalPrize": "Giải thưởng cuối cùng được chia cho những người chơi sau khi khấu trừ {treasuryFee}% phí vận hành và {amountInjectNextRoundFee}% phí duy trì vòng tiếp theo.",
+    "howToPlayMatchWiningNumbers": "Ghép số chiến thắng để chia sẻ giải thưởng:"
+  },
+  "days": {
+    "0": "Chủ nhật",
+    "1": "thứ 2",
+    "2": "thứ 3",
+    "3": "thứ 4",
+    "4": "thứ 5",
+    "5": "thứ 6",
+    "6": "thứ 7",
+    "everyday": "mỗi ngày"
   }
 }
