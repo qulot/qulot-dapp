@@ -54,12 +54,10 @@
 </template>
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { PropType } from 'vue'
-import { Lottery } from '~~/types/lottery'
 
 const props = defineProps({
-  lottery: {
-    type: Object as PropType<Lottery>,
+  lotteryId: {
+    type: String,
     required: true,
   },
 })
@@ -67,16 +65,14 @@ const props = defineProps({
 const roundStore = useRoundStore()
 const { rounds, isLoading, filter } = storeToRefs(roundStore)
 
-roundStore.setFilter({ lottery: props.lottery.id })
-
 const loadMore = async () => {
   roundStore.nextPage()
   await roundStore.fetchRounds()
 }
 
-onMounted(async () => {
-  await roundStore.fetchRounds()
-})
+roundStore.clear()
+roundStore.setFilter({ lottery: props.lotteryId })
+await roundStore.fetchRounds()
 
 watch(
   filter,
@@ -86,8 +82,4 @@ watch(
   },
   { deep: true }
 )
-
-onBeforeRouteUpdate(() => {
-  roundStore.clear()
-})
 </script>

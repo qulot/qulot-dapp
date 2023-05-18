@@ -71,17 +71,18 @@ export const useRoundStore = defineStore('round', {
         filterConditions.lottery = this.filter.lottery
       }
 
-      const { data, execute, pending } = await useAsyncQuery<GetRoundsResult>({
+      const { data } = await useAsyncQuery<GetRoundsResult>({
         query: GET_ROUNDS,
         clientId: chainId.value.toString(),
         variables: { ...this.sortOrder, filter: filterConditions },
+        cache: false,
       })
-      if (pending.value) {
-        await execute()
-      }
 
       if (data.value && data.value.rounds.length) {
-        this.rounds = [...this.rounds, ...data.value.rounds]
+        this.rounds = uniqueBy(
+          [...this.rounds, ...data.value.rounds],
+          (round) => round.id
+        )
         this.isComplete = false
       } else {
         this.isComplete = true

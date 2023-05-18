@@ -1,4 +1,5 @@
 import { Address } from '@wagmi/core'
+import { ethers } from 'ethers'
 import { Balance } from '~~/types/ethers'
 
 interface AccountProps {
@@ -17,6 +18,7 @@ export const useAccount = (
   const balance = useState<Balance>('account.balance')
   const tokenBalance = useState<Balance>('account.tokenBalance')
   const updateBalanceInterval = useState<NodeJS.Timer>('account.updateInterval')
+  const address = computed(() => wallet.value.account)
 
   // methods
   const fetchBalance = async () => {
@@ -56,5 +58,5 @@ export const useAccount = (
     await updateAccountBalance()
   }
 
-  return { init, balance, tokenBalance }
+  return { init, balance, tokenBalance, address }
 }

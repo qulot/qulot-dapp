@@ -278,5 +278,11 @@
     "5": "Fri",
     "6": "Sat",
     "everyday": "every day"
+  },
+  "errors": {
+    "unknownError": "One or more errors have occurred. Please try again!",
+    "execution reverted: ERROR_ROUND_IS_CLOSED": "Some round has ended. Please buy tickets for the latest round",
+    "execution reverted: ERC20: transfer amount exceeds allowance": "Payment amount exceeds balance",
+    "User rejected request": "User rejected request"
   }
 }

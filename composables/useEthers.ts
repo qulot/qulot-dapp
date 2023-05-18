@@ -1,3 +1,5 @@
+import { optimism } from '@wagmi/core/dist/chains'
+import { BigNumber, Contract } from 'ethers'
 import { Wallet } from '~~/types/wallet'
 
 export type ConnectStatus =
@@ -85,18 +87,47 @@ export const useEthers = () => {
     }
   }
 
+  /**
+   * Check current connect is connected
+   * @returns
+   */
   const isConnected = () => $wagmi.client.status === 'connected'
 
+  /**
+   * Check current connect is reconnecting
+   * @returns
+   */
   const isReconnect = () => $wagmi.client.status === 'reconnecting'
 
+  const getLastConnector = () =>
+    $wagmi.client.storage.getItem<string>('wallet', null)
+
+  /**
+   * Get current selected chain
+   * @param chainId
+   * @returns
+   */
   const getChain = (chainId: number) =>
     $wagmi.chains.find((chain) => chain.id === chainId)
 
+  /**
+   * Check wallet have chainId
+   * @param walletChainId
+   * @returns
+   */
   const isValidWalletChainId = (walletChainId: number) =>
     $wagmi.chains.some((chain) => chain.id === walletChainId)
 
+  /**
+   * Get current client provider
+   * @returns
+   */
   const getProvider = () => $wagmi.client.provider
 
+  /**
+   * Connect to wallet with connector
+   * @param connector
+   */
   const connect = async (connector: string) => {
     const ctor = $wagmi.client.connectors.find((ctor) => ctor.id === connector)
     if (ctor) {
@@ -113,14 +144,26 @@ export const useEthers = () => {
     }
   }
 
+  /**
+   * Disconnect wallet
+   */
   const disconnect = async () => {
     await $wagmi.disconnect()
     onDisconnect()
   }
 
+  const fetchSigner = async () => {
+    return await $wagmi.fetchSigner({ chainId: chainId.value })
+  }
+
   const checkConnection = () => {
-    if (isConnected() || isReconnect()) {
+    if (isConnected()) {
       onConnected()
+    } else if (isReconnect()) {
+      const lastConnector = getLastConnector()
+      if (lastConnector) {
+        connect(lastConnector)
+      }
     } else {
       onDisconnect()
     }
@@ -151,5 +194,6 @@ export const useEthers = () => {
     disconnect,
     getChain,
     getProvider,
+    fetchSigner,
   }
 }

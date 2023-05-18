@@ -10,6 +10,10 @@ import {
   switchNetwork,
   Chain,
   Client,
+  writeContract,
+  fetchSigner,
+  prepareWriteContract,
+  readContract,
 } from '@wagmi/core'
 import { infuraProvider } from '@wagmi/core/providers/infura'
 import { polygonMumbai, goerli, polygon, bsc } from '@wagmi/chains'
@@ -85,7 +89,7 @@ export default defineNuxtPlugin(() => {
   } else {
     const { provider } = configureChains(chains, [publicProvider()])
     client = createClient({
-      autoConnect: true,
+      autoConnect: false,
       provider,
       connectors,
     })
@@ -102,6 +106,10 @@ export default defineNuxtPlugin(() => {
         fetchToken,
         getContract,
         switchNetwork,
+        writeContract,
+        fetchSigner,
+        prepareWriteContract,
+        readContract,
       },
     },
   }

@@ -279,5 +279,9 @@
     "5": "thứ 6",
     "6": "thứ 7",
     "everyday": "mỗi ngày"
+  },
+  "errors": {
+    "unknownError": "Một hoặc nhiều lỗi đã xảy ra. Vui lòng thử lại!",
+    "execution reverted: ERROR_ROUND_IS_CLOSED": "Vòng nào đó đã kết thúc. Vui lòng mua vé cho vòng mới nhất"
   }
 }

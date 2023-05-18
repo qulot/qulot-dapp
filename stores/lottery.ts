@@ -17,6 +17,7 @@ export const useLotteryStore = defineStore('lottery', {
     return {
       lotteries: [] as Lottery[],
       lottery: null as Lottery | null,
+      isLoadingLottery: false,
     }
   },
   getters: {
@@ -39,6 +40,7 @@ export const useLotteryStore = defineStore('lottery', {
   },
   actions: {
     async fetchLotteryById(id: string) {
+      this.isLoadingLottery = true
       const { chainId } = useEthers()
       const { data } = await useAsyncQuery<GetLotteryByIdResult>({
         query: GET_LOTTERY_BY_ID,
@@ -54,6 +56,7 @@ export const useLotteryStore = defineStore('lottery', {
           this.lottery.periodHourOfDays
         )
       }
+      this.isLoadingLottery = false
     },
     async fetchLotteries() {
       const { chainId } = useEthers()
