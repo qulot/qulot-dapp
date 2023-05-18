@@ -69,16 +69,6 @@
                   {{ totalDiscountPercent.toNumber() }}%
                 </div>
               </div>
-              <!--
-              <div
-                v-if="cartInfo.paymentFeeEstUsd"
-                class="flex items-center justify-between"
-              >
-                <div>{{ $t('cart.labels.fee') }}:</div>
-                <div class="font-bold">
-                  {{ cartInfo.paymentFeeEstUsd | formatUSD(4) }}
-                </div>
-              </div> -->
             </div>
             <div class="border-b border-dashed border-default relative my-6">
               <span
@@ -96,12 +86,26 @@
               </div>
             </div>
           </div>
+
+          <!-- Payment errors -->
+          <div
+            v-if="buyTicketsError"
+            class="flex items-center text-error text-xs my-2 space-x-2"
+          >
+            <SvgIcon name="warnning" class="h-3 w-3" />
+            <span>{{
+              $t('errors.' + buyTicketsError) || $t('errors,unknownError')
+            }}</span>
+          </div>
+
           <div>
             <Button
               variant="primary"
               type="button"
               class="w-full rounded-lg"
               :disabled="!isAllowCheckout"
+              :is-loading="buyTicketsLoading"
+              @click="buyTickets"
             >
               {{ $t('cart.checkoutNow') }}
             </Button>
@@ -116,6 +120,7 @@
 import { formatUnits } from 'ethers/lib/utils.js'
 import { storeToRefs } from 'pinia'
 
+const router = useRouter()
 const config = useRuntimeConfig()
 const { t } = useI18n()
 const { token } = useQulot()
@@ -127,6 +132,9 @@ const {
   totalDiscountPercent,
   isInsufficientTokenBalance,
   isAllowCheckout,
+  buyTicketsLoading,
+  buyTicketsError,
+  validTickets,
 } = storeToRefs(cartStore)
 
 definePageMeta({
@@ -142,6 +150,15 @@ const paymentError = computed(() => {
     return t('payment.insufficientTokenBalance', { token: token.value?.symbol })
   }
 })
+
+const buyTickets = () => {
+  cartStore.buyTickets().then((isSuccess) => {
+    if (isSuccess) {
+      validTickets.value.forEach((ticket) => cartStore.remove(ticket.id))
+      router.push('/tickets')
+    }
+  })
+}
 
 useSeoMeta({
   title,

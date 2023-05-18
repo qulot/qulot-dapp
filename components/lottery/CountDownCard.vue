@@ -84,15 +84,15 @@ const props = defineProps({
 defineEmits(['buyTicket'])
 
 const { chainSelected } = useEthers()
-const { qulotLottery, token } = useQulot()
+const { qulotAddress, token } = useQulot()
 
 const explorerContract = computed(() => {
   if (
     chainSelected.value &&
     chainSelected.value.blockExplorers &&
-    qulotLottery.value
+    qulotAddress.value
   ) {
-    return `${chainSelected.value.blockExplorers.default.url}/address/${qulotLottery.value.address}`
+    return `${chainSelected.value.blockExplorers.default.url}/address/${qulotAddress.value}`
   }
 })
 

@@ -14,7 +14,7 @@
       <tr
         v-for="cartItemGroup in ticketsSummaryByLotteryId"
         :key="cartItemGroup.lotteryId"
-        class="py-2 border-b border-default last:border-none"
+        class="py-2 border-b border-default last:border-none dark:text-white"
       >
         <td class="py-3">
           {{ cartItemGroup.lotteryVerboseName }}

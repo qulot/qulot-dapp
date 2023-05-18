@@ -87,9 +87,7 @@
           </div>
         </div>
         <div class="lg:w-7/12">
-          <ClientOnly>
-            <RoundListPerLottery v-if="lottery" :lottery="lottery" />
-          </ClientOnly>
+          <RoundListPerLottery v-if="lottery?.id" :lottery-id="lottery?.id" />
         </div>
       </div>
     </div>
@@ -121,7 +119,7 @@ const config = useRuntimeConfig()
 const { token } = useQulot()
 const lotteryStore = useLotteryStore()
 const cartStore = useCartStore()
-const { isExists, lottery } = storeToRefs(lotteryStore)
+const { isExists, lottery, isLoadingLottery } = storeToRefs(lotteryStore)
 
 definePageMeta({
   layout: 'app',

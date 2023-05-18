@@ -1,5 +1,6 @@
+import { UserRejectedRequestError } from '@wagmi/core'
 import { BigNumber } from 'ethers/lib/ethers'
-import { formatEther, formatUnits } from 'ethers/lib/utils.js'
+import { formatUnits } from 'ethers/lib/utils.js'
 import { defineStore } from 'pinia'
 import { CartItemsGroup, CartTicket } from '~~/types/ticket'
 import { groupBy } from '~~/utils/collection'
@@ -8,6 +9,8 @@ export const useCartStore = defineStore('cart', {
   state: () => {
     return {
       tickets: [] as CartTicket[],
+      buyTicketsLoading: false as boolean,
+      buyTicketsError: null as string | null,
     }
   },
   getters: {
@@ -139,6 +142,104 @@ export const useCartStore = defineStore('cart', {
         this.saveLocalStorage()
       }
     },
-    async buyTickets() {},
+    clear() {
+      this.tickets = []
+      this.buyTicketsLoading = false
+      this.buyTicketsError = null
+      this.saveLocalStorage()
+    },
+    async buyTickets() {
+      let isSuccess = false
+      this.buyTicketsLoading = true
+      const {
+        token,
+        qulotAddress,
+        getContract,
+        writeQulotLottery,
+        writeToken,
+        readToken,
+      } = useQulot()
+      const { address } = useAccount()
+      const tokenContract = getContract('token')
+      if (tokenContract && address.value && token.value && qulotAddress.value) {
+        const processBuyTicket = async () => {
+          const ticketsMapPerRounds = this.validTickets.reduce(
+            (res, ticket) => ({
+              rounds: [...res.rounds, ticket.roundId],
+              tickets: [...res.tickets, ticket.pickNumbers],
+            }),
+            {
+              rounds: [],
+              tickets: [],
+            } as {
+              rounds: string[]
+              tickets: number[][]
+            }
+          )
+          console.log(`[buyTickets] Process buy tickets: `, ticketsMapPerRounds)
+          const result = await (
+            await writeQulotLottery('buyTicketsMultiRounds', [
+              ticketsMapPerRounds.rounds,
+              ticketsMapPerRounds.tickets,
+            ])
+          )?.wait()
+
+          console.log(`[buyTickets] Process buy tickets result: `, result)
+
+          this.buyTicketsError = null
+          return result?.status === 1
+        }
+
+        const approveBuyTicket = async () => {
+          const approveResult = await (
+            await writeToken('approve', [qulotAddress.value, this.totalAmount])
+          )?.wait()
+
+          console.log(
+            `[buyTickets] Approve amount: ${this.totalAmount.toNumber()}, result: `,
+            approveResult
+          )
+
+          return approveResult?.status === 1
+        }
+
+        const checkAllowance = async () => {
+          const allowance = await readToken<BigNumber>('allowance', [
+            address.value,
+            qulotAddress.value,
+          ])
+
+          const isAllow = allowance.gte(this.finalAmount)
+
+          console.log(
+            `[buyTickets] Check token allowance: ${allowance.toNumber()}, is allow: ${isAllow}`
+          )
+
+          return isAllow
+        }
+
+        try {
+          if (await checkAllowance()) {
+            isSuccess = await processBuyTicket()
+          } else {
+            if ((await approveBuyTicket()) && (await checkAllowance())) {
+              isSuccess = await processBuyTicket()
+            }
+          }
+        } catch (buyTicketsTxError: any) {
+          console.log(buyTicketsTxError)
+
+          if (buyTicketsTxError?.error?.data?.message) {
+            this.buyTicketsError = buyTicketsTxError?.error?.data?.message
+          }
+
+          if (buyTicketsTxError instanceof UserRejectedRequestError) {
+            this.buyTicketsError = buyTicketsTxError.message
+          }
+        }
+      }
+      this.buyTicketsLoading = false
+      return isSuccess
+    },
   },
 })

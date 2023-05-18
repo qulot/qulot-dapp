@@ -21,6 +21,7 @@
       {
         "endOfLine": "auto"
       }
-    ]
+    ],
+    "no-console": "off"
   }
 }

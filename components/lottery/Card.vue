@@ -59,9 +59,12 @@
   </div>
 </template>
 <script setup lang="ts">
+import { formatUnits } from 'ethers/lib/utils.js'
 import { Lottery } from '~~/types/lottery'
 
 const props = defineProps<{ lottery: Lottery }>()
+
+const { token } = useQulot()
 
 const loading = ref(false)
 
@@ -95,7 +98,7 @@ const productName = computed(() => {
 
 const jackpotEstimatedValue = computed(() => {
   const jackpot = props.lottery?.nextRound?.totalAmount || '0'
-  return formatUSD(jackpot)
+  return formatUnits(jackpot, token.value?.decimals)
 })
 
 const winningNumbers = computed(() => {
