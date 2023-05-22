@@ -1,0 +1,111 @@
+<template>
+  <div class="relative text-sm text-title-nodark">
+    <div
+      class="overflow-hidden box-border relative before:content-[''] before:absolute before:h-3 before:w-3 before:rounded-full before:bg-white dark:before:bg-block before:left-0 before:top-1/2 before:-mt-1.5 before:-ml-1.5 before:border before:border-solid after:content-[''] after:absolute after:h-3 after:w-3 after:rounded-full after:bg-white dark:after:bg-block after:right-0 after:top-1/2 after:-mr-1.5 after:-mt-1.5 after:border after:border-solid"
+      :class="
+        ticket.winStatus
+          ? 'before:border-[#FF228C] after:border-[#FF228C]'
+          : 'before:border-white after:border-white'
+      "
+    >
+      <div
+        class="bg-[#F3EFFF] rounded lg:rounded-lg p-3 xl:p-4 border border-solid min-h-[100px] lg:flex items-center space-y-3 lg:space-y-0 lg:space-x-4 xl:space-x-8"
+        :class="ticket.winStatus ? 'border-[#FF228C]' : 'border-[#F3EFFF]'"
+      >
+        <!-- 1 -->
+        <div class="flex items-center">
+          <div class="w-[70px] h-[70px] rounded overflow-hidden mr-2 lg:mr-4">
+            <img class="inset-0" src="/ticket/demo-01.svg" alt="thumbnail" />
+          </div>
+          <div>
+            <div
+              class="text-[17px] font-bold text-title-nodark leading-tight mb-3"
+            >
+              {{ lotteryName }}
+            </div>
+            <div class="flex items-center space-x-2">
+              <div v-for="(num, i) in ticket.numbers" :key="i">
+                <BallItem :number="num" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-px h-10 bg-[#D8D8D8] hidden lg:block"></div>
+        <!-- 2 -->
+        <div class="pl-[78px] lg:pl-0">
+          <div class="flex items-center space-x-1 leading-tight">
+            <span class="text-[17px] font-bold text-title-nodark">0.99998</span
+            ><span class="text-[11px] text-[#5A5A5A]">$</span>
+          </div>
+        </div>
+        <div class="w-px h-10 bg-[#D8D8D8] hidden lg:block"></div>
+        <!-- 3 -->
+        <div
+          class="lg:flex items-center space-y-2 lg:space-y-0 lg:space-x-4 pl-[78px] lg:pl-0 whitespace-nowrap"
+        >
+          <p>{{ $t('ticket.labels.timeStartDial') }}</p>
+          <div>
+            <!-- <DatetimeCountDown
+              class="w-full"
+              :target="ticket.round?.startTime"
+            /> -->
+          </div>
+        </div>
+        <div class="w-px h-10 bg-[#D8D8D8] hidden lg:block"></div>
+        <!-- 4 -->
+        <div class="text-sm pl-[78px] lg:pl-0">
+          <div class="mb-2 text-title-nodark">
+            {{ $t('ticket.labels.status') }}:
+          </div>
+          <div :class="`font-bold ${statusClass}`">{{ statusTicket }}</div>
+        </div>
+      </div>
+    </div>
+    <LabelWinPrize v-if="ticket.winStatus" class="absolute -top-1 -right-3.5" />
+  </div>
+</template>
+<script setup lang="ts">
+import { Ticket } from '~~/types/ticket'
+const props = defineProps({
+  ticket: {
+    type: Object as PropType<Ticket>,
+    required: true,
+  },
+})
+
+const { t } = useI18n()
+
+const statusTicket = computed(() => {
+  switch (props.ticket.round?.status) {
+    case 'Open':
+      return t('ticket.labels.statusWait')
+    case 'Draw':
+      return t('ticket.labels.statusStartDial')
+    case 'Reward':
+      return t('ticket.labels.statusStartReward')
+    case 'Close':
+      return t('ticket.labels.statusFinished')
+  }
+})
+
+const statusClass = computed(() => {
+  switch (props.ticket.round?.status) {
+    case 'Open':
+      return 'text-yellow'
+    case 'Draw':
+      return 'text-main'
+    case 'Reward':
+      return 'text-[#FF228C]'
+    case 'Close':
+      return 'text-disable'
+  }
+})
+
+const lotteryName = computed(() => {
+  if (props.ticket.round?.lottery) {
+    const { verboseName, minValuePerItem, numberOfItems } =
+      props.ticket.round.lottery
+    return `${verboseName} ${minValuePerItem}/${numberOfItems}`
+  }
+})
+</script>

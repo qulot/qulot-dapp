@@ -31,6 +31,16 @@ export const LOTTERY_FIELDS = gql`
   }
 `
 
+export const LOTTERY_SHORT_FIELDS = gql`
+  fragment LotteryShortFields on Lottery {
+    id
+    verboseName
+    minValuePerItem
+    numberOfItems
+    pricePerTicket
+  }
+`
+
 export const ROUND_FIELDS = gql`
   fragment RoundFields on Round {
     winningNumbers

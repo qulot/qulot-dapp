@@ -38,8 +38,8 @@ const DEFAULT_RANKS_DATA = [
 export const useHomeStore = defineStore('home', {
   state: () => {
     return {
-      totalUsers: 10000,
-      totalPrize: 100000,
+      totalUsers: '10000',
+      totalPrize: '100000',
       ranks: [...DEFAULT_RANKS_DATA],
     }
   },
@@ -62,10 +62,8 @@ export const useHomeStore = defineStore('home', {
         totalUsersTotalPrize.totalUsers &&
         totalUsersTotalPrize.totalPrize
       ) {
-        this.totalUsers = parseInt(totalUsersTotalPrize.totalUsers)
-        this.totalPrize = parseFloat(
-          utils.formatEther(totalUsersTotalPrize.totalPrize)
-        )
+        this.totalUsers = totalUsersTotalPrize.totalUsers
+        this.totalPrize = totalUsersTotalPrize.totalPrize
       }
     },
     async fetchUsersWinPrizeRanks() {

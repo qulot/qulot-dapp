@@ -14,7 +14,7 @@ export interface Round {
   id: string
   endTime: number
   startTime: number
-  status: RoundStatus
+  status: keyof typeof RoundStatus
   timestamp: number
   totalAmount: string
   totalTickets: number
@@ -25,7 +25,7 @@ export interface Round {
 
 export interface RewardRule {
   matchNumber: number
-  rewardUnit: 'Percent' | 'Fixed'
+  rewardUnit: keyof typeof RewardUnit
   rewardValue: number
 }
 

@@ -56,7 +56,8 @@
     "selectRandom": "Pick {number} Random Tickets",
     "buyNow": "Buy Now",
     "label": "Cart",
-    "discount": "Discount:"
+    "discount": "Discount:",
+    "empty": "Cart Is Empty!"
   },
   "ticket": {
     "listTicket": "List ticket",

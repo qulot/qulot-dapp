@@ -1,5 +1,6 @@
 import {
   LOTTERY_FIELDS,
+  LOTTERY_SHORT_FIELDS,
   REWARD_RULE_FIELDS,
   ROUND_FIELDS,
   USER_FIELDS,
@@ -21,6 +22,7 @@ export const GET_USERS_ORDER_BY_WIN_AMOUNT = gql`
       orderBy: totalWinAmount
       orderDirection: $orderDirection
       first: $first
+      where: { totalWinAmount_gt: "0" }
     ) {
       ...UserFields
     }
@@ -66,6 +68,19 @@ export const GET_ROUNDS = gql`
       where: $filter
     ) {
       ...RoundFields
+    }
+  }
+`
+
+export const GET_ROUNDS_BY_IDS = gql`
+  ${ROUND_FIELDS}
+  ${LOTTERY_SHORT_FIELDS}
+  query GetRoundsByIds($ids: [String]) {
+    rounds(where: { id_in: $ids }) {
+      ...RoundFields
+      lottery {
+        ...LotteryShortFields
+      }
     }
   }
 `

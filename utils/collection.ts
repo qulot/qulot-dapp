@@ -56,8 +56,14 @@ export function groupBy<T>(array: Iterable<T>, keySelector: KeySelector<T>) {
  * @param keySelector
  * @returns
  */
-export function uniqueBy<T>(array: Array<T>, keySelector: KeySelector<T>) {
+export function uniqueBy<T>(array: Array<T>, keySelector?: KeySelector<T>) {
   return array.filter(
-    (e, i) => array.findIndex((a) => keySelector(a) === keySelector(e)) === i
+    (e, i) =>
+      array.findIndex((a) => {
+        if (keySelector) {
+          return keySelector(a) === keySelector(e)
+        }
+        return a === e
+      }) === i
   )
 }
