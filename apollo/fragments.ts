@@ -35,9 +35,12 @@ export const LOTTERY_SHORT_FIELDS = gql`
   fragment LotteryShortFields on Lottery {
     id
     verboseName
+    picture
     minValuePerItem
     numberOfItems
     pricePerTicket
+    periodHourOfDays
+    periodDays
   }
 `
 

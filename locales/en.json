@@ -20,7 +20,8 @@
     "change": "Change",
     "confirm": "OK",
     "viewAll": "See all",
-    "backToHome": "Back to home"
+    "backToHome": "Back to home",
+    "loadMore": "Load More"
   },
   "datetime": {
     "labels": {
@@ -60,7 +61,7 @@
     "empty": "Cart Is Empty!"
   },
   "ticket": {
-    "listTicket": "List ticket",
+    "listTicket": "My Tickets",
     "winprize": "Win Prize",
     "statusWait": "Wait",
     "statusStartDial": "Start Dial",
@@ -231,7 +232,6 @@
     "filterByRoundLabel": "Round",
     "filterByDateLabel": "Draw Date",
     "finishedRounds": "Finished Rounds",
-    "loadMore": "Load More",
     "label": "Round #{round} date {date}",
     "winningNumber": "Winning Number",
     "printResult": "Print Result",

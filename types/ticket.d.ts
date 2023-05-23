@@ -1,3 +1,4 @@
+import { BigNumber } from "ethers"
 import { Round } from "./lottery"
 
 export interface CartTicket {
@@ -18,12 +19,12 @@ export interface CartItemsGroup {
 }
 
 export interface Ticket {
-  id: string
-  roundId: string
+  id: BigNumber
+  roundId: BigNumber
   numbers: number[]
   winStatus: boolean
   winRewardRule: number
-  winAmount: string
+  winAmount: BigNumber
   clamStatus: boolean
   round?: Round
 }

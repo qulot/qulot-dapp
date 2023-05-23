@@ -45,7 +45,7 @@
             :is-loading="isLoading"
             @click="loadMore"
           >
-            {{ $t('round.loadMore') }}
+            {{ $t('labels.loadMore') }}
           </Button>
         </div>
       </div>

@@ -155,7 +155,7 @@ const buyTickets = () => {
   cartStore.buyTickets().then((isSuccess) => {
     if (isSuccess) {
       validTickets.value.forEach((ticket) => cartStore.remove(ticket.id))
-      router.push('/tickets')
+      router.push('/my-ticket')
     }
   })
 }

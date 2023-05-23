@@ -55,7 +55,7 @@ const ONE_HOUR = 60 * ONE_MINUTE
 const ONE_DAY = 24 * ONE_HOUR
 
 const current = ref<Date>()
-const timer = ref<number>()
+const timer = ref<NodeJS.Timer>()
 const totalMilliseconds = ref(0)
 
 const props = defineProps({

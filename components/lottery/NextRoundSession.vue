@@ -8,7 +8,7 @@
           <img
             :src="lottery.picture"
             alt="Next round"
-            class="w-20 lg:w-[140px] h-auto"
+            class="w-20 lg:w-[140px] rounded overflow-hidden h-auto"
           />
           <div class="flex-grow space-y-1">
             <p

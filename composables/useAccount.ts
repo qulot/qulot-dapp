@@ -19,6 +19,7 @@ export const useAccount = (
   const tokenBalance = useState<Balance>('account.tokenBalance')
   const updateBalanceInterval = useState<NodeJS.Timer>('account.updateInterval')
   const address = computed(() => wallet.value.account)
+  const isConnected = computed(() => wallet.value.status === 'connected')
 
   // methods
   const fetchBalance = async () => {
@@ -58,5 +59,5 @@ export const useAccount = (
     await updateAccountBalance()
   }
 
-  return { init, balance, tokenBalance, address }
+  return { init, balance, tokenBalance, address, isConnected }
 }

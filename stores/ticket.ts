@@ -1,10 +1,11 @@
+import { BigNumber } from 'ethers'
 import { defineStore } from 'pinia'
 import { GET_ROUNDS_BY_IDS } from '~~/apollo/queries'
 import { Round } from '~~/types/lottery'
 import { Ticket } from '~~/types/ticket'
 
 interface GetTicketIdsByUserResult {
-  ids: string[]
+  ids: BigNumber[]
   cursor: number
 }
 
@@ -37,33 +38,42 @@ export const useTicketStore = defineStore('ticket', {
           this.fetchTicketsArgs.size,
         ])
 
-      const tickets: Ticket[] = []
-      for (const ticketId of ticketIds) {
-        const ticket = await readQulotLottery<Ticket>('getTicket', [ticketId])
-        tickets.push(ticket)
+      const fetchTicket = async (ticketId: BigNumber) => {
+        const fetchTicketResult = await readQulotLottery<[] & Ticket>(
+          'getTicket',
+          [ticketId]
+        )
+        const ticket = fromStructToObject<Ticket>(fetchTicketResult)
+        ticket.id = ticketId
+        return ticket
       }
+
+      const tickets: Ticket[] = await Promise.all(
+        ticketIds.map((ticketId) => fetchTicket(ticketId))
+      )
 
       if (tickets.length) {
         const { data } = await useAsyncQuery<GetRoundsByIdsResult>({
           query: GET_ROUNDS_BY_IDS,
           clientId: chainId.value.toString(),
           variables: {
-            ids: uniqueBy(tickets.map((ticket) => ticket.roundId)),
+            ids: uniqueBy(tickets.map((ticket) => ticket.roundId.toString())),
           },
         })
 
         if (data.value && data.value.rounds.length) {
           const roundsAsKey = keyBy(data.value.rounds, (round) => round.id)
+          console.log(roundsAsKey)
+
           for (const ticket of tickets) {
-            if (roundsAsKey[ticket.roundId]) {
-              ticket.round = roundsAsKey[ticket.roundId]
+            if (roundsAsKey[ticket.roundId.toNumber()]) {
+              ticket.round = roundsAsKey[ticket.roundId.toNumber()]
             }
           }
         }
 
-        this.tickets = uniqueBy(
-          [...this.tickets, ...tickets],
-          (ticket) => ticket.id
+        this.tickets = uniqueBy([...this.tickets, ...tickets], (ticket) =>
+          ticket.id.toString()
         )
 
         this.fetchTicketsArgs.cursor = cursor

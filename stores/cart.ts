@@ -16,6 +16,10 @@ export const useCartStore = defineStore('cart', {
     }
   },
   getters: {
+    ticketsRoundIsOpen: (state) =>
+      state.tickets.filter((ticket) => ticket.round?.status === 'Open'),
+    ticketsSelected: (state) =>
+      state.tickets.filter((ticket) => ticket.selected),
     validTickets: (state) =>
       state.tickets.filter(
         (ticket) => ticket.selected && ticket.round?.status === 'Open'

@@ -43,6 +43,7 @@
                 />
               </Menu>
             </div>
+
             <!-- lang dropdown button -->
             <div class="hidden lg:block">
               <LangSelect />
@@ -100,6 +101,12 @@
           />
           <MenuItem
             :item="{
+              text: $t('ticket.listTicket'),
+              href: '/my-ticket',
+            }"
+          />
+          <MenuItem
+            :item="{
               text: $t('footer.linkAboutUs'),
               href: '/about-us',
             }"
@@ -110,7 +117,7 @@
                 text: $t('menu.title.language'),
               }"
             />
-            <LangSelect arrow />
+            <LangSelect class="py-0" arrow />
           </div>
           <div class="flex flex-row items-center justify-between">
             <MenuItem
@@ -118,7 +125,7 @@
                 text: $t('menu.title.theme'),
               }"
             />
-            <ThemeSelect arrow />
+            <ThemeSelect class="py-0" arrow />
           </div>
         </Menu>
       </div>

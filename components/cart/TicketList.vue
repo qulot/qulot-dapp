@@ -12,7 +12,7 @@
       "
       :lottery-picture="lotteryAsKeys[ticket.lotteryId]?.picture"
       :lottery-verbose-name="lotteryAsKeys[ticket.lotteryId]?.verboseName"
-      :disabled="!validTickets.includes(ticket)"
+      :disabled="!ticketsRoundIsOpen.includes(ticket)"
       @delete="deleteTicket(ticket.id)"
       @select="toggleSelectTicket(ticket.id)"
     />
@@ -26,7 +26,7 @@ const { token } = useQulot()
 const cartStore = useCartStore()
 const lotteryStore = useLotteryStore()
 const { lotteryAsKeys, lotteryTicketPrices } = storeToRefs(lotteryStore)
-const { tickets, validTickets } = storeToRefs(cartStore)
+const { tickets, ticketsRoundIsOpen } = storeToRefs(cartStore)
 const deleteTicket = (ticketId: number) => {
   cartStore.remove(ticketId)
 }

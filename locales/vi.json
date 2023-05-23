@@ -20,7 +20,8 @@
     "change": "Thay đổi",
     "confirm": "Đồng ý",
     "viewAll": "Xem tất cả",
-    "backToHome": "Về trang chủ"
+    "backToHome": "Về trang chủ",
+    "loadMore": "Xem Tiếp"
   },
   "datetime": {
     "labels": {
@@ -62,12 +63,12 @@
     "empty": "Giỏ Hàng Trống!"
   },
   "ticket": {
-    "listTicket": "Danh Sách Vé",
+    "listTicket": "Vé Của Tôi",
     "winprize": "Trúng thưởng",
     "statusWait": "Đang chờ",
-    "statusStartDial": "Bắt đầu quay số",
-    "statusStartReward": "Bắt đầu trả thưởng",
-    "statusFinished": "Đã kết thúc",
+    "statusStartDial": "Quay số",
+    "statusStartReward": "Trả thưởng",
+    "statusFinished": "Kết thúc",
     "timeStartDial": "Ngày quay số",
     "status": "Trạng thái",
     "empty": "Chưa chọn vé",
@@ -232,7 +233,6 @@
     "filterByRoundLabel": "Vòng",
     "filterByDateLabel": "Ngày Quay Thưởng",
     "finishedRounds": "Các Vòng Đã Hoàn Thành",
-    "loadMore": "Xem Tiếp",
     "label": "Vòng #{round} Ngày {date}",
     "winningNumber": "Số Trúng Thưởng",
     "printResult": "In Kết Quả",

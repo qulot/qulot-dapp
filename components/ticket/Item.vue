@@ -15,7 +15,11 @@
         <!-- 1 -->
         <div class="flex items-center">
           <div class="w-[70px] h-[70px] rounded overflow-hidden mr-2 lg:mr-4">
-            <img class="inset-0" src="/ticket/demo-01.svg" alt="thumbnail" />
+            <img
+              class="inset-0"
+              :src="ticket.round?.lottery?.picture"
+              alt="thumbnail"
+            />
           </div>
           <div>
             <div
@@ -30,12 +34,17 @@
             </div>
           </div>
         </div>
-        <div class="w-px h-10 bg-[#D8D8D8] hidden lg:block"></div>
+        <div class="w-px h-10 bg-[#D8D8D8] hidden lg:block lg:!ml-auto"></div>
         <!-- 2 -->
         <div class="pl-[78px] lg:pl-0">
-          <div class="flex items-center space-x-1 leading-tight">
-            <span class="text-[17px] font-bold text-title-nodark">0.99998</span
-            ><span class="text-[11px] text-[#5A5A5A]">$</span>
+          <div class="space-x-1 leading-tight">
+            <span class="text-[17px] font-bold text-title-nodark">{{
+              formatUnits(
+                ticket.round?.lottery?.pricePerTicket || '0',
+                token?.decimals
+              )
+            }}</span>
+            <span class="text-[11px] text-[#5A5A5A]">{{ token?.symbol }}</span>
           </div>
         </div>
         <div class="w-px h-10 bg-[#D8D8D8] hidden lg:block"></div>
@@ -43,29 +52,33 @@
         <div
           class="lg:flex items-center space-y-2 lg:space-y-0 lg:space-x-4 pl-[78px] lg:pl-0 whitespace-nowrap"
         >
-          <p>{{ $t('ticket.labels.timeStartDial') }}</p>
+          <p>{{ $t('ticket.timeStartDial') }}</p>
           <div>
-            <!-- <DatetimeCountDown
+            <DatetimeCountDown
+              v-if="ticketDrawTime"
               class="w-full"
-              :target="ticket.round?.startTime"
-            /> -->
+              :target="ticketDrawTime"
+            />
           </div>
         </div>
         <div class="w-px h-10 bg-[#D8D8D8] hidden lg:block"></div>
         <!-- 4 -->
         <div class="text-sm pl-[78px] lg:pl-0">
-          <div class="mb-2 text-title-nodark">
-            {{ $t('ticket.labels.status') }}:
-          </div>
+          <div class="mb-2 text-title-nodark">{{ $t('ticket.status') }}:</div>
           <div :class="`font-bold ${statusClass}`">{{ statusTicket }}</div>
         </div>
       </div>
     </div>
-    <LabelWinPrize v-if="ticket.winStatus" class="absolute -top-1 -right-3.5" />
+    <TicketLabelWinPrize
+      v-if="ticket.winStatus"
+      class="absolute -top-1 -right-3.5"
+    />
   </div>
 </template>
 <script setup lang="ts">
+import { formatUnits } from 'ethers/lib/utils.js'
 import { Ticket } from '~~/types/ticket'
+
 const props = defineProps({
   ticket: {
     type: Object as PropType<Ticket>,
@@ -74,17 +87,18 @@ const props = defineProps({
 })
 
 const { t } = useI18n()
+const { token } = useQulot()
 
 const statusTicket = computed(() => {
   switch (props.ticket.round?.status) {
     case 'Open':
-      return t('ticket.labels.statusWait')
+      return t('ticket.statusWait')
     case 'Draw':
-      return t('ticket.labels.statusStartDial')
+      return t('ticket.statusStartDial')
     case 'Reward':
-      return t('ticket.labels.statusStartReward')
+      return t('ticket.statusStartReward')
     case 'Close':
-      return t('ticket.labels.statusFinished')
+      return t('ticket.statusFinished')
   }
 })
 
@@ -106,6 +120,22 @@ const lotteryName = computed(() => {
     const { verboseName, minValuePerItem, numberOfItems } =
       props.ticket.round.lottery
     return `${verboseName} ${minValuePerItem}/${numberOfItems}`
+  }
+})
+
+const ticketDrawTime = computed(() => {
+  if (props.ticket.round?.status === 'Reward') {
+    return timestampToDateTime(props.ticket.round.endTime)
+  }
+
+  if (
+    props.ticket.round?.lottery?.periodDays &&
+    props.ticket.round?.lottery?.periodHourOfDays
+  ) {
+    return nextTickOf(
+      props.ticket.round.lottery.periodDays,
+      props.ticket.round.lottery.periodHourOfDays
+    )
   }
 })
 </script>

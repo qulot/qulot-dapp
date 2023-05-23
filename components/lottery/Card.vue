@@ -4,7 +4,9 @@
   >
     <div class="flex items-center gap-x-2 xl:gap-x-6 lg:w-4/12">
       <!-- Lottery Picture -->
-      <div class="w-20 h-20 xl:w-32 xl:h-32 flex items-center">
+      <div
+        class="w-20 h-20 xl:w-32 xl:h-32 rounded overflow-hidden flex items-center"
+      >
         <img :src="lottery.picture" alt="" />
       </div>
 
