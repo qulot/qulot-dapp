@@ -41,6 +41,14 @@
                     subitems: playMenuSubItems,
                   }"
                 />
+                <MenuItem
+                  v-if="isConnected"
+                  horizontal
+                  :item="{
+                    text: $t('menu.title.myTicket'),
+                    href: '/my-ticket',
+                  }"
+                />
               </Menu>
             </div>
 
@@ -139,6 +147,7 @@ const route = useRoute()
 const { t } = useI18n()
 const { showSidebar } = useSidebar()
 const { scrollAtTop } = useScrollTop(50)
+const { isConnected } = useAccount()
 const lotteryStore = useLotteryStore()
 const { availableLotteries } = storeToRefs(lotteryStore)
 

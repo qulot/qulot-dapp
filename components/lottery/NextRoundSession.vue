@@ -22,7 +22,7 @@
             <p
               class="flex items-center lg:flex-col lg:items-start space-x-2 lg:space-x-0 lg:space-y-2"
             >
-              <span class="text-[13px] lg:text-[17px]">{{
+              <span class="text-[13px] lg:text-[17px] dark:text-white">{{
                 $t('lottery.jackpot')
               }}</span>
               <span class="text-yellow text-2xl font-bold">{{

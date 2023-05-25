@@ -57,7 +57,7 @@
                   @delete="removeTicket(item.id)"
                 />
               </div>
-              <div v-else class="p-2 pt-6 text-center">
+              <div v-else class="p-2 pt-6 text-center dark:text-white">
                 {{ $t('ticket.empty') }}
               </div>
               <div

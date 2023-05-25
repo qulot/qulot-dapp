@@ -10,7 +10,9 @@
         class="flex flex-col space-y-2 lg:flex-row lg:space-x-6 lg:space-y-0"
       >
         <div>
-          <div class="mb-2">{{ $t('round.winningNumber') }}:</div>
+          <div class="mb-2 dark:text-white">
+            {{ $t('round.winningNumber') }}:
+          </div>
           <div v-if="round.winningNumbers" class="flex items-center space-x-2">
             <div v-for="(num, i) in round.winningNumbers" :key="i">
               <BallItem :number="num" />
@@ -20,9 +22,9 @@
         <div
           class="flex flex-row items-center space-x-1 lg:flex-col lg:items-start lg:space-y-2"
         >
-          <div>{{ $t('lottery.jackpot') }}:</div>
+          <div class="dark:text-white">{{ $t('lottery.jackpot') }}:</div>
           <div class="text-2xl font-bold text-title">
-            {{ roundJackpotValue }}
+            {{ formatUnits(round.totalAmount, token?.decimals) }}
           </div>
         </div>
       </div>
@@ -42,9 +44,11 @@
   </div>
 </template>
 <script setup lang="ts">
-import { formatEther } from '@ethersproject/units'
+import { formatUnits } from 'ethers/lib/utils.js'
 import { PropType } from 'vue'
 import { Round } from '~~/types/lottery'
+
+const { token } = useQulot()
 
 const props = defineProps({
   round: {
@@ -69,11 +73,5 @@ const roundStartDate = computed(() => {
   }
 
   return lastRoundDraw
-})
-
-const roundJackpotValue = computed(() => {
-  if (props.round.totalAmount) {
-    return formatEther(props.round.totalAmount)
-  }
 })
 </script>

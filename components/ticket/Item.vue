@@ -29,7 +29,7 @@
             </div>
             <div class="flex items-center space-x-2">
               <div v-for="(num, i) in ticket.numbers" :key="i">
-                <BallItem :number="num" />
+                <BallItem :number="num" :disable="!checkMatchBall(num)" />
               </div>
             </div>
           </div>
@@ -96,9 +96,9 @@ const statusTicket = computed(() => {
     case 'Draw':
       return t('ticket.statusStartDial')
     case 'Reward':
-      return t('ticket.statusStartReward')
-    case 'Close':
       return t('ticket.statusFinished')
+    case 'Close':
+      return t('ticket.statusStartReward')
   }
 })
 
@@ -108,9 +108,9 @@ const statusClass = computed(() => {
       return 'text-yellow'
     case 'Draw':
       return 'text-main'
-    case 'Reward':
-      return 'text-[#FF228C]'
     case 'Close':
+      return 'text-[#FF228C]'
+    case 'Reward':
       return 'text-disable'
   }
 })
@@ -138,4 +138,11 @@ const ticketDrawTime = computed(() => {
     )
   }
 })
+
+const checkMatchBall = (pickNumber: number) => {
+  if (props.ticket.round?.status === 'Reward') {
+    return props.ticket.round?.winningNumbers?.includes(pickNumber)
+  }
+  return true
+}
 </script>

@@ -18,9 +18,11 @@ export const useTicketStore = defineStore('ticket', {
     return {
       tickets: [] as Ticket[],
       isLoading: false,
+      firstLoad: true,
       fetchTicketsArgs: {
         cursor: 0,
         size: 5,
+        asc: false,
       },
     }
   },
@@ -31,11 +33,20 @@ export const useTicketStore = defineStore('ticket', {
       const { address } = useAccount()
       const { readQulotLottery } = useQulot()
 
+      if (this.firstLoad && !this.fetchTicketsArgs.asc) {
+        const ticketIdsByUserLength = await readQulotLottery<BigNumber>(
+          'getTicketIdsByUserLength',
+          [address.value]
+        )
+        this.fetchTicketsArgs.cursor = ticketIdsByUserLength.toNumber()
+      }
+
       const { ids: ticketIds, cursor } =
         await readQulotLottery<GetTicketIdsByUserResult>('getTicketIdsByUser', [
           address.value,
           this.fetchTicketsArgs.cursor,
           this.fetchTicketsArgs.size,
+          this.fetchTicketsArgs.asc,
         ])
 
       const fetchTicket = async (ticketId: BigNumber) => {
@@ -78,7 +89,7 @@ export const useTicketStore = defineStore('ticket', {
 
         this.fetchTicketsArgs.cursor = cursor
       }
-
+      this.firstLoad = false
       this.isLoading = false
     },
   },

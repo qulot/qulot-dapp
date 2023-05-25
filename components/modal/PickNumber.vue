@@ -19,7 +19,12 @@
       </div>
     </template>
     <template #footer>
-      <Button variant="secondary" rounded @click="generateRandom">
+      <Button
+        variant="secondary"
+        rounded
+        class="dark:text-white"
+        @click="generateRandom"
+      >
         {{ $t('ticket.random') }}
       </Button>
       <Button variant="primary" rounded @click="confirm">

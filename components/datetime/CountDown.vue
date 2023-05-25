@@ -69,8 +69,8 @@ const props = defineProps({
 /**
  * check is end timer
  */
-const isEqual = computed(() => {
-  return totalMilliseconds.value === 0
+const isPast = computed(() => {
+  return totalMilliseconds.value <= 0
 })
 
 /**
@@ -132,7 +132,7 @@ timer.value = setInterval(() => {
   // force update total milliseconds
   update()
 
-  if (isEqual.value) {
+  if (isPast.value) {
     clear()
   }
 }, ONE_SECOND)
