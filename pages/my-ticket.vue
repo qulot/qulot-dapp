@@ -45,18 +45,29 @@ useSeoMeta({
   ogTitle: title,
 })
 
+const init = async () => {
+  if (isConnected.value) {
+    await ticketStore.init()
+  }
+}
+
 const loadMore = async () => {
   if (isConnected.value) {
     await ticketStore.fetchTickets()
   }
 }
 
-onMounted(() => {
-  loadMore()
+const firstLoad = async () => {
+  await init()
+  await loadMore()
+}
+
+onMounted(async () => {
+  await firstLoad()
   watch(
     isConnected,
-    () => {
-      loadMore()
+    async () => {
+      await firstLoad()
     },
     { deep: true }
   )

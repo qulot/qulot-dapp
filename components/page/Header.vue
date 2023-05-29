@@ -149,10 +149,10 @@ const { showSidebar } = useSidebar()
 const { scrollAtTop } = useScrollTop(50)
 const { isConnected } = useAccount()
 const lotteryStore = useLotteryStore()
-const { availableLotteries } = storeToRefs(lotteryStore)
+const { lotteries } = storeToRefs(lotteryStore)
 
 const playMenuSubItems = computed(() =>
-  availableLotteries.value.map((lottery) => ({
+  lotteries.value.map((lottery) => ({
     text: `${lottery.verboseName} ${lottery.numberOfItems}/${lottery.maxValuePerItem}`,
     href: `/lottery/${lottery.id}/`,
     subitems: [

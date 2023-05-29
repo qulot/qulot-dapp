@@ -18,7 +18,6 @@ export const useTicketStore = defineStore('ticket', {
     return {
       tickets: [] as Ticket[],
       isLoading: false,
-      firstLoad: true,
       fetchTicketsArgs: {
         cursor: 0,
         size: 5,
@@ -27,19 +26,24 @@ export const useTicketStore = defineStore('ticket', {
     }
   },
   actions: {
+    clear() {
+      this.tickets = []
+      this.fetchTicketsArgs.cursor = 0
+    },
+    async init() {
+      const { address } = useAccount()
+      const { readQulotLottery } = useQulot()
+      const ticketIdsByUserLength = await readQulotLottery<BigNumber>(
+        'getTicketIdsByUserLength',
+        [address.value]
+      )
+      this.fetchTicketsArgs.cursor = ticketIdsByUserLength.toNumber()
+    },
     async fetchTickets() {
       this.isLoading = true
       const { chainId } = useEthers()
       const { address } = useAccount()
       const { readQulotLottery } = useQulot()
-
-      if (this.firstLoad && !this.fetchTicketsArgs.asc) {
-        const ticketIdsByUserLength = await readQulotLottery<BigNumber>(
-          'getTicketIdsByUserLength',
-          [address.value]
-        )
-        this.fetchTicketsArgs.cursor = ticketIdsByUserLength.toNumber()
-      }
 
       const { ids: ticketIds, cursor } =
         await readQulotLottery<GetTicketIdsByUserResult>('getTicketIdsByUser', [
@@ -89,7 +93,6 @@ export const useTicketStore = defineStore('ticket', {
 
         this.fetchTicketsArgs.cursor = cursor
       }
-      this.firstLoad = false
       this.isLoading = false
     },
   },

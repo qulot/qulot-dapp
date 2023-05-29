@@ -22,10 +22,17 @@
             />
           </div>
           <div>
-            <div
-              class="text-[17px] font-bold text-title-nodark leading-tight mb-3"
-            >
-              {{ lotteryName }}
+            <div class="mb-3">
+              <NuxtLink
+                class="text-[17px] font-bold text-title-nodark leading-tight"
+                :to="{
+                  name: 'lottery-id',
+                  params: { id: ticket.round?.lottery?.id },
+                }"
+              >
+                {{ lotteryName }} ❘
+                {{ $t('round.roundId', { round: ticket.round?.id }) }}
+              </NuxtLink>
             </div>
             <div class="flex items-center space-x-2">
               <div v-for="(num, i) in ticket.numbers" :key="i">

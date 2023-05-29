@@ -27,7 +27,7 @@
             <div
               class="text-[17px] font-bold text-title-nodark leading-tight mb-3"
             >
-              {{ lotteryVerboseName }} |
+              {{ lotteryVerboseName }} ❘
               {{ $t('round.roundId', { round: roundId }) }}
             </div>
             <div class="flex items-center space-x-2">

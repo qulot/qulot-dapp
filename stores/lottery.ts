@@ -21,8 +21,6 @@ export const useLotteryStore = defineStore('lottery', {
     }
   },
   getters: {
-    availableLotteries: (state) =>
-      state.lotteries.filter((lottery) => lottery.nextRound != null),
     isExists: (state) => state.lottery != null,
     lotteryAsKeys: (state) => keyBy(state.lotteries, (lottery) => lottery.id),
     lotteryDiscounts: (state) =>

@@ -16,6 +16,7 @@
             <div
               id="order"
               class="bg-white dark:bg-block shadow-default rounded-lg"
+              :class="{ 'opacity-30': !nextRoundIsOpen }"
             >
               <div
                 class="bg-[#6135E9] rounded-t-lg px-4 py-3.5 flex items-center justify-between"
@@ -119,7 +120,7 @@ const config = useRuntimeConfig()
 const { token } = useQulot()
 const lotteryStore = useLotteryStore()
 const cartStore = useCartStore()
-const { isExists, lottery, isLoadingLottery } = storeToRefs(lotteryStore)
+const { isExists, lottery } = storeToRefs(lotteryStore)
 
 definePageMeta({
   layout: 'app',
@@ -158,6 +159,10 @@ const totalPrice = computed(() => {
     )
   }
   return totalPrice
+})
+
+const nextRoundIsOpen = computed(() => {
+  return lottery.value?.nextRound?.status === 'Open'
 })
 
 const pickNumberOnConfirm = (pickNumbers: number[]) => {
@@ -213,4 +218,18 @@ const buyNow = () => {
   cartStore.addTickets(tickets.value)
   router.push({ path: '/cart' })
 }
+
+let fetchLotteryPollInterval: NodeJS.Timer | null = null
+
+onMounted(() => {
+  fetchLotteryPollInterval = setInterval(() => {
+    lotteryStore.fetchLotteryById(route.params.id as string)
+  }, 10000)
+})
+
+onUnmounted(() => {
+  if (fetchLotteryPollInterval) {
+    clearInterval(fetchLotteryPollInterval)
+  }
+})
 </script>

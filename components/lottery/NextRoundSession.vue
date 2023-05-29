@@ -1,6 +1,9 @@
 <template>
-  <div v-if="lottery" class="bg-[#F3EFFF] dark:bg-block">
-    <div class="container mx-auto py-4 lg:py-6">
+  <div v-if="lottery" class="bg-[#F3EFFF] dark:bg-block relative">
+    <div
+      class="container mx-auto py-4 lg:py-6"
+      :class="{ 'opacity-30': !nextRoundIsOpen }"
+    >
       <div
         class="flex flex-col space-y-4 lg:flex-row lg:space-y-0 lg:items-center lg:justify-between"
       >
@@ -25,21 +28,30 @@
               <span class="text-[13px] lg:text-[17px] dark:text-white">{{
                 $t('lottery.jackpot')
               }}</span>
-              <span class="text-yellow text-2xl font-bold">{{
-                jackpotEstimatedValue
-              }}</span>
+              <span class="text-yellow text-2xl font-bold">
+                {{
+                  formatUnits(
+                    lottery.nextRound?.totalAmount || '0',
+                    token?.decimals
+                  )
+                }}
+
+                <span class="text-xs">{{ token?.symbol }}</span>
+              </span>
             </p>
           </div>
         </div>
         <div class="w-full grid grid-cols-2 lg:w-auto lg:grid-cols-1 gap-2">
           <Button
             class="rounded border-title text-title bg-transparent hover:text-main hover:bg-transparent hover:border-main"
+            :disabled="!nextRoundIsOpen"
           >
             {{ $t('round.notification') }}
           </Button>
           <Button
             variant="primary"
             class="rounded text-white"
+            :disabled="!nextRoundIsOpen"
             @click="scrollToOrder"
             >{{ $t('cart.buyNow') }}</Button
           >
@@ -50,7 +62,7 @@
 </template>
 <script setup lang="ts">
 import { PropType } from 'vue'
-import { formatEther } from '@ethersproject/units'
+import { formatUnits } from '@ethersproject/units'
 import { Lottery } from '~~/types/lottery'
 
 const props = defineProps({
@@ -74,18 +86,8 @@ const nextRoundDraw = computed(() => {
   }
 })
 
-const jackpotEstimatedValue = computed(() => {
-  if (
-    token.value &&
-    props.lottery &&
-    props.lottery.nextRound &&
-    props.lottery.nextRound.totalAmount
-  ) {
-    return formatMoney(
-      formatEther(props.lottery.nextRound.totalAmount),
-      token.value.symbol
-    )
-  }
+const nextRoundIsOpen = computed(() => {
+  return props.lottery.nextRound?.status === 'Open'
 })
 
 const scrollToOrder = () => {

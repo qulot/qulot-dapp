@@ -126,6 +126,7 @@ const { t } = useI18n()
 const { token } = useQulot()
 const { tokenBalance } = useAccount()
 const cartStore = useCartStore()
+const ticketStore = useTicketStore()
 const {
   totalAmount,
   finalAmount,
@@ -155,6 +156,7 @@ const buyTickets = () => {
   cartStore.buyTickets().then((isSuccess) => {
     if (isSuccess) {
       validTickets.value.forEach((ticket) => cartStore.remove(ticket.id))
+      ticketStore.clear()
       router.push('/my-ticket')
     }
   })
