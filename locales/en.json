@@ -69,10 +69,14 @@
     "statusFinished": "Finished",
     "timeStartDial": "Time start dial",
     "status": "Status",
-    "empty": "Empty",
+    "empty": "You don't have any tickets",
     "pickTicketNumbers": "Pick Ticket Numbers",
     "random": "Random",
-    "buyTicket": "Buy ticket for just {price}"
+    "buyTicket": "Buy ticket for just {price}",
+    "checkYourTicket": "Check Your Ticket",
+    "pickInYourTicket": "Pick The Numbers On Your Ticket",
+    "youWon": "You Won",
+    "matchNumber": "Match {match} number"
   },
   "menu": {
     "title": {
@@ -221,7 +225,6 @@
     "jackpot": "Jackpot",
     "pricePerTicket": "Price Per Ticket",
     "playNow": "Play Now",
-    "estimateJackpot": "Estimate Jackpot",
     "assets": "Assets"
   },
   "round": {

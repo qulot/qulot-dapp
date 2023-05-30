@@ -12,18 +12,18 @@
           :key="ticket.id.toString()"
           :ticket="ticket"
         />
+        <div class="w-full flex justify-center">
+          <Button
+            variant="primary"
+            rounded
+            :is-loading="isLoading"
+            @click="loadMore"
+          >
+            {{ $t('labels.loadMore') }}
+          </Button>
+        </div>
       </div>
       <TicketEmpty v-else />
-      <div class="w-full flex justify-center mt-4">
-        <Button
-          variant="primary"
-          rounded
-          :is-loading="isLoading"
-          @click="loadMore"
-        >
-          {{ $t('labels.loadMore') }}
-        </Button>
-      </div>
     </div>
   </div>
 </template>

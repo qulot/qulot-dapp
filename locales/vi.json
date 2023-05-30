@@ -71,7 +71,7 @@
     "statusFinished": "Kết thúc",
     "timeStartDial": "Ngày quay số",
     "status": "Trạng thái",
-    "empty": "Chưa chọn vé",
+    "empty": "Bạn không có vé nào",
     "pickTicketNumbers": "Chọn Số",
     "buyTicket": "Mua Vé Chỉ Với {price}"
   },
@@ -222,7 +222,6 @@
     "jackpot": "Độc Đắc",
     "pricePerTicket": "Giá mỗi vé",
     "playNow": "Chơi Ngay",
-    "estimateJackpot": "Giải Độc Đắc",
     "assets": "Tài Sản"
   },
   "round": {

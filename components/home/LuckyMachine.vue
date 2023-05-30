@@ -46,15 +46,18 @@
               <div class="text-base font-bold">{{ formatTotalUsers }}</div>
             </div>
             <div class="absolute bottom-[95px] -mr-[30px] text-white">
-              <a
-                href="#lotteries"
+              <NuxtLink
                 class="flex items-center justify-center space-x-4"
+                :to="{
+                  name: 'lottery-id',
+                  params: { id: lotteryOpenSoon?.id },
+                }"
               >
                 <span class="text-base font-extrabold">{{
                   $t('lottery.playNow')
                 }}</span>
                 <svg-icon name="arrow-right-circle" class="w-4 h-4" />
-              </a>
+              </NuxtLink>
             </div>
           </div>
         </div>
@@ -74,9 +77,13 @@
 </template>
 <script setup lang="ts">
 import { formatUnits } from 'ethers/lib/utils.js'
+import { storeToRefs } from 'pinia'
 
 const props = defineProps(['totalPrize', 'totalUsers'])
 const { token } = useQulot()
+
+const lotteryStore = useLotteryStore()
+const { lotteryOpenSoon } = storeToRefs(lotteryStore)
 
 const formatTotalUsers = computed(() => formatNumber(props.totalUsers))
 </script>

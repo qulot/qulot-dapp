@@ -37,7 +37,12 @@
     </div>
     <div class="overflow-hidden flex-1">
       <div class="p-4 space-y-4">
-        <RoundItem v-for="round in rounds" :key="round.id" :round="round" />
+        <RoundItem
+          v-for="round in rounds"
+          :key="round.id"
+          :round="round"
+          @check-ticket="checkTicket(round)"
+        />
         <div class="w-full flex justify-center">
           <Button
             variant="primary"
@@ -50,10 +55,17 @@
         </div>
       </div>
     </div>
+    <ModalCheckTicket
+      v-if="lottery && checkTicketOnRound"
+      v-model:show="showCheckTicketModal"
+      :lottery="lottery"
+      :round="checkTicketOnRound"
+    />
   </div>
 </template>
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
+import { Round } from '~~/types/lottery'
 
 const props = defineProps({
   lotteryId: {
@@ -63,11 +75,20 @@ const props = defineProps({
 })
 
 const roundStore = useRoundStore()
+const lotteryStore = useLotteryStore()
 const { rounds, isLoading, filter } = storeToRefs(roundStore)
+const { lottery } = storeToRefs(lotteryStore)
+const showCheckTicketModal = ref(false)
+const checkTicketOnRound = ref<Round>()
 
 const loadMore = async () => {
   roundStore.nextPage()
   await roundStore.fetchRounds()
+}
+
+const checkTicket = (round: Round) => {
+  checkTicketOnRound.value = round
+  showCheckTicketModal.value = true
 }
 
 roundStore.clear()

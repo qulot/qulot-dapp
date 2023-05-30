@@ -66,12 +66,14 @@
               >
                 <Button
                   class="rounded border-title text-title bg-transparent hover:text-main hover:bg-transparent hover:border-main mr-4"
+                  :disabled="!nextRoundIsOpen"
                   @click="showPickNumberModal = true"
                 >
                   {{ $t('cart.addTicket') }}
                 </Button>
                 <Button
                   class="rounded border-title text-title bg-transparent hover:text-main hover:bg-transparent hover:border-main flex-1 xl:mr-4"
+                  :disabled="!nextRoundIsOpen"
                   @click="randomTickets"
                 >
                   {{ $t('cart.selectRandom', { number: randomTicketsNumber }) }}
@@ -224,7 +226,7 @@ let fetchLotteryPollInterval: NodeJS.Timer | null = null
 onMounted(() => {
   fetchLotteryPollInterval = setInterval(() => {
     lotteryStore.fetchLotteryById(route.params.id as string)
-  }, 10000)
+  }, 30000)
 })
 
 onUnmounted(() => {

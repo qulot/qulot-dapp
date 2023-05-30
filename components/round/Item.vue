@@ -34,6 +34,7 @@
     >
       <Button
         class="rounded border-title text-title bg-transparent hover:text-main hover:bg-transparent hover:border-main"
+        @click="$emit('checkTicket')"
       >
         {{ $t('round.checkTicket') }}
       </Button>
@@ -56,6 +57,8 @@ const props = defineProps({
     required: true,
   },
 })
+
+defineEmits(['checkTicket'])
 
 const roundId = computed(() => {
   let lastRoundId = '0'

@@ -35,6 +35,12 @@ export const useLotteryStore = defineStore('lottery', {
         (lottery) => lottery.id,
         (lottery) => BigNumber.from(lottery?.pricePerTicket || '0')
       ),
+    lotteryOpenSoon: (state) =>
+      state.lotteries.sort(
+        (lotteryA, lotteryB) =>
+          (lotteryA.nextTick?.getTime() || 0) -
+          (lotteryB.nextTick?.getTime() || 0)
+      )[0],
   },
   actions: {
     async fetchLotteryById(id: string) {

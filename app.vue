@@ -18,6 +18,7 @@ useSeoMeta({
   title: config.public.metadata.appName,
   ogTitle: config.public.metadata.appName,
   ogDescription: config.public.metadata.appDescription,
+  description: config.public.metadata.appDescription,
   ogImage: config.public.metadata.appIcon,
   twitterCard: 'app',
 })

@@ -13,7 +13,7 @@
       <!-- Lottery Info -->
       <div class="flex-grow space-y-1">
         <h2 class="text-[17px] font-bold text-black">{{ productName }}</h2>
-        <p class="text-sm text-black">{{ $t('lottery.estimateJackpot') }}</p>
+        <p class="text-sm text-black">{{ $t('lottery.lotteryJackpot') }}</p>
         <p class="text-[#6135E9] text-2xl font-bold md:text-3xl">
           {{ jackpotEstimatedValue }}
         </p>

@@ -39,6 +39,7 @@
               <Button
                 variant="primary"
                 class="rounded text-white"
+                :disabled="!nextRoundIsOpen"
                 @click="$emit('buyTicket')"
                 >{{ $t('ticket.buyTicket', { price: pricePerTicket }) }}</Button
               >
@@ -119,6 +120,10 @@ const pricePerTicket = computed(() => {
   if (props.lottery.pricePerTicket && token.value) {
     return formatUnits(props.lottery.pricePerTicket, token.value.decimals)
   }
+})
+
+const nextRoundIsOpen = computed(() => {
+  return props.lottery?.nextRound?.status === 'Open'
 })
 </script>
 <style lang="scss" scoped>
