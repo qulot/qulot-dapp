@@ -6,13 +6,15 @@
       <div class="text-[17px] font-bold text-title mb-4">
         {{ $t('ticket.listTicket') }}
       </div>
-      <div v-if="tickets.length" class="space-y-4">
+      <div class="space-y-4">
         <TicketItem
           v-for="ticket in tickets"
           :key="ticket.id.toString()"
           :ticket="ticket"
+          @claim-ticket="claimTickets"
         />
-        <div class="w-full flex justify-center">
+        <TicketSkeletonItem v-show="isLoading" />
+        <div v-if="!isEmptyTickets" class="w-full flex justify-center">
           <Button
             variant="primary"
             rounded
@@ -23,7 +25,7 @@
           </Button>
         </div>
       </div>
-      <TicketEmpty v-else />
+      <TicketEmpty v-if="isEmptyTickets" />
     </div>
   </div>
 </template>
@@ -34,7 +36,7 @@ const { t } = useI18n()
 const { isConnected } = useAccount()
 const config = useRuntimeConfig()
 const ticketStore = useTicketStore()
-const { tickets, isLoading } = storeToRefs(ticketStore)
+const { tickets, isLoading, isEmpty: isEmptyTickets } = storeToRefs(ticketStore)
 
 const title = computed(
   () => `${t('ticket.listTicket')} | ${config.public.metadata.appName}`
@@ -60,6 +62,10 @@ const loadMore = async () => {
 const firstLoad = async () => {
   await init()
   await loadMore()
+}
+
+const claimTickets = async () => {
+  await ticketStore.claimTickets()
 }
 
 onMounted(async () => {

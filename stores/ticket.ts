@@ -1,3 +1,4 @@
+import { UserRejectedRequestError } from '@wagmi/core'
 import { BigNumber } from 'ethers'
 import { defineStore } from 'pinia'
 import { GET_ROUNDS_BY_IDS } from '~~/apollo/queries'
@@ -23,7 +24,14 @@ export const useTicketStore = defineStore('ticket', {
         size: 5,
         asc: false,
       },
+      isClaimTicketsLoading: false,
+      claimTicketsError: null as string | null,
+      claimTicketSuccess: false,
     }
+  },
+  getters: {
+    winTickets: (state) => state.tickets.filter((ticket) => ticket.winStatus),
+    isEmpty: (state) => state.fetchTicketsArgs.cursor === 0,
   },
   actions: {
     clear() {
@@ -94,6 +102,43 @@ export const useTicketStore = defineStore('ticket', {
         this.fetchTicketsArgs.cursor = cursor
       }
       this.isLoading = false
+    },
+    async claimTickets() {
+      if (this.winTickets.length === 0) {
+        return
+      }
+
+      this.isClaimTicketsLoading = true
+      this.claimTicketSuccess = false
+      const { writeQulotLottery } = useQulot()
+
+      const ticketIds = this.winTickets.map((ticket) => ticket.id)
+      console.log(`[claimTickets] tickets: ${ticketIds}`)
+
+      try {
+        const result = await (
+          await writeQulotLottery('claimTickets', [ticketIds])
+        )?.wait()
+
+        console.log(
+          `[claimTickets] result status: ${result?.status}, txn: ${result?.transactionHash}`,
+          result
+        )
+
+        this.claimTicketSuccess = result?.status === 1
+      } catch (claimTicketsTxError: any) {
+        console.log(claimTicketsTxError)
+
+        if (claimTicketsTxError?.error?.data?.message) {
+          this.claimTicketsError = claimTicketsTxError?.error?.data?.message
+        }
+
+        if (claimTicketsTxError instanceof UserRejectedRequestError) {
+          this.claimTicketsError = claimTicketsTxError.message
+        }
+      }
+
+      this.isClaimTicketsLoading = false
     },
   },
 })

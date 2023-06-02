@@ -43,6 +43,7 @@
           :round="round"
           @check-ticket="checkTicket(round)"
         />
+        <RoundSkeletonItem v-show="isLoading" />
         <div class="w-full flex justify-center">
           <Button
             variant="primary"

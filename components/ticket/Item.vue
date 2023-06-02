@@ -79,6 +79,7 @@
     <TicketLabelWinPrize
       v-if="ticket.winStatus"
       class="absolute -top-1 -right-3.5"
+      @click="$emit('claimTicket')"
     />
   </div>
 </template>
@@ -92,6 +93,8 @@ const props = defineProps({
     required: true,
   },
 })
+
+defineEmits(['claimTicket'])
 
 const { t } = useI18n()
 const { token } = useQulot()

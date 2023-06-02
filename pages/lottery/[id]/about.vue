@@ -57,7 +57,7 @@
                 </template>
                 <template #drawTime>
                   <span class="font-bold">
-                    {{ lottery?.periodHourOfDays }}h00
+                    {{ hourUtcToLocal(lottery?.periodHourOfDays || 0) }}h00
                   </span>
                 </template>
                 <template #drawDate>

@@ -112,6 +112,10 @@ export function nextTickOf(periodDays: number[], periodHourOfDays: number) {
   return interval.next().toDate()
 }
 
+export function hourUtcToLocal(hour: number) {
+  return moment.utc().set('hour', hour).local().hour()
+}
+
 /**
  * Check period days is every day
  * @param periodDays
