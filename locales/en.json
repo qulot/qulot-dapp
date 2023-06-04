@@ -76,7 +76,9 @@
     "checkYourTicket": "Check Your Ticket",
     "pickInYourTicket": "Pick The Numbers On Your Ticket",
     "youWon": "You Won",
-    "matchNumber": "Match {match} number"
+    "matchNumber": "Match {match} number",
+    "claimTicketNow": "Claim Ticket Now",
+    "wasAwarded": "Was Awarded"
   },
   "menu": {
     "title": {

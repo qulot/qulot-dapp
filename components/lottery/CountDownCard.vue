@@ -71,7 +71,7 @@
   </section>
 </template>
 <script setup lang="ts">
-import { formatUnits } from '@ethersproject/units'
+import { formatUnits } from 'ethers/lib/utils.js'
 import { PropType } from 'vue'
 import { Lottery } from '~~/types/lottery'
 

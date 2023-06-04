@@ -11,7 +11,7 @@
           v-for="ticket in tickets"
           :key="ticket.id.toString()"
           :ticket="ticket"
-          @claim-ticket="claimTickets"
+          @claim-ticket="claimTickets(ticket.id)"
         />
         <TicketSkeletonItem v-show="isLoading" />
         <div v-if="!isEmptyTickets" class="w-full flex justify-center">
@@ -30,6 +30,7 @@
   </div>
 </template>
 <script setup lang="ts">
+import { BigNumber } from 'ethers'
 import { storeToRefs } from 'pinia'
 
 const { t } = useI18n()
@@ -64,8 +65,9 @@ const firstLoad = async () => {
   await loadMore()
 }
 
-const claimTickets = async () => {
-  await ticketStore.claimTickets()
+const claimTickets = async (ticketId: BigNumber) => {
+  await ticketStore.claimTickets([ticketId])
+  await ticketStore.refreshTicket(ticketId)
 }
 
 onMounted(async () => {

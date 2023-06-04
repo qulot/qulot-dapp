@@ -9,10 +9,10 @@
       "
     >
       <div
-        class="bg-[#F3EFFF] rounded lg:rounded-lg p-3 xl:p-4 border border-solid min-h-[100px] lg:flex items-center space-y-3 lg:space-y-0 lg:space-x-4 xl:space-x-8"
+        class="bg-[#F3EFFF] rounded lg:rounded-lg p-4 border border-solid min-h-[100px] lg:flex items-center space-y-3 lg:space-y-0 lg:space-x-4 xl:space-x-8"
         :class="ticket.winStatus ? 'border-[#FF228C]' : 'border-[#F3EFFF]'"
       >
-        <!-- 1 -->
+        <!-- Lottery info -->
         <div class="flex items-center">
           <div class="w-[70px] h-[70px] rounded overflow-hidden mr-2 lg:mr-4">
             <img
@@ -42,7 +42,7 @@
           </div>
         </div>
         <div class="w-px h-10 bg-[#D8D8D8] hidden lg:block lg:!ml-auto"></div>
-        <!-- 2 -->
+        <!-- Ticket price -->
         <div class="pl-[78px] lg:pl-0">
           <div class="space-x-1 leading-tight">
             <span class="text-[17px] font-bold text-title-nodark">{{
@@ -55,18 +55,31 @@
           </div>
         </div>
         <div class="w-px h-10 bg-[#D8D8D8] hidden lg:block"></div>
-        <!-- 3 -->
+        <!-- Count down -->
         <div
-          class="lg:flex items-center space-y-2 lg:space-y-0 lg:space-x-4 pl-[78px] lg:pl-0 whitespace-nowrap"
+          class="lg:flex items-center space-y-2 lg:space-y-0 lg:space-x-4 pl-[78px] lg:pl-0 lg:min-w-[330px]"
         >
-          <p>{{ $t('ticket.timeStartDial') }}</p>
-          <div>
-            <DatetimeCountDown
-              v-if="ticketDrawTime"
-              class="w-full"
-              :target="ticketDrawTime"
-            />
-          </div>
+          <template v-if="ticket.round?.status === 'Open'">
+            <p>{{ $t('ticket.timeStartDial') }}</p>
+            <div>
+              <DatetimeCountDown
+                v-if="ticketDrawTime"
+                class="w-full"
+                :target="ticketDrawTime"
+              />
+            </div>
+          </template>
+          <template v-else>
+            <p>{{ $t('ticket.youWon') }}:</p>
+            <span
+              ref="rewardBtn"
+              class="font-bold text-error cursor-pointer"
+              @click="checkAllowClaimTicket"
+            >
+              {{ formatUnits(ticket.winAmount, token?.decimals) }}
+              <span class="text-xs">{{ token?.symbol }}</span>
+            </span>
+          </template>
         </div>
         <div class="w-px h-10 bg-[#D8D8D8] hidden lg:block"></div>
         <!-- 4 -->
@@ -79,12 +92,13 @@
     <TicketLabelWinPrize
       v-if="ticket.winStatus"
       class="absolute -top-1 -right-3.5"
-      @click="$emit('claimTicket')"
+      :claim-status="ticket.clamStatus"
     />
   </div>
 </template>
 <script setup lang="ts">
 import { formatUnits } from 'ethers/lib/utils.js'
+import { useTippy } from 'vue-tippy'
 import { Ticket } from '~~/types/ticket'
 
 const props = defineProps({
@@ -94,7 +108,7 @@ const props = defineProps({
   },
 })
 
-defineEmits(['claimTicket'])
+const emit = defineEmits(['claimTicket'])
 
 const { t } = useI18n()
 const { token } = useQulot()
@@ -154,5 +168,19 @@ const checkMatchBall = (pickNumber: number) => {
     return props.ticket.round?.winningNumbers?.includes(pickNumber)
   }
   return true
+}
+
+const checkAllowClaimTicket = () => {
+  if (!props.ticket.clamStatus) {
+    emit('claimTicket')
+  }
+}
+
+const rewardBtn = ref()
+if (props.ticket.winStatus && !props.ticket.clamStatus) {
+  useTippy(rewardBtn, {
+    content: t('ticket.claimTicketNow'),
+    showOnCreate: true,
+  })
 }
 </script>

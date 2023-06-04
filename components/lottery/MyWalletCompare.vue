@@ -22,7 +22,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { formatUnits } from '@ethersproject/units'
+import { formatUnits } from 'ethers/lib/utils.js'
 import { storeToRefs } from 'pinia'
 const lotteryStore = useLotteryStore()
 const { tokenBalance } = useAccount()

@@ -1,5 +1,4 @@
 import { Address } from '@wagmi/core'
-import { ethers } from 'ethers'
 import { Balance } from '~~/types/ethers'
 
 interface AccountProps {

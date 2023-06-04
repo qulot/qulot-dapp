@@ -47,6 +47,16 @@ export const useTicketStore = defineStore('ticket', {
       )
       this.fetchTicketsArgs.cursor = ticketIdsByUserLength.toNumber()
     },
+    async fetchTicket(ticketId: BigNumber) {
+      const { readQulotLottery } = useQulot()
+      const fetchTicketResult = await readQulotLottery<[] & Ticket>(
+        'getTicket',
+        [ticketId]
+      )
+      const ticket = fromStructToObject<Ticket>(fetchTicketResult)
+      ticket.id = ticketId
+      return ticket
+    },
     async fetchTickets() {
       this.isLoading = true
       const { chainId } = useEthers()
@@ -61,18 +71,8 @@ export const useTicketStore = defineStore('ticket', {
           this.fetchTicketsArgs.asc,
         ])
 
-      const fetchTicket = async (ticketId: BigNumber) => {
-        const fetchTicketResult = await readQulotLottery<[] & Ticket>(
-          'getTicket',
-          [ticketId]
-        )
-        const ticket = fromStructToObject<Ticket>(fetchTicketResult)
-        ticket.id = ticketId
-        return ticket
-      }
-
       const tickets: Ticket[] = await Promise.all(
-        ticketIds.map((ticketId) => fetchTicket(ticketId))
+        ticketIds.map((ticketId) => this.fetchTicket(ticketId))
       )
 
       if (tickets.length) {
@@ -103,16 +103,10 @@ export const useTicketStore = defineStore('ticket', {
       }
       this.isLoading = false
     },
-    async claimTickets() {
-      if (this.winTickets.length === 0) {
-        return
-      }
-
+    async claimTickets(ticketIds: BigNumber[]) {
       this.isClaimTicketsLoading = true
       this.claimTicketSuccess = false
       const { writeQulotLottery } = useQulot()
-
-      const ticketIds = this.winTickets.map((ticket) => ticket.id)
       console.log(`[claimTickets] tickets: ${ticketIds}`)
 
       try {
@@ -139,6 +133,15 @@ export const useTicketStore = defineStore('ticket', {
       }
 
       this.isClaimTicketsLoading = false
+    },
+    async refreshTicket(ticketId: BigNumber) {
+      const sourceTicket = this.tickets.find(
+        (ticket) => ticket.id.toString() === ticketId.toString()
+      )
+      if (sourceTicket) {
+        const newTicket = await this.fetchTicket(ticketId)
+        Object.assign(sourceTicket, newTicket)
+      }
     },
   },
 })

@@ -50,8 +50,14 @@
       </div>
     </template>
     <template #footer>
-      <Button variant="primary" rounded @click="confirm">
-        {{ $t('labels.confirm') }}
+      <Button
+        type="link"
+        variant="primary"
+        rounded
+        to="/my-ticket"
+        :disabled="wonValue.lte(0)"
+      >
+        {{ $t('ticket.claimTicketNow') }}
       </Button>
     </template>
   </Modal>
@@ -138,9 +144,4 @@ const wonValue = computed(() => {
 
   return wonRewardValue
 })
-
-const confirm = () => {
-  showValue.value = false
-  emit('confirm', ticket.value)
-}
 </script>

@@ -41,6 +41,7 @@ export default defineNuxtConfig({
     '~/assets/css/tailwind.scss',
     '~/assets/css/transition.scss',
     'vue-final-modal/style.css',
+    'tippy.js/dist/tippy.css',
   ],
 
   // https://nuxt.com/docs/getting-started/transitions

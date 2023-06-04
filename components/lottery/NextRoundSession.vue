@@ -62,7 +62,7 @@
 </template>
 <script setup lang="ts">
 import { PropType } from 'vue'
-import { formatUnits } from '@ethersproject/units'
+import { formatUnits } from 'ethers/lib/utils.js'
 import { Lottery } from '~~/types/lottery'
 
 const props = defineProps({

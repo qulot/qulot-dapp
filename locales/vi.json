@@ -73,7 +73,13 @@
     "status": "Trạng thái",
     "empty": "Bạn không có vé nào",
     "pickTicketNumbers": "Chọn Số",
-    "buyTicket": "Mua Vé Chỉ Với {price}"
+    "buyTicket": "Mua Vé Chỉ Với {price}",
+    "checkYourTicket": "Kiểm Tra Vé Ngay",
+    "pickInYourTicket": "Chọn Các Số Trên Vé Của Bạn",
+    "youWon": "Bạn Đã Thắng",
+    "matchNumber": "Trùng {match} Số",
+    "claimTicketNow": "Nhận Thưởng Ngay",
+    "wasAwarded": "Đã Trao"
   },
   "menu": {
     "title": {

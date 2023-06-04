@@ -105,7 +105,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { formatUnits } from '@ethersproject/units'
+import { formatUnits } from 'ethers/lib/utils.js'
 import { BigNumber } from 'ethers'
 import { storeToRefs } from 'pinia'
 import { CartTicket } from '~~/types/ticket'
