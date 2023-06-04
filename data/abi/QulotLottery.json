@@ -52,9 +52,9 @@
       },
       {
         "indexed": false,
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
+        "internalType": "uint256[]",
+        "name": "ticketPrices",
+        "type": "uint256[]"
       }
     ],
     "name": "MultiRoundsTicketsPurchase",
@@ -838,19 +838,6 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "getTicketIds",
-    "outputs": [
-      {
-        "internalType": "uint256[]",
-        "name": "",
-        "type": "uint256[]"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
     "inputs": [
       {
         "internalType": "address",
@@ -866,6 +853,11 @@
         "internalType": "uint256",
         "name": "_size",
         "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "_asc",
+        "type": "bool"
       }
     ],
     "name": "getTicketIdsByUser",
@@ -878,6 +870,25 @@
       {
         "internalType": "uint256",
         "name": "cursor",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_user",
+        "type": "address"
+      }
+    ],
+    "name": "getTicketIdsByUserLength",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
         "type": "uint256"
       }
     ],

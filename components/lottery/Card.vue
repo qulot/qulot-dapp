@@ -4,14 +4,16 @@
   >
     <div class="flex items-center gap-x-2 xl:gap-x-6 lg:w-4/12">
       <!-- Lottery Picture -->
-      <div class="w-20 h-20 xl:w-32 xl:h-32 flex items-center">
+      <div
+        class="w-20 h-20 xl:w-32 xl:h-32 rounded overflow-hidden flex items-center"
+      >
         <img :src="lottery.picture" alt="" />
       </div>
 
       <!-- Lottery Info -->
       <div class="flex-grow space-y-1">
         <h2 class="text-[17px] font-bold text-black">{{ productName }}</h2>
-        <p class="text-sm text-black">{{ $t('lottery.estimateJackpot') }}</p>
+        <p class="text-sm text-black">{{ $t('lottery.lotteryJackpot') }}</p>
         <p class="text-[#6135E9] text-2xl font-bold md:text-3xl">
           {{ jackpotEstimatedValue }}
         </p>

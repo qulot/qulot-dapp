@@ -41,8 +41,17 @@
                     subitems: playMenuSubItems,
                   }"
                 />
+                <MenuItem
+                  v-if="isConnected"
+                  horizontal
+                  :item="{
+                    text: $t('menu.title.myTicket'),
+                    href: '/my-ticket',
+                  }"
+                />
               </Menu>
             </div>
+
             <!-- lang dropdown button -->
             <div class="hidden lg:block">
               <LangSelect />
@@ -100,6 +109,12 @@
           />
           <MenuItem
             :item="{
+              text: $t('ticket.listTicket'),
+              href: '/my-ticket',
+            }"
+          />
+          <MenuItem
+            :item="{
               text: $t('footer.linkAboutUs'),
               href: '/about-us',
             }"
@@ -110,7 +125,7 @@
                 text: $t('menu.title.language'),
               }"
             />
-            <LangSelect arrow />
+            <LangSelect class="py-0" arrow />
           </div>
           <div class="flex flex-row items-center justify-between">
             <MenuItem
@@ -118,7 +133,7 @@
                 text: $t('menu.title.theme'),
               }"
             />
-            <ThemeSelect arrow />
+            <ThemeSelect class="py-0" arrow />
           </div>
         </Menu>
       </div>
@@ -132,11 +147,12 @@ const route = useRoute()
 const { t } = useI18n()
 const { showSidebar } = useSidebar()
 const { scrollAtTop } = useScrollTop(50)
+const { isConnected } = useAccount()
 const lotteryStore = useLotteryStore()
-const { availableLotteries } = storeToRefs(lotteryStore)
+const { lotteries } = storeToRefs(lotteryStore)
 
 const playMenuSubItems = computed(() =>
-  availableLotteries.value.map((lottery) => ({
+  lotteries.value.map((lottery) => ({
     text: `${lottery.verboseName} ${lottery.numberOfItems}/${lottery.maxValuePerItem}`,
     href: `/lottery/${lottery.id}/`,
     subitems: [

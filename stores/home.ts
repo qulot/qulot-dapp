@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { utils } from 'ethers'
+import { BigNumber, utils } from 'ethers'
 import { KeyValue } from '~~/types/keyvalue'
 import {
   GET_TOTAL_USERS_TOTAL_PRIZE,
@@ -20,17 +20,17 @@ const DEFAULT_RANK = 'rank3'
 const DEFAULT_RANKS_DATA = [
   {
     address: '0x19C58f64Fccf4b42556f77b818160A729e9D87C1',
-    prize: '100,000,000',
+    prize: BigNumber.from('100000000'),
     rank: 'rank1',
   },
   {
     address: '0x19C58f64Fccf4b42556f77b818160A729e9D87C1',
-    prize: '50,000,000',
+    prize: BigNumber.from('50000000'),
     rank: 'rank2',
   },
   {
     address: '0x19C58f64Fccf4b42556f77b818160A729e9D87C1',
-    prize: '10,000,000',
+    prize: BigNumber.from('10000000'),
     rank: 'rank3',
   },
 ]
@@ -38,8 +38,8 @@ const DEFAULT_RANKS_DATA = [
 export const useHomeStore = defineStore('home', {
   state: () => {
     return {
-      totalUsers: 10000,
-      totalPrize: 100000,
+      totalUsers: '10000',
+      totalPrize: '100000',
       ranks: [...DEFAULT_RANKS_DATA],
     }
   },
@@ -62,10 +62,8 @@ export const useHomeStore = defineStore('home', {
         totalUsersTotalPrize.totalUsers &&
         totalUsersTotalPrize.totalPrize
       ) {
-        this.totalUsers = parseInt(totalUsersTotalPrize.totalUsers)
-        this.totalPrize = parseFloat(
-          utils.formatEther(totalUsersTotalPrize.totalPrize)
-        )
+        this.totalUsers = totalUsersTotalPrize.totalUsers
+        this.totalPrize = totalUsersTotalPrize.totalPrize
       }
     },
     async fetchUsersWinPrizeRanks() {
@@ -79,10 +77,10 @@ export const useHomeStore = defineStore('home', {
         clientId: chainId.value.toString(),
       })
 
-      if (data.value?.users.length) {
+      if (data.value?.users.length && data.value.users.length >= 3) {
         this.ranks = data.value.users.map((user, index) => ({
           address: user.id,
-          prize: utils.formatEther(user.totalWinAmount),
+          prize: user.totalWinAmount,
           rank: RANKS_AS_INDEX[index] || DEFAULT_RANK,
         }))
       }

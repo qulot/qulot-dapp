@@ -20,7 +20,8 @@
     "change": "Thay đổi",
     "confirm": "Đồng ý",
     "viewAll": "Xem tất cả",
-    "backToHome": "Về trang chủ"
+    "backToHome": "Về trang chủ",
+    "loadMore": "Xem Tiếp"
   },
   "datetime": {
     "labels": {
@@ -58,26 +59,33 @@
     "selectRandom": "Chọn {number} vé ngẫu nhiên",
     "buyNow": "Mua Ngay",
     "label": "Giỏ Hàng",
-    "discount": "Giảm giá:"
+    "discount": "Giảm giá:",
+    "empty": "Giỏ Hàng Trống!"
   },
   "ticket": {
-    "listTicket": "Danh Sách Vé",
+    "listTicket": "Vé Của Tôi",
     "winprize": "Trúng thưởng",
     "statusWait": "Đang chờ",
-    "statusStartDial": "Bắt đầu quay số",
-    "statusStartReward": "Bắt đầu trả thưởng",
-    "statusFinished": "Đã kết thúc",
+    "statusStartDial": "Quay số",
+    "statusStartReward": "Trả thưởng",
+    "statusFinished": "Kết thúc",
     "timeStartDial": "Ngày quay số",
     "status": "Trạng thái",
-    "empty": "Chưa chọn vé",
+    "empty": "Bạn không có vé nào",
     "pickTicketNumbers": "Chọn Số",
-    "buyTicket": "Mua Vé Chỉ Với {price}"
+    "buyTicket": "Mua Vé Chỉ Với {price}",
+    "checkYourTicket": "Kiểm Tra Vé Ngay",
+    "pickInYourTicket": "Chọn Các Số Trên Vé Của Bạn",
+    "youWon": "Bạn Đã Thắng",
+    "matchNumber": "Trùng {match} Số",
+    "claimTicketNow": "Nhận Thưởng Ngay",
+    "wasAwarded": "Đã Trao"
   },
   "menu": {
     "title": {
       "homePage": "Trang chủ",
       "product": "Sản phẩm",
-      "myTicket": "Vé của tôi",
+      "myTicket": "Vé",
       "myWallet": "Ví của tôi",
       "introduce": "Giới thiệu",
       "language": "Ngôn ngữ",
@@ -216,11 +224,10 @@
     "introduction": "Giới thiệu",
     "howToPlay": "Cách chơi",
     "statistical": "Thống kê",
-    "lotteryJackpot": "Xổ số độc đắc",
+    "lotteryJackpot": "Giải Độc Đắc",
     "jackpot": "Độc Đắc",
     "pricePerTicket": "Giá mỗi vé",
     "playNow": "Chơi Ngay",
-    "estimateJackpot": "Giải Độc Đắc",
     "assets": "Tài Sản"
   },
   "round": {
@@ -231,7 +238,6 @@
     "filterByRoundLabel": "Vòng",
     "filterByDateLabel": "Ngày Quay Thưởng",
     "finishedRounds": "Các Vòng Đã Hoàn Thành",
-    "loadMore": "Xem Tiếp",
     "label": "Vòng #{round} Ngày {date}",
     "winningNumber": "Số Trúng Thưởng",
     "printResult": "In Kết Quả",

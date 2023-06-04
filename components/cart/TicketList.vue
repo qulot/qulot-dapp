@@ -12,10 +12,12 @@
       "
       :lottery-picture="lotteryAsKeys[ticket.lotteryId]?.picture"
       :lottery-verbose-name="lotteryAsKeys[ticket.lotteryId]?.verboseName"
+      :disabled="!ticketsRoundIsOpen.includes(ticket)"
       @delete="deleteTicket(ticket.id)"
       @select="toggleSelectTicket(ticket.id)"
     />
   </div>
+  <CartEmpty v-else />
 </template>
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
@@ -24,7 +26,7 @@ const { token } = useQulot()
 const cartStore = useCartStore()
 const lotteryStore = useLotteryStore()
 const { lotteryAsKeys, lotteryTicketPrices } = storeToRefs(lotteryStore)
-const { tickets } = storeToRefs(cartStore)
+const { tickets, ticketsRoundIsOpen } = storeToRefs(cartStore)
 const deleteTicket = (ticketId: number) => {
   cartStore.remove(ticketId)
 }

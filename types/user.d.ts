@@ -1,6 +1,8 @@
+import { BigNumber } from "ethers"
+
 export interface User {
   id: string
-  totalWinAmount: number
-  totalTickets: number
-  totalAmount: number
+  totalWinAmount: BigNumber
+  totalTickets: BigNumber
+  totalAmount: BigNumber
 }

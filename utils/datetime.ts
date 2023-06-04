@@ -104,9 +104,16 @@ export function formatTimestamp(timestamp: Timestamp, format: DateTimeFormats) {
  */
 export function nextTickOf(periodDays: number[], periodHourOfDays: number) {
   const interval = parseExpression(
-    `* ${periodHourOfDays} * * ${periodDays.join(',')}`
+    `* ${periodHourOfDays} * * ${periodDays.join(',')}`,
+    {
+      utc: true,
+    }
   )
   return interval.next().toDate()
+}
+
+export function hourUtcToLocal(hour: number) {
+  return moment.utc().set('hour', hour).local().hour()
 }
 
 /**

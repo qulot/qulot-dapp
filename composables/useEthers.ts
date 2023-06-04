@@ -1,5 +1,3 @@
-import { optimism } from '@wagmi/core/dist/chains'
-import { BigNumber, Contract } from 'ethers'
 import { Wallet } from '~~/types/wallet'
 
 export type ConnectStatus =

@@ -2,7 +2,7 @@
   <div class="space-y-8 lg:space-y-10">
     <HomeLuckyMachine :total-prize="totalPrize" :total-users="totalUsers" />
     <HomeLuckiestWinners class="!-mt-0" :ranks="ranks" />
-    <HomeListLotteries :lotteries="availableLotteries" />
+    <HomeListLotteries :lotteries="lotteries" />
     <HomeHowItWorks />
     <HomeInnovativeFeatures />
     <Home1stPlatform />
@@ -19,5 +19,5 @@ await homeStore.fetchTotalUsersTotalPrize()
 await homeStore.fetchUsersWinPrizeRanks()
 
 const lotteryStore = useLotteryStore()
-const { availableLotteries } = storeToRefs(lotteryStore)
+const { lotteries } = storeToRefs(lotteryStore)
 </script>

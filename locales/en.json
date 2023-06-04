@@ -20,7 +20,8 @@
     "change": "Change",
     "confirm": "OK",
     "viewAll": "See all",
-    "backToHome": "Back to home"
+    "backToHome": "Back to home",
+    "loadMore": "Load More"
   },
   "datetime": {
     "labels": {
@@ -56,10 +57,11 @@
     "selectRandom": "Pick {number} Random Tickets",
     "buyNow": "Buy Now",
     "label": "Cart",
-    "discount": "Discount:"
+    "discount": "Discount:",
+    "empty": "Cart Is Empty!"
   },
   "ticket": {
-    "listTicket": "List ticket",
+    "listTicket": "My Tickets",
     "winprize": "Win Prize",
     "statusWait": "Wait",
     "statusStartDial": "Start Dial",
@@ -67,16 +69,22 @@
     "statusFinished": "Finished",
     "timeStartDial": "Time start dial",
     "status": "Status",
-    "empty": "Empty",
+    "empty": "You don't have any tickets",
     "pickTicketNumbers": "Pick Ticket Numbers",
     "random": "Random",
-    "buyTicket": "Buy ticket for just {price}"
+    "buyTicket": "Buy ticket for just {price}",
+    "checkYourTicket": "Check Your Ticket",
+    "pickInYourTicket": "Pick The Numbers On Your Ticket",
+    "youWon": "You Won",
+    "matchNumber": "Match {match} number",
+    "claimTicketNow": "Claim Ticket Now",
+    "wasAwarded": "Was Awarded"
   },
   "menu": {
     "title": {
       "homePage": "Home Page",
       "product": "Product",
-      "myTicket": "My Ticket",
+      "myTicket": "Ticket",
       "myWallet": "My Wallet",
       "introduce": "Introduce",
       "language": "Language",
@@ -219,7 +227,6 @@
     "jackpot": "Jackpot",
     "pricePerTicket": "Price Per Ticket",
     "playNow": "Play Now",
-    "estimateJackpot": "Estimate Jackpot",
     "assets": "Assets"
   },
   "round": {
@@ -230,7 +237,6 @@
     "filterByRoundLabel": "Round",
     "filterByDateLabel": "Draw Date",
     "finishedRounds": "Finished Rounds",
-    "loadMore": "Load More",
     "label": "Round #{round} date {date}",
     "winningNumber": "Winning Number",
     "printResult": "Print Result",

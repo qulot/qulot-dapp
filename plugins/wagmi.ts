@@ -75,7 +75,7 @@ export default defineNuxtPlugin(() => {
 
   let client: Client<any, any>
   if (process.client) {
-    const { provider, webSocketProvider } = configureChains(chains, [
+    const { provider } = configureChains(chains, [
       infuraProvider({ apiKey: config.public.infuraApiKey }),
       publicProvider(),
     ])
@@ -83,7 +83,6 @@ export default defineNuxtPlugin(() => {
     client = createClient({
       autoConnect: true,
       provider,
-      webSocketProvider,
       connectors,
     })
   } else {

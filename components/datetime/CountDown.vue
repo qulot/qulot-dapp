@@ -55,7 +55,7 @@ const ONE_HOUR = 60 * ONE_MINUTE
 const ONE_DAY = 24 * ONE_HOUR
 
 const current = ref<Date>()
-const timer = ref<number>()
+const timer = ref<NodeJS.Timer>()
 const totalMilliseconds = ref(0)
 
 const props = defineProps({
@@ -69,8 +69,8 @@ const props = defineProps({
 /**
  * check is end timer
  */
-const isEqual = computed(() => {
-  return totalMilliseconds.value === 0
+const isPast = computed(() => {
+  return totalMilliseconds.value <= 0
 })
 
 /**
@@ -132,7 +132,7 @@ timer.value = setInterval(() => {
   // force update total milliseconds
   update()
 
-  if (isEqual.value) {
+  if (isPast.value) {
     clear()
   }
 }, ONE_SECOND)

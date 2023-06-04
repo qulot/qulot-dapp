@@ -43,10 +43,10 @@
   </div>
 </template>
 <script setup lang="ts">
-import { formatEther, formatUnits } from '@ethersproject/units'
+import { formatUnits } from 'ethers/lib/utils.js'
 import { PropType } from 'vue'
 
-const props = defineProps({
+defineProps({
   pickNumbers: {
     type: Array as PropType<number[]>,
     default: () => [],

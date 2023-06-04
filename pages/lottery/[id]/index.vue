@@ -16,6 +16,7 @@
             <div
               id="order"
               class="bg-white dark:bg-block shadow-default rounded-lg"
+              :class="{ 'opacity-30': !nextRoundIsOpen }"
             >
               <div
                 class="bg-[#6135E9] rounded-t-lg px-4 py-3.5 flex items-center justify-between"
@@ -57,7 +58,7 @@
                   @delete="removeTicket(item.id)"
                 />
               </div>
-              <div v-else class="p-2 pt-6 text-center">
+              <div v-else class="p-2 pt-6 text-center dark:text-white">
                 {{ $t('ticket.empty') }}
               </div>
               <div
@@ -65,12 +66,14 @@
               >
                 <Button
                   class="rounded border-title text-title bg-transparent hover:text-main hover:bg-transparent hover:border-main mr-4"
+                  :disabled="!nextRoundIsOpen"
                   @click="showPickNumberModal = true"
                 >
                   {{ $t('cart.addTicket') }}
                 </Button>
                 <Button
                   class="rounded border-title text-title bg-transparent hover:text-main hover:bg-transparent hover:border-main flex-1 xl:mr-4"
+                  :disabled="!nextRoundIsOpen"
                   @click="randomTickets"
                 >
                   {{ $t('cart.selectRandom', { number: randomTicketsNumber }) }}
@@ -102,7 +105,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { formatUnits } from '@ethersproject/units'
+import { formatUnits } from 'ethers/lib/utils.js'
 import { BigNumber } from 'ethers'
 import { storeToRefs } from 'pinia'
 import { CartTicket } from '~~/types/ticket'
@@ -119,7 +122,7 @@ const config = useRuntimeConfig()
 const { token } = useQulot()
 const lotteryStore = useLotteryStore()
 const cartStore = useCartStore()
-const { isExists, lottery, isLoadingLottery } = storeToRefs(lotteryStore)
+const { isExists, lottery } = storeToRefs(lotteryStore)
 
 definePageMeta({
   layout: 'app',
@@ -158,6 +161,10 @@ const totalPrice = computed(() => {
     )
   }
   return totalPrice
+})
+
+const nextRoundIsOpen = computed(() => {
+  return lottery.value?.nextRound?.status === 'Open'
 })
 
 const pickNumberOnConfirm = (pickNumbers: number[]) => {
@@ -213,4 +220,18 @@ const buyNow = () => {
   cartStore.addTickets(tickets.value)
   router.push({ path: '/cart' })
 }
+
+let fetchLotteryPollInterval: NodeJS.Timer | null = null
+
+onMounted(() => {
+  fetchLotteryPollInterval = setInterval(() => {
+    lotteryStore.fetchLotteryById(route.params.id as string)
+  }, 30000)
+})
+
+onUnmounted(() => {
+  if (fetchLotteryPollInterval) {
+    clearInterval(fetchLotteryPollInterval)
+  }
+})
 </script>

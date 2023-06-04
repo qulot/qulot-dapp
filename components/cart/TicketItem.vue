@@ -1,5 +1,8 @@
 <template>
-  <div class="relative text-sm text-title-nodark">
+  <div
+    class="relative text-sm text-title-nodark"
+    :class="{ 'opacity-50': disabled }"
+  >
     <div
       class="overflow-hidden box-border relative before:content-[''] before:absolute before:h-3 before:w-3 before:rounded-full before:bg-white dark:before:bg-block before:left-0 before:top-1/2 before:-mt-1.5 before:-ml-1.5 before:border before:border-solid after:content-[''] after:absolute after:h-3 after:w-3 after:rounded-full after:bg-white dark:after:bg-block after:right-0 after:top-1/2 after:-mr-1.5 after:-mt-1.5 after:border after:border-solid"
       :class="'before:border-white after:border-white'"
@@ -24,7 +27,7 @@
             <div
               class="text-[17px] font-bold text-title-nodark leading-tight mb-3"
             >
-              {{ lotteryVerboseName }} |
+              {{ lotteryVerboseName }} ❘
               {{ $t('round.roundId', { round: roundId }) }}
             </div>
             <div class="flex items-center space-x-2">
@@ -52,7 +55,10 @@
             >
               {{ $t('cart.deleteTicket') }}
             </div>
-            <div class="cursor-pointer" @click="$emit('select')">
+            <div
+              class="cursor-pointer"
+              @click="() => !disabled && $emit('select')"
+            >
               <span v-show="selected">
                 <svg-icon name="checkbox" class="w-4 h-4" />
               </span>
@@ -70,7 +76,7 @@
 defineProps({
   roundId: {
     type: String,
-    requried: true,
+    required: true,
     default: null,
   },
   lotteryPicture: {
@@ -97,6 +103,10 @@ defineProps({
     required: true,
   },
   selected: {
+    type: Boolean,
+    default: false,
+  },
+  disabled: {
     type: Boolean,
     default: false,
   },

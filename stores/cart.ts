@@ -2,6 +2,8 @@ import { UserRejectedRequestError } from '@wagmi/core'
 import { BigNumber } from 'ethers/lib/ethers'
 import { formatUnits } from 'ethers/lib/utils.js'
 import { defineStore } from 'pinia'
+import { GET_ROUNDS_BY_IDS } from '~~/apollo/queries'
+import { Round } from '~~/types/lottery'
 import { CartItemsGroup, CartTicket } from '~~/types/ticket'
 import { groupBy } from '~~/utils/collection'
 
@@ -14,7 +16,14 @@ export const useCartStore = defineStore('cart', {
     }
   },
   getters: {
-    validTickets: (state) => state.tickets.filter((ticket) => ticket.selected),
+    ticketsRoundIsOpen: (state) =>
+      state.tickets.filter((ticket) => ticket.round?.status === 'Open'),
+    ticketsSelected: (state) =>
+      state.tickets.filter((ticket) => ticket.selected),
+    validTickets: (state) =>
+      state.tickets.filter(
+        (ticket) => ticket.selected && ticket.round?.status === 'Open'
+      ),
     ticketsGroupByLotteryId() {
       const validTickets = this.validTickets as CartTicket[]
       return groupBy(validTickets, (ticket) => ticket.lotteryId)
@@ -120,11 +129,13 @@ export const useCartStore = defineStore('cart', {
       if (cartTicketsJson) {
         const tickets: CartTicket[] = JSON.parse(cartTicketsJson)
         this.tickets = [...tickets]
+        this.loadRoundData()
       }
     },
     addTickets(tickets: CartTicket[]) {
       this.tickets.push(...tickets)
       this.saveLocalStorage()
+      this.loadRoundData()
     },
     toggleSelect(ticketId: number) {
       const ticket = this.tickets.find((ticket) => ticket.id === ticketId)
@@ -140,6 +151,31 @@ export const useCartStore = defineStore('cart', {
       if (ticketIndex > -1) {
         this.tickets.splice(ticketIndex, 1)
         this.saveLocalStorage()
+      }
+    },
+    async loadRoundData() {
+      const roundIds = uniqueBy(this.tickets.map((ticket) => ticket.roundId))
+
+      if (roundIds.length) {
+        const { chainId } = useEthers()
+        const { data } = await useAsyncQuery<{
+          rounds: Round[]
+        }>({
+          query: GET_ROUNDS_BY_IDS,
+          clientId: chainId.value.toString(),
+          variables: {
+            ids: roundIds,
+          },
+        })
+
+        if (data.value && data.value.rounds.length) {
+          const roundsAsKey = keyBy(data.value.rounds, (round) => round.id)
+          for (const ticket of this.tickets) {
+            if (roundsAsKey[ticket.roundId]) {
+              ticket.round = roundsAsKey[ticket.roundId]
+            }
+          }
+        }
       }
     },
     clear() {

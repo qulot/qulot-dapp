@@ -39,6 +39,7 @@
               <Button
                 variant="primary"
                 class="rounded text-white"
+                :disabled="!nextRoundIsOpen"
                 @click="$emit('buyTicket')"
                 >{{ $t('ticket.buyTicket', { price: pricePerTicket }) }}</Button
               >
@@ -70,7 +71,7 @@
   </section>
 </template>
 <script setup lang="ts">
-import { formatEther, formatUnits } from '@ethersproject/units'
+import { formatUnits } from 'ethers/lib/utils.js'
 import { PropType } from 'vue'
 import { Lottery } from '~~/types/lottery'
 
@@ -119,6 +120,10 @@ const pricePerTicket = computed(() => {
   if (props.lottery.pricePerTicket && token.value) {
     return formatUnits(props.lottery.pricePerTicket, token.value.decimals)
   }
+})
+
+const nextRoundIsOpen = computed(() => {
+  return props.lottery?.nextRound?.status === 'Open'
 })
 </script>
 <style lang="scss" scoped>

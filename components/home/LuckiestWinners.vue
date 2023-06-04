@@ -22,7 +22,9 @@
               readableAddress(item.address)
             }}</a>
             <span class="text-sm">{{ $t('home.wonWithAmount') }}</span>
-            <span class="font-bold text-main">{{ item.prize }}</span>
+            <span class="font-bold text-main">{{
+              formatUnits(item.prize, token?.decimals)
+            }}</span>
             <svg-icon name="dolla" class="w-4 h-4"></svg-icon>
           </div>
         </Slide>
@@ -32,14 +34,22 @@
 </template>
 
 <script setup lang="ts">
+import { formatUnits } from 'ethers/lib/utils.js'
+
 export interface RankItemType {
   rank: any
   address: string
   prize: string
 }
 
+const { token } = useQulot()
+
 defineProps({
-  ranks: Object as PropType<RankItemType[]>,
+  ranks: {
+    type: Array as PropType<RankItemType[]>,
+    default: () => [],
+    required: false,
+  },
 })
 
 const settings = ref({
@@ -49,19 +59,19 @@ const settings = ref({
   wrapAround: true,
   breakpoints: {
     500: {
-      itemsToShow: 1.3,
+      itemsToShow: 1.5,
     },
     700: {
-      itemsToShow: 1.4,
+      itemsToShow: 2,
     },
     900: {
-      itemsToShow: 1.7,
+      itemsToShow: 2.5,
     },
     1100: {
-      itemsToShow: 2.3,
+      itemsToShow: 3,
     },
     1400: {
-      itemsToShow: 2.9,
+      itemsToShow: 3.7,
     },
   },
 })
