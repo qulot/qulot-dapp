@@ -15,9 +15,11 @@
           <p class="text-lg mb-1 leading-tight">
             {{ $t('lottery.lotteryJackpot') }}
           </p>
-          <div class="text-[40px] font-bold text-main mb-1.5">
-            {{ jackpotEstimatedValue }}
-          </div>
+          <TokenValue
+            :value="lottery.nextRound?.totalAmount"
+            tag="div"
+            class="text-[40px] font-bold text-main mb-1.5"
+          />
           <div class="flex justify-center mb-3">
             <DatetimeCountDown
               v-if="nextRoundDraw"
@@ -95,21 +97,6 @@ const explorerContract = computed(() => {
   ) {
     return `${chainSelected.value.blockExplorers.default.url}/address/${qulotAddress.value}`
   }
-})
-
-const jackpotEstimatedValue = computed(() => {
-  if (
-    props.lottery.nextRound &&
-    props.lottery.nextRound.totalAmount &&
-    token.value
-  ) {
-    return formatUnits(
-      props.lottery.nextRound.totalAmount,
-      token.value.decimals
-    )
-  }
-
-  return '0.0'
 })
 
 const nextRoundDraw = computed(() => {

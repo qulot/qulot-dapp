@@ -37,8 +37,12 @@
                   </div>
                   <span class="w-px h-3 bg-white"></span>
                   <div class="space-x-1 lg:space-x-2">
-                    <span>{{ $t('cart.total') }}:</span
-                    ><span class="font-bold text-yellow">{{ totalPrice }}</span>
+                    <span>{{ $t('cart.total') }}:</span>
+                    <TokenValue
+                      :value="totalPrice"
+                      :fixed="1"
+                      class="font-bold text-yellow"
+                    />
                   </div>
                 </div>
               </div>
@@ -153,14 +157,11 @@ const randomTicketsNumber = ref(3)
 const tickets = ref<CartTicket[]>([])
 
 const totalPrice = computed(() => {
-  let totalPrice = '0'
   if (lottery.value?.pricePerTicket && tickets.value.length && token.value) {
-    totalPrice = formatUnits(
-      BigNumber.from(lottery.value?.pricePerTicket).mul(tickets.value.length),
-      token.value.decimals
+    return BigNumber.from(lottery.value?.pricePerTicket).mul(
+      tickets.value.length
     )
   }
-  return totalPrice
 })
 
 const nextRoundIsOpen = computed(() => {

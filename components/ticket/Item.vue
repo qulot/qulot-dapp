@@ -45,13 +45,12 @@
         <!-- Ticket price -->
         <div class="pl-[78px] lg:pl-0">
           <div class="space-x-1 leading-tight">
-            <span class="text-[17px] font-bold text-title-nodark">{{
-              formatUnits(
-                ticket.round?.lottery?.pricePerTicket || '0',
-                token?.decimals
-              )
-            }}</span>
-            <span class="text-[11px] text-[#5A5A5A]">{{ token?.symbol }}</span>
+            <TokenValue
+              :value="ticket.round?.lottery?.pricePerTicket"
+              :fixed="1"
+              show-symbol
+              class="font-bold text-title-nodark"
+            />
           </div>
         </div>
         <div class="w-px h-10 bg-[#D8D8D8] hidden lg:block"></div>
@@ -71,14 +70,13 @@
           </template>
           <template v-else>
             <p>{{ $t('ticket.youWon') }}:</p>
-            <span
+            <TokenValue
               ref="rewardBtn"
-              class="font-bold text-error cursor-pointer"
+              :value="ticket.winAmount"
+              show-symbol
+              class="text-[17px] font-bold text-error cursor-pointer"
               @click="checkAllowClaimTicket"
-            >
-              {{ formatUnits(ticket.winAmount, token?.decimals) }}
-              <span class="text-xs">{{ token?.symbol }}</span>
-            </span>
+            />
           </template>
         </div>
         <div class="w-px h-10 bg-[#D8D8D8] hidden lg:block"></div>
@@ -97,7 +95,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import { formatUnits } from 'ethers/lib/utils.js'
 import { useTippy } from 'vue-tippy'
 import { Ticket } from '~~/types/ticket'
 
@@ -111,7 +108,6 @@ const props = defineProps({
 const emit = defineEmits(['claimTicket'])
 
 const { t } = useI18n()
-const { token } = useQulot()
 
 const statusTicket = computed(() => {
   switch (props.ticket.round?.status) {
@@ -177,10 +173,13 @@ const checkAllowClaimTicket = () => {
 }
 
 const rewardBtn = ref()
-if (props.ticket.winStatus && !props.ticket.clamStatus) {
-  useTippy(rewardBtn, {
-    content: t('ticket.claimTicketNow'),
-    showOnCreate: true,
-  })
-}
+
+onMounted(() => {
+  if (props.ticket.winStatus && !props.ticket.clamStatus) {
+    useTippy(rewardBtn.value.$el, {
+      content: t('ticket.claimTicketNow'),
+      showOnCreate: true,
+    })
+  }
+})
 </script>

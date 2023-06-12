@@ -35,9 +35,7 @@
               class="absolute text-white text-center bottom-[258px] mr-[10px]"
             >
               <div class="text-xs">{{ $t('home.totalPrize') }}</div>
-              <div class="text-base font-bold">
-                {{ formatUnits(totalPrize, token?.decimals) }}
-              </div>
+              <TokenValue :value="totalPrize" class="text-base font-bold" />
             </div>
             <div
               class="absolute text-white text-center bottom-[182px] mr-[10px]"
@@ -76,11 +74,9 @@
   </section>
 </template>
 <script setup lang="ts">
-import { formatUnits } from 'ethers/lib/utils.js'
 import { storeToRefs } from 'pinia'
 
 const props = defineProps(['totalPrize', 'totalUsers'])
-const { token } = useQulot()
 
 const lotteryStore = useLotteryStore()
 const { lotteryOpenSoon } = storeToRefs(lotteryStore)

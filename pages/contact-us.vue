@@ -150,6 +150,17 @@ const contact = ref({
   messenger: '',
 })
 
+const config = useRuntimeConfig()
+const { t } = useI18n()
+const title = computed(
+  () => `${t('footer.linkContactUs')} | ${config.public.metadata.appName}`
+)
+
+useSeoMeta({
+  title,
+  ogTitle: title,
+})
+
 const submit = () => {
   console.log('contact: ', contact.value)
 }

@@ -42,10 +42,11 @@
         <h4 class="text-sm text-main font-bold">{{ $t('ticket.youWon') }}</h4>
         <div class="flex items-center justify-between dark:text-white">
           <h5>{{ $t('ticket.matchNumber', { match: matchNumber }) }}</h5>
-          <span class="font-bold text-error">
-            {{ formatUnits(wonValue, token?.decimals) }}
-            <span class="text-xs">{{ token?.symbol }}</span>
-          </span>
+          <TokenValue
+            :value="wonValue"
+            class="font-bold text-error"
+            show-symbol
+          />
         </div>
       </div>
     </template>

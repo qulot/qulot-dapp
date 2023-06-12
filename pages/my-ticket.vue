@@ -48,6 +48,10 @@ useSeoMeta({
   ogTitle: title,
 })
 
+definePageMeta({
+  layout: 'app',
+})
+
 const init = async () => {
   if (isConnected.value) {
     await ticketStore.init()

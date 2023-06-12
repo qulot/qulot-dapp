@@ -1,10 +1,9 @@
-import { ethers } from 'ethers'
 import QulotLotteryAbi from '~~/data/abi/QulotLottery.json'
 import ERC20Abi from '~~/data/abi/ERC20.json'
-import { Token } from '~~/types/ethers'
+import { Address, Token } from '~~/types/ethers'
 
 export const useQulot = () => {
-  const { chainId, getProvider, fetchSigner } = useEthers()
+  const { chainId, fetchSigner } = useEthers()
   const config = useRuntimeConfig()
   const { $wagmi } = useNuxtApp()
 
@@ -15,7 +14,7 @@ export const useQulot = () => {
     const contracts = config.public.contracts as Record<string, string>
     if (chainId.value in contracts) {
       const qulotAddress = contracts[chainId.value.toString()]
-      return qulotAddress
+      return qulotAddress as Address
     }
   }
 
@@ -27,7 +26,7 @@ export const useQulot = () => {
     if (signer) {
       const config = await $wagmi.prepareWriteContract({
         abi: QulotLotteryAbi,
-        address: qulotAddress.value as `0x${string}`,
+        address: qulotAddress.value!,
         signer,
         functionName,
         args,
@@ -41,7 +40,7 @@ export const useQulot = () => {
     args?: readonly unknown[]
   ) => {
     return (await $wagmi.readContract({
-      address: qulotAddress.value as `0x${string}`,
+      address: qulotAddress.value!,
       abi: QulotLotteryAbi,
       functionName,
       args,
@@ -56,7 +55,7 @@ export const useQulot = () => {
     if (signer) {
       const config = await $wagmi.prepareWriteContract({
         abi: ERC20Abi,
-        address: token.value.address as `0x${string}`,
+        address: token.value.address,
         signer,
         functionName,
         args,
@@ -70,23 +69,11 @@ export const useQulot = () => {
     args?: readonly unknown[]
   ) => {
     return (await $wagmi.readContract({
-      address: token.value.address as `0x${string}`,
+      address: token.value.address,
       abi: ERC20Abi,
       functionName,
       args,
     })) as Promise<T>
-  }
-
-  const getContract = (contract: 'qulot' | 'token') => {
-    if (contract === 'qulot') {
-      return new ethers.Contract(
-        qulotAddress.value as string,
-        QulotLotteryAbi,
-        getProvider()
-      )
-    } else if (contract === 'token') {
-      return new ethers.Contract(token.value.address, ERC20Abi, getProvider())
-    }
   }
 
   const fetchToken = async () => {
@@ -105,7 +92,6 @@ export const useQulot = () => {
 
   return {
     init,
-    getContract,
     readQulotLottery,
     writeQulotLottery,
     writeToken,

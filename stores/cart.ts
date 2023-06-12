@@ -187,17 +187,10 @@ export const useCartStore = defineStore('cart', {
     async buyTickets() {
       let isSuccess = false
       this.buyTicketsLoading = true
-      const {
-        token,
-        qulotAddress,
-        getContract,
-        writeQulotLottery,
-        writeToken,
-        readToken,
-      } = useQulot()
+      const { token, qulotAddress, writeQulotLottery, writeToken, readToken } =
+        useQulot()
       const { address } = useAccount()
-      const tokenContract = getContract('token')
-      if (tokenContract && address.value && token.value && qulotAddress.value) {
+      if (address.value && token.value && qulotAddress.value) {
         const processBuyTicket = async () => {
           const ticketsMapPerRounds = this.validTickets.reduce(
             (res, ticket) => ({

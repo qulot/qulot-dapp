@@ -11,6 +11,7 @@ const walletConnectProjectId = process.env.WALLET_CONNECT_PROJECT_ID || ''
 const mumbaiSubgraphEndpoint =
   process.env.MUMBAI_SUBGRAPH_ENDPOINT || 'http://localhost:8000'
 const mumbaiQulotContract = process.env.MUMBAI_QULOT_CONTRACT || ''
+const tokenDefaultDecimals = parseInt(process.env.TOKEN_DEFAULT_DECIMALS || '8')
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -21,6 +22,7 @@ export default defineNuxtConfig({
       defaultChainId,
       infuraApiKey,
       walletConnectProjectId,
+      tokenDefaultDecimals,
       metadata: {
         appName,
         appIcon,

@@ -14,9 +14,11 @@
       <div class="flex-grow space-y-1">
         <h2 class="text-[17px] font-bold text-black">{{ productName }}</h2>
         <p class="text-sm text-black">{{ $t('lottery.lotteryJackpot') }}</p>
-        <p class="text-[#6135E9] text-2xl font-bold md:text-3xl">
-          {{ jackpotEstimatedValue }}
-        </p>
+        <TokenValue
+          :value="props.lottery?.nextRound?.totalAmount"
+          tag="p"
+          class="text-[#6135E9] text-2xl font-bold md:text-3xl"
+        />
       </div>
     </div>
     <div class="flex !mr-auto flex-col justify-center lg:w-3/12 xl:w-4/12">
@@ -61,12 +63,9 @@
   </div>
 </template>
 <script setup lang="ts">
-import { formatUnits } from 'ethers/lib/utils.js'
 import { Lottery } from '~~/types/lottery'
 
 const props = defineProps<{ lottery: Lottery }>()
-
-const { token } = useQulot()
 
 const loading = ref(false)
 
@@ -96,11 +95,6 @@ const productName = computed(() => {
   const numberOfItems = props.lottery.numberOfItems || 0
   const maxValuePerItem = props.lottery.maxValuePerItem || 0
   return `${verboseName} Jackpot ${numberOfItems || 0}/${maxValuePerItem || 0}`
-})
-
-const jackpotEstimatedValue = computed(() => {
-  const jackpot = props.lottery?.nextRound?.totalAmount || '0'
-  return formatUnits(jackpot, token.value?.decimals)
 })
 
 const winningNumbers = computed(() => {

@@ -1,5 +1,6 @@
+export type Address = `0x${string}`
 export interface Token {
-  address: string
+  address: Address
   decimals: number
   name: string
   symbol: string

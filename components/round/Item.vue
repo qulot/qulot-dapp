@@ -23,9 +23,12 @@
           class="flex flex-row items-center space-x-1 lg:flex-col lg:items-start lg:space-y-2"
         >
           <div class="dark:text-white">{{ $t('lottery.jackpot') }}:</div>
-          <div class="text-2xl font-bold text-title">
-            {{ formatUnits(round.totalAmount, token?.decimals) }}
-          </div>
+          <TokenValue
+            :value="round.totalAmount"
+            show-symbol
+            class="text-2xl font-bold text-title"
+            tag="div"
+          />
         </div>
       </div>
     </div>
@@ -45,11 +48,8 @@
   </div>
 </template>
 <script setup lang="ts">
-import { formatUnits } from 'ethers/lib/utils.js'
 import { PropType } from 'vue'
 import { Round } from '~~/types/lottery'
-
-const { token } = useQulot()
 
 const props = defineProps({
   round: {

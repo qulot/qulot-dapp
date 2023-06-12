@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { BigNumber, utils } from 'ethers'
+import { BigNumber } from 'ethers'
 import { KeyValue } from '~~/types/keyvalue'
 import {
   GET_TOTAL_USERS_TOTAL_PRIZE,

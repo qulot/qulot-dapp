@@ -2,7 +2,10 @@
   <div>
     <h4 class="font-bold text-main">Match {{ rule.matchNumber }}</h4>
     <span v-if="rule.rewardUnit === 'Percent'" class="dark:text-white">
-      {{ formatUnits(rule.rewardValue, token?.decimals) }}%
+      {{ rule.rewardValue }}%
+    </span>
+    <span v-else-if="rule.rewardUnit === 'Fixed'" class="dark:text-white">
+      {{ formatUnits(rule.rewardValue, token?.decimals) }}{{ token?.symbol }}
     </span>
   </div>
 </template>

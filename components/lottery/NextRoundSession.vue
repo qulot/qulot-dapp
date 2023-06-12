@@ -28,16 +28,11 @@
               <span class="text-[13px] lg:text-[17px] dark:text-white">{{
                 $t('lottery.jackpot')
               }}</span>
-              <span class="text-yellow text-2xl font-bold">
-                {{
-                  formatUnits(
-                    lottery.nextRound?.totalAmount || '0',
-                    token?.decimals
-                  )
-                }}
-
-                <span class="text-xs">{{ token?.symbol }}</span>
-              </span>
+              <TokenValue
+                :value="lottery.nextRound?.totalAmount"
+                show-symbol
+                class="text-yellow text-2xl font-bold"
+              />
             </p>
           </div>
         </div>
@@ -62,7 +57,6 @@
 </template>
 <script setup lang="ts">
 import { PropType } from 'vue'
-import { formatUnits } from 'ethers/lib/utils.js'
 import { Lottery } from '~~/types/lottery'
 
 const props = defineProps({
@@ -71,8 +65,6 @@ const props = defineProps({
     default: () => null,
   },
 })
-
-const { token } = useQulot()
 
 const nextRoundId = computed(() => {
   if (props.lottery && props.lottery.nextRound) {

@@ -10,3 +10,15 @@
     </div>
   </div>
 </template>
+<script setup lang="ts">
+const config = useRuntimeConfig()
+const { t } = useI18n()
+const title = computed(
+  () => `${t('footer.linkAboutUs')} | ${config.public.metadata.appName}`
+)
+
+useSeoMeta({
+  title,
+  ogTitle: title,
+})
+</script>
