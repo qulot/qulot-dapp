@@ -45,18 +45,28 @@
     <!-- Round list -->
     <div class="overflow-hidden flex-1">
       <div class="p-4 space-y-4">
-        <RoundItem
-          v-for="round in rounds"
-          :key="round.id"
-          :round="round"
-          @check-ticket="checkTicket(round)"
-        />
+        <template v-if="rounds.length">
+          <!-- Round list items -->
+          <RoundItem
+            v-for="round in rounds"
+            :key="round.id"
+            :round="round"
+            @check-ticket="checkTicket(round)"
+          />
+        </template>
+        <template v-else>
+          <p class="text-content text-center">
+            {{ $t('round.noRoundsCompletedYet') }}
+          </p>
+        </template>
+
         <RoundSkeletonItem v-show="isLoading" />
         <div class="w-full flex justify-center">
           <Button
             variant="primary"
             rounded
             :is-loading="isLoading"
+            :disabled="rounds.length === 0"
             @click="loadMore"
           >
             {{ $t('labels.loadMore') }}

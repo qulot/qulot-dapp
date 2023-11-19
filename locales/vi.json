@@ -254,7 +254,8 @@
     "winningNumber": "Số Trúng Thưởng",
     "printResult": "In Kết Quả",
     "checkTicket": "Kiểm Tra",
-    "roundId": "Vòng #{round}"
+    "roundId": "Vòng #{round}",
+    "noRoundsCompletedYet": "Chưa có vòng nào được hoàn thành"
   },
   "wallet": {
     "connect": "Kết nối ví",
@@ -335,7 +336,8 @@
     "execution reverted: ERROR_TICKETS_LIMIT_PER_ROUND": "Đã vượt quá giới hạn vé cho một kỳ quay số",
     "ERROR_TICKETS_LIMIT_PER_ROUND": "Đã vượt quá giới hạn vé cho một kỳ quay số",
     "walletConnectRequired": "Yêu cầu <a href='#connect-wallet' class='underline'>kết nối ví</a> để tiếp tục",
-    "Access Denied": "Yêu cầu <a href='/auth/login' class='underline'>đăng nhập</a> để tiếp tục"
+    "Access Denied": "Yêu cầu <a href='/auth/login' class='underline'>đăng nhập</a> để tiếp tục",
+    "transfer amount exceeds balance": "Số tiền dịch vụ thanh toán vượt quá số dư. Vui lòng thử lại trong vài phút"
   },
   "order": {
     "header": "Đơn Mua",
@@ -345,7 +347,7 @@
     "empty": "Bạn không có đơn mua nào",
     "date": "Ngày: ",
     "total": "Tổng: ",
-    "buyerEthAddress": "Địa chỉ eth người mua",
+    "buyerEthAddress": "Địa chỉ ví người mua",
     "createdOn": "Tạo ngày",
     "detail": "Chi tiết đặt hàng",
     "detailSubtotal": "Tạm tính",
@@ -419,5 +421,9 @@
     "yourPrivateKey": "Khóa riêng tư của bạn",
     "showPrivateKey": "Hiển thị khóa riêng tư",
     "helpPrivateKey": "Không bao giờ tiết lộ chìa khóa này. Bất cứ ai có khóa riêng của bạn đều có thể đánh cắp bất kỳ tài sản nào có trong tài khoản của bạn."
+  },
+  "rewardRule": {
+    "match": "Trùng {numbers}",
+    "rate": "Tỉ lệ ~ {rate}"
   }
 }

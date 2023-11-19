@@ -25,7 +25,7 @@
         type="text"
         disabled
         :label="$t('user.fullName')"
-        :value="loggedInUser?.firstName + ' ' + loggedInUser?.firstName"
+        :value="loggedInUser?.lastName + ' ' + loggedInUser?.firstName"
         :classes="{
           label: '$remove:text-[17px] text-main text-sm',
           input: '$remove:h-[3rem]',

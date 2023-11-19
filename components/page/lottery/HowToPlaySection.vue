@@ -5,7 +5,7 @@
     >
       {{ $t('lottery.howToPlay') }}
     </h1>
-    <p class="text-content dark:text-white space-y-4">
+    <p class="text-content space-y-4">
       {{
         $t('lotteryAbout.howToPlayPickNumber', {
           minNumber: lottery?.minValuePerItem,
@@ -14,7 +14,7 @@
         })
       }}
     </p>
-    <p class="text-content dark:text-white space-y-4">
+    <p class="text-content space-y-4">
       <i18n-t tag="p" keypath="lotteryAbout.howToPlayPrice">
         <template #ticketPrice>
           <TokenValue :value="lottery?.pricePerTicket" tag="span" show-symbol />

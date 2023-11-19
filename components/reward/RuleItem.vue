@@ -1,7 +1,10 @@
 <template>
   <div>
-    <h4 class="font-bold text-main">Match {{ rule.matchNumber }}</h4>
-    <span class="dark:text-white"> {{ rule.rewardValue }}% </span>
+    <h4 class="font-bold text-main">
+      {{ $t('rewardRule.match', { numbers: rule.matchNumber }) }}
+    </h4>
+    <span class="text-content font-bold"> {{ rule.rewardValue }}% </span>
+    <slot></slot>
   </div>
 </template>
 <script setup lang="ts">

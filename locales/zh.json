@@ -263,7 +263,8 @@
     "winningNumber": "中奖号码",
     "printResult": "打印结果",
     "checkTicket": "查看",
-    "roundId": "圆形的"
+    "roundId": "圆形的#{round}",
+    "noRoundsCompletedYet": "尚未完成任何回合"
   },
   "wallet": {
     "connect": "连接钱包",
@@ -344,7 +345,8 @@
     "execution reverted: ERROR_TICKETS_LIMIT_PER_ROUND": "超过一轮门票限额",
     "ERROR_TICKETS_LIMIT_PER_ROUND": "超过一轮门票限额",
     "walletConnectRequired": "需要钱包连接",
-    "Access Denied": "需要<a href='/auth/login' class='underline'>登录</a>才能继续"
+    "Access Denied": "需要<a href='/auth/login' class='underline'>登录</a>才能继续",
+    "transfer amount exceeds balance": "支付服务金额超过余额。 请在几分钟后再试一次"
   },
   "order": {
     "header": "命令",
@@ -354,7 +356,7 @@
     "empty": "您没有任何订单",
     "date": "日期： ",
     "total": "全部的： ",
-    "buyerEthAddress": "买家eth地址",
+    "buyerEthAddress": "买家钱包地址",
     "createdOn": "创建于",
     "detail": "订单详细信息",
     "detailSubtotal": "小计",
@@ -428,5 +430,9 @@
     "yourPrivateKey": "你的私钥",
     "showPrivateKey": "显示私钥",
     "helpPrivateKey": "切勿泄露此密钥。"
+  },
+  "rewardRule": {
+    "match": "比赛{numbers}",
+    "rate": "比率 ~ {rate}"
   }
 }

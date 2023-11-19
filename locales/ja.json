@@ -263,7 +263,8 @@
     "winningNumber": "当選番号",
     "printResult": "印刷結果",
     "checkTicket": "チェック",
-    "roundId": "ラウンド"
+    "roundId": "ラウンド#{round}",
+    "noRoundsCompletedYet": "まだラウンドが完了していません"
   },
   "wallet": {
     "connect": "ウォレットを接続する",
@@ -344,7 +345,8 @@
     "execution reverted: ERROR_TICKETS_LIMIT_PER_ROUND": "1ラウンドのチケット制限を超えました",
     "ERROR_TICKETS_LIMIT_PER_ROUND": "1ラウンドのチケット制限を超えました",
     "walletConnectRequired": "ウォレット接続が必要です",
-    "Access Denied": "続行するには<a href='/auth/login' class='underline'>ログイン</a>が必要です"
+    "Access Denied": "続行するには<a href='/auth/login' class='underline'>ログイン</a>が必要です",
+    "transfer amount exceeds balance": "決済サービスの金額が残高を超えています。 数分後にもう一度お試しください"
   },
   "order": {
     "header": "注文",
@@ -354,7 +356,7 @@
     "empty": "注文はありません",
     "date": "日付： ",
     "total": "合計： ",
-    "buyerEthAddress": "購入者のEthアドレス",
+    "buyerEthAddress": "購入者のウォレットアドレス",
     "createdOn": "作成日",
     "detail": "注文詳細",
     "detailSubtotal": "小計",
@@ -428,5 +430,9 @@
     "yourPrivateKey": "あなたの秘密鍵",
     "showPrivateKey": "秘密キーを表示する",
     "helpPrivateKey": "このキーは決して公開しないでください。"
+  },
+  "rewardRule": {
+    "match": "マッチ{numbers}",
+    "rate": "レート ～{rate}"
   }
 }

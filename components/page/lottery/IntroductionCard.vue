@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="relative p-5 w-[361px] lg:w-[450px] text-center text-white leading-tight"
-  >
+  <div class="relative p-5 w-[361px] lg:w-[450px] text-center leading-tight">
     <div class="w-full flex flex-col space-y-4">
       <img
         :src="lottery?.picture"

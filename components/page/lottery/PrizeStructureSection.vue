@@ -6,7 +6,7 @@
       {{ $t('lotteryAbout.prizeStructure') }}
     </h1>
 
-    <p class="text-content dark:text-white space-y-4">
+    <p class="text-content space-y-4">
       {{
         $t('lotteryAbout.howToPlayFinalPrize', {
           treasuryFee: lottery?.treasuryFeePercent,
@@ -15,7 +15,7 @@
       }}
     </p>
 
-    <p class="text-content dark:text-white space-y-4">
+    <p class="text-content space-y-4">
       {{ $t('lotteryAbout.howToPlayMatchWiningNumbers') }}
     </p>
     <div
@@ -26,17 +26,27 @@
         v-for="rewardRule in lottery.rewardRules"
         :key="rewardRule.matchNumber"
         :rule="rewardRule"
-      />
+      >
+        <br />
+        <!-- Win rate -->
+        <span class="text-sm text-content">
+          {{ $t('rewardRule.rate', { rate: '1/' + calcWinRate(rewardRule) }) }}
+        </span>
+      </RewardRuleItem>
     </div>
   </div>
 </template>
 <script lang="ts" setup>
-import { Lottery } from '~/types/lottery'
+import { Lottery, RewardRule } from '~/types/lottery'
 
-defineProps({
+const props = defineProps({
   lottery: {
     type: Object as PropType<Lottery>,
     required: true,
   },
 })
+
+const calcWinRate = (rewardRule: RewardRule) => {
+  return combination(props.lottery.maxValuePerItem, rewardRule.matchNumber)
+}
 </script>

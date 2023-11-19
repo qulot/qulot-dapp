@@ -149,3 +149,25 @@ export function uniqueID() {
 export function isNumeric(value: any) {
   return /^-?\d+$/.test(value)
 }
+
+/**
+ * Calculate the combination
+ * @param n
+ * @param k
+ * @returns
+ */
+export function combination(n: number, k: number): number {
+  // Check validity of n and k
+  if (n < k) {
+    throw new Error('n must be greater than or equal to k')
+  }
+
+  // Calculate combination
+  let result = 1
+  for (let i = 0; i < k; i++) {
+    result *= n - i
+    result /= i + 1
+  }
+
+  return result
+}

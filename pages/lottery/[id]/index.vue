@@ -3,7 +3,7 @@
     <LotteryCountDownCard
       v-if="lottery"
       :lottery="lottery"
-      @buy-ticket="showPickNumberModal = true"
+      @buy-ticket="buyOnlyOneTicket"
     />
     <LotteryNextRoundSession v-if="lottery" :lottery="lottery" />
     <div class="container mx-auto">
@@ -161,6 +161,7 @@ useSeoMeta({
 const showPickNumberModal = ref(false)
 const randomTicketsNumber = ref(4)
 const tickets = ref<CartTicket[]>([])
+const isBuyOnlyOneTicket = ref(false)
 
 const validTickets = computed(() =>
   tickets.value.filter((ticket) => ticket.selected)
@@ -182,6 +183,11 @@ const nextRoundIsOpen = computed(() => {
   return lottery.value?.nextRound?.status === 'Open'
 })
 
+const buyOnlyOneTicket = () => {
+  isBuyOnlyOneTicket.value = true
+  showPickNumberModal.value = true
+}
+
 const pickNumberOnConfirm = (pickNumbers: number[]) => {
   if (lottery.value?.nextRound?.id) {
     pickNumbers.sort((a, b) => a - b)
@@ -193,6 +199,10 @@ const pickNumberOnConfirm = (pickNumbers: number[]) => {
       selected: true,
     }
     tickets.value.push(newTicket)
+
+    if (isBuyOnlyOneTicket.value) {
+      buyNow()
+    }
   }
 }
 

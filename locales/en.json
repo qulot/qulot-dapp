@@ -263,7 +263,8 @@
     "winningNumber": "Winning Number",
     "printResult": "Print Result",
     "checkTicket": "Check",
-    "roundId": "Round #{round}"
+    "roundId": "Round #{round}",
+    "noRoundsCompletedYet": "No rounds have been completed yet"
   },
   "wallet": {
     "connect": "Connect wallet",
@@ -344,7 +345,8 @@
     "execution reverted: ERROR_TICKETS_LIMIT_PER_ROUND": "Exceeded ticket limit for one round",
     "ERROR_TICKETS_LIMIT_PER_ROUND": "Exceeded ticket limit for one round",
     "walletConnectRequired": "Requires <a href='#connect-wallet' class='underline'>wallet connect</a> to continue",
-    "Access Denied": "Requires <a href='/auth/login' class='underline'>login</a> to continue"
+    "Access Denied": "Requires <a href='/auth/login' class='underline'>login</a> to continue",
+    "transfer amount exceeds balance": "Payment service amount exceeds balance. Please try again in a few minutes"
   },
   "order": {
     "header": "Orders",
@@ -354,7 +356,7 @@
     "empty": "You don't have any orders",
     "date": "Date: ",
     "total": "Total: ",
-    "buyerEthAddress": "Buyer eth address",
+    "buyerEthAddress": "Buyer's wallet address",
     "createdOn": "Create on",
     "detail": "Order details",
     "detailSubtotal": "Subtotal",
@@ -428,5 +430,9 @@
     "yourPrivateKey": "Your private key",
     "showPrivateKey": "Show private key",
     "helpPrivateKey": "Never disclose this key. Anyone with your private keys can steal any assets held in your account."
+  },
+  "rewardRule": {
+    "match": "Match {numbers}",
+    "rate": "Rate ~ {rate}"
   }
 }
