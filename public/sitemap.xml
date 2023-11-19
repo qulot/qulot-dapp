@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+	<url>
+		<loc>
+			https://qulot.io/
+		</loc>
+		<changefreq>
+			monthly
+		</changefreq>
+		<priority>
+			1
+		</priority>
+		<xhtml:link rel="alternate" hreflang="en" href="https://qulot.io/en" />
+		<xhtml:link rel="alternate" hreflang="vi" href="https://qulot.io/vi" />
+		<xhtml:link rel="alternate" hreflang="ja" href="https://qulot.io/ja" />
+		<xhtml:link rel="alternate" hreflang="zh" href="https://qulot.io/zh" />
+	</url>
+	<url>
+		<loc>
+			https://qulot.io/lottery/liteq
+		</loc>
+		<changefreq>
+			daily
+		</changefreq>
+		<priority>
+			0.9
+		</priority>
+		<xhtml:link rel="alternate" hreflang="en" href="https://qulot.io/en/lottery/liteq" />
+		<xhtml:link rel="alternate" hreflang="vi" href="https://qulot.io/vi/lottery/liteq" />
+		<xhtml:link rel="alternate" hreflang="ja" href="https://qulot.io/ja/lottery/liteq" />
+		<xhtml:link rel="alternate" hreflang="zh" href="https://qulot.io/zh/lottery/liteq" />
+	</url>
+	<url>
+		<loc>
+			https://qulot.io/about-us
+		</loc>
+		<changefreq>
+			monthly
+		</changefreq>
+		<priority>
+			0.8
+		</priority>
+		<xhtml:link rel="alternate" hreflang="en" href="https://qulot.io/en/about-us" />
+		<xhtml:link rel="alternate" hreflang="vi" href="https://qulot.io/vi/about-us" />
+		<xhtml:link rel="alternate" hreflang="ja" href="https://qulot.io/ja/about-us" />
+		<xhtml:link rel="alternate" hreflang="zh" href="https://qulot.io/zh/about-us" />
+	</url>
+	<url>
+		<loc>
+			https://qulot.io/contact-us
+		</loc>
+		<changefreq>
+			monthly
+		</changefreq>
+		<priority>
+			0.7
+		</priority>
+		<xhtml:link rel="alternate" hreflang="en" href="https://qulot.io/en/contact-us" />
+		<xhtml:link rel="alternate" hreflang="vi" href="https://qulot.io/vi/contact-us" />
+		<xhtml:link rel="alternate" hreflang="ja" href="https://qulot.io/ja/contact-us" />
+		<xhtml:link rel="alternate" hreflang="zh" href="https://qulot.io/zh/contact-us" />
+	</url>
+</urlset>

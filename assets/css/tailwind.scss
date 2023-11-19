@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  :root {
+    --bg-body: #ffffff;
+    background-color: var(--bg-body);
+    --color-content: #5a5a5a;
+    --color-black: #1b2847;
+    --color-label: #1b2847;
+    --color-title: #1b2847;
+    --color-subtitle: #5a5a5a;
+  }
+  [data-theme='night'],
+  .dark {
+    --bg-body: #18122b;
+    background-color: var(--bg-body);
+    --color-content: #b9b7bf;
+    --color-black: #ffffff;
+    --color-label: #ffffff;
+    --color-title: #ffffff;
+    --color-subtitle: #b9b7bf;
+  }
+}
+
+.title {
+  @apply font-bold text-title text-sm lg:text-[17px];
+}
+
+// .input {
+//   transition-duration: 200ms;
+//   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+//   height: 3rem;
+//   @apply rounded-lg px-4;
+// }
+.input-area {
+  height: 100px !important;
+  &::placeholder {
+    padding-top: 13px;
+  }
+}
+
+.avatar {
+  > div {
+    display: block;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+  }
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.editor-content {
+  @apply text-sm;
+  .section {
+    @apply mb-6 lg:mb-10;
+
+    .section-child {
+      @apply ml-2 lg:ml-4;
+    }
+  }
+  h2 {
+    @apply font-bold text-title text-base lg:text-[17px] mb-1 lg:mb-2;
+  }
+  h3 {
+    @apply font-bold text-sm  lg:text-sm mb-1 lg:mb-2;
+  }
+  p {
+    @apply mb-1 lg:mb-2;
+  }
+}

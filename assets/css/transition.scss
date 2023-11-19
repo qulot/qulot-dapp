@@ -1,0 +1,59 @@
+// default transition
+.v-enter-active {
+  transition: opacity 0.5s;
+}
+
+.v-enter,
+.v-leave-active {
+  opacity: 0;
+}
+
+// slide up transition
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: all 0.25s ease-out;
+}
+
+.slide-up-enter-from {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.slide-up-leave-to {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+// page enter leave transition
+.fade-enter-active {
+  animation: coming 0.4s;
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+.fade-leave-active {
+  animation: going 0.4s;
+}
+
+@keyframes going {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+}
+
+@keyframes coming {
+  from {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}

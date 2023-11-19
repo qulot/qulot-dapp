@@ -1,0 +1,432 @@
+{
+  "message": {
+    "plsTryAgain": "请尽快重试...",
+    "unknownError": "发生一个或多个错误",
+    "invalidData": "无效数据：{msg}",
+    "badRequest": "错误的请求",
+    "youAreNotAuthorized": "您无权执行此请求",
+    "success": "{msg}成功！",
+    "pageDoesNotExist": "本页面不存在",
+    "pageYouLookingNotFound": "无法找到您要查找的页面。",
+    "internalServerError": "错误！",
+    "serverHasDeserted": "发生一个或多个错误。",
+    "successfully": "成功地！",
+    "reportBugsToUs": "在这里向我们报告错误！",
+    "processingPlsWaitSecond": "加工。"
+  },
+  "labels": {
+    "continue": "继续",
+    "back": "后退",
+    "cancel": "取消",
+    "update": "更新",
+    "delete": "删除",
+    "change": "改变",
+    "confirm": "好的",
+    "viewAll": "查看全部",
+    "backToHome": "回到家",
+    "loadMore": "装载更多"
+  },
+  "datetime": {
+    "labels": {
+      "day": "天",
+      "hour": "小时",
+      "minute": "分钟",
+      "second": "第二"
+    }
+  },
+  "theme": {
+    "dark": "黑暗的",
+    "light": "光",
+    "system": "系统",
+    "realtime": "即时的"
+  },
+  "app": {
+    "title": "全球首个区块链彩票",
+    "description": "Qulot 是一个由以太坊及其智能合约提供支持的去中心化彩票平台，无需任何人为干预。"
+  },
+  "cart": {
+    "order": "命令",
+    "selected": "已选择",
+    "selectedValue": "{value} 票",
+    "total": "全部的",
+    "subtotal": "小计",
+    "checkout": "查看",
+    "paymentMethod": "付款方式",
+    "choosePaymentMethod": "选择付款方式",
+    "accountBalance": "账户余额",
+    "checkoutNow": "立即结帐",
+    "deleteTicket": "删除",
+    "fee": "费用",
+    "product": "产品",
+    "quantity": "数量",
+    "price": "价格",
+    "addTicket": "添加票证",
+    "selectRandom": "选择 {number} 张随机门票",
+    "buyNow": "立即购买",
+    "label": "大车",
+    "discount": "折扣：",
+    "empty": "购物车是空的！",
+    "chooseBuyerEthAddress": "选择买家eth地址",
+    "useWalletAddress": "使用钱包地址",
+    "useAccountAddress": "使用账户地址",
+    "network_fee": "网络费",
+    "service_fee": "服务费"
+  },
+  "ticket": {
+    "header": "门票",
+    "listTicket": "我的门票",
+    "winprize": "赢得奖品",
+    "statusWait": "等待",
+    "statusStartDial": "开始抽奖",
+    "statusStartReward": "开始奖励",
+    "statusFinished": "完成的",
+    "timeStartDial": "抽奖开始时间",
+    "status": "地位",
+    "empty": "您没有任何门票",
+    "pickTicketNumbers": "选择票号",
+    "random": "随机的",
+    "buyTicket": "只需 {price} 即可购买门票",
+    "checkYourTicket": "检查您的机票",
+    "pickInYourTicket": "选择机票上的号码",
+    "youWon": "你赢了",
+    "matchNumber": "匹配 {match} 号码",
+    "claimTicketNow": "立即领取门票",
+    "wasAwarded": "被授予"
+  },
+  "menu": {
+    "title": {
+      "homePage": "家",
+      "product": "产品",
+      "myTicket": "票",
+      "myOrder": "命令",
+      "myWallet": "我的钱包",
+      "introduce": "介绍",
+      "language": "语言",
+      "theme": "主题"
+    }
+  },
+  "footer": {
+    "linkHome": "家",
+    "linkAboutUs": "关于我们",
+    "linkContactUs": "与我们联系",
+    "linkTermsOfService": "服务条款",
+    "linkGithub": "吉图布",
+    "linkDocument": "文档",
+    "liveDrawing": "现场绘画"
+  },
+  "aboutUs": {
+    "information": {
+      "title": "我们是谁",
+      "content": "我们是一家彩票服务公司，为客户提供在世界任何地方使用官方彩票参与最大型彩票抽奖的机会。 作为独立的第三方彩票购买服务商，我们自 2023 年以来一直引领在线彩票行业，以良好的声誉和专业的 24/7 客户服务成为行业标准。"
+    },
+    "services": {
+      "title": "玩最大的彩票",
+      "subtitle": "我们为客户提供赢得世界上最受欢迎的彩票的机会。",
+      "service1": "<strong class='text-main'>3+</strong> 拥有最高奖金的彩票，包括 PowerQ、MegaQ、LiteQ，以及每日和本地抽奖。",
+      "service2": "<strong class='text-main'>结果、信息和中奖号码。</strong> 世界领先的彩票。",
+      "service3": "专用移动应用程序 <strong class='text-main'>iOS 和 Android。</strong>"
+    },
+    "guide": {
+      "title": "怎么运行的",
+      "step1": {
+        "name": "步骤1",
+        "desc": "注册一个免费帐户。"
+      },
+      "step2": {
+        "name": "第2步",
+        "desc": "选择要玩的彩票、挑选号码并订购彩票。"
+      },
+      "step3": {
+        "name": "步骤3",
+        "desc": "我们的代表将代表您购买官方门票。"
+      },
+      "step4": {
+        "name": "步骤4",
+        "desc": "我们的彩票服务可让您在线查看彩票。"
+      },
+      "step5": {
+        "name": "步骤5",
+        "desc": "当您获胜时，我们将通过电子邮件或短信通知您。"
+      },
+      "step6": {
+        "name": "步骤6",
+        "desc": "支付100%免佣金。"
+      }
+    },
+    "businessModel": {
+      "title": "我们的商业模式",
+      "desc": "我们代表客户购买官方彩票，我们的收入仅来自销售这些彩票所包含的服务费。"
+    },
+    "trackRecord": {
+      "title": "我们的业绩记录",
+      "desc": "多年来，我们已向来自世界各地的 100 多张中奖彩票支付了超过 10,000 美元的奖金。 我们的获奖者包括一位来自越南的女士，她赢得了令人难以置信的 5000 美元 LiteQ 大奖。"
+    },
+    "simpleSecure": {
+      "title": "简单又安全",
+      "simpleSecure1": "交易和资产受到区块链技术的保护",
+      "simpleSecure2": "首次购买退款保证",
+      "simpleSecure3": "您的以太坊账户可以随时访问",
+      "simpleSecure4": "全套自我限制工具，大力鼓励负责任的游戏习惯",
+      "simpleSecure5": "通过多种渠道提供多种语言的客户支持",
+      "simpleSecure6": "开源并在 Github 上公开供任何人验证"
+    }
+  },
+  "contactUs": {
+    "information": {
+      "title": "联系我们",
+      "content": "电子邮件 我们的彩票专家团队随时准备通过电子邮件对您的所有问题和疑虑提供快速、彻底的答复。"
+    },
+    "labels": {
+      "yourName": "你的名字",
+      "email": "电子邮件",
+      "topic": "话题",
+      "subject": "主题",
+      "content": "内容",
+      "PlaceholderYourName": "输入你的名字",
+      "PlaceholderEmail": "请输入电邮地址",
+      "placeholderTopic": "选择主题",
+      "placeholderSubject": "输入主题",
+      "placeholderContent": "输入内容",
+      "Send": "发送"
+    },
+    "topics": {
+      "complaint": "投诉/反馈",
+      "howToPlayGames": "如何玩游戏",
+      "howToClaimPrize": "如何领取奖品",
+      "onlinePurchases": "网上购买",
+      "reportTechnicalProblem": "报告技术问题",
+      "other": "其他"
+    },
+    "success": "我们已收到您的信息。"
+  },
+  "termsOfService": {
+    "title": "服务条款",
+    "about": "欢迎访问 Qulot.com，这是 Qulot LLC（“Qulot”、“我们”、“我们的”）的网站。",
+    "useOfOurSite": "使用我们的网站",
+    "eligibility": "合格",
+    "eligibilityDetail": "这是您和 Qulot 之间的合同。",
+    "access": "B. 网站和智能合约的访问和使用",
+    "accessDetail": "根据本协议的条款和条件，您特此被授予非排他性的、有限的、不可转让的、可自由撤销的许可，以在本网站的功能允许的情况下使用本网站。 ",
+    "siteRules": "C. 网站规则",
+    "siteRulesDetail": "您同意不从事以下任何禁止的活动：(i) 在任何媒介中复制、分发或披露本网站的任何部分，包括但不限于任何自动或非自动“抓取”； ",
+    "siteLocation": "D、场地位置",
+    "siteLocationDetail": "该网站由美国的设施控制和运营。 ",
+    "noProfessionalAdvice": "没有专业建议。",
+    "noProfessionalAdviceDetail": "如果本网站提供专业信息（例如医疗、法律或财务），则此类信息仅供参考，不应被视为专业建议。"
+  },
+  "home": {
+    "theWorldFirstBlockchain": "世界上第一个区块链 <span class='keyword'>彩票</span>",
+    "solution": "我们利用区块链技术提供高度透明的彩票服务",
+    "winner": "优胜者",
+    "totalPrize": "总奖金",
+    "totalPlayers": "玩家总数",
+    "luckiestWinners": "最幸运的获奖者",
+    "wonWithAmount": "以金额赢得",
+    "howItWorks": "怎么运行的",
+    "step": "步骤{step}",
+    "step1": "选择您想要有机会中奖的彩票",
+    "step2": "将钱存入钱包，购买门票，等待奖励",
+    "step3": "如果您获胜，请领取奖品并在 Twitter 上评价我们",
+    "innovativeFeatures": "创新功能",
+    "directlyEngageBillionsUsers": "通过即时游戏直接吸引全球数十亿用户",
+    "dailyDrawAndSocialInteraction": "每日抽奖以及与全球玩家的社交互动",
+    "blockchainTechnology": "区块链技术和智能合约确保无与伦比的透明度以赢得用户的信任",
+    "noScam": "没有诈骗或错误的运营商",
+    "1stPlatform": "第一个同类平台",
+    "customLottery": "在接下来的升级中，我们将允许公司、慈善机构和个人推出自己的彩票，并具有定制功能，以满足他们的特定需求",
+    "blockchainBenefitForCharities": "借助区块链技术，您可以跟踪您的资金是否转移给正确的收款人",
+    "teamAndPartners": "团队",
+    "teamAndPartnersAbout": "是创新的下一代软件解决方案DApp，旨在增强参与者体验，并继续成为技术、股权和娱乐之间的交汇点",
+    "teamAndPartnersConnect": "凭借我们对该领域的广泛了解以及与 IBM 等国际组织合作的成功记录，我们拥有独特的方法来创新和实现彩票行业的现代化",
+    "teamAndPartnersTeam": "不仅拥有一支出色的团队，他们在设计、网络安全、软件开发、客户关系和战略规划等各个方面都拥有丰富的经验"
+  },
+  "lottery": {
+    "play": "玩",
+    "introduction": "介绍",
+    "howToPlay": "怎么玩",
+    "statistical": "统计",
+    "lotteryJackpot": "彩票大奖",
+    "jackpot": "大奖",
+    "pricePerTicket": "每张票价格",
+    "playNow": "现在播放",
+    "assets": "资产",
+    "smartContract": "Smart Contract"
+  },
+  "round": {
+    "notification": "通知",
+    "nextRound": "下一轮<span class='font-bold'>#{roundId}</span>日期<span class='font-bold'>{date}</span>",
+    "nextRoundCloseTime": "下一轮结束时间",
+    "filterByRoundLabel": "圆形的",
+    "filterByDateLabel": "抽奖日期",
+    "finishedRounds": "已完成回合",
+    "label": "圆形的",
+    "winningNumber": "中奖号码",
+    "printResult": "打印结果",
+    "checkTicket": "查看",
+    "roundId": "圆形的"
+  },
+  "wallet": {
+    "connect": "连接钱包",
+    "connecting": "正在连接...",
+    "connectMsg": "准备好连接下面的一个钱包。",
+    "notInstallWallet": "还没有钱包吗？",
+    "learnConnectWallet": " 了解如何连接",
+    "yourWallet": "你的钱包",
+    "yourAddress": "你的地址",
+    "balances": "钱包余额",
+    "balance": "{balance} 余额",
+    "disconnect": "断开钱包连接",
+    "viewOnExplorer": "在资源管理器上查看",
+    "opening": "打开{wallet}",
+    "plsConfirmIn": "请在{wallet}中确认",
+    "myWallet": "我的钱包",
+    "myBalance": "平衡"
+  },
+  "payment": {
+    "insufficientTokenBalance": "{token}余额不足",
+    "label": "支付",
+    "detail": "付款详情",
+    "detailAmount": "数量",
+    "detailChargeStatus": "充电状态",
+    "detailCreateDate": "创建日期",
+    "methods": {
+      "DeFiWallet": "去中心化钱包",
+      "paypal": "Paypal",
+      "vietqr": "VietQR"
+    },
+    "methodsHelp": {
+      "DeFiWallet": "使用去中心化加密货币钱包支付 <strong class='text-main'>（DeFi 钱包）</strong> 例如 <strong class='text-main'>元掩码</strong> 钱包。",
+      "paypal": "通过信用卡、借记卡支付 <strong class='text-main'>贝宝</strong> 支付网关。",
+      "vietqr": "扫描二维码支付，银行转账 <strong class='text-main'>越南QR</strong>。"
+    },
+    "fees": {
+      "applyFee": "适用费用： ",
+      "default": "{value}服务费",
+      "paypal_fixed_fee": "{value} Paypal 固定费用"
+    },
+    "chargeStatus": {
+      "none": "没有任何",
+      "overcharged": "多收费",
+      "partial": "部分的",
+      "full": "满的"
+    }
+  },
+  "lotteryAbout": {
+    "introduction": "仅从 {ticketPrice} 中选择 {pickNumbers}，就有机会赢得 {drawTime} {drawDate} 的 {jackpot} {name} 抽奖。",
+    "numberFrom": "数字来自",
+    "jackpotFrom": "大奖来自",
+    "weekly": "每周",
+    "every": "每一个",
+    "prizeStructure": "价格结构",
+    "howToPlayPickNumber": "参赛者在{minNumber}到{maxNumber}这组号码中选择参与抽奖的号码，并与抽奖结果进行比较，确定奖品。",
+    "howToPlayPrice": "参与奖品价值：参与者每种游戏风格一（01）次参与奖品价值为{ticketPrice}。",
+    "howToPlayFinalPrize": "最终奖金在扣除 {treasuryFee}% 的操作费和 {amountInjectNextRoundFee}% 的下一轮维护费后由玩家瓜分。",
+    "howToPlayMatchWiningNumbers": "匹配中奖号码即可分享奖品："
+  },
+  "days": {
+    "0": "太阳",
+    "1": "周一",
+    "2": "星期二",
+    "3": "星期三",
+    "4": "星期四",
+    "5": "周五",
+    "6": "星期六",
+    "everyday": "每天"
+  },
+  "errors": {
+    "unknownError": "发生一个或多个错误。",
+    "execution reverted: ERROR_ROUND_IS_CLOSED": "某个回合已经结束。",
+    "ERROR_ROUND_IS_CLOSED": "某个回合已经结束。",
+    "execution reverted: ERC20: transfer amount exceeds allowance": "付款金额超过余额",
+    "User rejected request": "用户拒绝请求",
+    "execution reverted: ERROR_TICKETS_LIMIT": "单次购买超出门票限额",
+    "ERROR_TICKETS_LIMIT": "单次购买超出门票限额",
+    "execution reverted: ERROR_TICKETS_LIMIT_PER_ROUND": "超过一轮门票限额",
+    "ERROR_TICKETS_LIMIT_PER_ROUND": "超过一轮门票限额",
+    "walletConnectRequired": "需要钱包连接",
+    "Access Denied": "需要<a href='/auth/login' class='underline'>登录</a>才能继续"
+  },
+  "order": {
+    "header": "命令",
+    "detailHeader": "订单详情",
+    "myOrders": "我的订单",
+    "no": "命令：#{order}",
+    "empty": "您没有任何订单",
+    "date": "日期： ",
+    "total": "全部的： ",
+    "buyerEthAddress": "买家eth地址",
+    "createdOn": "创建于",
+    "detail": "订单详细信息",
+    "detailSubtotal": "小计",
+    "detailServiceFee": "服务费",
+    "detailTotal": "全部的",
+    "detailLineAmount": "数量",
+    "detailViewOrderOnEthereum": "查看以太坊订单",
+    "detailCreateDate": "创建日期",
+    "detailNetwork": "网络",
+    "status": {
+      "error": "错误",
+      "cancel": "取消",
+      "fulfilled": "实现了",
+      "in_process": "处理中",
+      "placed": "已放置"
+    }
+  },
+  "auth": {
+    "loginYourAccount": "登录到您的帐户",
+    "register": "注册新账号",
+    "account": "帐户",
+    "notAccount": "没有帐户？",
+    "userName": "帐户名称",
+    "login": "登入",
+    "signup": "报名",
+    "password": "密码",
+    "confirmPassword": "确认密码",
+    "termsAndConditions": "条款和条件",
+    "terms": "政策条款",
+    "policy": "人身安全",
+    "acceptPolicy": "我同意 Qulot {terms} 以及 {policy}",
+    "forgotYourPassword": "忘记密码了吗 ？",
+    "resetPassword": "重设密码",
+    "confirmResetPassword": "重设密码",
+    "rememberMe": "记住账号",
+    "signInBelow": "在下面登录",
+    "signupNow": "立即注册",
+    "signupHere": "在此注册",
+    "orYouCan": "或者，你可以",
+    "signUpBelow": "在下面注册",
+    "withGoogle": "使用 Google 登录",
+    "logout": "登出",
+    "send": "发送",
+    "email": "电子邮件",
+    "placeholderOtp": "输入一次性密码",
+    "helpOptInput": "OTP 是发送到电子邮件 {email} 的 {otpLength} 位代码",
+    "unauthorized": "电子邮件地址或密码错误",
+    "plsCheckYourMail": "请查看你的邮箱",
+    "signUpSuccess": "注册成功",
+    "signInSuccess": "登录成功",
+    "weGladYouHere": "我们很高兴你在这里",
+    "placeholderEmail": "输入邮箱",
+    "placeholderPassword": "输入密码",
+    "placeholderFirstName": "输入名字",
+    "placeholderLastName": "输入姓氏",
+    "confirmOtp": "确认一次性密码"
+  },
+  "user": {
+    "email": "电子邮件",
+    "password": "密码",
+    "firstName": "名",
+    "lastName": "姓",
+    "fullName": "全名",
+    "confirmPassword": "确认密码",
+    "newPassword": "新密码",
+    "yourAccount": "你的帐户",
+    "username": "用户名",
+    "userAlreadyExists": "该电子邮件已存在。",
+    "userNotFound": "账户不存在",
+    "privateKey": "私钥",
+    "yourPrivateKey": "你的私钥",
+    "showPrivateKey": "显示私钥",
+    "helpPrivateKey": "切勿泄露此密钥。"
+  }
+}

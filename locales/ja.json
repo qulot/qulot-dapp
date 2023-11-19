@@ -1,0 +1,432 @@
+{
+  "message": {
+    "plsTryAgain": "すぐにもう一度試してください...",
+    "unknownError": "1 つ以上のエラーが発生しました",
+    "invalidData": "無効なデータ: {msg}",
+    "badRequest": "要求の形式が正しくありません",
+    "youAreNotAuthorized": "このリクエストに対する権限がありません",
+    "success": "{msg} が成功しました!",
+    "pageDoesNotExist": "このページは存在しません",
+    "pageYouLookingNotFound": "お探しのページは見つかりませんでした。",
+    "internalServerError": "エラー！",
+    "serverHasDeserted": "1 つ以上のエラーが発生しました。",
+    "successfully": "成功しました！",
+    "reportBugsToUs": "ここからバグを報告してください。",
+    "processingPlsWaitSecond": "処理。"
+  },
+  "labels": {
+    "continue": "続く",
+    "back": "戻る",
+    "cancel": "キャンセル",
+    "update": "アップデート",
+    "delete": "消去",
+    "change": "変化",
+    "confirm": "わかりました",
+    "viewAll": "すべてを見る",
+    "backToHome": "家に帰る",
+    "loadMore": "もっと読み込む"
+  },
+  "datetime": {
+    "labels": {
+      "day": "日",
+      "hour": "時",
+      "minute": "分",
+      "second": "秒"
+    }
+  },
+  "theme": {
+    "dark": "暗い",
+    "light": "ライト",
+    "system": "システム",
+    "realtime": "リアルタイム"
+  },
+  "app": {
+    "title": "世界初のブロックチェーン宝くじ",
+    "description": "Qulot は、人間の介入を一切必要としない、イーサリアムとそのスマート コントラクトを利用した分散型宝くじプラットフォームです。"
+  },
+  "cart": {
+    "order": "注文",
+    "selected": "選択済み",
+    "selectedValue": "{value} チケット",
+    "total": "合計",
+    "subtotal": "小計",
+    "checkout": "チェックアウト",
+    "paymentMethod": "支払方法",
+    "choosePaymentMethod": "支払い方法を選択してください",
+    "accountBalance": "勘定残高",
+    "checkoutNow": "今すぐチェックアウト",
+    "deleteTicket": "消去",
+    "fee": "手数料",
+    "product": "製品",
+    "quantity": "数量",
+    "price": "価格",
+    "addTicket": "チケットを追加",
+    "selectRandom": "ランダムチケット{number}枚",
+    "buyNow": "今すぐ購入",
+    "label": "カート",
+    "discount": "割引：",
+    "empty": "カートが空です!",
+    "chooseBuyerEthAddress": "購入者の住所を選択してください",
+    "useWalletAddress": "ウォレットアドレスを使用する",
+    "useAccountAddress": "アカウントアドレスを使用する",
+    "network_fee": "ネットワーク料金",
+    "service_fee": "サービス料"
+  },
+  "ticket": {
+    "header": "チケット",
+    "listTicket": "私のチケット",
+    "winprize": "優勝賞品",
+    "statusWait": "待って",
+    "statusStartDial": "抽選開始",
+    "statusStartReward": "スタート報酬",
+    "statusFinished": "終了した",
+    "timeStartDial": "時間開始抽選",
+    "status": "状態",
+    "empty": "チケットがありません",
+    "pickTicketNumbers": "チケット番号を選ぶ",
+    "random": "ランダム",
+    "buyTicket": "たったの {price} でチケットを購入",
+    "checkYourTicket": "チケットを確認してください",
+    "pickInYourTicket": "チケットの番号を選択してください",
+    "youWon": "あなたが勝ちました",
+    "matchNumber": "一致 {match} 番号",
+    "claimTicketNow": "今すぐチケットを請求してください",
+    "wasAwarded": "受賞した"
+  },
+  "menu": {
+    "title": {
+      "homePage": "家",
+      "product": "製品",
+      "myTicket": "チケット",
+      "myOrder": "注文",
+      "myWallet": "私の財布",
+      "introduce": "導入",
+      "language": "言語",
+      "theme": "テーマ"
+    }
+  },
+  "footer": {
+    "linkHome": "家",
+    "linkAboutUs": "私たちについて",
+    "linkContactUs": "私たちと契約する",
+    "linkTermsOfService": "利用規約",
+    "linkGithub": "ギットハブ",
+    "linkDocument": "書類",
+    "liveDrawing": "ライブドローイング"
+  },
+  "aboutUs": {
+    "information": {
+      "title": "私たちは誰なのか",
+      "content": "当社は、公式宝くじチケットを使用して、世界中のどこからでも最高額の宝くじをプレイする機会を顧客に提供する宝くじサービスです。 独立したサードパーティのチケット購入サービスとして、当社は 2023 年以来オンライン宝くじ業界をリードしており、優れた評判と 24 時間 365 日のプロフェッショナルなカスタマー サービスで業界標準としての役割を果たしています。"
+    },
+    "services": {
+      "title": "最大の宝くじをプレイする",
+      "subtitle": "私たちは、世界で最も人気のある宝くじを獲得するためにプレイする機会をお客様に提供します。",
+      "service1": "<strong class='text-main'>3+</strong> PowerQ、MegaQ、LiteQ などの最高額のジャックポット賞品が当たる宝くじのほか、毎日の抽選やローカルの抽選もあります。",
+      "service2": "<strong class='text-main'>結果、情報、当選番号。</strong> 世界有数の宝くじ。",
+      "service3": "専用モバイルアプリ <strong class='text-main'>iOSとアンドロイド。</strong>"
+    },
+    "guide": {
+      "title": "使い方",
+      "step1": {
+        "name": "ステップ1",
+        "desc": "無料アカウントにサインアップする。"
+      },
+      "step2": {
+        "name": "ステップ2",
+        "desc": "プレイする宝くじを選択し、番号を選択し、チケットを注文します。"
+      },
+      "step3": {
+        "name": "ステップ3",
+        "desc": "弊社担当者がお客様に代わって正規チケットを購入させていただきます。"
+      },
+      "step4": {
+        "name": "ステップ4",
+        "desc": "当社の宝くじサービスでは、オンラインでチケットを確認できます。"
+      },
+      "step5": {
+        "name": "ステップ5",
+        "desc": "当選の際はメールまたはSMSにてご連絡させていただきます。"
+      },
+      "step6": {
+        "name": "ステップ6",
+        "desc": "100%手数料無料で支払われます。"
+      }
+    },
+    "businessModel": {
+      "title": "当社のビジネスモデル",
+      "desc": "当社は顧客に代わって公式宝くじを購入しており、当社の収益はこれらのチケットの販売に含まれるサービス料のみから生じています。"
+    },
+    "trackRecord": {
+      "title": "私たちの実績",
+      "desc": "長年にわたり、私たちは世界中から集まった 100 枚以上の当選チケットに 10,000 ドル以上の賞金を支払ってきました。 私たちの勝者には、信じられないほどの $5000 LiteQ ジャックポットを獲得したベトナムの女性が含まれています。"
+    },
+    "simpleSecure": {
+      "title": "シンプルかつ安全",
+      "simpleSecure1": "トランザクションと資産はブロックチェーン技術によって保護されます",
+      "simpleSecure2": "初回購入時の返金保証",
+      "simpleSecure3": "あなたのイーサリアムアカウントはいつでもアクセスできます",
+      "simpleSecure4": "責任あるゲーム習慣を強力に奨励するための自己制限ツールの完全なスイート",
+      "simpleSecure5": "複数のチャネルによる多言語のカスタマーサポート",
+      "simpleSecure6": "オープンソースであり、誰でも検証できるように Github で公開されています"
+    }
+  },
+  "contactUs": {
+    "information": {
+      "title": "お問い合わせ",
+      "content": "電子メール 当社の宝くじ専門家チームは、お客様のすべての質問や懸念事項に電子メールで迅速かつ徹底的に回答する準備ができています。"
+    },
+    "labels": {
+      "yourName": "あなたの名前",
+      "email": "Eメール",
+      "topic": "トピック",
+      "subject": "主題",
+      "content": "コンテンツ",
+      "PlaceholderYourName": "あなたの名前を入力してください",
+      "PlaceholderEmail": "メールアドレスを入力してください",
+      "placeholderTopic": "トピックを選択してください",
+      "placeholderSubject": "件名を入力してください",
+      "placeholderContent": "内容を入力してください",
+      "Send": "送信"
+    },
+    "topics": {
+      "complaint": "苦情/フィードバック",
+      "howToPlayGames": "ゲームの遊び方",
+      "howToClaimPrize": "賞品の受け取り方法",
+      "onlinePurchases": "オンライン購入",
+      "reportTechnicalProblem": "技術的な問題を報告する",
+      "other": "他の"
+    },
+    "success": "あなたの情報を受け取りました。"
+  },
+  "termsOfService": {
+    "title": "利用規約",
+    "about": "Qulot LLC (「Qulot」、「私たち」、「私たちの」、または「当社」) の Web サイトである Qulot.com へようこそ。",
+    "useOfOurSite": "当社サイトの利用",
+    "eligibility": "資格",
+    "eligibilityDetail": "これはあなたと Qulot の間の契約です。",
+    "access": "B. サイトとスマート コントラクトへのアクセスと使用",
+    "accessDetail": "本契約の条件に従い、お客様には、本サイトの機能によって許可されているとおりに本サイトを使用するための、非独占的、限定的、譲渡不可、自由に取り消し可能なライセンスが付与されます。 ",
+    "siteRules": "C. サイトルール",
+    "siteRulesDetail": "お客様は、以下の禁止されている行為に従事しないことに同意します。(i) 自動または非自動の「スクレイピング」を含むがこれに限定されない、サイトの一部をあらゆる媒体でコピー、配布、または開示すること。 ",
+    "siteLocation": "D. サイトの場所",
+    "siteLocationDetail": "このサイトは米国の施設によって管理および運営されています。 ",
+    "noProfessionalAdvice": "専門的なアドバイスはありません。",
+    "noProfessionalAdviceDetail": "本サイトが専門的な情報 (医療、法律、金融など) を提供する場合、その情報は情報提供のみを目的としており、専門的なアドバイスとして解釈されるべきではありません。"
+  },
+  "home": {
+    "theWorldFirstBlockchain": "世界初のブロックチェーン <span class='keyword'>宝くじ</span>",
+    "solution": "ブロックチェーン技術を活用し、透明性の高い宝くじサービスを提供します",
+    "winner": "勝者",
+    "totalPrize": "賞金総額",
+    "totalPlayers": "総プレイヤー数",
+    "luckiestWinners": "最も幸運な勝者",
+    "wonWithAmount": "金額で勝ちました",
+    "howItWorks": "使い方",
+    "step": "ステップ {step}",
+    "step1": "当選するチャンスがある宝くじを選択してください",
+    "step2": "ウォレットにお金を入金し、チケットを購入して特典を待ちます",
+    "step3": "勝ったら賞品を受け取り、Twitter で評価してください",
+    "innovativeFeatures": "革新的な機能",
+    "directlyEngageBillionsUsers": "インスタント ゲームを通じて世界中の何十億ものユーザーと直接関わる",
+    "dailyDrawAndSocialInteraction": "毎日の抽選と世界中のプレイヤーとの交流",
+    "blockchainTechnology": "ブロックチェーン技術とスマートコントラクトにより比類のない透明性を確保し、ユーザーの信頼を獲得します",
+    "noScam": "詐欺や欠陥のあるオペレーターはいません",
+    "1stPlatform": "この種では初のプラットフォーム",
+    "customLottery": "次のアップグレードでは、企業、慈善団体、個人が、特定のニーズを満たすためにカスタマイズされた機能を備えた独自の宝くじを発行できるようになります。",
+    "blockchainBenefitForCharities": "ブロックチェーン技術を使用すると、お金が適切な受取人に送金されたかどうかを追跡できます。",
+    "teamAndPartners": "チーム",
+    "teamAndPartnersAbout": "参加者のエクスペリエンスを向上させるように設計された革新的な次世代ソフトウェア ソリューション DApp は、テクノロジー、公平性、エンターテイメントの出会いの場であり続けます",
+    "teamAndPartnersConnect": "当社は、この分野に関する広範な知識とIBMなどの国際機関との協力における成功した実績により、宝くじ業界の革新と近代化に対する独自のアプローチを持っています。",
+    "teamAndPartnersTeam": "設計からサイバーセキュリティ、ソフトウェア開発、顧客対応、戦略計画に至るまで、あらゆる分野で豊富な経験を持つ優秀な人材からなるチームによって支えられているだけではありません。"
+  },
+  "lottery": {
+    "play": "遊ぶ",
+    "introduction": "導入",
+    "howToPlay": "遊び方",
+    "statistical": "統計的",
+    "lotteryJackpot": "宝くじジャックポット",
+    "jackpot": "ジャックポット",
+    "pricePerTicket": "チケットあたりの価格",
+    "playNow": "今すぐプレイ",
+    "assets": "資産",
+    "smartContract": "スマートコントラクト"
+  },
+  "round": {
+    "notification": "通知",
+    "nextRound": "次のラウンド<span class='font-bold'>#{roundId}</span>の日付は<span class='font-bold'>{date}</span>",
+    "nextRoundCloseTime": "次のラウンド終了時間",
+    "filterByRoundLabel": "ラウンド",
+    "filterByDateLabel": "抽選日",
+    "finishedRounds": "終了したラウンド",
+    "label": "ラウンド",
+    "winningNumber": "当選番号",
+    "printResult": "印刷結果",
+    "checkTicket": "チェック",
+    "roundId": "ラウンド"
+  },
+  "wallet": {
+    "connect": "ウォレットを接続する",
+    "connecting": "接続中...",
+    "connectMsg": "以下のウォレットのいずれかに接続して待機します。",
+    "notInstallWallet": "財布を持っていないんですか？",
+    "learnConnectWallet": " 接続方法を学ぶ",
+    "yourWallet": "あなたの財布",
+    "yourAddress": "あなたの住所",
+    "balances": "ウォレット残高",
+    "balance": "{balance} 残高",
+    "disconnect": "ウォレットの切断",
+    "viewOnExplorer": "エクスプローラーで見る",
+    "opening": "{wallet}を開く",
+    "plsConfirmIn": "{wallet}でご確認ください",
+    "myWallet": "私の財布",
+    "myBalance": "バランス"
+  },
+  "payment": {
+    "insufficientTokenBalance": "{token} 残高が不十分です",
+    "label": "支払い",
+    "detail": "支払詳細",
+    "detailAmount": "額",
+    "detailChargeStatus": "充電状態",
+    "detailCreateDate": "日付を作成します",
+    "methods": {
+      "DeFiWallet": "DeFiウォレット",
+      "paypal": "Paypal",
+      "vietqr": "VietQR"
+    },
+    "methodsHelp": {
+      "DeFiWallet": "分散型暗号通貨ウォレットで支払う <strong class='text-main'>(DeFiウォレット)</strong> のような <strong class='text-main'>メタマスク</strong> 財布。",
+      "paypal": "クレジットカード、デビットカードによるお支払い <strong class='text-main'>ペイパル</strong> 支払いゲートウェイ。",
+      "vietqr": "QRコードをスキャンして支払うか、銀行振込で支払います <strong class='text-main'>ベトQR</strong>。"
+    },
+    "fees": {
+      "applyFee": "適用される料金: ",
+      "default": "{value} サービス料",
+      "paypal_fixed_fee": "{value} Paypal 固定手数料"
+    },
+    "chargeStatus": {
+      "none": "なし",
+      "overcharged": "過充電",
+      "partial": "部分的",
+      "full": "満杯"
+    }
+  },
+  "lotteryAbout": {
+    "introduction": "{ticketPrice} のみから {pickNumbers} を選択すると、{drawTime} {drawDate} に {jackpot} {name} の抽選を獲得するチャンスが得られます。",
+    "numberFrom": "からの数字",
+    "jackpotFrom": "からのジャックポット",
+    "weekly": "毎週",
+    "every": "毎",
+    "prizeStructure": "価格体系",
+    "howToPlayPickNumber": "参加者は、{minNumber} から {maxNumber} までの一連の数字の中から賞品に参加する数字を選択し、抽選の結果と比較して賞品を決定します。",
+    "howToPlayPrice": "賞品に参加する価値: 参加者のプレイ スタイルごとに、賞品に 1 回参加する価値は {ticketPrice} です。",
+    "howToPlayFinalPrize": "最終的な賞金は、運営手数料の {treasuryFee}% と次のラウンド維持手数料の {amountInjectNextRoundFee}% を差し引いた後、プレイヤー間で分配されます。",
+    "howToPlayMatchWiningNumbers": "当選番号を一致させて賞品を分け合います:"
+  },
+  "days": {
+    "0": "太陽",
+    "1": "月",
+    "2": "火",
+    "3": "結婚した",
+    "4": "木",
+    "5": "金",
+    "6": "土",
+    "everyday": "毎日"
+  },
+  "errors": {
+    "unknownError": "1 つ以上のエラーが発生しました。",
+    "execution reverted: ERROR_ROUND_IS_CLOSED": "いくつかのラウンドが終了しました。",
+    "ERROR_ROUND_IS_CLOSED": "いくつかのラウンドが終了しました。",
+    "execution reverted: ERC20: transfer amount exceeds allowance": "支払い額が残高を超えている",
+    "User rejected request": "ユーザーがリクエストを拒否した",
+    "execution reverted: ERROR_TICKETS_LIMIT": "1回の購入でチケット制限を超えました",
+    "ERROR_TICKETS_LIMIT": "1回の購入でチケット制限を超えました",
+    "execution reverted: ERROR_TICKETS_LIMIT_PER_ROUND": "1ラウンドのチケット制限を超えました",
+    "ERROR_TICKETS_LIMIT_PER_ROUND": "1ラウンドのチケット制限を超えました",
+    "walletConnectRequired": "ウォレット接続が必要です",
+    "Access Denied": "続行するには<a href='/auth/login' class='underline'>ログイン</a>が必要です"
+  },
+  "order": {
+    "header": "注文",
+    "detailHeader": "注文詳細",
+    "myOrders": "私の注文",
+    "no": "注文：#{order}",
+    "empty": "注文はありません",
+    "date": "日付： ",
+    "total": "合計： ",
+    "buyerEthAddress": "購入者のEthアドレス",
+    "createdOn": "作成日",
+    "detail": "注文詳細",
+    "detailSubtotal": "小計",
+    "detailServiceFee": "サービス料",
+    "detailTotal": "合計",
+    "detailLineAmount": "額",
+    "detailViewOrderOnEthereum": "イーサリアムで注文を表示する",
+    "detailCreateDate": "日付を作成します",
+    "detailNetwork": "通信網",
+    "status": {
+      "error": "エラー",
+      "cancel": "キャンセル",
+      "fulfilled": "満たされた",
+      "in_process": "処理中",
+      "placed": "置いた"
+    }
+  },
+  "auth": {
+    "loginYourAccount": "あなたのアカウントにログイン",
+    "register": "アカウントにサインアップする",
+    "account": "アカウント",
+    "notAccount": "アカウントをお持ちでない場合は、",
+    "userName": "アカウント名",
+    "login": "サインイン",
+    "signup": "サインアップ",
+    "password": "パスワード",
+    "confirmPassword": "パスワードを認証する",
+    "termsAndConditions": "利用規約",
+    "terms": "ポリシー条件",
+    "policy": "個人のセキュリティ",
+    "acceptPolicy": "私は Qulot の {terms} および {policy} に同意します",
+    "forgotYourPassword": "パスワードをお忘れですか ？",
+    "resetPassword": "パスワードを再設定する",
+    "confirmResetPassword": "パスワードを再設定する",
+    "rememberMe": "私を覚えてますか",
+    "signInBelow": "以下からサインインしてください",
+    "signupNow": "今すぐサインアップ",
+    "signupHere": "ここにサインアップ",
+    "orYouCan": "または、できます",
+    "signUpBelow": "以下からサインアップしてください",
+    "withGoogle": "Googleでサインイン",
+    "logout": "ログアウト",
+    "send": "送信",
+    "email": "Eメール",
+    "placeholderOtp": "入力コード OTP",
+    "helpOptInput": "OTP は、電子メール {email} に送信される {otpLength} 桁のコードです",
+    "unauthorized": "メールアドレスまたはパスワードが間違っています",
+    "plsCheckYourMail": "メールを確認してください",
+    "signUpSuccess": "サインアップは正常に完了しました",
+    "signInSuccess": "サインインが成功しました",
+    "weGladYouHere": "あなたがここに来てくれて嬉しいです",
+    "placeholderEmail": "メールアドレスを入力してください",
+    "placeholderPassword": "パスワードを入力してください",
+    "placeholderFirstName": "名前を入力してください",
+    "placeholderLastName": "姓を入力してください",
+    "confirmOtp": "OTPコードを確認する"
+  },
+  "user": {
+    "email": "Eメール",
+    "password": "パスワード",
+    "firstName": "ファーストネーム",
+    "lastName": "苗字",
+    "fullName": "フルネーム",
+    "confirmPassword": "パスワードを認証する",
+    "newPassword": "新しいパスワード",
+    "yourAccount": "あなたのアカウント",
+    "username": "ユーザー名",
+    "userAlreadyExists": "このメールは既に存在します。",
+    "userNotFound": "アカウントが存在しません",
+    "privateKey": "秘密鍵",
+    "yourPrivateKey": "あなたの秘密鍵",
+    "showPrivateKey": "秘密キーを表示する",
+    "helpPrivateKey": "このキーは決して公開しないでください。"
+  }
+}

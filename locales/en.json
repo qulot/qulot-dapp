@@ -1,0 +1,432 @@
+{
+  "message": {
+    "plsTryAgain": "Please try again soon...",
+    "unknownError": "One or more errors have occurred",
+    "invalidData": "Invalid data: {msg}",
+    "badRequest": "Bad request",
+    "youAreNotAuthorized": "You are not authorized for this request",
+    "success": "{msg} successfully!",
+    "pageDoesNotExist": "This page does not exist",
+    "pageYouLookingNotFound": "The page you are looking for could not be found.",
+    "internalServerError": "Error!",
+    "serverHasDeserted": "One or more errors have occurred. Please try again soon...",
+    "successfully": "Successfully!",
+    "reportBugsToUs": "Report bugs to us here!",
+    "processingPlsWaitSecond": "Processing. Please wait a second!"
+  },
+  "labels": {
+    "continue": "Continue",
+    "back": "Back",
+    "cancel": "Cancel",
+    "update": "Update",
+    "delete": "Delete",
+    "change": "Change",
+    "confirm": "OK",
+    "viewAll": "See all",
+    "backToHome": "Back to home",
+    "loadMore": "Load More"
+  },
+  "datetime": {
+    "labels": {
+      "day": "Day",
+      "hour": "Hour",
+      "minute": "Minute",
+      "second": "Second"
+    }
+  },
+  "theme": {
+    "dark": "Dark",
+    "light": "Light",
+    "system": "System",
+    "realtime": "Realtime"
+  },
+  "app": {
+    "title": "The world's first blockchain lottery",
+    "description": "Qulot is a decentralized lottery platform powered by Ethereum and its smart contracts without any human intervention."
+  },
+  "cart": {
+    "order": "Order",
+    "selected": "Selected",
+    "selectedValue": "{value} ticket",
+    "total": "Total",
+    "subtotal": "SubTotal",
+    "checkout": "Checkout",
+    "paymentMethod": "Payment method",
+    "choosePaymentMethod": "Choose payment method",
+    "accountBalance": "Account balance",
+    "checkoutNow": "Checkout Now",
+    "deleteTicket": "Delete",
+    "fee": "Fee",
+    "product": "Product",
+    "quantity": "Qty",
+    "price": "Price",
+    "addTicket": "Add Ticket",
+    "selectRandom": "Pick {number} Random Tickets",
+    "buyNow": "Buy Now",
+    "label": "Cart",
+    "discount": "Discount:",
+    "empty": "Cart Is Empty!",
+    "chooseBuyerEthAddress": "Choose buyer eth address",
+    "useWalletAddress": "Use wallet address",
+    "useAccountAddress": "Use account address",
+    "network_fee": "Network fee",
+    "service_fee": "Service fee"
+  },
+  "ticket": {
+    "header": "Tickets",
+    "listTicket": "My Tickets",
+    "winprize": "Win Prize",
+    "statusWait": "Wait",
+    "statusStartDial": "Start Draw",
+    "statusStartReward": "Start reward",
+    "statusFinished": "Finished",
+    "timeStartDial": "Time start draw",
+    "status": "Status",
+    "empty": "You don't have any tickets",
+    "pickTicketNumbers": "Pick Ticket Numbers",
+    "random": "Random",
+    "buyTicket": "Buy ticket for just {price}",
+    "checkYourTicket": "Check Your Ticket",
+    "pickInYourTicket": "Pick The Numbers On Your Ticket",
+    "youWon": "You Won",
+    "matchNumber": "Match {match} number",
+    "claimTicketNow": "Claim Ticket Now",
+    "wasAwarded": "Was Awarded"
+  },
+  "menu": {
+    "title": {
+      "homePage": "Home",
+      "product": "Product",
+      "myTicket": "Ticket",
+      "myOrder": "Order",
+      "myWallet": "My Wallet",
+      "introduce": "Introduce",
+      "language": "Language",
+      "theme": "Theme"
+    }
+  },
+  "footer": {
+    "linkHome": "Home",
+    "linkAboutUs": "About Us",
+    "linkContactUs": "Contract Us",
+    "linkTermsOfService": "Terms of Service",
+    "linkGithub": "Github",
+    "linkDocument": "Document",
+    "liveDrawing": "Live Drawing"
+  },
+  "aboutUs": {
+    "information": {
+      "title": "Who we are",
+      "content": "We are an lottery service providing customers with the opportunity to play the biggest lottery draws, with official lottery tickets, from anywhere in the world. As an independent third-party ticket purchasing service, we have been leading the online lottery industry since 2023, serving as the industry standard with a stellar reputation and professional 24/7 customer service."
+    },
+    "services": {
+      "title": "Play the Biggest Lotteries",
+      "subtitle": "We offer customers the opportunity to play to win the world's most popular lotteries. Our services provide:",
+      "service1": "<strong class='text-main'>3+</strong> lotteries with the biggest jackpot prizes, including PowerQ, MegaQ, LiteQ, as well as daily and local draws.",
+      "service2": "<strong class='text-main'>Results, information, and winning numbers.</strong> The world's leading lotteries. Wide range of playing options, including syndicates, bundles, multi-draws, and subscriptions.",
+      "service3": "Dedicated mobile apps for <strong class='text-main'>iOS and Android.</strong>"
+    },
+    "guide": {
+      "title": "How It Works",
+      "step1": {
+        "name": "Step 1",
+        "desc": "Sign-up for a free account."
+      },
+      "step2": {
+        "name": "Step 2",
+        "desc": "Choose a lottery to play, pick your numbers, and order your tickets."
+      },
+      "step3": {
+        "name": "Step 3",
+        "desc": "Our representatives will purchase official tickets on your behalf."
+      },
+      "step4": {
+        "name": "Step 4",
+        "desc": "Our lottery service lets you view your tickets online."
+      },
+      "step5": {
+        "name": "Step 5",
+        "desc": "We will notify you by email or SMS when you win."
+      },
+      "step6": {
+        "name": "Step 6",
+        "desc": "Paid out 100% commission-free."
+      }
+    },
+    "businessModel": {
+      "title": "Our Business Model",
+      "desc": "We purchase official lottery tickets on behalf of our customers and our revenue stems solely from a service fee included with the sale of these tickets. When our customers win, they will receive the full amount of the prize without having to pay any further commissions."
+    },
+    "trackRecord": {
+      "title": "Our Track Record",
+      "desc": "Over the years, we have paid out more than $10000 in prizes to over 100 winning tickets from around the world. Our winners include a woman from Vietnam who won an incredible $5000 LiteQ jackpot."
+    },
+    "simpleSecure": {
+      "title": "Simple and Secure",
+      "simpleSecure1": "Transactions and assets are protected by blockchain technology",
+      "simpleSecure2": "Money-back guarantee on your first purchase",
+      "simpleSecure3": "Your Ethereum account can be accessed at any time",
+      "simpleSecure4": "Full suite of self-limiting tools to strongly encourage responsible gaming habits",
+      "simpleSecure5": "Customer support in many languages via several channels",
+      "simpleSecure6": "Open source and public on Github for anyone to verify"
+    }
+  },
+  "contactUs": {
+    "information": {
+      "title": "Contact us",
+      "content": "Email Our team of lottery experts is prepared to provide a quick and thorough response to all your questions and concerns via email. Just fill in the required fields below, and receive lottery help straight to your on-site mailbox in less than 24 hours."
+    },
+    "labels": {
+      "yourName": "Your name",
+      "email": "Email",
+      "topic": "Topic",
+      "subject": "Subject",
+      "content": "Content",
+      "PlaceholderYourName": "Enter your name",
+      "PlaceholderEmail": "Enter email address",
+      "placeholderTopic": "Select topic",
+      "placeholderSubject": "Enter subject",
+      "placeholderContent": "Enter content",
+      "Send": "Send"
+    },
+    "topics": {
+      "complaint": "Complaints/Feedback",
+      "howToPlayGames": "How To Play Games",
+      "howToClaimPrize": "How to Claim a Prize",
+      "onlinePurchases": "Online Purchases",
+      "reportTechnicalProblem": "Report A Technical Problem",
+      "other": "Other"
+    },
+    "success": "We have received your information. We will contact you as soon as possible"
+  },
+  "termsOfService": {
+    "title": "Terms of Service",
+    "about": "Welcome to Qulot.com, a website of Qulot LLC (“Qulot”, “we”, “our”, or “us”). This page explains the terms by which you may use our website (the “Site”). By accessing or using the Site, you signify that you have read, understood, and agree to be bound by this Terms of Service Agreement (“Agreement”), whether or not you are a registered user of our Site. Qulot reserves the right to make unilateral modifications to these terms and will provide notice of these changes as described below. This Agreement applies to all visitors, users, and others who access the Site (“Users”). Please read this Agreement carefully to ensure that you understand each provision. This agreement contains a mandatory individual arbitration and class action/jury trial waiver provision that requires the use of arbitration on an individual basis to resolve disputes, rather than jury trials or class actions. Qulot Site. As part of the Site, Qulot provides access to a decentralized money saving and reward tool (“Protocol”) on the Ethereum blockchain, that allows participants to use Ethereum assets (“Assets”) to transact using smart contracts (“Smart Contracts”).",
+    "useOfOurSite": "Use of Our Site",
+    "eligibility": "Eligibility",
+    "eligibilityDetail": "This is a contract between you and Qulot. You must read and agree to these terms before using the Site. If you do not agree, you may not use the Site. You may use the Site only if you can form a binding contract with Qulot, and only in compliance with this Agreement and all applicable local, state, national, and international laws, rules and regulations. Any use or access to the Site by anyone under eighteen (18) years of age is strictly prohibited and in violation of this Agreement. The Site is not available to any Users previously removed from the Site by Qulot.",
+    "access": "B. Access and Use of the Site and Smart Contracts",
+    "accessDetail": "Subject to the terms and conditions of this Agreement, you are hereby granted a non-exclusive, limited, non-transferable, freely revocable license to use the Site as permitted by the features of the Site. Qulot reserves all rights not expressly granted herein in the Site and the Qulot Content (as defined below). Qulot may terminate this license, in whole or in part, at any time for any reason or no reason.",
+    "siteRules": "C. Site Rules",
+    "siteRulesDetail": "You agree not to engage in any of the following prohibited activities: (i) copying, distributing, or disclosing any part of the Site in any medium, including without limitation by any automated or non-automated “scraping”; (ii) using any automated system, including without limitation “robots,” “spiders,” “offline readers,” etc., to access the Site in a manner that sends more request messages to the Qulot servers than a human can reasonably produce in the same period of time by using a conventional on-line web browser (except that Qulot grants the operators of public search engines revocable permission to use spiders to copy publically available materials from Qulot.com for the sole purpose of and solely to the extent necessary for creating publicly available searchable indices of the materials, but not caches or archives of such materials); (iii) transmitting spam, chain letters, or other unsolicited email; (iv) attempting to interfere with, compromise the system integrity or security or decipher any transmissions to or from the servers running the Site; (v) taking any action that imposes, or may impose at our sole discretion an unreasonable or disproportionately large load on our infrastructure; (vi) uploading invalid data, viruses, worms, or other software agents through the Site; (vii) collecting or harvesting any personally identifiable information, including account names, from the Site; (viii) using the Site for any commercial solicitation purposes; (ix) impersonating another person or otherwise misrepresenting your affiliation with a person or entity, conducting fraud, hiding or attempting to hide your identity; (x) interfering with the proper working of the Site; (xi) accessing any content on the Site through any technology or means other than those provided or authorized by the Site; or (xii) bypassing the measures we may use to prevent or restrict access to the Site, including without limitation features that prevent or restrict use or copying of any content or enforce limitations on use of the Site or the content therein. We may, without prior notice, change the Site; stop providing the Site or features of the Site, to you or to Users generally; or create usage limits for the Site. We may permanently or temporarily terminate or suspend your access to the Site without notice and liability for any reason, including if in our sole determination you violate any provision of this Agreement, or for no reason. Upon termination for any reason or no reason, you continue to be bound by this Agreement. You are solely responsible for your interactions with other Qulot Users and Protocol Users. We reserve the right, but have no obligation, to monitor disputes between you and other Users. Qulot shall have no liability for your interactions with other Users, or for any User’s action or inaction.",
+    "siteLocation": "D. Site Location",
+    "siteLocationDetail": "The Site is controlled and operated from facilities in the United States. Qulot makes no representations that the Site is appropriate or available for use any locations. Those who access or use the Site from any jurisdictions do so at their own volition and are entirely responsible for compliance with all applicable United States and local laws and regulations, including but not limited to export and import regulations. You may not use the Site if you are a resident of a country embargoed by the United States, or are a foreign person or entity blocked or denied by the United States government. Unless otherwise explicitly stated, all materials found on the Site are solely directed to individuals, companies, or other entities located in the United States. Our Proprietary Rights. The Site and all materials therein or transferred thereby, including, without limitation, software, images, text, graphics, illustrations, logos, patents, trademarks, service marks, copyrights, photographs, audio, videos, music, and User Content belonging to other Users (the “Qulot Content”), and all Intellectual Property Rights related thereto, are the exclusive property of Qulot and its licensors. Except as explicitly provided herein, nothing in this Agreement shall be deemed to create a license in or under any such Intellectual Property Rights, and you agree not to sell, license, rent, modify, distribute, copy, reproduce, transmit, publicly display, publicly perform, publish, adapt, edit or create derivative works from any Qulot Content. Use of the Qulot Content for any purpose not expressly permitted by this Agreement is strictly prohibited. You may choose to or we may invite you to submit comments or ideas about the Site, including without limitation about how to improve the Site or our products (“Ideas”). By submitting any Idea, you agree that your disclosure is gratuitous, unsolicited and without restriction and will not place Qulot under any fiduciary or other obligation, and that we are free to use the Idea without any additional compensation to you, and/or to disclose the Idea on a non-confidential basis or otherwise to anyone. You further acknowledge that, by acceptance of your submission, Qulot does not waive any rights to use similar or related ideas previously known to Qulot, or developed by its employees, or obtained from sources other than you.",
+    "noProfessionalAdvice": "No Professional Advice.",
+    "noProfessionalAdviceDetail": "If the Site provides professional information (for example, medical, legal, or financial), such information is for informational purposes only and should not be construed as professional advice. No action should be taken based upon any information contained in the Site. You should seek independent professional advice from a person who is licensed and/or qualified in the applicable area. Privacy. We care about the privacy of our Users. You understand that by using the Sites you consent to the collection, use and disclosure of personally identifiable information and aggregate data, and to have your personally identifiable information collected, used, transferred to and processed in the United States. Security. Qulot uses commercially reasonable physical, managerial, and technical safeguards to preserve the integrity and security of your personal information and implement your privacy settings. However, we cannot guarantee that unauthorized third parties will never be able to defeat our security measures or use your personal information for improper purposes. You acknowledge that you provide your personal information at your own risk."
+  },
+  "home": {
+    "theWorldFirstBlockchain": "The world's first blockchain <span class='keyword'>lottery</span>",
+    "solution": "We use blockchain technology to provide highly transparent lottery services & support multiple networks and payment methods",
+    "winner": "WINNER",
+    "totalPrize": "Total prizes",
+    "totalPlayers": "Total players",
+    "luckiestWinners": "Luckiest winners",
+    "wonWithAmount": "won with amount",
+    "howItWorks": "How it works",
+    "step": "Step {step}",
+    "step1": "Choose the lottery that you want to have a chance to win",
+    "step2": "Deposit money into your wallet, buy a ticket and wait for the reward",
+    "step3": "If you win, claim your prize and rate us on Twitter",
+    "innovativeFeatures": "Innovative features",
+    "directlyEngageBillionsUsers": "Directly engage billions of users globally through instant games",
+    "dailyDrawAndSocialInteraction": "Daily draw and social interaction with players around the globe",
+    "blockchainTechnology": "Blockchain technology and smart contracts ensure unparalleled transparency to win the trust of users",
+    "noScam": "No scams or faulty operators",
+    "1stPlatform": "1st platform of its kind",
+    "customLottery": "In the next upgrades we will allow companies, charities and individuals to launch their own lotteries with customized features to meet their specific needs",
+    "blockchainBenefitForCharities": "With blockchain technology you can keep track of your money being transferred to the right recipient or not",
+    "teamAndPartners": "Team & partners",
+    "teamAndPartnersAbout": "is an innovative next-generation software solution DApp that is designed to enhance the participant experience and continues to be the meeting point between technology, equity and entertainment",
+    "teamAndPartnersConnect": "We have a unique approach to innovating and modernizing the lottery industry due to our extensive knowledge of the field and our successful track record in working with international organizations such as IBM",
+    "teamAndPartnersTeam": "is not only backed by an extraordinary team of people with rich experience in everything from design to cybersecurity to software development, customer relations and strategic planning"
+  },
+  "lottery": {
+    "play": "Play",
+    "introduction": "Introduction",
+    "howToPlay": "How to play",
+    "statistical": "Statistical",
+    "lotteryJackpot": "Lottery Jackpot",
+    "jackpot": "Jackpot",
+    "pricePerTicket": "Price Per Ticket",
+    "playNow": "Play Now",
+    "assets": "Assets",
+    "smartContract": "Smart Contract"
+  },
+  "round": {
+    "notification": "Notification",
+    "nextRound": "Next round <span class='font-bold'>#{roundId}</span> date <span class='font-bold'>{date}</span>",
+    "nextRoundCloseTime": "Next round close time",
+    "filterByRoundLabel": "Round",
+    "filterByDateLabel": "Draw Date",
+    "finishedRounds": "Finished Rounds",
+    "label": "Round #{round} date {date}",
+    "winningNumber": "Winning Number",
+    "printResult": "Print Result",
+    "checkTicket": "Check",
+    "roundId": "Round #{round}"
+  },
+  "wallet": {
+    "connect": "Connect wallet",
+    "connecting": "Connecting...",
+    "connectMsg": "Stand by connecting with one the wallets below. Be sure to store your private keys or seed phrase security. Never share them with anyone",
+    "notInstallWallet": "Haven’t got a wallet yes?",
+    "learnConnectWallet": " Learn how to connect",
+    "yourWallet": "Your Wallet",
+    "yourAddress": "Your address",
+    "balances": "Wallet balance",
+    "balance": "{balance} Balance",
+    "disconnect": "Disconnect Wallet",
+    "viewOnExplorer": "View on explorer",
+    "opening": "Opening {wallet}",
+    "plsConfirmIn": "Please confirm in {wallet}",
+    "myWallet": "My Wallet",
+    "myBalance": "Balance"
+  },
+  "payment": {
+    "insufficientTokenBalance": "Insufficient {token} balance",
+    "label": "Payment",
+    "detail": "Payment details",
+    "detailAmount": "Amount",
+    "detailChargeStatus": "Charge status",
+    "detailCreateDate": "Create date",
+    "methods": {
+      "DeFiWallet": "DeFi Wallet",
+      "paypal": "Paypal",
+      "vietqr": "VietQR"
+    },
+    "methodsHelp": {
+      "DeFiWallet": "Pay with a decentralized cryptocurrency wallet <strong class='text-main'>(DeFi Wallet)</strong> such as <strong class='text-main'>MetaMask</strong> wallet.",
+      "paypal": "Pay by credit card, debit card via <strong class='text-main'>Paypal</strong> payment gateway.",
+      "vietqr": "Pay by scanning QR code, bank transfer via <strong class='text-main'>VietQR</strong>."
+    },
+    "fees": {
+      "applyFee": "Applicable fees: ",
+      "default": "{value} service fee",
+      "paypal_fixed_fee": "{value} Paypal fixed fee"
+    },
+    "chargeStatus": {
+      "none": "None",
+      "overcharged": "Overcharged",
+      "partial": "Partial",
+      "full": "Full"
+    }
+  },
+  "lotteryAbout": {
+    "introduction": "From only {ticketPrice}, pick {pickNumbers} to have a chance to win {jackpot} {name} draw at {drawTime} {drawDate}.",
+    "numberFrom": "numbers from",
+    "jackpotFrom": "Jackpot from",
+    "weekly": "weekly",
+    "every": "every",
+    "prizeStructure": "Price Structure",
+    "howToPlayPickNumber": "Participants select the number to participate in the prize in the set of numbers from {minNumber} to {maxNumber} and compare with the results of the drawing to determine the prize. The result of a drawing period includes {numberOfItems} results that are dialed {numberOfItems} times to choose.",
+    "howToPlayPrice": "Value of participating in the prize: The value for one (01) time participating in the prize for each playing style of the participant is {ticketPrice}.",
+    "howToPlayFinalPrize": "The final prize is divided among the players after deducting {treasuryFee}% of the operation fee and {amountInjectNextRoundFee}% of the next round maintenance fee.",
+    "howToPlayMatchWiningNumbers": "Match the winning number to share prizes:"
+  },
+  "days": {
+    "0": "Sun",
+    "1": "Mon",
+    "2": "Tue",
+    "3": "Wed",
+    "4": "Thu",
+    "5": "Fri",
+    "6": "Sat",
+    "everyday": "every day"
+  },
+  "errors": {
+    "unknownError": "One or more errors have occurred. Please try again!",
+    "execution reverted: ERROR_ROUND_IS_CLOSED": "Some round has ended. Please buy tickets for the latest round",
+    "ERROR_ROUND_IS_CLOSED": "Some round has ended. Please buy tickets for the latest round",
+    "execution reverted: ERC20: transfer amount exceeds allowance": "Payment amount exceeds balance",
+    "User rejected request": "User rejected request",
+    "execution reverted: ERROR_TICKETS_LIMIT": "Exceeded ticket limit in one purchase",
+    "ERROR_TICKETS_LIMIT": "Exceeded ticket limit in one purchase",
+    "execution reverted: ERROR_TICKETS_LIMIT_PER_ROUND": "Exceeded ticket limit for one round",
+    "ERROR_TICKETS_LIMIT_PER_ROUND": "Exceeded ticket limit for one round",
+    "walletConnectRequired": "Requires <a href='#connect-wallet' class='underline'>wallet connect</a> to continue",
+    "Access Denied": "Requires <a href='/auth/login' class='underline'>login</a> to continue"
+  },
+  "order": {
+    "header": "Orders",
+    "detailHeader": "Order Detail",
+    "myOrders": "My Orders",
+    "no": "Order: #{order}",
+    "empty": "You don't have any orders",
+    "date": "Date: ",
+    "total": "Total: ",
+    "buyerEthAddress": "Buyer eth address",
+    "createdOn": "Create on",
+    "detail": "Order details",
+    "detailSubtotal": "Subtotal",
+    "detailServiceFee": "Service fee",
+    "detailTotal": "Total",
+    "detailLineAmount": "Amount",
+    "detailViewOrderOnEthereum": "View orders on ethereum",
+    "detailCreateDate": "Create date",
+    "detailNetwork": "Network",
+    "status": {
+      "error": "Error",
+      "cancel": "Cancel",
+      "fulfilled": "Fulfilled",
+      "in_process": "In Process",
+      "placed": "Placed"
+    }
+  },
+  "auth": {
+    "loginYourAccount": "Log in to your account",
+    "register": "Sign up for an account",
+    "account": "Account",
+    "notAccount": "Don't have an account?",
+    "userName": "Account name",
+    "login": "Sign in",
+    "signup": "Sign up",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "termsAndConditions": "Terms and Conditions",
+    "terms": "terms of policy",
+    "policy": "personal security",
+    "acceptPolicy": "I agree with Qulot {terms} as well as {policy}",
+    "forgotYourPassword": "Forgot your password ?",
+    "resetPassword": "Reset Password",
+    "confirmResetPassword": "Reset Password",
+    "rememberMe": "Remember me",
+    "signInBelow": "Sign in Below",
+    "signupNow": "Signup now",
+    "signupHere": "signup here",
+    "orYouCan": "or, you can",
+    "signUpBelow": "Sign up Below",
+    "withGoogle": "Sign in with Google",
+    "logout": "Logout",
+    "send": "Send",
+    "email": "Email",
+    "placeholderOtp": "Enter code OTP",
+    "helpOptInput": "OTP is a {otpLength}-digit code sent to email {email}",
+    "unauthorized": "Wrong email address or password",
+    "plsCheckYourMail": "Please Check Your Email",
+    "signUpSuccess": "Sign up is successfully",
+    "signInSuccess": "Sign in is successfully",
+    "weGladYouHere": "We're glad you're here",
+    "placeholderEmail": "Enter email",
+    "placeholderPassword": "Enter password",
+    "placeholderFirstName": "Enter first name",
+    "placeholderLastName": "Enter last name",
+    "confirmOtp": "Confirm OTP code"
+  },
+  "user": {
+    "email": "Email",
+    "password": "Password",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "fullName": "Full Name",
+    "confirmPassword": "Confirm Password",
+    "newPassword": "New Password",
+    "yourAccount": "Your account",
+    "username": "Username",
+    "userAlreadyExists": "This email already exists. Please use another email",
+    "userNotFound": "Account does not exist",
+    "privateKey": "Private key",
+    "yourPrivateKey": "Your private key",
+    "showPrivateKey": "Show private key",
+    "helpPrivateKey": "Never disclose this key. Anyone with your private keys can steal any assets held in your account."
+  }
+}
