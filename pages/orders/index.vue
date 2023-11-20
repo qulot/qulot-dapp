@@ -50,6 +50,10 @@ useSeoMeta({
   ogTitle: title,
 })
 
+definePageMeta({
+  middleware: ['auth'],
+})
+
 const ordersNotPlaced = computed(() =>
   qulotOrders.value.filter((order) => order.status !== 'placed')
 )

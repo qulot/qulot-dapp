@@ -23,7 +23,6 @@ const { init: initAccount } = useAccount({
   updateOnce: false,
   updateInterval: 20000,
 })
-const { init: initClientGeoLocation } = useGeo()
 
 useRecaptchaProvider()
 const authStore = useAuthStore()
@@ -40,8 +39,6 @@ useSeoMeta({
   twitterCard: 'app',
 })
 
-console.log(locale.value)
-
 useHead({
   htmlAttrs: {
     lang: locale,
@@ -53,7 +50,6 @@ useHead({
 await lotteryStore.fetchLotteries()
 
 onBeforeMount(() => {
-  initClientGeoLocation()
   authStore.loadLocalStorage()
 })
 // Load data on client

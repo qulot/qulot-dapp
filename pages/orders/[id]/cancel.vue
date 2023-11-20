@@ -20,6 +20,7 @@ const orderStore = useOrderStore()
 const { qulotOrderDetail, error } = storeToRefs(orderStore)
 
 definePageMeta({
+  middleware: ['auth'],
   validate: (route) => {
     return !isEmpty(route.params.id as string)
   },

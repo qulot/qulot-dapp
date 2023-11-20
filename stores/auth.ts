@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { ApolloError } from '@apollo/client/errors'
+import moment from 'moment'
 import {
   ACTIVE_QULOT_USER,
   LOGIN_WITH_EMAIL,
@@ -18,6 +19,14 @@ import {
 
 const QULOT_GRAPHQL_CLIENT_ID = 'qulot'
 
+const checkExpireJwt = (jwt: QulotJwtToken) => {
+  if (jwt.expiresAt) {
+    return moment(jwt.expiresAt) < moment()
+  }
+
+  return false
+}
+
 export const useAuthStore = defineStore('auth', {
   state: () => {
     return {
@@ -31,7 +40,7 @@ export const useAuthStore = defineStore('auth', {
     }
   },
   getters: {
-    isAuthenticated: (state) => state.jwt != null,
+    isAuthenticated: (state) => state.jwt != null && !checkExpireJwt(state.jwt),
     hasLoggedInUser: (state) => state.loggedInUser != null,
   },
   actions: {

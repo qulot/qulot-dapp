@@ -7,7 +7,10 @@
       <PageOrderDetails v-if="order" :order="order" />
       <PageOrderDetailsSkeleton v-else />
 
-      <PageOrderPaymentDetails v-if="order" :order-payment="orderPayment" />
+      <PageOrderPaymentDetails
+        v-if="orderPayment"
+        :order-payment="orderPayment"
+      />
       <PageOrderPaymentDetailsSkeleton v-else />
 
       <template v-if="order">

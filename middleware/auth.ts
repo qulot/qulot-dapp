@@ -11,8 +11,15 @@ export default defineNuxtRouteMiddleware((to) => {
     }
 
     if (!isAuthenticated.value) {
+      const localePath = useLocalePath()
       return navigateTo(
-        `${window.location.origin}/auth/login?callback=${to.fullPath}`,
+        window.location.origin +
+          localePath({
+            name: 'auth-login',
+            query: {
+              callback: to.fullPath,
+            },
+          }),
         { external: true }
       )
     }
