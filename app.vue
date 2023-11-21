@@ -44,7 +44,12 @@ useHead({
     lang: locale,
     class: themeCurrent,
   },
-  meta: [{ name: 'adsense-account', content: config.public.google.adsAccount }],
+  meta: [
+    {
+      name: 'google-adsense-account',
+      content: config.public.google.adsAccount,
+    },
+  ],
 })
 
 // SSR load list lotteries on server
