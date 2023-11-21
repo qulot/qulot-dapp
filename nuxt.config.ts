@@ -75,7 +75,7 @@ export default defineNuxtConfig({
         },
       },
       google: {
-        adsenseAccount: process.env.NUXT_PUBLIC_GOOGLE_ADS_ACCOUNT || '',
+        adsAccount: process.env.NUXT_PUBLIC_GOOGLE_ADS_ACCOUNT || '',
       },
     },
   },
