@@ -36,7 +36,7 @@ useSeoMeta({
   ogDescription: t('app.description'),
   description: t('app.description'),
   ogImage: config.public.metadata.appIcon,
-  twitterCard: 'app',
+  twitterCard: 'summary',
 })
 
 useHead({
@@ -44,6 +44,9 @@ useHead({
     lang: locale,
     class: themeCurrent,
   },
+  meta: [
+    { name: 'adsense-account', content: config.public.google.adsenseAccount },
+  ],
 })
 
 // SSR load list lotteries on server
