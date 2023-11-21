@@ -35,7 +35,11 @@
               class="absolute text-white text-center bottom-[258px] mr-[10px]"
             >
               <div class="text-xs">{{ $t('home.totalPrize') }}</div>
-              <TokenValue :value="totalPrize" class="text-base font-bold" />
+              <TokenValue
+                :value="totalPrize"
+                class="text-base font-bold"
+                :fixed="0"
+              />
             </div>
             <div
               class="absolute text-white text-center bottom-[182px] mr-[10px]"

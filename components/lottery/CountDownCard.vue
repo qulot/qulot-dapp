@@ -17,6 +17,7 @@
           </p>
           <TokenValue
             :value="lottery.nextRound?.totalAmount"
+            :fixed="0"
             tag="div"
             class="text-[40px] font-bold text-main mb-1.5"
           />

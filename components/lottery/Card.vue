@@ -16,6 +16,8 @@
         <p class="text-sm text-black">{{ $t('lottery.lotteryJackpot') }}</p>
         <TokenValue
           :value="props.lottery?.nextRound?.totalAmount"
+          :fixed="0"
+          show-symbol
           tag="p"
           class="text-[#6135E9] text-2xl font-bold md:text-3xl"
         />
