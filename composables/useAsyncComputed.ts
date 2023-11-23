@@ -39,6 +39,7 @@ export default function useAsyncComputed<T>(
         evaluating.value = true
       })
 
+      // eslint-disable-next-line
       const result = await callback((cancelCallback) => {
         onInvalidate(() => {
           evaluating.value = false
