@@ -41,10 +41,13 @@
         <!-- 2 -->
         <div class="pl-[78px] lg:pl-0 flex items-center flex-1 justify-between">
           <div class="space-x-1 leading-tight">
-            <span class="text-[17px] font-bold text-title-nodark">
-              {{ pricePerTicket }}
-              <span class="text-xs">{{ currency }}</span>
-            </span>
+            <TokenValue
+              class="text-[17px] font-bold text-title-nodark"
+              :value="pricePerTicket"
+              show-symbol
+              use-fiat-value
+              hide-subunits
+            />
           </div>
           <div
             class="absolute lg:relative top-4 right-3 lg:top-auto lg:right-auto flex items-center space-x-5 lg:space-x-7"
@@ -73,6 +76,8 @@
   </div>
 </template>
 <script setup lang="ts">
+import { BigNumber } from 'ethers'
+
 defineProps({
   roundId: {
     type: String,
@@ -94,13 +99,9 @@ defineProps({
     default: () => [],
   },
   pricePerTicket: {
-    type: String,
+    type: [BigNumber, String],
     required: false,
     default: null,
-  },
-  currency: {
-    type: String,
-    required: true,
   },
   selected: {
     type: Boolean,

@@ -12,6 +12,8 @@
           class="font-bold"
           :value="totalAmount"
           show-symbol
+          use-fiat-value
+          hide-subunits
         />
         <FiatValue
           v-else
@@ -69,6 +71,8 @@
         class="text-2xl font-bold"
         :value="finalAmount"
         show-symbol
+        use-fiat-value
+        hide-subunits
       />
       <FiatValue
         v-else

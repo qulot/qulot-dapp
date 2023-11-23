@@ -102,7 +102,8 @@
       "myWallet": "我的钱包",
       "introduce": "介绍",
       "language": "语言",
-      "theme": "主题"
+      "theme": "主题",
+      "currency": "货币"
     }
   },
   "footer": {

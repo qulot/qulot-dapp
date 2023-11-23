@@ -10,19 +10,30 @@
     <div class="p-2 lg:p-4 grid grid-cols-2 gap-2 lg:gap-4">
       <CardItemWallet
         :title="$t('wallet.myBalance')"
-        :value-wallet="balance.amount"
         :is-loading="balance.isLoading"
-      />
+      >
+        <TokenValue
+          :value="balance.amount"
+          show-symbol
+          use-fiat-value
+          hide-subunits
+        />
+      </CardItemWallet>
       <CardItemWallet
         :title="$t('lottery.pricePerTicket')"
-        :value-wallet="pricePerTicket.amount"
         :is-loading="pricePerTicket.isLoading"
-      />
+      >
+        <TokenValue
+          :value="pricePerTicket.amount"
+          show-symbol
+          use-fiat-value
+          hide-subunits
+        />
+      </CardItemWallet>
     </div>
   </div>
 </template>
 <script setup lang="ts">
-import { formatUnits } from 'ethers/lib/utils.js'
 import { storeToRefs } from 'pinia'
 const lotteryStore = useLotteryStore()
 const { tokenBalance } = useAccount()
@@ -43,22 +54,14 @@ const pricePerTicket = ref<{
 const checkTokenBalance = () => {
   if (token.value && tokenBalance.value) {
     balance.value.isLoading = false
-    balance.value.amount = formatMoney(
-      tokenBalance.value.formatted,
-      tokenBalance.value.symbol,
-      1
-    )
+    balance.value.amount = tokenBalance.value.value
   }
 }
 
 const checkPricePerTicket = () => {
   if (lottery.value && token.value) {
     pricePerTicket.value.isLoading = false
-    pricePerTicket.value.amount = formatMoney(
-      formatUnits(lottery.value.pricePerTicket, token.value.decimals),
-      token.value.symbol,
-      1
-    )
+    pricePerTicket.value.amount = lottery.value.pricePerTicket
   }
 }
 

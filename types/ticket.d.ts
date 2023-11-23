@@ -13,9 +13,9 @@ export interface CartTicket {
 export interface CartItemsGroup {
   lotteryId: string
   lotteryVerboseName: string
-  lotteryPricePerTicket: string
+  lotteryPricePerTicket: BigNumber
   qty: number
-  total: string
+  total: BigNumber
 }
 
 export interface Ticket {

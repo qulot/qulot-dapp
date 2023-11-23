@@ -24,7 +24,8 @@
     "confirm": "OK",
     "viewAll": "See all",
     "backToHome": "Back to home",
-    "loadMore": "Load More"
+    "loadMore": "Load More",
+    "search": "Search"
   },
   "datetime": {
     "labels": {
@@ -102,7 +103,8 @@
       "myWallet": "My Wallet",
       "introduce": "Introduce",
       "language": "Language",
-      "theme": "Theme"
+      "theme": "Theme",
+      "currency": "Currency"
     }
   },
   "footer": {

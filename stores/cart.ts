@@ -44,7 +44,6 @@ export const useCartStore = defineStore('cart', {
       ),
     ticketsSummaryByLotteryId() {
       const lotteryStore = useLotteryStore()
-      const { token } = useQulot()
 
       const validTickets = this.validTickets as CartTicket[]
       const ticketsGroupByLotteryId = groupBy(
@@ -64,15 +63,9 @@ export const useCartStore = defineStore('cart', {
           lotteryId,
           qty: ticketsGroupByLotteryId[lotteryId].length,
           lotteryVerboseName: lotteryStore.lotteryAsKeys[lotteryId].verboseName,
-          lotteryPricePerTicket: formatUnits(
-            lotteryPricePerTicket,
-            token.value?.decimals
-          ),
-          total: formatUnits(
-            BigNumber.from(lotteryPricePerTicket).mul(
-              ticketsGroupByLotteryId[lotteryId].length
-            ),
-            token.value?.decimals
+          lotteryPricePerTicket,
+          total: BigNumber.from(lotteryPricePerTicket).mul(
+            ticketsGroupByLotteryId[lotteryId].length
           ),
         })
       }

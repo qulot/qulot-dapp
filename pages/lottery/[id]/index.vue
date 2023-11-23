@@ -40,7 +40,9 @@
                     <span>{{ $t('cart.total') }}:</span>
                     <TokenValue
                       :value="totalPrice"
-                      :fixed="1"
+                      show-symbol
+                      use-fiat-value
+                      hide-subunits
                       class="font-bold text-yellow"
                     />
                   </div>

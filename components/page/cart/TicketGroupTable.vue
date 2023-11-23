@@ -22,12 +22,20 @@
           </td>
           <td class="py-3">x{{ cartItemGroup.qty }}</td>
           <td class="py-3">
-            {{ cartItemGroup.lotteryPricePerTicket }}
-            <span class="text-xs">{{ token?.symbol }}</span>
+            <TokenValue
+              :value="cartItemGroup.lotteryPricePerTicket"
+              show-symbol
+              use-fiat-value
+              hide-subunits
+            />
           </td>
           <td class="py-3 text-right">
-            {{ cartItemGroup.total }}
-            <span class="text-xs">{{ token?.symbol }}</span>
+            <TokenValue
+              :value="cartItemGroup.total"
+              show-symbol
+              use-fiat-value
+              hide-subunits
+            />
           </td>
         </tr>
       </tbody>
@@ -37,7 +45,6 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 
-const { token } = useQulot()
 const cartStore = useCartStore()
 const { ticketsSummaryByLotteryId } = storeToRefs(cartStore)
 </script>

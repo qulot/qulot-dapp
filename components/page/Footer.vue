@@ -95,14 +95,10 @@
                   $t('footer.linkGithub')
                 }}</nuxt-link>
               </li>
-              <li class="hover:text-main">
-                <nuxt-link
-                  :to="explorerContractUrl + '#code'"
-                  target="_blank"
-                  :title="$t('lottery.smartContract')"
-                >
-                  {{ $t('lottery.smartContract') }}
-                </nuxt-link>
+              <li>
+                <CurrencySelect
+                  :label-class="['text-white', 'text-sm', 'lg:text-base']"
+                />
               </li>
             </ul>
           </div>
@@ -112,6 +108,5 @@
   </footer>
 </template>
 <script lang="ts" setup>
-const { explorerContractUrl } = useQulot()
 const localePath = useLocalePath()
 </script>

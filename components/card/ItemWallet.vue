@@ -7,7 +7,11 @@
           v-show="isLoading"
           class="h-[32px] w-[100px] animate-pulse bg-slate-200 rounded"
         ></div>
-        <span v-show="!isLoading" class="text-main"> {{ valueWallet }} </span>
+        <div v-show="!isLoading" class="text-main">
+          <slot>
+            {{ valueWallet }}
+          </slot>
+        </div>
       </div>
     </div>
     <!-- Circle -->

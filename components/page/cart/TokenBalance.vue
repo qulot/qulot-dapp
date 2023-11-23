@@ -5,6 +5,8 @@
       class="font-bold text-[17px] text-title"
       :value="tokenBalance.value"
       show-symbol
+      use-fiat-value
+      hide-subunits
     />
   </div>
 </template>

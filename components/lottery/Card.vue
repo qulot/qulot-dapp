@@ -18,6 +18,8 @@
           :value="props.lottery?.nextRound?.totalAmount"
           :fixed="0"
           show-symbol
+          use-fiat-value
+          hide-subunits
           tag="p"
           class="text-[#6135E9] text-2xl font-bold md:text-3xl"
         />

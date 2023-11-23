@@ -171,6 +171,14 @@
             />
             <ThemeSelect class="py-0" arrow />
           </div>
+          <div class="flex flex-row items-center justify-between">
+            <MenuItem
+              :item="{
+                text: $t('menu.title.currency'),
+              }"
+            />
+            <CurrencySelect class="py-0 p-2" />
+          </div>
         </Menu>
       </div>
     </div>

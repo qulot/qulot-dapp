@@ -20,6 +20,8 @@
           <TokenValue
             :value="round.totalAmount"
             show-symbol
+            use-fiat-value
+            hide-subunits
             class="text-2xl font-bold text-title"
             tag="div"
           />

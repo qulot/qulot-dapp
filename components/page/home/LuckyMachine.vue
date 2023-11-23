@@ -37,8 +37,10 @@
               <div class="text-xs">{{ $t('home.totalPrize') }}</div>
               <TokenValue
                 :value="totalPrize"
-                class="text-base font-bold"
                 :fixed="0"
+                use-fiat-value
+                hide-subunits
+                class="text-base font-bold"
               />
             </div>
             <div

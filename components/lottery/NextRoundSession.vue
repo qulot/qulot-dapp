@@ -32,6 +32,8 @@
               <TokenValue
                 :value="lottery.nextRound?.totalAmount"
                 show-symbol
+                use-fiat-value
+                hide-subunits
                 class="text-yellow text-2xl font-bold"
               />
             </p>

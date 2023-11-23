@@ -4,12 +4,9 @@
       v-for="ticket in tickets"
       :key="ticket.id"
       :round-id="ticket.roundId"
-      :currency="token?.symbol"
       :pick-numbers="ticket.pickNumbers"
       :selected="ticket.selected"
-      :price-per-ticket="
-        formatUnits(lotteryTicketPrices[ticket.lotteryId], token?.decimals)
-      "
+      :price-per-ticket="lotteryTicketPrices[ticket.lotteryId]"
       :lottery-picture="lotteryAsKeys[ticket.lotteryId]?.picture"
       :lottery-verbose-name="lotteryAsKeys[ticket.lotteryId]?.verboseName"
       :disabled="!ticketsRoundIsOpen.includes(ticket)"
@@ -21,7 +18,6 @@
 </template>
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { formatUnits } from 'ethers/lib/utils.js'
 const { token } = useQulot()
 const cartStore = useCartStore()
 const lotteryStore = useLotteryStore()

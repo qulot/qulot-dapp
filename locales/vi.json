@@ -23,7 +23,8 @@
     "confirm": "Đồng ý",
     "viewAll": "Xem tất cả",
     "backToHome": "Về trang chủ",
-    "loadMore": "Xem Tiếp"
+    "loadMore": "Xem Tiếp",
+    "search": "Tìm"
   },
   "datetime": {
     "labels": {
@@ -102,7 +103,8 @@
       "myOrder": "Đơn Mua",
       "introduce": "Giới thiệu",
       "language": "Ngôn ngữ",
-      "theme": "Giao diện"
+      "theme": "Giao diện",
+      "currency": "Tiền tệ"
     }
   },
   "footer": {

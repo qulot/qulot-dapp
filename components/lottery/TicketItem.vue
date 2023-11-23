@@ -25,9 +25,12 @@
           <div
             class="flex items-center space-x-2 border border-[#D8D8D8] p-2 rounded"
           >
-            <span>{{ formatUnits(pricePerTicket, currencyDecimals) }}</span>
-            <span class="w-px h-3 bg-[#D8D8D8]"></span>
-            <span>{{ currency }}</span>
+            <TokenValue
+              :value="pricePerTicket"
+              show-symbol
+              use-fiat-value
+              hide-subunits
+            />
           </div>
         </div>
         <div class="actions flex items-center space-x-2">
@@ -43,7 +46,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import { formatUnits } from 'ethers/lib/utils.js'
 import { PropType } from 'vue'
 
 defineProps({

@@ -36,7 +36,7 @@ useSeoMeta({
   ogDescription: t('app.description'),
   description: t('app.description'),
   ogImage: config.public.metadata.appIcon,
-  twitterCard: 'summary',
+  twitterCard: 'app',
 })
 
 useHead({
