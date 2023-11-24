@@ -23,7 +23,7 @@ const fetchCoinbaseTokenRates = async (token: string) => {
 
 export default cachedEventHandler(
   async (event) => {
-    const token = event.context.params?.token
+    const token = getRouterParam(event, 'token')
     if (isEmpty(token)) {
       throw createError({
         statusCode: 400,
