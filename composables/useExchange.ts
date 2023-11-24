@@ -9,10 +9,7 @@ export const useExchange = () => {
 
   const getExchangeRate = async (token: string, currency: string) => {
     if (!(token in exchangeRates.value)) {
-      const rates = await $fetch('/api/exchange-rates/**:token', {
-        params: { token },
-      })
-
+      const rates = await $fetch<ExchangeRate>('/api/exchange-rates/' + token)
       exchangeRates.value[token] = rates
     }
 
