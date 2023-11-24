@@ -22,16 +22,6 @@ const paymentMethods = reactive<PaymentMethod[]>([
     show: () => true,
     fees: [],
   },
-  {
-    id: 'vietqr',
-    currency: 'VND',
-    name: () => useI18n().t('payment.methods.vietqr', 'Viet QR'),
-    icon: '/payment/vietqr.png',
-    active: false,
-    // show: () => useGeo().country.value === 'VN',
-    show: () => true,
-    fees: [],
-  },
 ])
 
 const payments = reactive<Record<string, Payment>>({
