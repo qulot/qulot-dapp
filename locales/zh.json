@@ -311,7 +311,8 @@
       "overcharged": "多收费",
       "partial": "部分的",
       "full": "满的"
-    }
+    },
+    "gasTooHigh": "目前网络繁忙，因此交易费用可能高于建议的费用"
   },
   "lotteryAbout": {
     "introduction": "仅从 {ticketPrice} 中选择 {pickNumbers}，就有机会赢得 {drawTime} {drawDate} 的 {jackpot} {name} 抽奖。",

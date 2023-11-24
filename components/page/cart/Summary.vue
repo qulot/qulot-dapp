@@ -50,7 +50,9 @@
           :symbol="fee.currency"
           :fixed="4"
           show-symbol
-        />
+        >
+          <EthGasTooHighWarning />
+        </EthValue>
       </div>
     </div>
 

@@ -2,6 +2,7 @@
   <component :is="tag">
     {{ valueFormatted }}
     <span v-if="showSymbol && symbol" class="text-xs">{{ symbol }}</span>
+    <slot></slot>
   </component>
 </template>
 <script setup lang="ts">

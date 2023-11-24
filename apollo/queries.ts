@@ -220,3 +220,9 @@ export const GET_QULOT_ETH_PRIVATE_KEY = gql`
     ethPrivateKey(password: $password)
   }
 `
+
+export const GET_QULOT_ETH_GAS_PRICE = gql`
+  query GetEthGasPrice {
+    ethGasPrice
+  }
+`

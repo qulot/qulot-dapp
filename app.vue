@@ -65,6 +65,7 @@ onMounted(async () => {
   await initAccount()
 
   await paymentStore.fetchQulotPaymentMethods()
+  paymentStore.fetchQulotEthGasPrice()
   await authStore.fetchLoggedInUser()
   cartStore.loadLocalStorage()
 })

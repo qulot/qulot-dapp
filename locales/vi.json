@@ -303,7 +303,8 @@
       "overcharged": "Bị tính phí quá mức",
       "partial": "Một phần",
       "full": "Đã đủ"
-    }
+    },
+    "gasTooHigh": "Hiện tại mạng đang bận nên phí giao dịch có thể cao hơn mức khuyến nghị."
   },
   "lotteryAbout": {
     "introduction": "Chỉ từ {ticketPrice}, chọn {pickNumbers} để có cơ hội trúng thưởng {jackpot} {name} quay số mở thưởng vào {drawTime} {drawDate}.",

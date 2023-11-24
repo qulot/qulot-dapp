@@ -1,10 +1,12 @@
+import { BigNumber } from 'ethers'
 import { defineStore } from 'pinia'
-import { GET_QULOT_PAYMENT_METHODS } from '~~/apollo/queries'
+import {
+  GET_QULOT_ETH_GAS_PRICE,
+  GET_QULOT_PAYMENT_METHODS,
+} from '~~/apollo/queries'
 import { QulotPaymentMethod } from '~~/types/payment'
 
-interface getPaymentMethodsResult {
-  paymentMethods: QulotPaymentMethod[]
-}
+const ethGasSuggest = BigNumber.from('100000000000')
 
 export const usePaymentStore = defineStore('payment', {
   state: () => {
@@ -12,7 +14,12 @@ export const usePaymentStore = defineStore('payment', {
       isLoading: false,
       isComplete: false,
       paymentMethods: [] as QulotPaymentMethod[],
+      ethGasPrice: 0,
     }
+  },
+  getters: {
+    isGasTooHigh: (state) =>
+      BigNumber.from(state.ethGasPrice).gt(ethGasSuggest),
   },
   actions: {
     async fetchQulotPaymentMethods() {
@@ -20,11 +27,12 @@ export const usePaymentStore = defineStore('payment', {
         return
       }
       try {
-        const { data, pending, execute } =
-          await useAsyncQuery<getPaymentMethodsResult>({
-            query: GET_QULOT_PAYMENT_METHODS,
-            clientId: 'qulot',
-          })
+        const { data, pending, execute } = await useAsyncQuery<{
+          paymentMethods: QulotPaymentMethod[]
+        }>({
+          query: GET_QULOT_PAYMENT_METHODS,
+          clientId: 'qulot',
+        })
         if (pending.value) {
           await execute()
         }
@@ -32,6 +40,25 @@ export const usePaymentStore = defineStore('payment', {
         if (data.value && data.value.paymentMethods) {
           this.paymentMethods = data.value.paymentMethods
           this.updatePaymentMethods()
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    async fetchQulotEthGasPrice() {
+      try {
+        const { data, pending, execute } = await useAsyncQuery<{
+          ethGasPrice: number
+        }>({
+          query: GET_QULOT_ETH_GAS_PRICE,
+          clientId: 'qulot',
+        })
+        if (pending.value) {
+          await execute()
+        }
+
+        if (data.value && data.value.ethGasPrice) {
+          this.ethGasPrice = data.value.ethGasPrice
         }
       } catch (error) {
         console.log(error)

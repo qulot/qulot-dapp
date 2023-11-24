@@ -311,7 +311,8 @@
       "overcharged": "過充電",
       "partial": "部分的",
       "full": "満杯"
-    }
+    },
+    "gasTooHigh": "現在ネットワークが混雑しているため、取引手数料が推奨よりも高くなる可能性があります。"
   },
   "lotteryAbout": {
     "introduction": "{ticketPrice} のみから {pickNumbers} を選択すると、{drawTime} {drawDate} に {jackpot} {name} の抽選を獲得するチャンスが得られます。",

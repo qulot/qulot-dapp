@@ -312,7 +312,8 @@
       "overcharged": "Overcharged",
       "partial": "Partial",
       "full": "Full"
-    }
+    },
+    "gasTooHigh": "Currently the network is busy so transaction fees may be higher than recommended."
   },
   "lotteryAbout": {
     "introduction": "From only {ticketPrice}, pick {pickNumbers} to have a chance to win {jackpot} {name} draw at {drawTime} {drawDate}.",
